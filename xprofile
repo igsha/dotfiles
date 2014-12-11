@@ -1,0 +1,34 @@
+#!/bin/bash
+
+. ~/Dropbox/settings/xmonad/startnvidia.sh
+
+# turn off anoying beep signal
+xset b off
+# set left-like cursor
+xsetroot -cursor_name left_ptr
+# set ru keymap
+setxkbmap -layout "us, ru" -option "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll"
+# turn on mouse pointer key via keypad; use Shift+NumLock to turn on
+setxkbmap -option keypad:pointerkeys
+# set up delay and rate for keyboard
+xset r rate 300 50
+numlockx on
+
+# keyboard layout switcher
+# kbdd
+
+xhost +local:$USER
+
+# set wallpeper
+IMAGE=`find ~/Pictures/ -type f | shuf | head -n +1`
+hsetroot -center $IMAGE
+
+# xscreen saver for Xmonad
+xscreensaver -no-splash &
+
+# xflux - fading down screen in the evening
+pgrep xflux >/dev/null || xflux -l 55.749792 -g 37.6324949 &>/dev/null
+
+# autohide cursor
+unclutter &
+
