@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ~/Dropbox/settings/xmonad/startnvidia.sh
+. .xmonad/startnvidia.sh
 
 # turn off anoying beep signal
 xset b off
