@@ -30,5 +30,5 @@ xscreensaver -no-splash &
 pgrep xflux >/dev/null || xflux -l 55.749792 -g 37.6324949 &>/dev/null
 
 # autohide cursor
-unclutter &
+unclutter -grab &
 
