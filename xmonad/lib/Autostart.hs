@@ -7,10 +7,8 @@ import XMonad
 import XMonad.Util.Run
 
 myList = [ ("skype", "skype")
-                , ("pidgin", "pidgin")
                 , ("thunderbird-bin", "thunderbird")
                 , ("gvim", "gvim")
-                , ("stardict -h", "stardict")
                 , ("firefox-bin", "firefox")
                 , ("urxvt", "urxvt")]
 

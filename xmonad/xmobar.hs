@@ -1,6 +1,6 @@
 Config {
-         -- font = "xft:terminus:size=9"
-         font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*"
+         font = "xft:terminus:size=9"
+         -- font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*"
        , bgColor = "#444444"
        , fgColor = "#c0c0c0"
        , border = NoBorder
