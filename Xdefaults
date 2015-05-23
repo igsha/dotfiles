@@ -28,10 +28,10 @@ URxvt.perl-ext-common:      default,matcher,tabbedex,clipboard,keyboard-select,u
 URxvt.perl-ext:             default,url-select
 
 URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.url-select.launcher:  firefox-bin -new-tab
+URxvt.url-select.launcher:  firefox -new-tab
 URxvt.url-select.underline: true
 
-URxvt.urlLauncher:          firefox-bin -new-tab
+URxvt.urlLauncher:          firefox -new-tab
 URxvt.matcher.button:       1
 
 URxvt.tabbed.title:         true

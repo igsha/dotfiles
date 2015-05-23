@@ -1,7 +1,5 @@
 #!/bin/bash
 
-. .xmonad/startnvidia.sh
-
 # turn off anoying beep signal
 xset b off
 # set left-like cursor

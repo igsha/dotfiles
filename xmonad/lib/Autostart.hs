@@ -7,10 +7,11 @@ import XMonad
 import XMonad.Util.Run
 
 myList = [ ("skype", "skype")
-                , ("thunderbird-bin", "thunderbird")
-                , ("gvim", "gvim")
-                , ("firefox-bin", "firefox")
-                , ("urxvt", "urxvt")]
+         , ("thunderbird", "thunderbird")
+         , ("gvim", "gvim")
+         , ("firefox", "firefox")
+         , ("urxvt", "urxvt")
+         , ("dropbox start", "dropbox")]
 
 autostartWinName fileName = do
     s <- readFile fileName

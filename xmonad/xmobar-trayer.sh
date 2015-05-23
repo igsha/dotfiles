@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ps -C trayer --no-header >/dev/null && killall trayer
 

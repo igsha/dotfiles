@@ -28,15 +28,6 @@ GIT_PROMPT_FILE=~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1='\[\e[01;31m\][\A] \[\e[01;32m\]\u@\h\[\e[01;34m\] \W$(ifexists __git_ps1) \$\[\e[00m\] '
 # Put your fun stuff here.
-export PATH=$PATH:~/.gem/ruby/1.9.1/bin
-
-export PATH_TO_ANT=/home/igor/qik/qiklib/ant
-export ANT_HOME=$PATH_TO_ANT
-export PATH=$ANT_HOME/bin:$PATH
-export ANDROID_NDK=/opt/android-ndk
-
-export MAKEOBJDIRPREFIX=~/.globaltags
-export MATPLOTLIBRC=~/.config/matplotlib
 
 export HISTCONTROL=ignoredups
 
@@ -48,7 +39,4 @@ alias grep="grep --color"
 alias cal="cal -m3"
 alias df="df -h"
 alias truecrypt="truecrypt -t"
-alias debian-chroot="sudo chroot ~/sandbox login builder"
-alias wheezy-chroot="sudo chroot ~/wheezy login builder"
 alias fake="PATH=/usr/sbin:/sbin:$PATH fakeroot fakechroot -s"
-alias wineru="LC_ALL=ru_RU.UTF8 wine"
