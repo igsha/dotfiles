@@ -80,6 +80,7 @@
     # services.xserver.xkbOptions = "eurosign:e";
 
     videoDrivers = [ "nvidia" ];
+    vaapiDrivers = [ pkgs.vaapiVdpau ];
 
     desktopManager = {
       default = "none";
@@ -89,6 +90,8 @@
     displayManager.slim = {
       enable = true;
       defaultUser = "igor";
+      autoLogin = true;
+      theme = pkgs.slimThemes.nixosSlim;
     };
 
     windowManager = {
