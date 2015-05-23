@@ -17,7 +17,11 @@
 
   networking = {
     hostName = "igor-pc";
-    wireless.enable = true;
+    wireless = {
+      enable = true;
+      interfaces = ["wlp6s0"];
+      userControlled.enable = true;
+    };
   };
 
   nixpkgs.config = {
@@ -30,7 +34,6 @@
 
   environment.systemPackages = with pkgs; [
     python
-    bash bashCompletion
     git
     wget
     xsel xclip
@@ -40,15 +43,20 @@
     iotop
     stdenv
     zathura
-    gcc gnumake cmake
+    gcc gnumake cmake wget
     trayer xscreensaver
     rxvt_unicode urxvt_perls urxvt_tabbedex
-    pmutils
     lsof
     xlibs.xhost unclutter hsetroot
     ffmpeg
     smartmontools pulseaudio pciutils libreoffice pavucontrol truecrypt vifm vlc
     dmenu gparted nox trayer
+    ctags
+    bashInteractive bashCompletion utillinuxCurses freetype fuse pwgen
+    gitAndTools.gitSVN
+    gitAndTools.gitflow
+    wpa_supplicant_gui
+    xfontsel
   ];
 
   services = {
@@ -60,8 +68,10 @@
   };
 
   hardware = {
+    opengl.enable = true;
     opengl.driSupport32Bit = true;
     pulseaudio.enable = true;
+    pulseaudio.systemWide = true;
   };
 
   services.xserver = {
@@ -71,9 +81,15 @@
 
     videoDrivers = [ "nvidia" ];
 
-    desktopManager.default = "none";
-    desktopManager.xterm.enable = false;
-    displayManager.slim.enable = true;
+    desktopManager = {
+      default = "none";
+      xterm.enable = false;
+    };
+
+    displayManager.slim = {
+      enable = true;
+      defaultUser = "igor";
+    };
 
     windowManager = {
       default = "xmonad";
@@ -92,9 +108,9 @@
   time.timeZone = "Europe/Moscow";
 
   fonts = {
-    fontconfig.enable = true;
     enableFontDir = true;
     enableGhostscriptFonts = true;
+    enableCoreFonts = true;
     fontconfig.defaultFonts.monospace = ["Terminus"];
     fonts = with pkgs; [
       corefonts
@@ -104,5 +120,7 @@
       ttf_bitstream_vera
     ];
   };
+
+  security.sudo.enable = true;
 }
 
