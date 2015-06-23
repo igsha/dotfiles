@@ -33,30 +33,22 @@
   };
 
   environment.systemPackages = with pkgs; [
-    python
+    stdenv
     git
     wget
     xsel xclip
-    vim_configurable
+    vim
     htop
-    skype firefoxWrapper thunderbird
     iotop
-    stdenv
-    zathura
-    gcc gnumake cmake wget
     trayer xscreensaver
-    rxvt_unicode urxvt_perls urxvt_tabbedex
+    urxvt_perls urxvt_tabbedex rxvt_unicode-with-plugins
     lsof
     xlibs.xhost unclutter hsetroot
-    ffmpeg
-    smartmontools pulseaudio pciutils libreoffice pavucontrol truecrypt vifm vlc
-    dmenu gparted nox trayer
-    ctags
-    bashInteractive bashCompletion utillinuxCurses freetype fuse pwgen
-    gitAndTools.gitSVN
-    gitAndTools.gitflow
+    dmenu nox
     wpa_supplicant_gui
     xfontsel
+    manpages
+    stdmanpages
   ];
 
   services = {
@@ -68,13 +60,19 @@
   };
 
   hardware = {
-    opengl.enable = true;
-    opengl.driSupport32Bit = true;
-    pulseaudio.enable = true;
-    pulseaudio.systemWide = true;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+    pulseaudio = {
+      enable = true;
+      systemWide = true;
+    };
   };
 
   services.xserver = {
+    autorun = true;
     enable = true;
     # layout = "us";
     # services.xserver.xkbOptions = "eurosign:e";
@@ -91,7 +89,6 @@
       enable = true;
       defaultUser = "igor";
       autoLogin = true;
-      theme = pkgs.slimThemes.nixosSlim;
     };
 
     windowManager = {
@@ -125,5 +122,6 @@
   };
 
   security.sudo.enable = true;
+  programs.bash.enableCompletion = true;
 }
 

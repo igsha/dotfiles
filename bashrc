@@ -30,6 +30,7 @@ export PS1='\[\e[01;31m\][\A] \[\e[01;32m\]\u@\h\[\e[01;34m\] \W$(ifexists __git
 # Put your fun stuff here.
 
 export HISTCONTROL=ignoredups
+export EDITOR=vim
 
 alias ls="ls -h --color"
 alias ls.pure="/bin/ls"
@@ -40,3 +41,8 @@ alias cal="cal -m3"
 alias df="df -h"
 alias truecrypt="truecrypt -t"
 alias fake="PATH=/usr/sbin:/sbin:$PATH fakeroot fakechroot -s"
+
+alias suspend="systemctl suspend"
+alias hibernate="systemctl hibernate"
+alias reboot="systemctl reboot"
+alias poweroff="systemctl poweroff"

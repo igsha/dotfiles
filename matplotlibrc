@@ -1,0 +1,24 @@
+backend             : qt4agg
+
+font.family         : verdana
+
+text.latex.unicode  : True
+text.latex.preamble : \usepackage[utf8]{inputenc},\usepackage[russian]{babel}
+
+savefig.format      : svg
+savefig.transparent : True
+svg.fonttype        : none
+
+keymap.fullscreen   : f                  # toggling
+keymap.home         : h, r, home         # home or reset mnemonic
+keymap.back         : left, c, backspace # forward / backward keys to enable
+keymap.forward      : right, v           #   left handed quick navigation
+keymap.pan          : p                  # pan mnemonic
+keymap.zoom         : o                  # zoom mnemonic
+keymap.save         : s                  # saving current figure
+keymap.quit         : ctrl+w, cmd+w      # close the current figure
+keymap.grid         : g                  # switching on/off a grid in current axes
+keymap.yscale       : l                  # toggle scaling of y-axes ('log'/'linear')
+keymap.xscale       : L, k               # toggle scaling of x-axes ('log'/'linear')
+keymap.all_axes     : a                  # enable all axes
+
