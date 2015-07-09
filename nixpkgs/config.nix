@@ -2,7 +2,7 @@
   allowUnfree = true;
   virtualbox.enableExtensionPack = true;
   firefox = {
-    enableAdobeFlash = true;
+    enableAdobeFlash = false;
   };
 
   packageOverrides = pkgs_: with pkgs_; {

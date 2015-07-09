@@ -1,6 +1,7 @@
 Xcursor*theme:              gentoo
 Xcursor*size:               22
 
+URxvt*title:                URXVT
 URxvt*font:                 xft:terminus:size=11
 URxvt*boldFont:
 URxvt*italicFont:

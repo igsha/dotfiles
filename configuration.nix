@@ -27,9 +27,6 @@
   nixpkgs.config = {
     allowUnfree = true;
     virtualbox.enableExtensionPack = true;
-    firefox = {
-      enableAdobeFlash = true;
-    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -57,6 +54,7 @@
     printing.enable = true;
     nixosManual.showManual = true;
     virtualboxHost.enable = true;
+    tor.enable = true;
   };
 
   hardware = {

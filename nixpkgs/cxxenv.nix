@@ -9,6 +9,7 @@ rec {
       boost
       catch
       gcc5
+      SDL SDL_image
     ];
   };
 }
