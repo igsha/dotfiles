@@ -4,6 +4,7 @@
   firefox = {
     enableAdobeFlash = false;
   };
+  allowTexliveBuilds = true;
 
   packageOverrides = pkgs_: with pkgs_; {
     all = with pkgs; buildEnv {
