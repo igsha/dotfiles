@@ -41,6 +41,15 @@
         zathura
       ];
     };
+
+    latexenv = with pkgs; buildEnv {
+      name = "latexenv";
+      paths = [
+        texLiveFull
+        imagemagick
+        ghostscript
+      ];
+    };
   };
 }
 

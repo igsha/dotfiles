@@ -5,6 +5,9 @@ rec {
     src = ./.;
     buildInputs = with pkgs; [
       texLiveFull
+      imagemagick
+      ghostscript
+#texstudio
     ];
   };
 }
