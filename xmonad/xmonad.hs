@@ -8,23 +8,30 @@
 --
 
 import XMonad
-import XMonad.Hooks.ManageDocks
+
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
-import XMonad.Actions.NoBorders
+import XMonad.Hooks.SetWMName
+
 import XMonad.Actions.FloatKeys
+import XMonad.Actions.NoBorders
 import XMonad.Actions.Volume
+
+import XMonad.Layout.Grid
+import XMonad.Layout.IM
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
-import XMonad.Layout.IM
-import XMonad.Layout.Grid
 import XMonad.Layout.Reflect
+
 import XMonad.ManageHook
 import XMonad.Util.WindowProperties
+
 import Data.Monoid
-import System.Exit
 import Data.Ratio ((%))
+
+import System.Exit
 import Autostart
 
 import qualified XMonad.StackSet as W
@@ -347,6 +354,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
     autostart
+    setWMName "LG3D" -- for LaTeXDraw and Java applications
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

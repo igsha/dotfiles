@@ -6,8 +6,7 @@ import System.IO
 import XMonad
 import XMonad.Util.Run
 
-myList = [ ("skype", "skype")
-         , ("thunderbird", "thunderbird")
+myList = [ ("thunderbird", "thunderbird")
          , ("gvim", "gvim")
          , ("firefox", "firefox")
          , ("urxvt", "urxvt")

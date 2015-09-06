@@ -2,7 +2,10 @@
   allowUnfree = true;
   virtualbox.enableExtensionPack = true;
   firefox = {
-    enableAdobeFlash = false;
+    enableAdobeFlash = true;
+  };
+  chromium = {
+    enablePepperFlash = true;
   };
   allowTexliveBuilds = true;
 
@@ -13,7 +16,7 @@
         skype firefoxWrapper thunderbird
         zathura
         gcc gnumake cmake
-        smartmontools pciutils libreoffice pavucontrol truecrypt vifm vlc
+        smartmontools pciutils pavucontrol truecrypt vifm vlc
         ctags
         utillinuxCurses freetype fuse pwgen
         gitAndTools.gitflow
@@ -39,6 +42,12 @@
         xflux
         xournal
         zathura
+        ffmpeg-full
+        scrot
+        sdcv
+        cinnamon.zenity
+        galculator
+        elinks
       ];
     };
 
@@ -50,6 +59,7 @@
         ghostscript
       ];
     };
+
   };
 }
 
