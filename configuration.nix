@@ -53,8 +53,11 @@
     ntp.enable = true;
     printing.enable = true;
     nixosManual.showManual = true;
-    virtualboxHost.enable = true;
     tor.enable = true;
+  };
+
+  virtualisation = {
+    virtualbox.host.enable = true;
   };
 
   hardware = {

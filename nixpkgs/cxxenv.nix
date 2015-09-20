@@ -6,10 +6,13 @@ rec {
     buildInputs = with pkgs; [
       stdenv
       cmake
+      gnumake
       boost
       catch
       gcc5
+      ncurses
       SDL SDL_image
+      gdb
     ];
   };
 }

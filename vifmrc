@@ -137,6 +137,8 @@ filetype *.jpg,*.jpeg,*.png,*.gif,*.tiff,*.tif,*.bmp,*.ppm,*.pgm,*.pbm viewnior 
 fileviewer *.jpg,*.jpeg jp2a -f %c
 fileviewer *.png,*.gif,*.tiff,*.tif,*.bmp ffmpeg -i %c -f image2 - | jp2a -f -
 
+filetype *.svg inkview %c
+
 " Md5
 filetype *.md5 md5sum -c %f
 

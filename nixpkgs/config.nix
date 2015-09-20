@@ -8,50 +8,83 @@
     enablePepperFlash = true;
   };
   allowTexliveBuilds = true;
+  wine = {
+    release = "unstable";
+    build = "wineWow";
+  };
 
-  packageOverrides = pkgs_: with pkgs_; {
-    all = with pkgs; buildEnv {
-      name = "all";
+  packageOverrides = pkgs_: with pkgs_; with pkgs; {
+    mybase = buildEnv {
+      name = "mybase";
       paths = [
-        skype firefoxWrapper thunderbird
-        zathura
-        gcc gnumake cmake
-        smartmontools pciutils pavucontrol truecrypt vifm vlc
-        ctags
-        utillinuxCurses freetype fuse pwgen
-        gitAndTools.gitflow
-        vim_configurable
-        archivemount
-        bvi dhex
-        dropbox-cli
-        file
-        inkscape
+        smartmontools pciutils
+        utillinuxCurses freetype
+        gitAndTools.gitflow tig
         lm_sensors
         nox
+        vim_configurable
         ack
         psmisc
-        sxiv
-        tig
-        transmission
-        unrar
-        unzip
-        vbindiff
-        winetricks
-        wineStaging
         xdg_utils
-        xflux
-        xournal
-        zathura
-        ffmpeg-full
-        scrot
-        sdcv
-        cinnamon.zenity
-        galculator
-        elinks
       ];
     };
 
-    latexenv = with pkgs; buildEnv {
+    mygui = buildEnv {
+      name = "mygui";
+      paths = [
+        firefoxWrapper thunderbird
+        vlc
+        pavucontrol
+        sxiv viewnior
+        mpv
+        dropbox-cli
+        inkscape
+        xournal
+        zathura
+        ffmpeg-full
+        cinnamon.zenity
+        galculator
+      ];
+    };
+
+    mymisc = buildEnv {
+      name = "mymisc";
+      paths = [
+        transmission
+        wine winetricks
+        xflux
+        scrot
+        sdcv
+        elinks
+        httpie
+        parallel
+        ctags
+        vbindiff
+      ];
+    };
+
+    mytools = buildEnv {
+      name = "mytools";
+      paths = [
+        vifm
+        truecrypt
+        fuse fuseiso
+        archivemount
+        pwgen
+        bviplus dhex
+        file
+        unrar unzip
+      ];
+    };
+
+    myheavy = buildEnv {
+      name = "myheavy";
+      paths = [
+        libreoffice
+      ];
+    };
+
+    latexenv = buildEnv {
       name = "latexenv";
       paths = [
         texLiveFull

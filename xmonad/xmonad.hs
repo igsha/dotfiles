@@ -66,8 +66,8 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1:term","2:web","3:gvim","4:im","5:mail","6:vbox","7:game",
-                   "8", "9", "0", "-", "="]
+myWorkspaces    = ["1:term","2:web","3:gvim","4:mail","5:vbox","6:game",
+                   "7", "8", "9", "0", "-", "="]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -262,7 +262,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myDefaultLayout = smartBorders $ Full ||| tiled ||| Mirror tiled
+myLayout = smartBorders $ Full ||| tiled ||| Mirror tiled
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -275,11 +275,6 @@ myDefaultLayout = smartBorders $ Full ||| tiled ||| Mirror tiled
 
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
-
-myImLayout = reflectHoriz $ withIM (1%7) (ClassName "Skype" `And` (Not (Role "ConversationsWindow"))) Grid ||| Full
-
-myLayout = onWorkspace "4:im" myImLayout $
-            myDefaultLayout
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -299,17 +294,19 @@ myLayout = onWorkspace "4:im" myImLayout $
 startTrayer w = do
     dpy <- openDisplay ""
     attr <- getWindowAttributes dpy w
-    spawn $ "trayer --edge top --align left --SetDockType true --expand true --widthtype pixel --width " ++ (show (wa_x attr)) ++ " --transparent true --alpha 0 --tint 0x444444 --heighttype pixel --height " ++ (show (wa_height attr))
+    spawn $ "trayer --edge top --align left --SetDockType true --expand true --widthtype pixel --width "
+                ++ (show (wa_x attr))
+                ++ " --transparent true --alpha 0 --tint 0x444444 --heighttype pixel --height "
+                ++ (show (wa_height attr))
 
 myManageHook = composeAll . concat $
     [
         [ className =? "URxvt" <||> className =? "Lxterminal"   --> doShift "1:term"
         , className =? "Jumanji" <||> className =? "Firefox"    --> doShift "2:web"
         , className =? "Gvim"                                   --> doShift "3:gvim"
-        , className =? "Skype" <||> className =? "Pidgin"       --> doShift "4:im"
-        , className =? "Thunderbird"                            --> doShift "5:mail"
-        , className =? "VirtualBox"                             --> doShift "6:vbox"
-        , className =? "Wine"                                   --> doShift "7:game"
+        , className =? "Thunderbird"                            --> doShift "4:mail"
+        , className =? "VirtualBox"                             --> doShift "5:vbox"
+        , className =? "Wine"                                   --> doShift "6:game"
         ],
         [ className =? c                                        --> doCenterFloat | c <- floatWindows],
         [ manageDocks
