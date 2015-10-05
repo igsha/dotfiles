@@ -10,7 +10,7 @@
   allowTexliveBuilds = true;
   wine = {
     release = "unstable";
-    build = "wineWow";
+    build = "wine32";
   };
 
   packageOverrides = pkgs_: with pkgs_; with pkgs; {

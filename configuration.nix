@@ -54,6 +54,7 @@
     printing.enable = true;
     nixosManual.showManual = true;
     tor.enable = true;
+    atd = { enable = true; allowEveryone = true; };
   };
 
   virtualisation = {
@@ -65,10 +66,12 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      s3tcSupport = true;
     };
     pulseaudio = {
       enable = true;
       systemWide = true;
+      support32Bit = true;
     };
   };
 
