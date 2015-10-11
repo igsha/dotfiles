@@ -26,6 +26,7 @@
         ack
         psmisc
         xdg_utils
+        xkb_switch
       ];
     };
 

@@ -9,6 +9,7 @@ rec {
       python27Packages.matplotlib
       python27Packages.ipython
       python27Packages.scipy
+      python27Packages.virtualenv
     ];
   };
 }
