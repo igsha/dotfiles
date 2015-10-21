@@ -21,12 +21,10 @@
         utillinuxCurses freetype
         gitAndTools.gitflow tig
         lm_sensors
-        nox
         vim_configurable
         ack
         psmisc
         xdg_utils
-        xkb_switch
       ];
     };
 

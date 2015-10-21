@@ -122,7 +122,7 @@ filetype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mov,*.flv,*.mpg,*.m4v mpv %
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mov,*.flv,*.mpg,*.m4v ffprobe -show_format -show_streams -pretty -print_format json -loglevel quiet %f
 
 " Web
-filetype *.html,*.htm google-chrome %f
+filetype *.html,*.htm firefox %f
 
 " Object
 filetype *.o,*.lib,*.a nm %f | less
@@ -150,8 +150,7 @@ fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
 filetype *.bz2,*.tgz,*.tar.gz,*.deb,*.xz,*.7z FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
 fileviewer *.bz2,*.tgz,*.tar.gz tar -tzf %c
 
-" Rar2FsMount
-filetype *.rar FUSE_MOUNT|rar2fs %SOURCE_FILE %DESTINATION_DIR
+filetype *.rar FUSE_MOUNT|fuse-7z-ng %SOURCE_FILE %DESTINATION_DIR
 fileviewer *.rar unrar l %c
 
 " IsoMount

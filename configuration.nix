@@ -37,7 +37,7 @@
     vim
     htop
     iotop
-    trayer xscreensaver
+    xscreensaver
     urxvt_perls urxvt_tabbedex rxvt_unicode-with-plugins
     lsof
     xlibs.xhost unclutter hsetroot
@@ -47,6 +47,8 @@
     manpages
     stdmanpages
     inetutils
+    xkb_switch
+    which
   ];
 
   services = {
