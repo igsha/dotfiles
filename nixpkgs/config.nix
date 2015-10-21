@@ -91,6 +91,10 @@
         texLiveFull
         imagemagick
         ghostscript
+        cmake
+        gnumake
+        poppler_utils
+        perl-biber
       ];
     };
 

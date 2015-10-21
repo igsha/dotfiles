@@ -46,6 +46,7 @@
     xfontsel
     manpages
     stdmanpages
+    inetutils
   ];
 
   services = {
@@ -54,7 +55,12 @@
     printing.enable = true;
     nixosManual.showManual = true;
     tor.enable = true;
-    atd = { enable = true; allowEveryone = true; };
+    atd.enable = true;
+    redshift = {
+      enable = true;
+      latitude = "55.749792";
+      longitude = "37.6324949";
+    };
   };
 
   virtualisation = {
@@ -78,8 +84,8 @@
   services.xserver = {
     autorun = true;
     enable = true;
-    # layout = "us";
-    # services.xserver.xkbOptions = "eurosign:e";
+    layout = "us,ru";
+    xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys";
 
     videoDrivers = [ "nvidia" ];
     vaapiDrivers = [ pkgs.vaapiVdpau ];
@@ -96,16 +102,8 @@
     };
 
     windowManager = {
-      default = "xmonad";
-      xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        extraPackages = self: [
-          self.xmonad
-          self.xmobar
-          self.MissingH
-        ];
-      };
+      default = "i3";
+      i3.enable = true;
     };
   };
 
@@ -125,7 +123,20 @@
     ];
   };
 
-  security.sudo.enable = true;
   programs.bash.enableCompletion = true;
+
+  systemd.coredump = {
+    enable = true;
+    extraConfig = "Storage=external";
+  };
+
+  security = {
+    sudo.enable = true;
+    pam.loginLimits = [
+      { domain = "*"; type = "hard"; item = "core"; value = "unlimited"; }
+      { domain = "*"; type = "soft"; item = "core"; value = "unlimited"; }
+    ];
+    polkit.enable = true;
+  };
 }
 

@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-find $1 -type f | shuf | head -n +1 | xargs cat
+find $1 -type f -a -name '*.[ch]pp' | shuf | head -n +1 | xargs cat

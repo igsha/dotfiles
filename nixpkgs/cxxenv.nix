@@ -9,10 +9,12 @@ rec {
       gnumake
       boost
       catch
-      gcc5
+      gcc
       ncurses
       SDL SDL_image
       gdb
+      (opencv3.override { enableIpp = true; enableContrib = true; enableBloat = true; })
+      pkgconfig
     ];
   };
 }

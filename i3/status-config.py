@@ -6,7 +6,7 @@ status = Status(standalone=True)
 # documentation = http://docs.enkore.de/i3pystatus
 
 status.register("clock", format="%a %b %-d %H:%M")
-status.register("weather", location_code="RSXX1504", colorize=True, interval=300)
+#status.register("weather", location_code="RSXX1504", colorize=True, interval=300)
 status.register("load", format="{avg1} {avg5} {avg15}")
 status.register("cpu_usage", interval=5)
 status.register("mem", format="{percent_used_mem:02.0f}%", round_size=0, interval=5);
