@@ -5,8 +5,8 @@ rec {
     src = ./.;
     buildInputs = with pkgs; [
       python27Full
-      python27Packages.pygtk
       python27Packages.matplotlib
+      pyside
       python27Packages.ipython
       python27Packages.scipy
       python27Packages.virtualenv

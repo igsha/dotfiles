@@ -140,5 +140,14 @@
     ];
     polkit.enable = true;
   };
+
+  nix.gc = {
+    automatic = true;
+    dates = "08:00";
+  };
+  nix.extraOptions = ''
+    gc-keep-outputs = true
+    gc-keep-derivations = true
+  '';
 }
 

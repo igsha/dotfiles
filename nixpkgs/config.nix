@@ -92,7 +92,7 @@
         cmake
         gnumake
         poppler_utils
-        perl-biber
+        biber
       ];
     };
 
