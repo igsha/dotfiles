@@ -46,3 +46,5 @@ alias suspend="systemctl suspend"
 alias hibernate="systemctl hibernate"
 alias reboot="systemctl reboot"
 alias poweroff="systemctl poweroff"
+
+unset SSH_ASKPASS

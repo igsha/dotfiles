@@ -31,7 +31,7 @@
     mygui = buildEnv {
       name = "mygui";
       paths = [
-        firefoxWrapper thunderbird
+        firefoxWrapper thunderbird davmail
         vlc
         pavucontrol
         sxiv viewnior
@@ -93,6 +93,7 @@
         gnumake
         poppler_utils
         biber
+        gnuplot
       ];
     };
 

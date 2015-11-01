@@ -200,6 +200,7 @@ assign [class="Wine"] 6
 exec urxvt
 exec gvim
 exec thunderbird
+exec davmail.sh
 exec firefox
 exec dropbox start
 
