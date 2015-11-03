@@ -10,6 +10,7 @@ rec {
       python27Packages.ipython
       python27Packages.scipy
       python27Packages.virtualenv
+      python27Packages.pillow
     ];
   };
 }

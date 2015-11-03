@@ -48,3 +48,8 @@ alias reboot="systemctl reboot"
 alias poweroff="systemctl poweroff"
 
 unset SSH_ASKPASS
+
+export BROWSER=firefox
+export PDFVIEWER=zathura
+export PSVIEWER=$PDFVIEWER
+export DVIVIEWER=$PDFVIEWER
