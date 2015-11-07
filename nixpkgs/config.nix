@@ -25,6 +25,8 @@
         ack
         psmisc
         xdg_utils
+        numlockx
+        xorg.xev
       ];
     };
 
@@ -37,7 +39,7 @@
         sxiv viewnior
         mpv
         dropbox-cli
-        inkscape
+        inkscape gimp
         xournal
         zathura
         ffmpeg-full
@@ -51,14 +53,13 @@
       paths = [
         transmission
         wine winetricks
-        xflux
         scrot
         sdcv
         elinks
         httpie
         parallel
-        ctags
-        vbindiff
+        mcomix
+
       ];
     };
 
@@ -67,12 +68,21 @@
       paths = [
         vifm
         truecrypt
-        fuse fuseiso
+        fuse fuseiso fuse_zip fuse-7z-ng
         archivemount
         pwgen
-        bviplus dhex
+        bviplus dhex ctags vbindiff
         file
         unrar unzip
+        python27Packages.pymetar
+        wcalc
+        iftop iptraf wireshark-cli
+        jq
+        ntfs3g gparted xfsprogs
+        tmux
+        wakelan
+        xchm
+        python27Packages.youtube-dl
       ];
     };
 
