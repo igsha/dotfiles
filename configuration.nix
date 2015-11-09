@@ -46,9 +46,10 @@
     xfontsel
     manpages
     stdmanpages
-    inetutils
     xkb_switch
+    inetutils
     which
+    python34Packages.i3pystatus
   ];
 
   services = {

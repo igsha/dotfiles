@@ -11,6 +11,7 @@ rec {
       python27Packages.scipy
       python27Packages.virtualenv
       python27Packages.pillow
+      python27Packages.tabulate
     ];
   };
 }
