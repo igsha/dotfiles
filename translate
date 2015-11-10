@@ -1,17 +1,4 @@
 #!/usr/bin/env bash
 
-again=0
-SOURCE="${BASH_SOURCE[0]}"
-if [[ -h "$SOURCE" ]]; then
-    SOURCE=`readlink "$SOURCE"`
-fi
-SOURCE_DIR=`dirname "$SOURCE"`
-
-while [[ $again -eq 0 ]]; do
-    word=`zenity --entry --text="Insert a word to translate:"`
-    [[ $? -ne 0 ]] && exit 0
-
-    zenity --text-info --filename=<(sdcv $word < <(echo 0)) --ok-label="Continue" --width=512 --height=512
-    again=$?
-done
+xterm -e sdcv
 
