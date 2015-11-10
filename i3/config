@@ -158,7 +158,9 @@ bindsym Shift+XF86AudioLowerVolume exec --no-startup-id amixer sset Master 1%-
 bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 1%+
 
 bindsym XF86Calculator exec calculator
+bindsym $mod+Control+c exec calculator
 bindsym XF86Search exec translate
+bindsym $mod+Control+t exec translate
 
 bindsym Print exec scrot
 bindsym Control+Print exec scrot -s
@@ -187,7 +189,7 @@ focus_follows_mouse no
 workspace_auto_back_and_forth yes
 workspace_layout tabbed
 
-for_window [class="Galculator|ffplay|XTerm|WCalc"] floating enable, border normal
+for_window [class="Galculator|ffplay|XTerm"] floating enable, border normal
 
 assign [class="URxvt"] 1
 assign [class="Firefox"] 2
