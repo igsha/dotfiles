@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+xterm -class WCalc -geometry 40x24 -e wcalc
+

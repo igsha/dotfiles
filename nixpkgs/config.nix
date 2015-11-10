@@ -44,7 +44,6 @@
         zathura
         ffmpeg-full
         cinnamon.zenity
-        galculator
       ];
     };
 
@@ -76,6 +75,7 @@
         unrar unzip
         python27Packages.pymetar
         wcalc
+        xterm
         iftop iptraf wireshark-cli
         jq
         ntfs3g gparted xfsprogs
