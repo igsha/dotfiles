@@ -58,7 +58,6 @@
         httpie
         parallel
         mcomix
-
       ];
     };
 
@@ -104,6 +103,7 @@
         poppler_utils
         biber
         gnuplot
+        wdiff
       ];
     };
 
