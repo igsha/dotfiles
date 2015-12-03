@@ -16,6 +16,7 @@ rec {
       (opencv3.override { enableIpp = true; enableContrib = true; enableBloat = true; })
       gtest
       pkgconfig
+      check
       libjpeg
       zlib
     ];
