@@ -71,7 +71,7 @@
         pwgen
         bviplus dhex ctags vbindiff
         file
-        unrar unzip
+        unrar unzip zip p7zip
         python27Packages.pymetar
         wcalc
         xterm

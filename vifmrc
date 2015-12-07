@@ -147,10 +147,10 @@ filetype *.zip,*.jar,*.war,*.ear FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_D
 fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
 
 " ArchiveMount
-filetype *.bz2,*.tgz,*.tar.gz,*.deb,*.xz,*.7z FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
+filetype *.bz2,*.tgz,*.tar.gz,*.deb,*.xz FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
 fileviewer *.bz2,*.tgz,*.tar.gz tar -tzf %c
 
-filetype *.rar FUSE_MOUNT|fuse-7z-ng %SOURCE_FILE %DESTINATION_DIR
+filetype *.rar,*.7z FUSE_MOUNT|fuse-7z-ng %SOURCE_FILE %DESTINATION_DIR
 fileviewer *.rar unrar l %c
 
 " IsoMount
