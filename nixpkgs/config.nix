@@ -43,7 +43,7 @@
         xournal
         zathura
         ffmpeg-full
-        cinnamon.zenity
+        freerdp
       ];
     };
 
@@ -58,6 +58,8 @@
         httpie
         parallel
         mcomix
+        glxinfo
+        gnupg
       ];
     };
 
@@ -66,7 +68,7 @@
       paths = [
         vifm
         truecrypt
-        fuse fuseiso fuse_zip fuse-7z-ng
+        fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs
         archivemount
         pwgen
         bviplus dhex ctags vbindiff
@@ -82,6 +84,7 @@
         wakelan
         xchm
         python27Packages.youtube-dl
+        libxml2
       ];
     };
 
@@ -104,6 +107,7 @@
         biber
         gnuplot
         wdiff
+        gnome3.libgxps
       ];
     };
 

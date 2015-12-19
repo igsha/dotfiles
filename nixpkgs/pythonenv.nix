@@ -12,6 +12,7 @@ rec {
       python27Packages.virtualenv
       python27Packages.pillow
       python27Packages.tabulate
+      python27Packages.readline
     ];
   };
 }

@@ -19,6 +19,7 @@ rec {
       check
       libjpeg
       zlib
+      readline
     ];
   };
 }
