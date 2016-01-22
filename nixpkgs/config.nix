@@ -22,11 +22,14 @@
         gitAndTools.gitflow tig
         lm_sensors
         vim_configurable
-        ack
+        ack silver-searcher
         psmisc
         xdg_utils
         numlockx
         xorg.xev
+        fzf
+        python27Packages.glances
+        syslinux
       ];
     };
 
@@ -51,7 +54,7 @@
       name = "mymisc";
       paths = [
         transmission
-        wine winetricks
+#wine winetricks
         scrot
         sdcv
         elinks
@@ -60,6 +63,7 @@
         mcomix
         glxinfo
         gnupg
+        radare2
       ];
     };
 
@@ -85,6 +89,8 @@
         xchm
         python27Packages.youtube-dl
         libxml2
+        ponysay
+        fakeroot fakechroot debootstrap
       ];
     };
 
