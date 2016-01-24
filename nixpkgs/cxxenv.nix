@@ -20,6 +20,7 @@ rec {
       libjpeg
       zlib
       readline
+      libxml2
     ];
   };
 }

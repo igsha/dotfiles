@@ -30,6 +30,13 @@
         fzf
         python27Packages.glances
         syslinux
+        dmidecode lshw
+        dstat
+        mtr
+        nethogs ngrep
+        sysstat
+        usbutils
+        pv
       ];
     };
 
@@ -64,6 +71,8 @@
         glxinfo
         gnupg
         radare2
+        rtags
+        ncdu
       ];
     };
 
