@@ -64,6 +64,10 @@
       latitude = "55.749792";
       longitude = "37.6324949";
     };
+    polipo = {
+      enable = true;
+      socksParentProxy = "localhost:9050";
+    };
   };
 
   virtualisation = {

@@ -61,7 +61,7 @@
       name = "mymisc";
       paths = [
         transmission
-#wine winetricks
+        wine winetricks
         scrot
         sdcv
         elinks

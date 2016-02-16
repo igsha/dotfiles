@@ -13,7 +13,8 @@ rec {
       ncurses
       SDL SDL_image
       gdb
-      (opencv3.override { enableIpp = true; enableContrib = true; enableBloat = true; })
+      #(opencv3.override { enableIpp = true; enableContrib = true; enableBloat = true; })
+      opencv3
       gtest
       pkgconfig
       check
