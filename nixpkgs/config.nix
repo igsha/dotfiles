@@ -12,6 +12,7 @@
     release = "unstable";
     build = "wine32";
   };
+  nix.useChroot = true;
 
   packageOverrides = pkgs_: with pkgs_; with pkgs; {
     mybase = buildEnv {
@@ -125,7 +126,6 @@
         gnome3.libgxps
       ];
     };
-
   };
 }
 
