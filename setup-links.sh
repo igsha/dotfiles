@@ -3,7 +3,7 @@
 DOTFILESDIR=$HOME/.dotfiles
 USERHOME=$HOME
 
-for ll in bashrc gdbinit git-prompt.sh nixpkgs i3 Xdefaults xprofile pentadactylrc; do
+for ll in bashrc gdbinit git-prompt.sh nixpkgs i3 Xdefaults xprofile pentadactylrc gnuplot; do
     ln -s $DOTFILESDIR/$ll $USERHOME/.$ll
 done
 
