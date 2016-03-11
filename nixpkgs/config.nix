@@ -10,7 +10,7 @@
   allowTexliveBuilds = true;
   wine = {
     release = "unstable";
-    build = "wine32";
+    build = "wineWow";
   };
   nix.useChroot = true;
 
@@ -38,6 +38,15 @@
         sysstat
         usbutils
         pv
+        xcompmgr
+        tree
+        openssl
+        dunst libnotify
+        encfs
+        nmap
+        ocamlPackages.csv
+        xss-lock
+        bind
       ];
     };
 
@@ -82,7 +91,7 @@
       paths = [
         vifm
         truecrypt
-        fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs
+        fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs sshfsFuse
         archivemount
         pwgen
         bviplus dhex ctags vbindiff

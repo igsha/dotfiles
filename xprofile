@@ -18,9 +18,3 @@ xhost +local:$USER
 IMAGE=`find ~/Pictures/ -type f | shuf | head -n +1`
 hsetroot -center $IMAGE
 
-# xscreen saver for Xmonad
-xscreensaver -no-splash &
-
-# autohide cursor
-unclutter -grab &
-

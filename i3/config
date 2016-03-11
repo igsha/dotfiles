@@ -194,7 +194,7 @@ for_window [class="Galculator|ffplay|XTerm"] floating enable, border normal
 assign [class="URxvt"] 1
 assign [class="Firefox"] 2
 assign [class="Gvim"] 3
-assign [class="Thunderbird"] 4
+assign [class="Thunderbird" class="Claws-mail"] 4
 assign [class="VirtualBox"] 5
 assign [class="Wine"] 6
 
@@ -205,4 +205,12 @@ exec thunderbird
 exec davmail.sh
 exec firefox
 exec dropbox start
+
+exec xscreensaver -no-splash
+exec unclutter
+exec dunst
+exec xcompmgr -c
+exec --no-startup-id xss-lock -- xscreensaver-command -lock
+
+#exec --no-startup-id xss-lock -- i3lock -n -i ~/.i3/lock-screen.png
 
