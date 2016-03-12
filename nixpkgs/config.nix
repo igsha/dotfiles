@@ -64,6 +64,7 @@
         zathura
         ffmpeg-full
         freerdp
+        qutebrowser clawsMail
       ];
     };
 
