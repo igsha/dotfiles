@@ -30,7 +30,6 @@ export PS1='\[\e[01;31m\][\A] \[\e[01;32m\]\u@\h\[\e[01;34m\] \W$(ifexists __git
 # Put your fun stuff here.
 
 export HISTCONTROL=ignoredups
-export EDITOR=vim
 
 alias ls="ls -h --color"
 alias ls.pure="/bin/ls"
@@ -54,7 +53,8 @@ alias wineru="LC_ALL=ru_RU.UTF-8 wine"
 
 unset SSH_ASKPASS
 
-export BROWSER=firefox
+export EDITOR=gvim
+export BROWSER=qutebrowser
 export PDFVIEWER=zathura
 export PSVIEWER=$PDFVIEWER
 export DVIVIEWER=$PDFVIEWER
