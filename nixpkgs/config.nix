@@ -9,8 +9,7 @@
   };
   allowTexliveBuilds = true;
   wine = {
-    release = "unstable";
-    build = "wineWow";
+    release = "stable";
   };
   nix.useChroot = true;
 

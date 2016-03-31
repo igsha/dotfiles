@@ -20,7 +20,7 @@ for iface in ifaces:
     status.register("network", interface=iface, ignore_interfaces=ignore_ifaces,
             format_up="{interface}: {bytes_recv}↓{bytes_sent}↑ KBps", interval=5)
 
-status.register("disk", path="/", format="{percentage_avail}% ({avail} GiB)", critical_limit=3, interval=15)
+status.register("disk", path="/", format="{percentage_avail}% ({avail} GiB)", critical_limit=10, interval=15)
 status.register("pulseaudio")
 status.register("shell", command="xkb-switch | tr [:lower:] [:upper:]", interval=3)
 status.register("keyboard_locks", caps_off='', num_off='', scroll_off='')
