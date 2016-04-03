@@ -27,6 +27,10 @@
   nixpkgs.config = {
     allowUnfree = true;
     virtualbox.enableExtensionPack = true;
+    firefox.enableAdobeFlash = true;
+    chromium.enablePepperFlash = true;
+    allowTexliveBuilds = true;
+    wine.release = "stable";
   };
 
   environment.systemPackages = with pkgs; [
@@ -34,22 +38,79 @@
     git
     wget
     xsel xclip
-    vim
-    htop
-    iotop
+    vim vim_configurable
     xscreensaver
     urxvt_perls urxvt_tabbedex rxvt_unicode-with-plugins
-    lsof
     xlibs.xhost unclutter hsetroot
     dmenu nox
     wpa_supplicant_gui
     xfontsel
-    manpages
-    stdmanpages
-    xkb_switch
-    inetutils
-    which
-    python34Packages.i3pystatus
+    manpages stdmanpages
+    numlockx xkb_switch
+    i3pystatus
+    utillinuxCurses freetype
+    gitAndTools.gitflow tig
+    lm_sensors
+    ack silver-searcher
+    psmisc
+    xdg_utils
+    xorg.xev
+    fzf
+    python27Packages.glances
+    syslinux
+    dmidecode lshw smartmontools pciutils usbutils
+    htop iotop lsof inetutils
+    mtr nethogs ngrep nmap bind iftop iptraf wireshark-cli
+    sysstat dstat
+    pv
+    xcompmgr
+    tree file which
+    openssl encfs xss-lock
+    dunst libnotify
+    ocamlPackages.csv
+    vifm fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount
+    truecrypt
+    pwgen
+    bviplus dhex ctags vbindiff
+    unrar unzip zip p7zip
+    python27Packages.pymetar
+    wcalc jq
+    xterm
+    ntfs3g gparted xfsprogs
+    tmux
+    wakelan
+    xchm
+    python27Packages.youtube-dl
+    libxml2
+    ponysay
+    fakeroot fakechroot debootstrap
+    transmission
+    wine winetricks
+    scrot
+    sdcv
+    elinks
+    httpie
+    parallel
+    mcomix
+    glxinfo
+    gnupg
+    radare2
+    rtags
+    ncdu
+    # gui
+    firefoxWrapper thunderbird davmail qutebrowser
+    vlc mpv
+    pavucontrol
+    sxiv viewnior
+    dropbox-cli
+    inkscape gimp
+    xournal
+    zathura
+    ffmpeg-full
+    freerdp
+    (clawsMail.override { enablePluginFancy = true; enablePluginVcalendar = true; enableSpellcheck = true; })
+    libreoffice
+    kde4.kruler
   ];
 
   services = {
@@ -68,6 +129,10 @@
       enable = true;
       socksParentProxy = "localhost:9050";
     };
+    journald = {
+      extraConfig = "SystemMaxUse=4G";
+    };
+    geoclue2.enable = true;
   };
 
   virtualisation = {
@@ -146,13 +211,15 @@
     polkit.enable = true;
   };
 
-  nix.gc = {
-    automatic = true;
-    dates = "08:00";
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "08:00";
+    };
+    extraOptions = ''
+      gc-keep-outputs = true
+      gc-keep-derivations = true
+    '';
   };
-  nix.extraOptions = ''
-    gc-keep-outputs = true
-    gc-keep-derivations = true
-  '';
 }
 

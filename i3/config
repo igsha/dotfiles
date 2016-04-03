@@ -205,7 +205,7 @@ exec gvim
 exec claws-mail
 exec davmail.sh
 exec qutebrowser
-exec dropbox start
+exec dropbox-cli start
 exec firefox
 
 exec xscreensaver -no-splash
