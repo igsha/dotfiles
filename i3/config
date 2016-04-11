@@ -182,7 +182,7 @@ bar {
 }
 
 # defaults for all windows
-new_window pixel 1
+new_window pixel 3
 new_float normal 3
 hide_edge_borders none
 focus_follows_mouse no
