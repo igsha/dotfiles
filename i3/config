@@ -196,8 +196,9 @@ assign [class="URxvt"] 1
 assign [class="qutebrowser"] 2
 assign [class="Gvim"] 3
 assign [class="Thunderbird|Claws-mail"] 4
-assign [class="VirtualBox|Firefox"] 5
+assign [class="Firefox"] 5
 assign [class="Wine"] 6
+assign [class="VirtualBox"] 7
 
 # startup
 exec urxvt
