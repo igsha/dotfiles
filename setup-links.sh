@@ -6,7 +6,7 @@ USERHOME=$HOME
 STANDALONE=(bashrc gdbinit git-prompt.sh nixpkgs Xdefaults xprofile pentadactylrc gnuplot wcalcrc)
 IN_CONFIG=(vifm matplotlib zathura dunst)
 IN_BIN=(translate calculator)
-CONFIGDIRS=(i3 qutebrowser)
+CONFIGDIRS=(i3 qutebrowser nvim)
 
 mkdir -p $USERHOME/{bin,.vimbundle} ${IN_CONFIG[@]/#/$USERHOME/.config/}
 
