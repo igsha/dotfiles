@@ -38,7 +38,7 @@
     git
     wget
     xsel xclip
-    vim vim_configurable
+    neovim
     xscreensaver
     urxvt_perls urxvt_tabbedex rxvt_unicode-with-plugins
     xlibs.xhost unclutter hsetroot
@@ -111,6 +111,7 @@
     (clawsMail.override { enablePluginFancy = true; enablePluginVcalendar = true; enableSpellcheck = true; })
     libreoffice
     kde4.kruler
+    neovim-qt
   ];
 
   services = {

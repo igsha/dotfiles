@@ -165,7 +165,7 @@ set fileencodings=utf8,cp1251,koi8-r,cp866
 " omni completion
 set completeopt=menu
 
-colorscheme gentooish
+colorscheme darcula
 
 set fileformats+=dos " http://stackoverflow.com/questions/14171254/why-would-vim-add-a-new-line-at-the-end-of-a-file
 

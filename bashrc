@@ -53,7 +53,7 @@ alias wineru="LC_ALL=ru_RU.UTF-8 wine"
 
 unset SSH_ASKPASS
 
-export EDITOR=gvim
+export EDITOR=nvim
 export BROWSER=qutebrowser
 export PDFVIEWER=zathura
 export PSVIEWER=$PDFVIEWER
