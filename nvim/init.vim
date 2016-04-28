@@ -9,9 +9,6 @@ nnoremap <Leader>g :Ack<CR>
 command -nargs=* AckWord :Ack <cword> <args>
 " }}}
 Plug 'ervandew/supertab'
-Plug 'scrooloose/syntastic.git' " {{{
-let g:syntastic_cpp_compiler_options = ' -std=c++0x'
-" }}}
 Plug 'majutsushi/tagbar' " {{{
 nmap <Leader>t :TagbarToggle<cr>
 let g:tagbar_left = 1
@@ -51,13 +48,6 @@ let g:localvimrc_sandbox = 0
 let g:localvimrc_ask = 0
 let g:localvimrc_name = [ ".lvimrc", ".git/localvimrc" ]
 " }}}
-Plug 'chumakd/conque-shell-mirror.git' " {{{
-let g:ConqueTerm_ReadUnfocused = 0
-let g:ConqueTerm_CloseOnEnd = 1
-let g:ConqueTerm_StartMessages = 1
-let g:ConqueTerm_Color = 0
-au FileType conque_term setlocal nolist
-" }}}
 Plug 'tyru/restart.vim' " {{{
 let g:restart_sessionoptions = 'buffers,curdir,folds,help,options'
 let g:restart_command = 'PureRestart'
@@ -79,7 +69,11 @@ Plug 'chrisbra/csv.vim'
 Plug 'palopezv/vim-nroff'
 Plug 'awagner-mainz/vim-homekey'
 Plug 'bruno-/vim-man'
-Plug 'noah/vim256-color'
+Plug 'w0ng/vim-hybrid' " {{{
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+"}}}
+
 
 call plug#end()
 
@@ -125,8 +119,6 @@ if has("gui_running") " {{{ Font
     set guifont=Terminus:h12:cRUSSIAN
   endif
   set guioptions=aPc
-else
-  set t_Co=256
 endif " }}}
 
 set list
@@ -165,8 +157,11 @@ set fileencodings=utf8,cp1251,koi8-r,cp866
 " omni completion
 set completeopt=menu
 
-colorscheme darcula
+set background=dark
+colorscheme hybrid
 
 set fileformats+=dos " http://stackoverflow.com/questions/14171254/why-would-vim-add-a-new-line-at-the-end-of-a-file
+
+checktime
 
 " vim: fdm=marker:

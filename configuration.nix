@@ -60,15 +60,16 @@
     syslinux
     dmidecode lshw smartmontools pciutils usbutils
     htop iotop lsof inetutils
-    mtr nethogs ngrep nmap bind iftop iptraf wireshark-cli
-    sysstat dstat
+    mtr nethogs ngrep nmap bind iftop iptraf wireshark-cli proxychains
+    sysstat dstat connect corkscrew torsocks socat
     pv
     xcompmgr
-    tree file which
+    tree file which mkpasswd
     openssl encfs xss-lock
     dunst libnotify
     ocamlPackages.csv
-    vifm fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount
+    vifm
+    fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount fusesmb
     truecrypt
     pwgen
     bviplus dhex ctags vbindiff

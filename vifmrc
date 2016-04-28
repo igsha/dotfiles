@@ -1,4 +1,4 @@
-" vim: filetype=vifm :
+" vim: filetype=vim :
 " You can edit this file by hand.
 " The " character at the beginning of a line comments out the line.
 " Blank lines are ignored.
@@ -8,7 +8,7 @@
 " If you would like to use another vi clone such Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=vim
+set vicmd=nvim
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
@@ -97,7 +97,7 @@ command diff vim -d %f %F
 command zip zip -r %f.zip %f
 command run !! ./%f
 command make !!make
-command vgrep vim "+grep %a"
+command vgrep nvim "+grep %a"
 
 " The file type is for the default programs to be used with
 " a file extension.
@@ -197,8 +197,8 @@ set vifminfo=bookmarks
 nmap s :shell<cr>
 nmap S :sort<cr>
 nmap w :view<cr>
-nmap O :!gvim --remote-tab-silent %f<cr>
-nmap o :!gvim %f<cr>
+nmap O :!nvim-qt --remote-tab-silent %f<cr>
+nmap o :!nvim-qt %f<cr>
 " open file in the background using its default program
 nmap gb :file &<cr>l
 

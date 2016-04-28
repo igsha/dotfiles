@@ -1,6 +1,39 @@
 Xcursor*theme:              gentoo
 Xcursor*size:               22
 
+! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
+! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
+! and the reduced contrast background color from Codecademy's online editor:
+! https://www.codecademy.com/learn
+! vim: ft=xdefaults
+
+*background: #232C31
+*foreground: #C5C8C6
+! black
+*color0: #2D3C46
+*color8: #425059
+! red
+*color1: #A54242
+*color9: #CC6666
+! green
+*color2: #8C9440
+*color10: #B5BD68
+! yellow
+*color3: #DE935F
+*color11: #F0C674
+! blue
+*color4: #5F819D
+*color12: #81A2BE
+! magenta
+*color5: #85678F
+*color13: #B294BB
+! cyan
+*color6: #5E8D87
+*color14: #8ABEB7
+! white
+*color7: #6C7A80
+*color15: #C5C8C6
+
 URxvt*title:                URXVT
 URxvt*font:                 xft:terminus:size=11
 URxvt*boldFont:
@@ -53,35 +86,6 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 
 !URxvt.keysym.Home:          \033[1~
 !URxvt.keysym.End:           \033[4~
-
-! Colour Scheme {{{
-URxvt.background: #000000
-URxvt.foreground: #AAAAAA
-! Black
-URxvt.color0: #000000
-URxvt.color8: #555555
-! Red
-URxvt.color1: #AA0000
-URxvt.color9: #FF5555
-! Green
-URxvt.color2: #00AA00
-URxvt.color10: #55FF55
-! Yellow
-URxvt.color3: #AA5500
-URxvt.color11: #FFFF55
-! Blue
-URxvt.color4: #0000AA
-URxvt.color12: #5555FF
-! Magenta
-URxvt.color5: #AA00AA
-URxvt.color13: #FF55FF
-! Cyan
-URxvt.color6: #00AAAA
-URxvt.color14: #55FFFF
-! White
-URxvt.color7: #AAAAAA
-URxvt.color15: #FFFFFF
-! }}}
 
 ! XTerm settings
 XTerm*utf8:                 2
