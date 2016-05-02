@@ -1,3 +1,8 @@
+set nocompatible
+set encoding=utf-8
+filetype plugin indent on  " Enable file type detection.
+syntax on                  " Enable syntax highlighting.
+
 call plug#begin('~/.vimplugged')
 
 Plug 'mileszs/ack.vim' " {{{
@@ -63,7 +68,6 @@ let g:airline_section_z = '%3p%% (0x%2B) %#__accent_bold#%4l%#__restore__#:%3c'
 "}}}
 Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'fidian/hexmode'
-Plug 'Shougo/vimshell.vim'
 Plug 'PProvost/vim-ps1'
 Plug 'chrisbra/csv.vim'
 Plug 'palopezv/vim-nroff'
@@ -74,10 +78,7 @@ let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 "}}}
 
-
 call plug#end()
-
-scriptencoding utf-8
 
 if has("win32") || has("win64") " {{{ TMPDIR
   let $TMPDIR = $TEMP
@@ -91,10 +92,6 @@ set directory=$TMPDIR
 set backupdir=$TMPDIR
 " }}}
 
-let $VIMBUNDLE = expand("~/.vimbundle")
-runtime neobundlelist.vim
-let g:netrw_home = $VIMBUNDLE
-
 set number
 set softtabstop=4
 set shiftwidth=4
@@ -107,7 +104,6 @@ set autoindent
 set smartindent
 set backspace=2
 set modeline
-set mouse=a
 
 let g:netrw_list_hide = '^\.'
 let g:netrw_liststyle = 1
@@ -121,15 +117,10 @@ if has("gui_running") " {{{ Font
   set guioptions=aPc
 endif " }}}
 
-set list
-set listchars=tab:»»,trail:·,nbsp:º
+set list listchars=tab:»»,trail:·,nbsp:º
 
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+set hlsearch incsearch ignorecase smartcase
 set vb t_vb= novb
-syntax on
 set hidden
 set autochdir
 set textwidth=130
@@ -143,11 +134,13 @@ map <c-tab> :bn<CR>
 map <c-s-tab> :bp<CR>
 map gt :bn<CR>
 map gT :bp<CR>
-map <F3> :noh<CR>
+map <Space> :noh<CR>
 map <C-Left> <C-W><Left>
 map <C-Right> <C-W><Right>
 map <C-Up> <C-W><Up>
 map <C-Down> <C-W><Down>
+tnoremap <Esc> <C-\><C-n>
+imap <C-Space> <C-x><C-o>
 " }}}
 
 set wildmode=longest,list,full
