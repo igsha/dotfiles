@@ -74,9 +74,11 @@ Plug 'palopezv/vim-nroff'
 Plug 'awagner-mainz/vim-homekey'
 Plug 'bruno-/vim-man'
 Plug 'w0ng/vim-hybrid' " {{{
-let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 "}}}
+Plug 'equalsraf/neovim-gui-shim' " {{{
+let g:GuiFont="Terminus:h12"
+" }}}
 
 call plug#end()
 
@@ -107,15 +109,6 @@ set modeline
 
 let g:netrw_list_hide = '^\.'
 let g:netrw_liststyle = 1
-
-if has("gui_running") " {{{ Font
-  if has("unix")
-    set guifont=Terminus\ 12
-  else
-    set guifont=Terminus:h12:cRUSSIAN
-  endif
-  set guioptions=aPc
-endif " }}}
 
 set list listchars=tab:»»,trail:·,nbsp:º
 
@@ -150,8 +143,8 @@ set fileencodings=utf8,cp1251,koi8-r,cp866
 " omni completion
 set completeopt=menu
 
-set background=dark
 colorscheme hybrid
+set background=dark
 
 set fileformats+=dos " http://stackoverflow.com/questions/14171254/why-would-vim-add-a-new-line-at-the-end-of-a-file
 

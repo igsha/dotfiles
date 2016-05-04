@@ -22,6 +22,7 @@ rec {
       zlib
       readline
       libxml2
+      netpbm
     ];
   };
 }
