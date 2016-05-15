@@ -41,11 +41,12 @@
     neovim
     xscreensaver
     urxvt_perls urxvt_tabbedex rxvt_unicode-with-plugins
-    xlibs.xhost unclutter hsetroot
+    xlibs.xhost unclutter hsetroot xorg.xev xorg.xkill
     dmenu nox
     wpa_supplicant_gui
     xfontsel
     manpages stdmanpages
+    manpages.docdev
     numlockx xkb_switch
     i3pystatus
     utillinuxCurses freetype
@@ -54,7 +55,6 @@
     ack silver-searcher
     psmisc
     xdg_utils
-    xorg.xev
     fzf
     python27Packages.glances
     syslinux
@@ -72,7 +72,8 @@
     fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount fusesmb
     truecrypt
     pwgen
-    bviplus dhex ctags vbindiff
+#bviplus
+    dhex ctags vbindiff
     unrar unzip zip p7zip
     python27Packages.pymetar
     wcalc jq
@@ -95,11 +96,12 @@
     mcomix
     glxinfo
     gnupg
-    radare2
+#radare2
     rtags
     ncdu
+    androidsdk android-udev-rules
     # gui
-    firefoxWrapper thunderbird davmail qutebrowser
+    davmail qutebrowser
     vlc mpv
     pavucontrol
     sxiv viewnior
@@ -113,6 +115,7 @@
     libreoffice
     kde4.kruler
     neovim-qt
+    flashplayer
   ];
 
   services = {

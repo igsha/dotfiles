@@ -46,9 +46,6 @@ alias hibernate="systemctl hibernate"
 alias reboot="systemctl reboot"
 alias poweroff="systemctl poweroff"
 
-alias cxx-shell="nix-shell ~/.nixpkgs/cxxenv.drv"
-alias python-shell="nix-shell ~/.nixpkgs/pythonenv.drv"
-
 alias wineru="LC_ALL=ru_RU.UTF-8 wine"
 
 unset SSH_ASKPASS

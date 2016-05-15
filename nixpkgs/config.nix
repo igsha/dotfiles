@@ -11,6 +11,7 @@
   wine = {
     release = "stable";
   };
+  nix.useSandbox = true;
 
   packageOverrides = pkgs_: with pkgs_; with pkgs; {
     latexenv = buildEnv {

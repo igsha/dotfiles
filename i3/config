@@ -207,7 +207,6 @@ exec claws-mail
 exec davmail.sh
 exec qutebrowser
 exec dropbox start
-exec firefox
 
 exec xscreensaver -no-splash
 exec unclutter
