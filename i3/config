@@ -211,8 +211,4 @@ exec dropbox start
 exec xscreensaver -no-splash
 exec unclutter
 exec dunst
-exec xcompmgr -c
-#exec --no-startup-id xss-lock -- xscreensaver-command -lock
-
-#exec --no-startup-id xss-lock -- i3lock -n -i ~/.i3/lock-screen.png
 

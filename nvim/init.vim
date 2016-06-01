@@ -67,7 +67,6 @@ Plug 'bling/vim-airline' " {{{
 let g:airline_section_z = '%3p%% (0x%2B) %#__accent_bold#%4l%#__restore__#:%3c'
 "}}}
 Plug 'AndrewRadev/simple_bookmarks.vim'
-Plug 'fidian/hexmode'
 Plug 'PProvost/vim-ps1'
 Plug 'chrisbra/csv.vim'
 Plug 'palopezv/vim-nroff'
@@ -79,6 +78,7 @@ let g:hybrid_reduced_contrast = 1
 Plug 'equalsraf/neovim-gui-shim' " {{{
 let g:GuiFont="Terminus:h12"
 " }}}
+Plug 'spwhitt/vim-nix'
 
 call plug#end()
 
