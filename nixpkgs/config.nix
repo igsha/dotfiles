@@ -17,7 +17,7 @@
     latexenv = buildEnv {
       name = "latexenv";
       paths = [
-        (texlive.combine { inherit (texlive) scheme-full bibtex8 collection-langcyrillic collection-latexextra; })
+        (texlive.combine { inherit (texlive) scheme-full scheme-gust xdvi; })
         imagemagick
         ghostscript
         cmake

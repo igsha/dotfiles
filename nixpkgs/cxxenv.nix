@@ -14,7 +14,6 @@ rec {
       SDL SDL_image
       gdb
       (opencv3.override { enableIpp = true; enableContrib = true; enableBloat = true; })
-      #opencv3
       gtest
       pkgconfig
       check
@@ -23,6 +22,8 @@ rec {
       readline
       libxml2
       netpbm
+      ffmpeg
+      opencl-headers
     ];
   };
 }
