@@ -150,4 +150,29 @@ set fileformats+=dos " http://stackoverflow.com/questions/14171254/why-would-vim
 
 checktime
 
+function MakeTagsInGitRootDir()
+    let l:rootdir = system('git rev-parse --show-toplevel')
+    if (v:shell_error != 0)
+        echoerr 'Not a git directory'
+        return
+    endif
+    let l:tagfile = substitute(l:rootdir, '\n\+$', '', '') . '/.git/tags'
+    echo system('ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -o ' . l:tagfile . ' ' . l:rootdir)
+    if (v:shell_error != 0)
+        echoerr 'Got a error' v:shell_error
+    endif
+    echo 'Updated tags:' l:tagfile
+endfunction
+
+command -nargs=0 MakeGitTags :call MakeTagsInGitRootDir()
+
+function AttachGitTags()
+    let l:rootdir = system('git rev-parse --show-toplevel')
+    if (v:shell_error != 0) | return | endif
+    let l:tagfile = substitute(l:rootdir, '\n\+$', '', '') . '/.git/tags'
+    let &l:tags = l:tagfile
+endfunction
+
+autocmd BufEnter *.c,*.h,*.tex,*.cpp,*.s :call AttachGitTags()
+
 " vim: fdm=marker:
