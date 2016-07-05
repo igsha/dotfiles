@@ -161,10 +161,10 @@ filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
 filetype *.exe wine %f
 
 " MS-Office
-filetype *.doc,*.docx libreoffice --writer %f
-filetype *.ppt,*.pptx libreoffice --impress %f
-filetype *.vsd libreoffice --draw %f
-filetype *.xls libreoffice --calc %f
+filetype *.doc,*.docx,*.odt libreoffice --writer %f
+filetype *.ppt,*.pptx,*.odp libreoffice --impress %f
+filetype *.vsd,*.odg libreoffice --draw %f
+filetype *.xls,*.ods libreoffice --calc %f
 
 " For automated FUSE mounts, you must register an extension with FILETYPE=..
 " in one of following formats:

@@ -11,7 +11,7 @@
 
   boot.loader = {
     grub.device = "/dev/sda";
-    gummiboot.enable = true;
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
@@ -35,7 +35,7 @@
 
   environment.systemPackages = with pkgs; [
     stdenv
-    git
+    git subversion
     wget
     xsel xclip
     neovim
@@ -72,7 +72,7 @@
     fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount fusesmb
     truecrypt
     pwgen
-#bviplus
+    bviplus
     dhex ctags vbindiff
     unrar unzip zip p7zip
     python27Packages.pymetar
@@ -96,7 +96,6 @@
     mcomix
     glxinfo
     gnupg
-#radare2
     rtags
     ncdu
     androidsdk android-udev-rules
@@ -150,6 +149,7 @@
       driSupport = true;
       driSupport32Bit = true;
       s3tcSupport = true;
+      extraPackages = [ pkgs.vaapiVdpau ];
     };
     pulseaudio = {
       enable = true;
@@ -165,7 +165,6 @@
     xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys";
 
     videoDrivers = [ "nvidia" ];
-    vaapiDrivers = [ pkgs.vaapiVdpau ];
 
     desktopManager = {
       default = "none";
