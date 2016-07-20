@@ -17,11 +17,7 @@
 
   networking = {
     hostName = "igor-pc";
-    wireless = {
-      enable = true;
-      interfaces = ["wlp6s0"];
-      userControlled.enable = true;
-    };
+    networkmanager.enable = true;
   };
 
   nixpkgs.config = {
@@ -115,6 +111,7 @@
     kde4.kruler
     neovim-qt
     flashplayer
+    networkmanagerapplet
   ];
 
   services = {
