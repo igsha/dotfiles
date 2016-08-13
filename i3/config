@@ -191,7 +191,6 @@ workspace_layout tabbed
 
 for_window [class="Galculator|ffplay|XTerm"] floating enable, border normal
 for_window [class="Kruler"] floating enable, border none
-for_window [class="Wine"] fullscreen enable
 
 assign [class="URxvt"] 1
 assign [class="qutebrowser"] 2

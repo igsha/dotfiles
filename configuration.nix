@@ -35,8 +35,11 @@
     wget
     xsel xclip
     neovim
+    ed
+    cmake
+    gnumake
     xscreensaver
-    urxvt_perls urxvt_tabbedex rxvt_unicode-with-plugins
+    rxvt_unicode-with-plugins
     xlibs.xhost unclutter hsetroot xorg.xev xorg.xkill
     dmenu nox
     wpa_supplicant_gui
@@ -61,12 +64,11 @@
     pv
     xcompmgr
     tree file which mkpasswd
-    openssl encfs xss-lock
+    openssl encfs
     dunst libnotify
     ocamlPackages.csv
     vifm
     fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount fusesmb
-    truecrypt
     pwgen
     bviplus
     dhex ctags vbindiff
@@ -95,6 +97,10 @@
     rtags
     ncdu
     androidsdk android-udev-rules
+    screen tmux
+    nix-repl
+    pandoc
+    patchutils
     # gui
     davmail qutebrowser
     vlc mpv
@@ -112,6 +118,15 @@
     neovim-qt
     flashplayer
     networkmanagerapplet
+    # latex
+    (texlive.combine { inherit (texlive) scheme-full metafont; })
+    imagemagick
+    ghostscript
+    poppler_utils
+    biber
+    gnuplot
+    wdiff
+    gnome3.libgxps
   ];
 
   services = {
