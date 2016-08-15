@@ -37,7 +37,7 @@ URxvt*boldFont:
 URxvt*italicFont:
 URxvt*boldItalicFont:
 URxvt*intensityStyles:      on
-Urxvt*saveLines:            65535
+URxvt*saveLines:            65535
 URxvt*cursorColor:          green
 URxvt*transparent:          false
 URxvt*shading:              25

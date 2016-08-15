@@ -75,9 +75,6 @@ Plug 'bruno-/vim-man'
 Plug 'w0ng/vim-hybrid' " {{{
 let g:hybrid_reduced_contrast = 1
 "}}}
-Plug 'equalsraf/neovim-gui-shim' " {{{
-let g:GuiFont="Terminus:h12"
-" }}}
 Plug 'spwhitt/vim-nix'
 
 call plug#end()
