@@ -31,7 +31,7 @@
 
   environment.systemPackages = with pkgs; [
     stdenv
-    git subversion
+    gitFull subversion
     wget
     xsel xclip
     neovim
