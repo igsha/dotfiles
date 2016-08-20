@@ -24,6 +24,8 @@ rec {
       netpbm
       ffmpeg
       opencl-headers
+      bison
+      flex
     ];
   };
 }

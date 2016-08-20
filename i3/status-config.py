@@ -13,12 +13,15 @@ status.register("mem", format="{percent_used_mem:02.0f}%", round_size=0, interva
 #status.register("temp", format="{temp:.0f}°C", interval=5)
 
 ifaces = netifaces.interfaces()
-ignore_ifaces = ['lo', 'vboxnet0']
-for iface in ifaces:
-    if iface in ignore_ifaces:
-        continue
-    status.register("network", interface=iface, ignore_interfaces=ignore_ifaces,
-            format_up="{interface}: {bytes_recv}↓{bytes_sent}↑ KBps", interval=5)
+gateways = netifaces.gateways()
+values = list(gateways['default'].values())
+iface = values[0][-1]
+if iface not in ifaces:
+    iface = ifaces[0]
+
+status.register("network", interface=iface,
+        format_down="DOWN: {interface}", graph_style="braille-fill", detached_down=False,
+        format_up="{bytes_recv}↓{bytes_sent}↑ KBps {network_graph}: {interface}", interval=5)
 
 status.register("disk", path="/", format="{percentage_avail}% ({avail} GiB)", critical_limit=10, interval=15)
 status.register("pulseaudio")
