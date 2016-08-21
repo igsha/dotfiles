@@ -10,14 +10,17 @@ status.register("weather", location_code="RSXX1504", colorize=True, interval=300
 status.register("load", format="{avg1} {avg5} {avg15}")
 status.register("cpu_usage", interval=5)
 status.register("mem", format="{percent_used_mem:02.0f}%", round_size=0, interval=5);
-#status.register("temp", format="{temp:.0f}°C", interval=5)
 
 ifaces = netifaces.interfaces()
 gateways = netifaces.gateways()
 values = list(gateways['default'].values())
-iface = values[0][-1]
+try:
+    iface = values[0][44]
+except IndexError: # gateway is not available yet
+    iface = ''
+
 if iface not in ifaces:
-    iface = ifaces[0]
+    iface = ifaces[int(len(ifaces) / 2)]
 
 status.register("network", interface=iface,
         format_down="DOWN: {interface}", graph_style="braille-fill", detached_down=False,
@@ -29,4 +32,3 @@ status.register("shell", command="xkb-switch | tr [:lower:] [:upper:]", interval
 status.register("keyboard_locks", caps_off='', num_off='', scroll_off='')
 
 status.run()
-

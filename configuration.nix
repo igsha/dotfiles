@@ -118,6 +118,7 @@
     neovim-qt
     flashplayer
     networkmanagerapplet
+    skype tdesktop
     # latex
     (texlive.combine { inherit (texlive) scheme-full metafont; })
     imagemagick

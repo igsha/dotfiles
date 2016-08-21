@@ -196,7 +196,7 @@ assign [class="URxvt"] 1
 assign [class="qutebrowser"] 2
 assign [class="nvim-qt"] 3
 assign [class="Thunderbird|Claws-mail"] 4
-assign [class="Firefox"] 5
+assign [class="Firefox|telegram-desktop|Skype"] 5
 assign [class="Wine"] 6
 assign [class="VirtualBox"] 7
 
@@ -207,6 +207,8 @@ exec claws-mail
 exec davmail.sh
 exec qutebrowser
 exec dropbox start
+exec skype
+exec telegram-desktop
 
 exec xscreensaver -no-splash
 exec unclutter
