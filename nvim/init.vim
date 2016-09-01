@@ -76,6 +76,7 @@ Plug 'w0ng/vim-hybrid' " {{{
 let g:hybrid_reduced_contrast = 1
 "}}}
 Plug 'spwhitt/vim-nix'
+Plug 'neomake/neomake'
 
 call plug#end()
 

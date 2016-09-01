@@ -26,6 +26,10 @@ rec {
       opencl-headers
       bison
       flex
+      cunit
+      check
+      doxygen
+      valgrind
     ];
   };
 }
