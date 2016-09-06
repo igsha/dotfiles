@@ -1,1 +1,1 @@
-GuiFont Terminus:h12
+GuiFont Liberation Mono:h10

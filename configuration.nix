@@ -128,6 +128,7 @@
     gnuplot
     wdiff
     gnome3.libgxps
+    aspell aspellDicts.en aspellDicts.ru
   ];
 
   services = {
@@ -209,6 +210,7 @@
       freefont_ttf
       terminus_font
       ttf_bitstream_vera
+      inconsolata-lgc
     ];
   };
 
