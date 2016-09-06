@@ -56,3 +56,4 @@ export PDFVIEWER=zathura
 export PSVIEWER=$PDFVIEWER
 export DVIVIEWER=$PDFVIEWER
 
+export ASPELL_CONF='data-dir /var/run/current-system/sw/lib/aspell/'
