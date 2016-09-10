@@ -2,5 +2,51 @@ set print pretty on
 set print array on
 set print array-indexes on
 set print elements 10
-#set print address off
-add-auto-load-safe-path /usr/lib64/gcc/x86_64-pc-linux-gnu/4.8.2/libstdc++.so.6.0.18-gdb.py
+
+define imagedump
+set logging file $arg1
+set logging overwrite
+set logging redirect on
+
+set logging on
+printf "%s\n%d %d\n%d\n", $arg0, $arg3, $arg4, $arg5
+set logging off
+
+if $argc == 6
+    append binary memory $arg1 $arg2 $arg2 + $arg3 * $arg4
+else
+    append binary memory $arg1 $arg2 $arg2 + $arg6 * $arg3 * $arg4
+end
+end
+
+document imagedump
+Dump raw data as ppm image. Format:
+    imagedump <ppm signature> <filename> <address> <width> <height> <max value> [<factor>]
+It will write image of <ppm signature> to <filename> from <address> with dimensions <width>x<height>
+where pixels are restricted by <max value>. Optionally it takes scale <factor> (used by RGB).
+end
+
+define dump pgm
+set var $maxvalue = 255
+if $argc == 5
+    set var $maxvalue = $arg4
+end
+imagedump "P5" $arg0 $arg1 $arg2 $arg3 $maxvalue
+end
+
+document dump pgm
+Dump raw data as pgm image. Format:
+    dump pgm <filename> <address> <width> <height> [<max pixel value>]
+It will write pgm image to <filename> from <address> by <width>x<height>.
+Optional value of <max pixel value> can be passed.
+end
+
+define dump ppm
+imagedump "P6" $arg0 $arg1 $arg2 $arg3 255 3
+end
+
+document dump ppm
+Dump raw data as ppm RGB image. Format:
+    imagedump_rgb <filename> <address> <width> <height>
+It will write ppm image to <filename> from <address> by <width>x<height>.
+end
