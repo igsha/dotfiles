@@ -4,19 +4,17 @@ set print array-indexes on
 set print elements 10
 
 define imagedump
-set logging file $arg1
-set logging overwrite
-set logging redirect on
+    set logging overwrite on
+    set logging redirect on
+    set logging on $arg1
+    printf "%s\n%d %d\n%d\n", $arg0, $arg3, $arg4, $arg5
+    set logging off
 
-set logging on
-printf "%s\n%d %d\n%d\n", $arg0, $arg3, $arg4, $arg5
-set logging off
-
-if $argc == 6
-    append binary memory $arg1 $arg2 $arg2 + $arg3 * $arg4
-else
-    append binary memory $arg1 $arg2 $arg2 + $arg6 * $arg3 * $arg4
-end
+    if $argc == 6
+        append binary memory $arg1 $arg2 $arg2 + $arg3 * $arg4
+    else
+        append binary memory $arg1 $arg2 $arg2 + $arg6 * $arg3 * $arg4
+    end
 end
 
 document imagedump
@@ -27,11 +25,11 @@ where pixels are restricted by <max value>. Optionally it takes scale <factor> (
 end
 
 define dump pgm
-set var $maxvalue = 255
-if $argc == 5
-    set var $maxvalue = $arg4
-end
-imagedump "P5" $arg0 $arg1 $arg2 $arg3 $maxvalue
+    set var $maxvalue = 255
+    if $argc == 5
+        set var $maxvalue = $arg4
+    end
+    imagedump "P5" $arg0 $arg1 $arg2 $arg3 $maxvalue
 end
 
 document dump pgm
@@ -42,7 +40,7 @@ Optional value of <max pixel value> can be passed.
 end
 
 define dump ppm
-imagedump "P6" $arg0 $arg1 $arg2 $arg3 255 3
+    imagedump "P6" $arg0 $arg1 $arg2 $arg3 255 3
 end
 
 document dump ppm

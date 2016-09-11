@@ -149,6 +149,7 @@ set fileformats+=dos " http://stackoverflow.com/questions/14171254/why-would-vim
 checktime
 
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+set spelllang=ru_yo,en
 
 function MakeTagsInGitRootDir()
     let l:rootdir = system('git rev-parse --show-toplevel')

@@ -20,9 +20,7 @@ if [[ $- != *i* ]] ; then
     return
 fi
 
-BASH_COMPLETION_FILE=`echo /etc/profile.d/bash*completion.sh`
 GIT_PROMPT_FILE=~/.git-prompt.sh
-[[ -f $BASH_COMPLETION_FILE ]] && source $BASH_COMPLETION_FILE
 [[ -f $GIT_PROMPT_FILE ]] && source $GIT_PROMPT_FILE
 
 export GIT_PS1_SHOWDIRTYSTATE=1
@@ -32,20 +30,12 @@ export PS1='\[\e[01;31m\][\A] \[\e[01;32m\]\u@\h\[\e[01;34m\] \W$(ifexists __git
 export HISTCONTROL=ignoredups
 
 alias ls="ls -h --color"
-alias ls.pure="/bin/ls"
+alias ls.pure="`which ls`"
 alias la="ls -lta"
 alias ll="ls -lt"
 alias grep="grep --color"
 alias cal="cal -m3"
 alias df="df -h"
-alias truecrypt="truecrypt -t"
-alias fake="PATH=/usr/sbin:/sbin:$PATH fakeroot fakechroot -s"
-
-alias suspend="systemctl suspend"
-alias hibernate="systemctl hibernate"
-alias reboot="systemctl reboot"
-alias poweroff="systemctl poweroff"
-
 alias wineru="LC_ALL=ru_RU.UTF-8 wine"
 
 unset SSH_ASKPASS
@@ -55,5 +45,3 @@ export BROWSER=qutebrowser
 export PDFVIEWER=zathura
 export PSVIEWER=$PDFVIEWER
 export DVIVIEWER=$PDFVIEWER
-
-export ASPELL_CONF='data-dir /var/run/current-system/sw/lib/aspell/'
