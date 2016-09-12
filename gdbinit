@@ -29,7 +29,11 @@ define dump pgm
     if $argc == 5
         set var $maxvalue = $arg4
     end
-    imagedump "P5" $arg0 $arg1 $arg2 $arg3 $maxvalue
+    set var $factor = 1
+    if $maxvalue > 255
+        set var $factor = 2
+    end
+    imagedump "P5" $arg0 $arg1 $arg2 $arg3 $maxvalue $factor
 end
 
 document dump pgm
@@ -40,11 +44,16 @@ Optional value of <max pixel value> can be passed.
 end
 
 define dump ppm
-    imagedump "P6" $arg0 $arg1 $arg2 $arg3 255 3
+    set var $maxvalue = 255
+    if $argc == 5
+        set var $maxvalue = $arg4
+    end
+    imagedump "P6" $arg0 $arg1 $arg2 $arg3 $maxvalue 3
 end
 
 document dump ppm
 Dump raw data as ppm RGB image. Format:
-    imagedump_rgb <filename> <address> <width> <height>
+    imagedump_rgb <filename> <address> <width> <height> [<max pixel value>]
 It will write ppm image to <filename> from <address> by <width>x<height>.
+Optional value of <max pixel value> can be passed.
 end
