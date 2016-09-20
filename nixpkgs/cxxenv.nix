@@ -30,6 +30,7 @@ rec {
       check
       doxygen
       valgrind
+      amdappsdk
     ];
   };
 }
