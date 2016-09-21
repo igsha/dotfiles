@@ -44,8 +44,7 @@
     dmenu nox
     wpa_supplicant_gui
     xfontsel
-    manpages stdmanpages
-    manpages.docdev
+    man stdman man-pages posix_man_pages
     numlockx xkb_switch
     i3pystatus
     utillinuxCurses freetype
@@ -86,7 +85,7 @@
     fakeroot fakechroot debootstrap
     transmission
     wine winetricks
-    scrot
+    scrot maim
     sdcv
     elinks
     httpie
@@ -101,6 +100,7 @@
     nix-repl
     pandoc
     patchutils
+    calcurse
     # gui
     davmail qutebrowser
     vlc mpv
@@ -132,7 +132,10 @@
   ];
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      forwardX11 = true;
+    };
     ntp.enable = true;
     printing.enable = true;
     nixosManual.showManual = true;
