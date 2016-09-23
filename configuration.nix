@@ -33,7 +33,7 @@
     stdenv
     gitFull subversion
     wget
-    xsel xclip
+    xsel xclip xdotool
     neovim
     ed
     cmake
