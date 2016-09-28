@@ -100,7 +100,7 @@
     nix-repl
     pandoc
     patchutils
-    calcurse
+    samba4Full
     # gui
     davmail qutebrowser
     vlc mpv
@@ -154,6 +154,11 @@
       extraConfig = "SystemMaxUse=4G";
     };
     geoclue2.enable = true;
+    samba = {
+      enable = true;
+      package = pkgs.samba4Full;
+    };
+    teamviewer.enable = true;
   };
 
   virtualisation = {

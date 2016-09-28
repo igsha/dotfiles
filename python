@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-nix-shell ~/.nixpkgs/pythonenv.drv --run "python ${*}"
+nix-shell ~/.nixpkgs/python.drv --run "python ${*}"
 
