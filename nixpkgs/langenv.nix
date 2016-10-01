@@ -1,56 +1,49 @@
 with import <nixpkgs> {};
-rec {
+let
+  common = with pkgs; [
+    cmake gnumake
+    boost
+    catch
+    gdb
+    libjpeg
+    zlib
+    readline
+    netpbm
+    doxygen
+    valgrind
+    amdappsdk
+    opencl-headers
+    openmpi # OpenCL
+    rpm
+  ];
+in rec {
   gccenv = stdenv.mkDerivation {
     name = "gccenv";
     src = ./.;
     buildInputs = with pkgs; [
       stdenv
-      cmake
-      gnumake
-      boost
-      catch
       gcc
       ncurses
       SDL SDL_image
-      gdb
       (opencv3.override { enableIpp = true; enableContrib = true; })
       gtest
       pkgconfig
       check
-      libjpeg
-      zlib
-      readline
       libxml2
-      netpbm
       ffmpeg
-      opencl-headers
       bison
       flex
       cunit
       check
-      doxygen
-      valgrind
-      amdappsdk # OpenCL
-      openmpi
-    ];
+    ] ++ common;
   };
 
   clangenv = clangStdenv.mkDerivation {
     name = "clangenv";
     src = ./.;
     buildInputs = with pkgs; [
-      cmake
-      gnumake
-      boost
-      libjpeg
-      zlib
-      openmpi
-      catch
       clang
-      gdb
-      doxygen
-      valgrind
-    ];
+    ] ++ common;
   };
 
   pythonenv = stdenv.mkDerivation {
