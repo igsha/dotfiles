@@ -172,6 +172,9 @@
       enable = true;
       systemWide = true;
       support32Bit = true;
+      extraConfig = ''
+        flat-volumes = no
+      '';
     };
   };
 
@@ -190,7 +193,6 @@
 
     displayManager.slim = {
       enable = true;
-      autoLogin = true;
     };
 
     windowManager = {

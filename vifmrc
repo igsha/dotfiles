@@ -131,7 +131,7 @@ filetype *.so,*.so.* readelf -d %c | less
 fileviewer *.so,*.so.* readelf -a %c | less
 
 " Image
-filetype *.jpg,*.jpeg,*.png,*.gif,*.tiff,*.tif,*.bmp,*.ppm,*.pgm,*.pbm viewnior %c
+filetype *.jpg,*.jpeg,*.png,*.gif,*.tiff,*.tif,*.bmp,*.ppm,*.pgm,*.pbm xdg-open %c
 fileviewer *.jpg,*.jpeg jp2a -f %c
 fileviewer *.png,*.gif,*.tiff,*.tif,*.bmp ffmpeg -i %c -f image2 - | jp2a -f -
 
