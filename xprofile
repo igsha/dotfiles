@@ -15,6 +15,4 @@ setxkbmap
 xhost +local:$USER
 
 # set wallpeper
-IMAGE=`find ~/Pictures/ -type f | shuf | head -n +1`
-hsetroot -center $IMAGE
-
+feh --randomize --bg-center $HOME/Pictures/

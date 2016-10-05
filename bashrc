@@ -5,13 +5,6 @@
 # that can't tolerate any output.  So make sure this doesn't display
 # anything or bad things will happen !
 
-function ifexists {
-    if [[ "x$(command -v $1)" != "x" ]]; then
-        $@
-    fi
-    return 0
-}
-
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
@@ -20,11 +13,32 @@ if [[ $- != *i* ]] ; then
     return
 fi
 
-GIT_PROMPT_FILE=~/.git-prompt.sh
+GIT_PROMPT_FILE=$HOME/.git-prompt.sh
 [[ -f $GIT_PROMPT_FILE ]] && source $GIT_PROMPT_FILE
 
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1='\[\e[01;31m\][\A] \[\e[01;32m\]\u@\h\[\e[01;34m\] \W$(ifexists __git_ps1) \$\[\e[00m\] '
+export PROMPT_COMMAND=__prompt_command
+__prompt_command() {
+    local last_error="$?"
+
+    local ColRst='\[\e[0m\]'
+    local Red='\[\e[01;31m\]'
+    local BRed='\[\e[1;31m\]'
+    local Gre='\[\e[01;32m\]'
+    local BBlu='\[\e[01;34m\]'
+    local FancyX='\342\234\227'
+
+    PS1="${Red}[\\A] ${Gre}\\u@\\h${BBlu} \\W"
+    if [[ "x$(command -v __git_ps1)" != "x" ]]; then
+        PS1+='$(__git_ps1)'
+    fi
+
+    if [[ $last_error != 0 ]]; then
+        PS1+=" ${BRed}$FancyX ($last_error)"
+    fi
+
+    PS1+=" ${BBlu}\$${ColRst} "
+}
 # Put your fun stuff here.
 
 export HISTCONTROL=ignoredups
