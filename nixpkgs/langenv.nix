@@ -11,8 +11,6 @@ let
     netpbm
     doxygen
     valgrind
-    amdappsdk
-    opencl-headers
     openmpi # OpenCL
     rpm
   ];
@@ -20,6 +18,7 @@ in rec {
   gccenv = stdenv.mkDerivation {
     name = "gccenv";
     src = ./.;
+    hardeningDisable = [ "all" ];
     buildInputs = with pkgs; [
       stdenv
       gcc
@@ -35,12 +34,15 @@ in rec {
       flex
       cunit
       check
+      amdappsdk
+      opencl-headers
     ] ++ common;
   };
 
   clangenv = clangStdenv.mkDerivation {
     name = "clangenv";
     src = ./.;
+    hardeningDisable = [ "all" ];
     buildInputs = with pkgs; [
       clang
     ] ++ common;
