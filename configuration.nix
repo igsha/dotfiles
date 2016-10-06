@@ -143,7 +143,6 @@
     };
     polipo = {
       enable = true;
-      socksParentProxy = "localhost:9050";
     };
     journald = {
       extraConfig = "SystemMaxUse=4G";
@@ -172,9 +171,6 @@
       enable = true;
       systemWide = true;
       support32Bit = true;
-      extraConfig = ''
-        flat-volumes = no
-      '';
     };
   };
 
