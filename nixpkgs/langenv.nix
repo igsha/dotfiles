@@ -51,16 +51,31 @@ in rec {
   pythonenv = stdenv.mkDerivation {
     name = "pythonenv";
     src = ./.;
+    buildInputs = with python27Packages; [
+      pkgs.python27Full
+      matplotlib
+      pkgs.pyside
+      ipython
+      scipy
+      virtualenv
+      pillow
+      tabulate
+      readline
+    ];
+  };
+
+  latexenv = stdenv.mkDerivation {
+    name = "latexenv";
+    src = ./.;
     buildInputs = with pkgs; [
-      python27Full
-      python27Packages.matplotlib
-      pyside
-      python27Packages.ipython
-      python27Packages.scipy
-      python27Packages.virtualenv
-      python27Packages.pillow
-      python27Packages.tabulate
-      python27Packages.readline
+      cmake
+      gnumake
+      (texlive.combine { inherit (texlive) scheme-full metafont; })
+      ghostscript
+      poppler_utils
+      biber
+      gnome3.libgxps
+      pythonenv.nativeBuildInputs
     ];
   };
 }

@@ -6,9 +6,9 @@ USERHOME=$HOME
 STANDALONE=(bashrc gdbinit git-prompt.sh nixpkgs Xdefaults xprofile pentadactylrc gnuplot wcalcrc)
 IN_CONFIG=(vifm matplotlib zathura dunst)
 IN_BIN=(translate calculator)
-CONFIGDIRS=(i3 qutebrowser nvim)
+CONFIGDIRS=(i3 qutebrowser nvim mpv)
 
-mkdir -p $USERHOME/{bin,.vimbundle} ${IN_CONFIG[@]/#/$USERHOME/.config/}
+mkdir -p $USERHOME/{bin,.vimplugged} ${IN_CONFIG[@]/#/$USERHOME/.config/}
 
 for ll in ${STANDALONE[*]}; do
     ln -s $DOTFILESDIR/$ll $USERHOME/.$ll
@@ -25,7 +25,3 @@ done
 for ll in ${CONFIGDIRS[*]}; do
     ln -s $DOTFILESDIR/$ll $USERHOME/.config/
 done
-
-git clone https://github.com/igsha/vim-settings.git $USERHOME/.vim
-(cd $USERHOME/.vimbundle; git clone https://github.com/Shougo/neobundle.vim)
-

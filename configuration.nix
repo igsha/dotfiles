@@ -96,6 +96,10 @@
     pandoc
     patchutils
     samba4Full
+    # for latex
+    imagemagick
+    gnuplot
+    aspell aspellDicts.en aspellDicts.ru
     # gui
     davmail qutebrowser
     vlc mpv
@@ -114,16 +118,6 @@
     flashplayer
     networkmanagerapplet
     skype tdesktop
-    # latex
-    (texlive.combine { inherit (texlive) scheme-full metafont; })
-    imagemagick
-    ghostscript
-    poppler_utils
-    biber
-    gnuplot
-    wdiff
-    gnome3.libgxps
-    aspell aspellDicts.en aspellDicts.ru
   ];
 
   services = {
