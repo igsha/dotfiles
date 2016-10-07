@@ -17,7 +17,7 @@ GIT_PROMPT_FILE=$HOME/.git-prompt.sh
 [[ -f $GIT_PROMPT_FILE ]] && source $GIT_PROMPT_FILE
 
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PROMPT_COMMAND=__prompt_command
+
 __prompt_command() {
     local last_error="$?"
 
@@ -28,7 +28,19 @@ __prompt_command() {
     local BBlu='\[\e[01;34m\]'
     local FancyX='\342\234\227'
 
-    PS1="${Red}[\\A] ${Gre}\\u@\\h${BBlu} \\W"
+    if [[ "x$savedPS1" == "x" ]]; then
+        savedPS1=$PS1
+    fi
+
+    cleanSavedPS1=`echo $savedPS1 | \
+        sed \
+            -e 's/\\\[\\033\[[[:digit:]]\+\(;[[:digit:]]\+\)\?m\\\]//g' \
+            -e 's/\\\\[nrhuw\$]//g' \
+            -e 's/\([][]\|[@:\$]\)//g' \
+            -e 's/^\(.\+\)$/\1 /g'`
+
+    PS1=$cleanSavedPS1
+    PS1+="${Red}[\\A] ${Gre}\\u@\\h${BBlu} \\W"
     if [[ "x$(command -v __git_ps1)" != "x" ]]; then
         PS1+='$(__git_ps1)'
     fi
@@ -39,6 +51,7 @@ __prompt_command() {
 
     PS1+=" ${BBlu}\$${ColRst} "
 }
+export PROMPT_COMMAND=__prompt_command
 # Put your fun stuff here.
 
 export HISTCONTROL=ignoredups
