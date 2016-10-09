@@ -14,7 +14,9 @@ if [[ $- != *i* ]] ; then
 fi
 
 GIT_PROMPT_FILE=$HOME/.git-prompt.sh
-[[ -f $GIT_PROMPT_FILE ]] && source $GIT_PROMPT_FILE
+if [[ -f $GIT_PROMPT_FILE ]]; then
+    source $GIT_PROMPT_FILE
+fi
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 
@@ -26,6 +28,7 @@ __prompt_command() {
     local BRed='\[\e[1;31m\]'
     local Gre='\[\e[01;32m\]'
     local BBlu='\[\e[01;34m\]'
+    local Yell='\[\e[1;33m\]'
     local FancyX='\342\234\227'
 
     if [[ "x$savedPS1" == "x" ]]; then
@@ -36,20 +39,24 @@ __prompt_command() {
         sed \
             -e 's/\\\[\\033\[[[:digit:]]\+\(;[[:digit:]]\+\)\?m\\\]//g' \
             -e 's/\\\\[nrhuw\$]//g' \
-            -e 's/\([][]\|[@:\$]\)//g' \
-            -e 's/^\(.\+\)$/\1 /g'`
+            -e 's/\([][]\|[@:\$]\)//g'`
 
-    PS1=$cleanSavedPS1
-    PS1+="${Red}[\\A] ${Gre}\\u@\\h${BBlu} \\W"
+    PS1="${Red}[\\A] ${Gre}\\u@\\h${BBlu} \\W"
     if [[ "x$(command -v __git_ps1)" != "x" ]]; then
         PS1+='$(__git_ps1)'
+    fi
+
+    local SIGN="${BBlu}\$"
+    if [[ "x$cleanSavedPS1" != "x" ]]; then
+        PS1+=" ${Yell}[$cleanSavedPS1]"
+        SIGN="${Yell}%"
     fi
 
     if [[ $last_error != 0 ]]; then
         PS1+=" ${BRed}$FancyX ($last_error)"
     fi
 
-    PS1+=" ${BBlu}\$${ColRst} "
+    PS1+=" ${SIGN}${ColRst} "
 }
 export PROMPT_COMMAND=__prompt_command
 # Put your fun stuff here.

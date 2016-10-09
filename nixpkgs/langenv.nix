@@ -54,7 +54,7 @@ in rec {
     buildInputs = with python27Packages; [
       pkgs.python27Full
       matplotlib
-      pkgs.pyside
+      pyside
       ipython
       scipy
       virtualenv
