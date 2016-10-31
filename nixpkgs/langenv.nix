@@ -13,6 +13,7 @@ let
     valgrind
     openmpi # OpenCL
     rpm
+    clib
   ];
 in rec {
   gccenv = stdenv.mkDerivation {
@@ -51,8 +52,8 @@ in rec {
   pythonenv = stdenv.mkDerivation {
     name = "pythonenv";
     src = ./.;
-    buildInputs = with python27Packages; [
-      pkgs.python27Full
+    buildInputs = with pythonPackages; [
+      pkgs.pythonFull
       matplotlib
       pyside
       ipython

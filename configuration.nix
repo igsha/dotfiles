@@ -37,7 +37,6 @@
     rxvt_unicode-with-plugins
     xlibs.xhost unclutter hsetroot xorg.xev xorg.xkill
     dmenu nox
-    wpa_supplicant_gui
     xfontsel
     man stdman man-pages posix_man_pages
     numlockx xkb_switch
