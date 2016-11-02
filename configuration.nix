@@ -110,7 +110,12 @@
     zathura
     ffmpeg-full
     freerdp
-    (clawsMail.override { enablePluginFancy = true; enablePluginVcalendar = true; enableSpellcheck = true; })
+    (clawsMail.override {
+      enablePluginFancy = true;
+      enablePluginVcalendar = true;
+      enableSpellcheck = true;
+      enablePluginRssyl = true;
+    })
     libreoffice
     kde4.kruler
     neovim-qt
