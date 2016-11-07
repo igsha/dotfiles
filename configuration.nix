@@ -48,7 +48,7 @@
     psmisc
     xdg_utils
     fzf
-    python27Packages.glances
+    pythonPackages.glances
     syslinux
     dmidecode lshw smartmontools pciutils usbutils
     htop iotop lsof inetutils
@@ -64,7 +64,8 @@
     fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount fusesmb
     pwgen
     bviplus
-    dhex ctags vbindiff
+    dhex vbindiff
+    universal-ctags
     unrar unzip zip p7zip
     python27Packages.pymetar
     wcalc jq
@@ -73,7 +74,7 @@
     tmux
     wakelan
     xchm
-    python27Packages.youtube-dl
+    youtube-dl
     libxml2
     ponysay
     fakeroot fakechroot debootstrap
