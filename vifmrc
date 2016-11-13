@@ -141,7 +141,7 @@ filetype *.svg inkview %c
 filetype *.md5 md5sum -c %f
 
 " FuseZipMount
-filetype *.zip,*.jar,*.war,*.ear FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR
+filetype *.zip,*.jar,*.war,*.ear FUSE_MOUNT|fuse-7z-ng %SOURCE_FILE %DESTINATION_DIR
 fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
 
 " ArchiveMount

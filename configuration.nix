@@ -61,7 +61,7 @@
     dunst libnotify
     ocamlPackages.csv
     vifm
-    fuse fuseiso fuse_zip fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount fusesmb
+    fuse fuseiso fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount fusesmb
     pwgen
     bviplus
     dhex vbindiff
