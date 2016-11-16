@@ -79,3 +79,6 @@ export BROWSER=qutebrowser
 export PDFVIEWER=zathura
 export PSVIEWER=$PDFVIEWER
 export DVIVIEWER=$PDFVIEWER
+
+alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1)) && eval $TF_CMD && history -s $TF_CMD'
+alias fix=fuck
