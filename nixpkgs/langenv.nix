@@ -71,7 +71,10 @@ in rec {
     buildInputs = with pkgs; [
       cmake
       gnumake
-      (texlive.combine { inherit (texlive) scheme-full metafont; })
+      (texlive.combine {
+        inherit (texlive) scheme-full metafont;
+        pkgFilter = pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "core" || pkg.pname == "doc";
+      })
       ghostscript
       poppler_utils
       biber
