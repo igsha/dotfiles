@@ -96,6 +96,10 @@
     pandoc
     patchutils
     samba4Full
+    asymptote
+    pass
+    pypi2nix
+    libxslt
     # for latex
     imagemagick
     gnuplot
