@@ -163,7 +163,7 @@ bindsym XF86Search exec translate
 bindsym $mod+Control+t exec translate
 
 bindsym Print exec scrot
-bindsym Control+Print exec scrot -s
+bindsym $mod+Print exec scrot -u
 
 bindsym --release ISO_Next_Group exec --no-startup-id killall -USR1 i3status # update language bar
 

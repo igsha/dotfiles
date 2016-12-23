@@ -11,7 +11,7 @@ let
     netpbm
     doxygen
     valgrind
-    openmpi # OpenCL
+    openmpi
     rpm
     clib
   ];
@@ -25,7 +25,7 @@ in rec {
       gcc
       ncurses
       SDL SDL_image
-      (opencv3.override { enableIpp = true; enableContrib = true; })
+      opencv3
       gtest
       pkgconfig
       check
@@ -36,7 +36,6 @@ in rec {
       cunit
       check
       amdappsdk
-      opencl-headers
     ] ++ common;
   };
 

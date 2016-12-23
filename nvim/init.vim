@@ -176,5 +176,6 @@ function AttachGitTags()
 endfunction
 
 autocmd BufEnter *.c,*.h,*.tex,*.cpp,*.s :call AttachGitTags()
+autocmd FileType asm setlocal formatoptions+=rol
 
 " vim: fdm=marker:
