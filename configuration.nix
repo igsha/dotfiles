@@ -21,7 +21,7 @@
     firefox.enableAdobeFlash = true;
     chromium.enablePepperFlash = true;
     allowTexliveBuilds = true;
-    wine.release = "stable";
+    wine.release = "unstable";
   };
 
   environment.systemPackages = with pkgs; [
@@ -95,7 +95,7 @@
     nix-repl
     pandoc
     patchutils
-    samba4Full
+    samba
     asymptote
     pass
     pypi2nix
@@ -151,10 +151,6 @@
       extraConfig = "SystemMaxUse=4G";
     };
     geoclue2.enable = true;
-    samba = {
-      enable = true;
-      package = pkgs.samba4Full;
-    };
     teamviewer.enable = true;
   };
 
