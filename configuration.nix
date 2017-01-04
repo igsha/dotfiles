@@ -10,6 +10,8 @@
     efi.canTouchEfiVariables = true;
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   networking = {
     hostName = "nixos-pc";
     networkmanager.enable = true;
@@ -151,7 +153,7 @@
       extraConfig = "SystemMaxUse=4G";
     };
     geoclue2.enable = true;
-    teamviewer.enable = true;
+    teamviewer.enable = false;
   };
 
   virtualisation = {
