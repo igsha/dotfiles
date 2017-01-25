@@ -9,8 +9,8 @@
 self: {
 
   "Jinja2" = python.mkDerivation {
-    name = "Jinja2-2.8.1";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/5f/bd/5815d4d925a2b8cbbb4b4960f018441b0c65f24ba29f3bdcfb3c8218a307/Jinja2-2.8.1.tar.gz"; sha256 = "35341f3a97b46327b3ef1eb624aadea87a535b8f50863036e085e7c426ac5891"; };
+    name = "Jinja2-2.9.4";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/f4/3f/28387a5bbc6883082c16784c6135440b94f9d5938fb156ff579798e18eda/Jinja2-2.9.4.tar.gz"; sha256 = "aab8d8ca9f45624f1e77f2844bf3c144d180e97da8824c2a6d7552ad039b5442"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [
@@ -56,8 +56,8 @@ self: {
 
 
   "Pygments" = python.mkDerivation {
-    name = "Pygments-2.1.3";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"; sha256 = "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"; };
+    name = "Pygments-2.2.0";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"; sha256 = "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [ ];
@@ -86,8 +86,8 @@ self: {
 
 
   "qutebrowser" = python.mkDerivation {
-    name = "qutebrowser-0.9.0";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/75/6f/96d70db37d15d395b135893fb4b3c5108c4a054e66088d591fc7ea900f48/qutebrowser-0.9.0.tar.gz"; sha256 = "df2c5e1f4de9473651b6fc8cbf1863ec2437f842f2e10473f13873b50c3f038f"; };
+    name = "qutebrowser-0.9.1";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/72/ed/244096bfe39e2d2f1d75a1d94a702dff05f68daf1f6752635ebdeaf66fca/qutebrowser-0.9.1.tar.gz"; sha256 = "5aabfd6824ece72a2ca2dd02f4ee47f5b3c48a289c9f3e1854d3b30e980dc95d"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [
