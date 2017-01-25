@@ -15,6 +15,19 @@
   networking = {
     hostName = "nixos-pc";
     networkmanager.enable = true;
+    connman = {
+      enable = false;
+      enableVPN = true;
+    };
+    wireless = {
+      enable = false;
+      networks = {
+        SomeNetwork = {
+          psk = "SomePassword";
+        };
+      };
+      userControlled.enable = true;
+    };
   };
 
   nixpkgs.config = {
@@ -110,7 +123,7 @@
     davmail qutebrowser
     vlc mpv
     pavucontrol
-    sxiv viewnior
+    gpicview
     dropbox-cli
     inkscape gimp
     xournal
