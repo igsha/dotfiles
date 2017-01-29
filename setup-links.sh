@@ -5,7 +5,7 @@ USERHOME=$HOME
 
 STANDALONE=(bashrc gdbinit git-prompt.sh nixpkgs Xdefaults xprofile pentadactylrc gnuplot wcalcrc)
 IN_CONFIG=(vifm matplotlib zathura dunst)
-IN_BIN=(translate calculator)
+IN_BIN=(translate calculator message-recorder)
 CONFIGDIRS=(i3 qutebrowser nvim mpv)
 
 mkdir -p $USERHOME/{bin,.vimplugged} ${IN_CONFIG[@]/#/$USERHOME/.config/}

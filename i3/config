@@ -173,6 +173,8 @@ bindsym Control+$mod+l exec --no-startup-id xscreensaver-command -l
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
+bindsym $mod+m exec --no-startup-id message-recorder -t
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {

@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+PIDFILE=/tmp/message-recorder.pid
+
+if [[ $1 == "-t" ]]; then
+    echo Toggle mode
+    if [[ -e $PIDFILE ]]; then
+        echo Stop recorder
+        exec kill -USR1 `cat $PIDFILE`
+    else
+        echo Start recorder
+        $0 &
+        exit 0
+    fi
+fi
+
+if [[ -e $PIDFILE ]]; then
+    echo Pid-file $PIDFILE exists, $0 has already run
+    exit 0
+fi
+
+trap 'rm $PIDFILE' EXIT
+
+CURRENT_DATE=`date +%FT%H%M%S`
+ffmpeg -loglevel error -f alsa -i default -f opus ~/$CURRENT_DATE.oga &
+CURRENT_PID=$!
+
+echo $CURRENT_PID > $PIDFILE
+trap 'kill -USR1 $CURRENT_PID' INT USR1 TERM QUIT KILL
+
+wait $CURRENT_PID
+echo exited due to SIG$(kill -l $?)

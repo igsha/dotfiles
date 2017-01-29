@@ -36,5 +36,6 @@ status.register("disk", path="/", format="{percentage_avail}% ({avail} GiB)", cr
 status.register("pulseaudio")
 status.register("shell", command="xkb-switch | tr [:lower:] [:upper:]", interval=3)
 status.register("keyboard_locks", caps_off='', num_off='', scroll_off='')
+status.register("runwatch", path='/tmp/message-recorder.pid', name='mic', format_down='', interval=3)
 
 status.run()

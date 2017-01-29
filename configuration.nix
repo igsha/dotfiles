@@ -92,6 +92,7 @@
     youtube-dl
     libxml2
     ponysay
+    ponymix
     fakeroot fakechroot debootstrap
     transmission
     wine winetricks
