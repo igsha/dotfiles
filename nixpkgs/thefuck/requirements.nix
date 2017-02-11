@@ -1,4 +1,4 @@
-# generated using pypi2nix tool (version: 1.5.0)
+# generated using pypi2nix tool (version: 1.6.0)
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
@@ -17,7 +17,6 @@ let
     inherit pkgs;
     inherit (pkgs) stdenv;
     python = pkgs.python35;
-    self = pythonPackages;
   };
 
   commonBuildInputs = [];
@@ -35,7 +34,9 @@ let
           for dep in ${builtins.concatStringsSep " " (builtins.attrValues pkgs)}; do
             if [ -d "$dep/bin" ]; then
               for prog in "$dep/bin/"*; do
-                ln -s $prog $out/bin/`basename $prog`
+                if [ -f $prog ]; then
+                  ln -s $prog $out/bin/`basename $prog`
+                fi
               done
             fi
           done
