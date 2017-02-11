@@ -1,0 +1,12 @@
+boto==2.43.0
+bottle==0.12.10
+colorama==0.3.7
+conan==0.15.0
+fasteners==0.14.1
+monotonic==1.2
+passlib==1.6.5
+patch==1.16
+PyJWT==1.4.2
+PyYAML==3.12
+requests==2.11.1
+six==1.10.0

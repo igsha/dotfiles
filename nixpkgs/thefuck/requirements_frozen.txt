@@ -1,0 +1,5 @@
+colorama==0.3.7
+decorator==4.0.10
+psutil==5.0.0
+six==1.10.0
+thefuck==3.11

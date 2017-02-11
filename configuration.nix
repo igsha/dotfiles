@@ -121,7 +121,7 @@
     gnuplot
     aspell aspellDicts.en aspellDicts.ru
     # gui
-    davmail qutebrowser
+    davmail
     vlc mpv
     pavucontrol
     gpicview
