@@ -1,8 +1,8 @@
-# generated using pypi2nix tool (version: 1.5.0)
+# generated using pypi2nix tool (version: 1.6.0)
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -V 3 -e conan
+#   pypi2nix -V 3.5 -e conan -s six -s packaging -s appdirs
 #
 
 { pkgs ? import <nixpkgs> {}
@@ -16,8 +16,7 @@ let
   pythonPackages = import "${toString pkgs.path}/pkgs/top-level/python-packages.nix" {
     inherit pkgs;
     inherit (pkgs) stdenv;
-    python = pkgs.python3;
-    self = pythonPackages;
+    python = pkgs.python35;
   };
 
   commonBuildInputs = [];
@@ -27,7 +26,7 @@ let
     let
       pkgs = builtins.removeAttrs pkgs' ["__unfix__"];
       interpreter = pythonPackages.buildPythonPackage {
-        name = "python3-interpreter";
+        name = "python35-interpreter";
         buildInputs = [ makeWrapper ] ++ (builtins.attrValues pkgs);
         buildCommand = ''
           mkdir -p $out/bin
@@ -35,7 +34,9 @@ let
           for dep in ${builtins.concatStringsSep " " (builtins.attrValues pkgs)}; do
             if [ -d "$dep/bin" ]; then
               for prog in "$dep/bin/"*; do
-                ln -s $prog $out/bin/`basename $prog`
+                if [ -f $prog ]; then
+                  ln -s $prog $out/bin/`basename $prog`
+                fi
               done
             fi
           done
