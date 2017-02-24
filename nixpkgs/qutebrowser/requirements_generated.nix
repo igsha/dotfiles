@@ -95,7 +95,6 @@ self: {
       self."PyYAML"
       self."Pygments"
       self."pyPEG2"
-      pkgs.python35Packages.pyqt5
     ];
     meta = with pkgs.stdenv.lib; {
       homepage = "";
