@@ -86,8 +86,8 @@ self: {
 
 
   "qutebrowser" = python.mkDerivation {
-    name = "qutebrowser-0.9.1";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/72/ed/244096bfe39e2d2f1d75a1d94a702dff05f68daf1f6752635ebdeaf66fca/qutebrowser-0.9.1.tar.gz"; sha256 = "5aabfd6824ece72a2ca2dd02f4ee47f5b3c48a289c9f3e1854d3b30e980dc95d"; };
+    name = "qutebrowser-0.10.0";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/91/02/a61e644ffab9eb93428cf7d408a4261ad0fa6cd0e3ee6e542f0fdb4edb18/qutebrowser-0.10.0.tar.gz"; sha256 = "b5f3516b8f886a972e5028858a9508a6d1adaf89190b38de27f6177998592b70"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [
@@ -99,7 +99,7 @@ self: {
     meta = with pkgs.stdenv.lib; {
       homepage = "";
       license = licenses.gpl3Plus;
-      description = "A keyboard-driven, vim-like browser based on PyQt5 and QtWebKit.";
+      description = "A keyboard-driven, vim-like browser based on PyQt5.";
     };
   };
 
