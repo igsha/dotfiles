@@ -10,7 +10,7 @@
     efi.canTouchEfiVariables = true;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+#boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking = {
     hostName = "nixos-pc";
@@ -37,6 +37,7 @@
     chromium.enablePepperFlash = true;
     allowTexliveBuilds = true;
     wine.release = "unstable";
+    permittedInsecurePackages = [ "webkitgtk-2.4.11" ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -138,7 +139,6 @@
       enablePluginRssyl = true;
     })
     libreoffice
-    kde4.kruler
     neovim-qt
     flashplayer
     networkmanagerapplet
