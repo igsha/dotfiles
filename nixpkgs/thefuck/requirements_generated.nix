@@ -39,8 +39,8 @@ self: {
 
 
   "psutil" = python.mkDerivation {
-    name = "psutil-5.1.3";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/78/0a/aa90434c6337dd50d182a81fe4ae4822c953e166a163d1bf5f06abb1ac0b/psutil-5.1.3.tar.gz"; sha256 = "959bd58bdc8152b0a143cb3bd822d4a1b8f7230617b0e3eb2ff6e63812120f2b"; };
+    name = "psutil-5.2.0";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/3c/2f/f3ab91349c666f009077157b12057e613a3152a46a6c3be883777546b6de/psutil-5.2.0.tar.gz"; sha256 = "2fc91d068faa5613c093335f0e758673ef8c722ad4bfa4aded64c13ae69089eb"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [ ];
