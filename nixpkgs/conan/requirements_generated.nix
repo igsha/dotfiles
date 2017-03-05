@@ -39,15 +39,15 @@ self: {
 
 
   "appdirs" = python.mkDerivation {
-    name = "appdirs-1.4.0";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"; sha256 = "8fc245efb4387a4e3e0ac8ebcc704582df7d72ff6a42a53f5600bbb18fdaadc5"; };
+    name = "appdirs-1.4.2";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/88/99/293dac0b3cdf58ce029ec5393624fac5c6bde52f737f9775bd9ef608ec98/appdirs-1.4.2.tar.gz"; sha256 = "e2de7ae2b3be52542b711eacf4221683f1d2f7706a5550cb2c562ee4ba93ee74"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [ ];
     meta = with pkgs.stdenv.lib; {
       homepage = "";
       license = licenses.mit;
-      description = "A small Python module for determining appropriate \" +         \"platform-specific dirs, e.g. a \"user data dir\".";
+      description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\".";
     };
   };
 
@@ -84,8 +84,8 @@ self: {
 
 
   "conan" = python.mkDerivation {
-    name = "conan-0.19.1";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/f4/13/52d0f3ae136d2f9973cf4e26fb9bdee0361f398939c11c9fb3910ea15876/conan-0.19.1.tar.gz"; sha256 = "bd46bc797e6d50acedb91ce04e8e841936e042fb6debfa0ef40e18382b5b8f45"; };
+    name = "conan-0.20.2";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/4f/2d/c0b528ef736886a6f33a6317c8736f320fb92978cd63f7453b8a0aeddd85/conan-0.20.2.tar.gz"; sha256 = "3a4fb4a88fc064ba2a898ebc9f962065b51bfeef5246d24104f80359e275e898"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [
