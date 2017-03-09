@@ -150,7 +150,7 @@
       enable = true;
       forwardX11 = true;
     };
-    ntp.enable = true;
+    openntpd.enable = true;
     printing.enable = true;
     nixosManual.showManual = true;
     tor.enable = true;
