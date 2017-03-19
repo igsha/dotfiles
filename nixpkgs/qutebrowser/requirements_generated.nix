@@ -26,8 +26,8 @@ self: {
 
 
   "MarkupSafe" = python.mkDerivation {
-    name = "MarkupSafe-0.23";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"; sha256 = "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"; };
+    name = "MarkupSafe-1.0";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"; sha256 = "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [ ];
@@ -86,8 +86,8 @@ self: {
 
 
   "qutebrowser" = python.mkDerivation {
-    name = "qutebrowser-0.10.0";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/91/02/a61e644ffab9eb93428cf7d408a4261ad0fa6cd0e3ee6e542f0fdb4edb18/qutebrowser-0.10.0.tar.gz"; sha256 = "b5f3516b8f886a972e5028858a9508a6d1adaf89190b38de27f6177998592b70"; };
+    name = "qutebrowser-0.10.1";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/21/71/6e1824f888e18bac57d1af5fd2dd8f559a3049043d508f36ae7ad96f56d3/qutebrowser-0.10.1.tar.gz"; sha256 = "57f4915f0f2b1509f3aa1cb9c47117fdaad35b4c895e9223c4eb0a6e8af51917"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [
