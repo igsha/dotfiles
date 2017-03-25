@@ -32,7 +32,7 @@ URxvt*color7: #6C7A80
 URxvt*color15: #C5C8C6
 
 URxvt*title:                URXVT
-URxvt*font:                 xft:terminus:size=11
+URxvt*font:                 xft:DejaVu Sans Mono:size=10
 URxvt*boldFont:
 URxvt*italicFont:
 URxvt*boldItalicFont:

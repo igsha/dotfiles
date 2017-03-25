@@ -222,14 +222,18 @@
     enableFontDir = true;
     enableGhostscriptFonts = true;
     enableCoreFonts = true;
-    fontconfig.defaultFonts.monospace = ["Terminus"];
+    fontconfig = {
+      defaultFonts.monospace = ["Liberation Mono"];
+      antialias = true;
+    };
     fonts = with pkgs; [
       corefonts
       dejavu_fonts
       freefont_ttf
-      terminus_font
+      terminus_font_ttf
       ttf_bitstream_vera
       inconsolata-lgc
+      google-fonts
     ];
   };
 
