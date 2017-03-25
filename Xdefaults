@@ -90,9 +90,9 @@ Xcursor*size:               22
 ! XTerm settings
 XTerm*utf8:                 2
 XTerm*utf8Title:            true
-XTerm*font:                 -xos4-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-1
+!XTerm*font:                 xft:DejaVu Sans Mono:size=10
 XTerm*renderFont:           false
-XTerm*faceName:             xft:Terminus:pixelsize=16
+XTerm*faceName:             xft:DejaVu Sans Mono:pixelsize=16
 XTerm*locale:               true
 !XTerm*renderFont:           true
 !XTerm*faceName:             Terminus
