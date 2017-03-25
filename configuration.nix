@@ -37,7 +37,6 @@
     chromium.enablePepperFlash = true;
     allowTexliveBuilds = true;
     wine.release = "unstable";
-    permittedInsecurePackages = [ "webkitgtk-2.4.11" ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -69,7 +68,7 @@
     dmidecode lshw smartmontools pciutils usbutils
     htop iotop lsof inetutils
     mtr nethogs ngrep nmap bind iftop iptraf wireshark-cli proxychains
-    sysstat dstat connect corkscrew torsocks socat
+    sysstat dstat connect corkscrew torsocks socat wakelan
     pv
     xcompmgr
     tree file which mkpasswd
@@ -88,7 +87,6 @@
     xterm
     ntfs3g gparted xfsprogs
     tmux
-    wakelan
     xchm
     youtube-dl
     libxml2
@@ -118,7 +116,7 @@
     pypi2nix
     libxslt
     # for latex
-    imagemagick
+    imagemagick exif
     gnuplot
     aspell aspellDicts.en aspellDicts.ru
     # gui
@@ -137,12 +135,18 @@
       enablePluginVcalendar = true;
       enableSpellcheck = true;
       enablePluginRssyl = true;
+      enablePluginPdf = true;
+      webkitgtk2 = webkitgtk214x;
     })
     libreoffice
     neovim-qt
-    flashplayer
+    flashplayer-standalone
     networkmanagerapplet
     skype tdesktop
+    google-chrome
+    # self packed
+    (import ./nixpkgs/qutebrowser/requirements.nix { }).packages.qutebrowser
+    (import ./nixpkgs/thefuck/requirements.nix { }).packages.thefuck
   ];
 
   services = {

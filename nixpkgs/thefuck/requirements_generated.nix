@@ -39,8 +39,8 @@ self: {
 
 
   "psutil" = python.mkDerivation {
-    name = "psutil-5.2.0";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/3c/2f/f3ab91349c666f009077157b12057e613a3152a46a6c3be883777546b6de/psutil-5.2.0.tar.gz"; sha256 = "2fc91d068faa5613c093335f0e758673ef8c722ad4bfa4aded64c13ae69089eb"; };
+    name = "psutil-5.2.1";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/b8/47/c85fbcd23f40892db6ecc88782beb6ee66d22008c2f9821d777cb1984240/psutil-5.2.1.tar.gz"; sha256 = "fe0ea53b302f68fca1c2a3bac289e11344456786141b73391ed4022b412d5455"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [ ];
@@ -69,8 +69,8 @@ self: {
 
 
   "thefuck" = python.mkDerivation {
-    name = "thefuck-3.14";
-    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/92/dc/c03623252b8a165257ba6bbcf3c87117c92807c27ab42cf933018d97722e/thefuck-3.14.tar.gz"; sha256 = "0d00217a3b90af50d7c88806cf560b0ac59071c115df4c2a67800f6ea1f1be4d"; };
+    name = "thefuck-3.15";
+    src = pkgs.fetchurl { url = "https://pypi.python.org/packages/87/f1/d159c8351b4220384630904cb13bded28f1564eaef7f9a0eb6d3080487a6/thefuck-3.15.tar.gz"; sha256 = "c1da9f9b705c864362316de34a1494df0c803699e587e6cf925407e42966b4aa"; };
     doCheck = commonDoCheck;
     buildInputs = commonBuildInputs;
     propagatedBuildInputs = [
