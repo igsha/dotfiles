@@ -116,7 +116,7 @@ filetype *.mp3 ffplay %f
 fileviewer *.mp3 ffprobe -show_format -pretty %f 2> /dev/null
 
 " Video
-filetype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mov,*.flv,*.mpg,*.m4v vlc %f
+filetype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mov,*.flv,*.mpg,*.m4v xdg-open %f
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mov,*.flv,*.mpg,*.m4v ffprobe -show_format -show_streams -pretty -print_format json -loglevel quiet %f
 
 " Web
@@ -167,7 +167,7 @@ filetype *.exe wine %f
 filetype *.doc,*.docx,*.odt libreoffice --writer %f
 filetype *.ppt,*.pptx,*.odp libreoffice --impress %f
 filetype *.vsd,*.odg libreoffice --draw %f
-filetype *.xls,*.ods libreoffice --calc %f
+filetype *.xls,*.xlsx,*.ods libreoffice --calc %f
 
 " For automated FUSE mounts, you must register an extension with FILETYPE=..
 " in one of following formats:

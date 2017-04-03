@@ -115,7 +115,7 @@ set hlsearch incsearch ignorecase smartcase
 set vb t_vb= novb
 set hidden
 set autochdir
-set textwidth=130
+set textwidth=200
 
 " {{{ Key mapping
 map k <c-y>
@@ -177,5 +177,8 @@ endfunction
 
 autocmd BufEnter *.c,*.h,*.tex,*.cpp,*.s :call AttachGitTags()
 autocmd FileType asm setlocal formatoptions+=rol
+augroup filetypedetect
+    au BufRead,BufNewFile *.inc set filetype=asm
+augroup END
 
 " vim: fdm=marker:

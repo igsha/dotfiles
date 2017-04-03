@@ -70,7 +70,9 @@ alias ll="ls -lt"
 alias grep="grep --color"
 alias cal="cal -m3"
 alias df="df -h"
+
 alias wineru="LC_ALL=ru_RU.UTF-8 wine"
+alias wineru64="WINEARCH=win64 WINEPREFIX=~/.wine64 wineru"
 
 unset SSH_ASKPASS
 

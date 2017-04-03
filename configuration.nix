@@ -36,7 +36,10 @@
     firefox.enableAdobeFlash = true;
     chromium.enablePepperFlash = true;
     allowTexliveBuilds = true;
-    wine.release = "unstable";
+    wine = {
+      release = "unstable";
+      build = "wineWow";
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -121,7 +124,7 @@
     aspell aspellDicts.en aspellDicts.ru
     # gui
     davmail
-    vlc mpv
+    mpv
     pavucontrol
     gpicview
     dropbox-cli
