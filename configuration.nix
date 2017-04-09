@@ -10,8 +10,6 @@
     efi.canTouchEfiVariables = true;
   };
 
-#boot.kernelPackages = pkgs.linuxPackages_latest;
-
   networking = {
     hostName = "nixos-pc";
     networkmanager.enable = true;
@@ -36,10 +34,7 @@
     firefox.enableAdobeFlash = true;
     chromium.enablePepperFlash = true;
     allowTexliveBuilds = true;
-    wine = {
-      release = "unstable";
-      build = "wineWow";
-    };
+    wine.release = "unstable";
   };
 
   environment.systemPackages = with pkgs; [
@@ -148,7 +143,8 @@
     skype tdesktop
     google-chrome
     # self packed
-    (import ./nixpkgs/qutebrowser/requirements.nix { }).packages.qutebrowser
+    #(import ./nixpkgs/qutebrowser/requirements.nix { }).packages.qutebrowser
+    qutebrowser
     (import ./nixpkgs/thefuck/requirements.nix { }).packages.thefuck
   ];
 
@@ -193,6 +189,9 @@
       enable = true;
       systemWide = true;
       support32Bit = true;
+      daemon.config = {
+        flat-volumes = "no";
+      };
     };
   };
 

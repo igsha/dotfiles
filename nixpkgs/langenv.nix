@@ -61,6 +61,7 @@ in rec {
       pillow
       tabulate
       readline
+      docutils
     ];
   };
 
