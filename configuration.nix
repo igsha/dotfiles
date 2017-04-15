@@ -198,8 +198,12 @@
   services.xserver = {
     autorun = true;
     enable = true;
+
     layout = "us,ru";
     xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys";
+    autoRepeatDelay = 300;
+    autoRepeatInterval = 20;
+    enableTCP = true;
 
     videoDrivers = [ "nvidia" ];
 
@@ -225,7 +229,7 @@
     enableGhostscriptFonts = true;
     enableCoreFonts = true;
     fontconfig = {
-      defaultFonts.monospace = ["Liberation Mono"];
+      defaultFonts.monospace = ["DejaVu Sans Mono"];
       antialias = true;
     };
     fonts = with pkgs; [

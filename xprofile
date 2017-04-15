@@ -4,15 +4,13 @@
 xset b off
 # set left-like cursor
 xsetroot -cursor_name left_ptr
-# set up delay and rate for keyboard
-xset r rate 300 50
 numlockx on
 setxkbmap
 
 # keyboard layout switcher
 # kbdd
 
-xhost +local:$USER
+#xhost +local:$USER
 
 # set wallpeper
 feh --randomize --bg-center $HOME/Pictures/
