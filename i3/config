@@ -206,7 +206,7 @@ assign [class="VirtualBox"] 7
 exec urxvt
 exec nvim-qt
 exec claws-mail
-exec davmail.sh
+exec davmail
 exec qutebrowser
 exec dropbox start
 exec skype

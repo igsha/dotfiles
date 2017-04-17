@@ -21,8 +21,7 @@ in rec {
     src = ./.;
     hardeningDisable = [ "all" ];
     buildInputs = with pkgs; [
-      stdenv
-      gcc
+      gcc6
       ncurses
       SDL SDL_image
       opencv3
