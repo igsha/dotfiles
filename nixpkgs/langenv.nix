@@ -12,8 +12,8 @@ let
     doxygen
     valgrind
     openmpi
-    rpm
-    clib
+    pythonPackages.sphinx
+    pythonPackages.docutils
   ];
 in rec {
   gccenv = stdenv.mkDerivation {
@@ -60,6 +60,7 @@ in rec {
       pillow
       tabulate
       readline
+      sphinx
       docutils
     ];
   };
