@@ -154,13 +154,13 @@ set spelllang=ru_yo,en
 
 function MakeTagsInGitRootDir()
     let l:rootdir = system('git rev-parse --show-toplevel')
-    if (v:shell_error != 0)
+    if v:shell_error != 0
         echoerr 'Not a git directory'
         return
     endif
     let l:tagfile = substitute(l:rootdir, '\n\+$', '', '') . '/.git/tags'
     echo system('ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --exclude="*.html" -o ' . l:tagfile . ' ' . l:rootdir)
-    if (v:shell_error != 0)
+    if v:shell_error != 0
         echoerr 'Got a error' v:shell_error
     endif
     echo 'Updated tags:' l:tagfile
@@ -170,7 +170,7 @@ command -nargs=0 MakeGitTags :call MakeTagsInGitRootDir()
 
 function AttachGitTags()
     let l:rootdir = system('git rev-parse --show-toplevel')
-    if (v:shell_error != 0) | return | endif
+    if v:shell_error != 0 | return | endif
     let l:tagfile = substitute(l:rootdir, '\n\+$', '', '') . '/.git/tags'
     let &l:tags = l:tagfile
 endfunction
@@ -180,5 +180,29 @@ autocmd FileType asm setlocal formatoptions+=rol
 augroup filetypedetect
     au BufRead,BufNewFile *.inc set filetype=asm
 augroup END
+
+function MakeDefaultLocalvimrc()
+    let l:rootdir = system('git rev-parse --show-toplevel')
+    if v:shell_error != 0
+        echoerr 'Not a git directory'
+        return
+    endif
+    let l:localvimrc_file = substitute(l:rootdir, '\n\+$', '', '') . '/.git/localvimrc'
+    if filereadable(l:localvimrc_file)
+        echoerr 'File ' . l:localvimrc_file . ' exists'
+        return
+    endif
+    let l:commands = [
+                \       "let project_root_dir = g:localvimrc_script_dir . '/..'",
+                \       "let &l:makeprg = 'cmake --build ' . project_root_dir . '/build -- -j '"
+                \    ]
+    let l:result = writefile(l:commands, l:localvimrc_file, )
+    if l:result != 0
+        echoerr "Can't write a localvimrc to " . l:localvimrc_file
+    endif
+    echo "Write localvimrc to " . l:localvimrc_file
+endfunction
+
+command -nargs=0 MakeLocalvimrc :call MakeDefaultLocalvimrc()
 
 " vim: fdm=marker:
