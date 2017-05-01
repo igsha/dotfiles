@@ -12,8 +12,7 @@ let
     doxygen
     valgrind
     openmpi
-    pythonPackages.sphinx
-    pythonPackages.docutils
+    rpm
   ];
 in rec {
   gccenv = stdenv.mkDerivation {
@@ -50,12 +49,12 @@ in rec {
   pythonenv = stdenv.mkDerivation {
     name = "pythonenv";
     src = ./.;
-    buildInputs = with pythonPackages; [
-      pkgs.pythonFull
+    buildInputs = with python3Packages; [
+      pkgs.python3Full
       matplotlib
-      pyside
       ipython
       scipy
+      pyside
       virtualenv
       pillow
       tabulate

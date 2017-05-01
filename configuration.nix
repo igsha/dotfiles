@@ -113,6 +113,8 @@
     pass
     pypi2nix
     libxslt
+    moreutils
+    xorg.xwininfo
     # for latex
     imagemagick exif
     gnuplot
@@ -243,8 +245,6 @@
     ];
   };
 
-  programs.bash.enableCompletion = true;
-
   systemd.coredump = {
     enable = true;
     extraConfig = "Storage=external";
@@ -267,6 +267,31 @@
     extraOptions = ''
       gc-keep-outputs = true
       gc-keep-derivations = true
+    '';
+  };
+
+  programs.bash = {
+    enableCompletion = true;
+    shellAliases = {
+      ls = "ls -h --color";
+      "ls.pure" = "`which ls`";
+      la = "ls -lta";
+      ll = "ls -lt";
+      grep = "grep --color";
+      cal = "cal -m3";
+      df = "df -h";
+      wineru = "LC_ALL=ru_RU.UTF-8 wine";
+      wineru64 = "WINEARCH=win64 WINEPREFIX=~/.wine64 wineru";
+      fix = "TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1)) && eval $TF_CMD && history -s $TF_CMD";
+    };
+    loginShellInit = ''
+      export HISTCONTROL=ignoredups
+      unset SSH_ASKPASS
+      export EDITOR=nvim
+      export BROWSER=qutebrowser
+      export PDFVIEWER=zathura
+      export PSVIEWER=$PDFVIEWER
+      export DVIVIEWER=$PDFVIEWER
     '';
   };
 }
