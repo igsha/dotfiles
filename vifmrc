@@ -117,7 +117,7 @@ fileviewer *.mp3 ffprobe -show_format -pretty %f 2> /dev/null
 
 " Video
 filetype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mov,*.flv,*.mpg,*.m4v xdg-open %f
-fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mov,*.flv,*.mpg,*.m4v ffprobe -show_format -show_streams -pretty -print_format json -loglevel quiet %f
+fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mov,*.flv,*.mpg,*.m4v ffprobe -show_format -print_format json -loglevel quiet %f
 
 " Web
 filetype *.html,*.htm xdg-open %f
