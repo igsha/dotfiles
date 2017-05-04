@@ -61,6 +61,7 @@ in rec {
       readline
       sphinx
       docutils
+      future
     ];
   };
 
@@ -78,7 +79,7 @@ in rec {
       poppler_utils
       biber
       gnome3.libgxps
-      pythonenv.nativeBuildInputs
+      pythonenv.buildInputs
     ];
   };
 }
