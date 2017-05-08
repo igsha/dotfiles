@@ -203,7 +203,6 @@ assign [class="Wine"] 6
 assign [class="VirtualBox"] 7
 
 # startup
-exec urxvt
 exec nvim-qt
 exec claws-mail
 exec davmail
@@ -211,8 +210,12 @@ exec qutebrowser
 exec dropbox start
 exec skype
 exec telegram-desktop
+exec i3-sensible-terminal
 
 exec xscreensaver -no-splash
 exec unclutter
 exec dunst
 exec nm-applet
+exec numlockx
+exec setxkbmap
+exec feh --randomize --bg-center ~/Pictures/

@@ -3,7 +3,7 @@
 DOTFILESDIR=$HOME/.dotfiles
 USERHOME=$HOME
 
-STANDALONE=(bashrc gdbinit git-prompt.sh nixpkgs Xdefaults xprofile pentadactylrc gnuplot wcalcrc)
+STANDALONE=(bashrc gdbinit git-prompt.sh nixpkgs Xdefaults pentadactylrc gnuplot wcalcrc)
 IN_CONFIG=(vifm matplotlib zathura dunst)
 IN_BIN=(translate calculator message-recorder)
 CONFIGDIRS=(i3 qutebrowser nvim mpv)

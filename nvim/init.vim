@@ -57,7 +57,6 @@ Plug 'tyru/restart.vim' " {{{
 let g:restart_sessionoptions = 'buffers,curdir,folds,help,options'
 let g:restart_command = 'PureRestart'
 command! -nargs=* Restart PureRestart --cmd "let g:vim_server_loaded = 1" <args>
-set guiheadroom=0
 " }}}
 Plug 'igsha/vim-server' " {{{
 let g:vim_server_ignore_servernames = ["VIM", "VS_NET"]

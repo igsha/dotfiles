@@ -173,6 +173,7 @@
     };
     geoclue2.enable = true;
     teamviewer.enable = false;
+    urxvtd.enable = true;
   };
 
   virtualisation = {
@@ -292,6 +293,7 @@
       export PDFVIEWER=zathura
       export PSVIEWER=$PDFVIEWER
       export DVIVIEWER=$PDFVIEWER
+      export TERMINAL=urxvtc
     '';
   };
 }
