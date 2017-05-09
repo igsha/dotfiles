@@ -1,6 +1,4 @@
 [global]
-    font = Terminus 10
-
     # Allow a small subset of html markup:
     #   <b>bold</b>
     #   <i>italic</i>
