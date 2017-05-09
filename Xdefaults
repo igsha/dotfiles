@@ -83,6 +83,11 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 
 !URxvt.keysym.Home:          \033[1~
 !URxvt.keysym.End:           \033[4~
+URxvt.keysym.C-Tab:         \033{
+URxvt.keysym.Control-Shift-ISO_Left_Tab: \033}
+! disable ctrl-shift
+URxvt*iso14755: False
+URxvt*iso14755_52: False
 
 Xcursor*theme:              gentoo
 Xcursor*size:               22

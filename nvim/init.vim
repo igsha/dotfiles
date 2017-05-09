@@ -121,10 +121,12 @@ map k <c-y>
 map j <c-e>
 map h zh
 map l zl
+
 map <c-tab> :bn<CR>
 map <c-s-tab> :bp<CR>
-map gt :bn<CR>
-map gT :bp<CR>
+map gt <c-tab>
+map gT <c-s-tab>
+
 map <Space> :noh<CR>
 map <C-Left> <C-W><Left>
 map <C-Right> <C-W><Right>
