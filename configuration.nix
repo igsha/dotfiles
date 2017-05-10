@@ -154,6 +154,11 @@
     openssh = {
       enable = true;
       forwardX11 = true;
+      extraConfig = ''
+        AllowTcpForwarding yes
+        TCPKeepAlive yes
+        PermitTunnel yes
+      '';
     };
     openntpd.enable = true;
     printing.enable = true;
