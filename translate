@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-
-xterm -e sdcv
-
+urxvtc -name translate -title sdcv -e sdcv

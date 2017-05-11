@@ -192,9 +192,9 @@ workspace_auto_back_and_forth yes
 workspace_layout tabbed
 
 for_window [class="Galculator|ffplay|XTerm"] floating enable, border normal
+for_window [instance="calculator|translate"] floating enable, border normal
 for_window [class="Kruler"] floating enable, border none
 
-assign [class="URxvt"] 1
 assign [class="qutebrowser"] 2
 assign [class="nvim-qt"] 3
 assign [class="Thunderbird|Claws-mail"] 4
@@ -210,7 +210,7 @@ exec qutebrowser
 exec dropbox start
 exec skype
 exec telegram-desktop
-exec i3-sensible-terminal
+exec i3-msg 'workspace 1; i3-sensible-terminal'
 
 exec xscreensaver -no-splash
 exec unclutter
