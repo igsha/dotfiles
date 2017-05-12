@@ -112,6 +112,7 @@ set list listchars=tab:»»,trail:·,nbsp:º
 
 set hlsearch incsearch ignorecase smartcase
 set vb t_vb= novb
+set mouse=a
 set hidden
 set autochdir
 set textwidth=200
