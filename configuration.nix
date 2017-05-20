@@ -150,6 +150,10 @@
     (import ./nixpkgs/thefuck/requirements.nix { }).packages.thefuck
   ];
 
+  environment.etc = {
+    "fuse.conf".text = "user_allow_other";
+  };
+
   services = {
     openssh = {
       enable = true;
@@ -179,6 +183,7 @@
     geoclue2.enable = true;
     teamviewer.enable = false;
     urxvtd.enable = true;
+    compton.enable = true;
   };
 
   virtualisation = {
@@ -226,7 +231,10 @@
 
     windowManager = {
       default = "i3";
-      i3.enable = true;
+      i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
+      };
     };
   };
 
@@ -275,6 +283,8 @@
       gc-keep-derivations = true
     '';
   };
+
+  system.autoUpgrade.enable = true;
 
   programs.bash = {
     enableCompletion = true;

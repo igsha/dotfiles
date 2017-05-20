@@ -195,22 +195,26 @@ for_window [class="Galculator|ffplay|XTerm"] floating enable, border normal
 for_window [instance="calculator|translate"] floating enable, border normal
 for_window [class="Kruler"] floating enable, border none
 
+assign [instance="urxvt"] 1
 assign [class="qutebrowser"] 2
-assign [class="nvim-qt"] 3
+assign [instance="nvim"] 3
 assign [class="Thunderbird|Claws-mail"] 4
 assign [class="Firefox|telegram-desktop|TelegramDesktop|Skype"] 5
 assign [class="Wine"] 6
 assign [class="VirtualBox"] 7
 
+# wake up urxvtd
+exec --no-startup-id ~/.dotfiles/urxvt-start.sh
+
 # startup
-exec nvim-qt
+#exec nvim-qt
 exec claws-mail
 exec davmail
 exec qutebrowser
 exec dropbox start
 exec skype
 exec telegram-desktop
-exec i3-msg 'workspace 1; i3-sensible-terminal'
+#exec i3-sensible-terminal
 
 exec xscreensaver -no-splash
 exec unclutter
