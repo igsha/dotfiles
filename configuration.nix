@@ -68,7 +68,6 @@
     mtr nethogs ngrep nmap bind iftop iptraf wireshark-cli proxychains
     sysstat dstat connect corkscrew torsocks socat wakelan
     pv
-    xcompmgr
     tree file which mkpasswd
     openssl encfs
     dunst libnotify
@@ -183,8 +182,42 @@
     geoclue2.enable = true;
     teamviewer.enable = false;
     urxvtd.enable = true;
+    xserver = {
+      autorun = true;
+      enable = true;
+
+      layout = "us,ru";
+      xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys";
+      autoRepeatDelay = 300;
+      autoRepeatInterval = 20;
+      enableTCP = true;
+
+      videoDrivers = [ "nvidia" ];
+
+      desktopManager = {
+        default = "none";
+        xterm.enable = false;
+      };
+
+      displayManager.slim = {
+        enable = true;
+      };
+
+      windowManager = {
+        default = "i3";
+        i3 = {
+          enable = true;
+          package = pkgs.i3-gaps;
+        };
+      };
+    };
     compton.enable = true;
+    actkbd = {
+      enable = true;
+    };
   };
+
+  sound.mediaKeys.enable = true;
 
   virtualisation = {
     virtualbox.host.enable = true;
@@ -204,36 +237,6 @@
       support32Bit = true;
       daemon.config = {
         flat-volumes = "no";
-      };
-    };
-  };
-
-  services.xserver = {
-    autorun = true;
-    enable = true;
-
-    layout = "us,ru";
-    xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys";
-    autoRepeatDelay = 300;
-    autoRepeatInterval = 20;
-    enableTCP = true;
-
-    videoDrivers = [ "nvidia" ];
-
-    desktopManager = {
-      default = "none";
-      xterm.enable = false;
-    };
-
-    displayManager.slim = {
-      enable = true;
-    };
-
-    windowManager = {
-      default = "i3";
-      i3 = {
-        enable = true;
-        package = pkgs.i3-gaps;
       };
     };
   };
