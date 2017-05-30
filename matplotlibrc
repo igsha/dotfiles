@@ -1,7 +1,5 @@
 backend             : qt4agg
 
-font.family         : verdana
-
 text.latex.unicode  : True
 text.latex.preamble : \usepackage[utf8]{inputenc},\usepackage[russian]{babel}
 
@@ -22,3 +20,4 @@ keymap.yscale       : l                  # toggle scaling of y-axes ('log'/'line
 keymap.xscale       : L, k               # toggle scaling of x-axes ('log'/'linear')
 keymap.all_axes     : a                  # enable all axes
 
+axes.grid           : True
