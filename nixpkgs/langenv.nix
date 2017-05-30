@@ -49,8 +49,8 @@ in rec {
   pythonenv = stdenv.mkDerivation {
     name = "pythonenv";
     src = ./.;
-    buildInputs = with python3Packages; [
-      pkgs.python3Full
+    buildInputs = with python35Packages; [
+      pkgs.python35Full
       matplotlib
       ipython
       scipy
