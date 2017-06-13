@@ -117,7 +117,12 @@
     # for latex
     imagemagick exif
     gnuplot
-    aspell aspellDicts.en aspellDicts.ru
+    aspell aspellDicts.en
+    (aspellDicts.ru.overrideAttrs (oldAttrs: rec {
+      postInstall = ''
+        echo "special - -*-" >> $out/lib/aspell/ru.dat
+      '';
+    }))
     # gui
     davmail
     mpv
