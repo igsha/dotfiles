@@ -284,7 +284,7 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "08:00";
+      dates = "Fri 20:00";
     };
     extraOptions = ''
       gc-keep-outputs = true
@@ -292,7 +292,10 @@
     '';
   };
 
-  system.autoUpgrade.enable = true;
+  system.autoUpgrade = {
+    enable = true;
+    dates = "Fri 20:00";
+  };
 
   programs.bash = {
     enableCompletion = true;

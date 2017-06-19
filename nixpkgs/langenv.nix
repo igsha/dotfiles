@@ -13,6 +13,8 @@ let
     valgrind
     openmpi
     rpm
+    cimg
+    pngpp
   ];
 in rec {
   gccenv = stdenv.mkDerivation {
