@@ -216,7 +216,15 @@
         };
       };
     };
-    compton.enable = true;
+    compton = {
+      enable = true;
+      vSync = "opengl";
+      # https://github.com/chjj/compton/issues/152
+      extraOptions = ''
+        xrender-sync = true
+        xrender-sync-fence = true
+      '';
+    };
     actkbd = {
       enable = true;
     };
