@@ -4,14 +4,14 @@ DOTFILESDIR=$HOME/.dotfiles
 USERHOME=$HOME
 
 STANDALONE=(bashrc gdbinit git-prompt.sh nixpkgs Xdefaults pentadactylrc gnuplot wcalcrc)
-IN_CONFIG=(vifm matplotlib dunst)
-IN_BIN=(translate calculator message-recorder)
-CONFIGDIRS=(i3 qutebrowser nvim mpv)
+IN_CONFIG=(vifm dunst)
+IN_BIN=(translate calculator message-recorder pylab)
+CONFIGDIRS=(i3 qutebrowser nvim mpv matplotlib)
 
 mkdir -p $USERHOME/{bin,.vimplugged} ${IN_CONFIG[@]/#/$USERHOME/.config/}
 
 for ll in ${STANDALONE[*]}; do
-    ln -s $DOTFILESDIR/$ll $USERHOME/.$ll
+    ln -sT $DOTFILESDIR/$ll $USERHOME/.$ll
 done
 
 for ll in ${IN_BIN[*]}; do
@@ -23,5 +23,5 @@ for ll in ${IN_CONFIG[*]}; do
 done
 
 for ll in ${CONFIGDIRS[*]}; do
-    ln -s $DOTFILESDIR/$ll $USERHOME/.config/
+    ln -sT $DOTFILESDIR/$ll $USERHOME/.config/$ll
 done
