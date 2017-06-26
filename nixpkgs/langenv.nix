@@ -15,6 +15,7 @@ let
     rpm
     cimg
     pngpp
+    clang-tools
   ];
 in rec {
   gccenv = stdenv.mkDerivation {
