@@ -140,7 +140,7 @@
       enableSpellcheck = true;
       enablePluginRssyl = true;
       enablePluginPdf = true;
-      webkitgtk2 = webkitgtk;
+      webkitgtk24x-gtk2 = webkitgtk216x;
     })
     libreoffice
     neovim-qt
