@@ -165,7 +165,7 @@ bindsym $mod+Control+t exec translate
 bindsym Print exec scrot
 bindsym $mod+Print exec scrot -u
 
-bindsym --release ISO_Next_Group exec --no-startup-id killall -USR1 i3status # update language bar
+bindsym --release ISO_Next_Group exec --no-startup-id pkill -USR1 i3pystatus # update language bar
 
 bindsym XF86Sleep exec --no-startup-id xscreensaver-command -l
 bindsym Control+$mod+l exec --no-startup-id xscreensaver-command -l
