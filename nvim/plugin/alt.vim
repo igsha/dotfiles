@@ -6,7 +6,7 @@ endif
 
 function s:SwitchToAlt(src_file_root, extention)
   let &l:path= '.,../**'
-  if tolower(a:extention) == "h"
+  if tolower(a:extention) == "h" || tolower(a:extention) == "hpp"
     try
       exec 'find ' . a:src_file_root . ".c"
     catch
