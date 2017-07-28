@@ -70,7 +70,7 @@ Plug 'PProvost/vim-ps1'
 Plug 'chrisbra/csv.vim'
 Plug 'palopezv/vim-nroff'
 Plug 'awagner-mainz/vim-homekey'
-Plug 'bruno-/vim-man'
+Plug 'nhooyr/neoman.vim'
 Plug 'w0ng/vim-hybrid' " {{{
 let g:hybrid_reduced_contrast = 1
 "}}}

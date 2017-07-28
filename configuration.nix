@@ -148,14 +148,16 @@
     networkmanagerapplet
     skype tdesktop
     google-chrome
+    qutebrowser
     # self packed
     #(import ./nixpkgs/qutebrowser/requirements.nix { }).packages.qutebrowser
-    qutebrowser
     (import ./nixpkgs/thefuck/requirements.nix { }).packages.thefuck
   ];
 
   environment.etc = {
-    "fuse.conf".text = "user_allow_other";
+    "fuse.conf".text = ''
+      user_allow_other
+    '';
   };
 
   services = {
@@ -228,12 +230,13 @@
     actkbd = {
       enable = true;
     };
+    rogue.enable = true;
   };
 
   sound.mediaKeys.enable = true;
 
   virtualisation = {
-    virtualbox.host.enable = true;
+    virtualbox.host.enable = false;
   };
 
   hardware = {
