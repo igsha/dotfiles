@@ -1,3 +1,6 @@
+from scipy import interpolate
+from scipy.signal import argrelextrema, argrelmax, argrelmin
+
 def __pure_shinc1(x, N):
     return sin(pi*x)/sin(pi*x/N)/float(N) if abs(remainder(x, N)) > 2 * finfo(x).resolution else 1.0
 
