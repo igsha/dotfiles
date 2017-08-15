@@ -65,6 +65,7 @@ in rec {
       sphinx
       docutils
       future
+      sympy
     ];
   };
 
