@@ -212,7 +212,7 @@ exec claws-mail
 exec davmail
 exec qutebrowser
 exec dropbox start
-exec skype
+exec skypeforlinux
 exec telegram-desktop
 #exec i3-sensible-terminal
 
