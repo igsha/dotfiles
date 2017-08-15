@@ -199,7 +199,7 @@ assign [instance="urxvt"] 1
 assign [class="qutebrowser"] 2
 assign [instance="nvim"] 3
 assign [class="Thunderbird|Claws-mail"] 4
-assign [class="Firefox|telegram-desktop|TelegramDesktop|Skype"] 5
+assign [class="Firefox|telegram-desktop|TelegramDesktop|Skype|skypeforlinux"] 5
 assign [class="Wine"] 6
 assign [class="VirtualBox"] 7
 
