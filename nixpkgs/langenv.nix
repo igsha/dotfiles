@@ -66,7 +66,9 @@ in rec {
       docutils
       future
       sympy
+      opencv3
     ];
+    parallelBuild = true;
   };
 
   latexenv = stdenv.mkDerivation {
