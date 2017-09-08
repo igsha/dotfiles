@@ -69,6 +69,7 @@ in rec {
       sympy
       opencv3
       python-docx
+      (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
     ];
   }).env;
 
