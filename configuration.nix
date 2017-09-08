@@ -240,7 +240,7 @@
   sound.mediaKeys.enable = true;
 
   virtualisation = {
-    virtualbox.host.enable = false;
+    virtualbox.host.enable = true;
   };
 
   hardware = {

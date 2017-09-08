@@ -17,6 +17,10 @@ let
     pngpp
     clang-tools
   ];
+  defaultPythonPackages = python3Packages;
+  python-docx = callPackage ./python-docx.nix {
+    pythonPackages = defaultPythonPackages;
+  };
 in rec {
   gccenv = stdenv.mkDerivation {
     name = "gccenv";
@@ -49,11 +53,8 @@ in rec {
     ] ++ common;
   };
 
-  pythonenv = stdenv.mkDerivation {
-    name = "pythonenv";
-    src = ./.;
-    buildInputs = with python35Packages; [
-      pkgs.python35Full
+  pythonenv = (defaultPythonPackages.python.buildEnv.override {
+    extraLibs = with defaultPythonPackages; [
       matplotlib
       ipython
       scipy
@@ -67,9 +68,9 @@ in rec {
       future
       sympy
       opencv3
+      python-docx
     ];
-    parallelBuild = true;
-  };
+  }).env;
 
   latexenv = stdenv.mkDerivation {
     name = "latexenv";
