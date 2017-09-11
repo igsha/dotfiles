@@ -21,6 +21,11 @@ let
   python-docx = callPackage ./python-docx.nix {
     pythonPackages = defaultPythonPackages;
   };
+  combine-docx = callPackage ./combine-docx.nix {
+    pythonPackages = defaultPythonPackages;
+    fetchFromGitHub = pkgs.fetchFromGitHub;
+    inherit python-docx;
+  };
 in rec {
   gccenv = stdenv.mkDerivation {
     name = "gccenv";
@@ -70,6 +75,7 @@ in rec {
       opencv3
       python-docx
       (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
+      combine-docx
     ];
   }).env;
 
