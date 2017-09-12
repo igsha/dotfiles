@@ -21,6 +21,9 @@ let
   python-docx = callPackage ./python-docx.nix {
     pythonPackages = defaultPythonPackages;
   };
+  opc-diag = callPackage ./opc-diag.nix {
+    pythonPackages = defaultPythonPackages;
+  };
   combine-docx = callPackage ./combine-docx.nix {
     pythonPackages = defaultPythonPackages;
     fetchFromGitHub = pkgs.fetchFromGitHub;
@@ -76,6 +79,7 @@ in rec {
       python-docx
       (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
       combine-docx
+      opc-diag
     ];
   }).env;
 
