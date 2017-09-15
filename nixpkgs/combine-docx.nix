@@ -2,14 +2,14 @@
 
 pythonPackages.buildPythonPackage rec {
   pname = "combine-docx";
-  version = "0.2";
+  version = "master";
   name = "${pname}-${version}";
 
   src = fetchFromGitHub {
     owner = "igsha";
     repo = pname;
-    rev = "v${version}";
-    sha256 = "1bl8cpdw93xg47xs0cx6krx79sk82bggbls7ajvhgp2c7sb42pl9";
+    rev = "${version}";
+    sha256 = "0yn2fc40gkaiw6x063ba431sk5b5vj2bpywfvvwzpybx3g4vqafq";
   };
 
   propagatedBuildInputs = [ python-docx ];

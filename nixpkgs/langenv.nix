@@ -78,6 +78,7 @@ in rec {
       opencv3
       python-docx
       (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
+      (import ./pandoc-fignos/requirements.nix { }).packages.pandoc-fignos
       combine-docx
       opc-diag
     ];
