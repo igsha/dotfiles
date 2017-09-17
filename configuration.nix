@@ -235,6 +235,10 @@
       enable = true;
     };
     rogue.enable = true;
+    logind.extraConfig = ''
+      IdleAction=suspend
+      IdleActionSec=30min
+    '';
   };
 
   sound.mediaKeys.enable = true;
