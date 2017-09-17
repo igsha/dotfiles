@@ -148,11 +148,13 @@
     networkmanagerapplet
     skype tdesktop
     google-chrome
-    (qutebrowser.overrideAttrs (oldAttrs: rec {
+    ((qutebrowser.overrideAttrs (oldAttrs: rec {
       postFixup = oldAttrs.postFixup + ''
         sed -i 's/\.qutebrowser-wrapped/qutebrowser/' $out/bin/..qutebrowser-wrapped-wrapped
       '';
-    }))
+    })).override {
+      withWebEngineDefault = true;
+    })
     # self packed
     #(import ./nixpkgs/qutebrowser/requirements.nix { }).packages.qutebrowser
     (import ./nixpkgs/thefuck/requirements.nix { }).packages.thefuck
