@@ -79,6 +79,7 @@ in rec {
       python-docx
       (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
       (import ./pandoc-fignos/requirements.nix { }).packages.pandoc-fignos
+      (import ./pandoc-tablenos/requirements.nix { }).packages.pandoc-tablenos
       combine-docx
       opc-diag
     ];
