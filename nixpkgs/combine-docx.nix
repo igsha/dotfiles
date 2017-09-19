@@ -9,7 +9,7 @@ pythonPackages.buildPythonPackage rec {
     owner = "igsha";
     repo = pname;
     rev = "${version}";
-    sha256 = "0yn2fc40gkaiw6x063ba431sk5b5vj2bpywfvvwzpybx3g4vqafq";
+    sha256 = "11navjq7avibpdmmqzx26yx17143idvlqm2pmd2lhf2xcr873r7k";
   };
 
   propagatedBuildInputs = [ python-docx ];
