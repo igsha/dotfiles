@@ -77,6 +77,7 @@ let g:hybrid_reduced_contrast = 1
 Plug 'spwhitt/vim-nix'
 Plug 'neomake/neomake'
 "Plug 'valloric/youcompleteme'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
