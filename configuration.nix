@@ -285,6 +285,7 @@
       ttf_bitstream_vera
       inconsolata-lgc
       google-fonts
+      anonymousPro
     ];
   };
 

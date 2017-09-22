@@ -29,6 +29,7 @@ let
     fetchFromGitHub = pkgs.fetchFromGitHub;
     inherit python-docx;
   };
+  pandoc-crossref = pkgs.haskell.packages.ghc802.callPackage ./pandoc-crossref.nix { };
 in rec {
   gccenv = stdenv.mkDerivation {
     name = "gccenv";
@@ -77,13 +78,23 @@ in rec {
       sympy
       opencv3
       python-docx
+    ];
+  }).env;
+
+  pandocenv = stdenv.mkDerivation {
+    name = "pandocenv";
+    src = ./.;
+    buildInputs = with pkgs; [
+      pandoc
+      combine-docx
+      opc-diag
       (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
       (import ./pandoc-fignos/requirements.nix { }).packages.pandoc-fignos
       (import ./pandoc-tablenos/requirements.nix { }).packages.pandoc-tablenos
-      combine-docx
-      opc-diag
+      pythonenv.buildInputs
+      pandoc-crossref
     ];
-  }).env;
+  };
 
   latexenv = stdenv.mkDerivation {
     name = "latexenv";
