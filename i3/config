@@ -167,7 +167,6 @@ bindsym $mod+Print exec scrot -u
 
 bindsym --release ISO_Next_Group exec --no-startup-id pkill -USR1 i3pystatus # update language bar
 
-bindsym XF86Sleep exec --no-startup-id xscreensaver-command -l
 bindsym Control+$mod+l exec --no-startup-id xscreensaver-command -l
 
 bindsym $mod+Tab workspace next

@@ -1,116 +1,105 @@
-with import <nixpkgs> {};
-let
-  common = with pkgs; [
-    cmake gnumake
-    boost
-    catch
-    gdb
-    libjpeg
-    zlib
-    readline
-    netpbm
-    doxygen
-    valgrind
-    openmpi
-    rpm
-    cimg
-    pngpp
-    clang-tools
+{ pkgs }:
+
+with import ./create-env.nix { inherit pkgs; };
+rec {
+
+  build-common = with pkgs; [
+    cmake clang-tools
+    pkgconfig
+    libxslt
   ];
-  defaultPythonPackages = python3Packages;
-  python-docx = callPackage ./python-docx.nix {
+
+  cxx-common = with pkgs; [
+    gdb valgrind doxygen openmpi
+    boost catch cimg pngpp gtest
+    libjpeg zlib readline netpbm libxml2 ncurses SDL SDL_image
+    rpm
+    opencv3
+    ffmpeg
+    bison flex
+    amdappsdk
+  ] ++ build-common;
+
+  defaultPythonPackages = pkgs.python3Packages;
+  python-docx = pkgs.callPackage ./python-docx.nix {
     pythonPackages = defaultPythonPackages;
   };
-  opc-diag = callPackage ./opc-diag.nix {
+  opc-diag = pkgs.callPackage ./opc-diag.nix {
     pythonPackages = defaultPythonPackages;
   };
-  combine-docx = callPackage ./combine-docx.nix {
+  combine-docx = pkgs.callPackage ./combine-docx.nix {
     pythonPackages = defaultPythonPackages;
     fetchFromGitHub = pkgs.fetchFromGitHub;
     inherit python-docx;
   };
   pandoc-crossref = pkgs.haskell.packages.ghc802.callPackage ./pandoc-crossref.nix { };
-in rec {
-  gccenv = stdenv.mkDerivation {
-    name = "gccenv";
-    src = ./.;
-    hardeningDisable = [ "all" ];
-    buildInputs = with pkgs; [
-      gcc6
-      ncurses
-      SDL SDL_image
-      opencv3
-      gtest
-      pkgconfig
-      check
-      libxml2
-      ffmpeg
-      bison
-      flex
-      cunit
-      check
-      amdappsdk
-    ] ++ common;
-  };
 
-  clangenv = clangStdenv.mkDerivation {
-    name = "clangenv";
-    src = ./.;
-    hardeningDisable = [ "all" ];
-    buildInputs = with pkgs; [
-      clang
-    ] ++ common;
-  };
+  image-related = with pkgs; [
+    ghostscript
+    poppler_utils
+    gnome3.libgxps
+    imagemagick exif
+    gnuplot
+    aspell aspellDicts.en
+    (aspellDicts.ru.overrideAttrs (oldAttrs: rec {
+      postInstall = ''
+        echo "special - -*-" >> $out/lib/aspell/ru.dat
+      '';
+    }))
+    asymptote
+  ];
 
-  pythonenv = (defaultPythonPackages.python.buildEnv.override {
-    extraLibs = with defaultPythonPackages; [
-      matplotlib
-      ipython
-      scipy
+  clangenv = createEnv {
+    name = "clang";
+    buildInputs = cxx-common ++ [ pkgs.clang ];
+  };
+  gccenv = createEnv {
+    name = "gcc";
+    buildInputs = cxx-common ++ [ pkgs.gcc6 ];
+  };
+  pythonenv = createEnv {
+    name = "python";
+    buildInputs = with defaultPythonPackages; [
+      ipython matplotlib scipy opencv3
       pyside
       virtualenv
       pillow
       tabulate
-      readline
-      sphinx
-      docutils
+      gnureadline
+      sphinx docutils
       future
       sympy
-      opencv3
+      pip
       python-docx
+      build-common
     ];
-  }).env;
-
-  pandocenv = stdenv.mkDerivation {
-    name = "pandocenv";
-    src = ./.;
+  };
+  pandocenv = createEnv {
+    name = "pandoc";
     buildInputs = with pkgs; [
-      pandoc
-      combine-docx
-      opc-diag
+      pandoc combine-docx opc-diag
       (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
       (import ./pandoc-fignos/requirements.nix { }).packages.pandoc-fignos
       (import ./pandoc-tablenos/requirements.nix { }).packages.pandoc-tablenos
-      pythonenv.buildInputs
       pandoc-crossref
+      pythonenv.buildInputs
+      image-related
+      build-common
     ];
   };
-
-  latexenv = stdenv.mkDerivation {
-    name = "latexenv";
-    src = ./.;
+  latexenv = createEnv {
+    name = "latex";
     buildInputs = with pkgs; [
-      cmake
-      gnumake
       (texlive.combine {
         inherit (texlive) scheme-full metafont;
         pkgFilter = pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "core" || pkg.pname == "doc";
       })
-      ghostscript
-      poppler_utils
       biber
-      gnome3.libgxps
       pythonenv.buildInputs
+      image-related
+      build-common
     ];
   };
+
+  my-environments = [ clangenv gccenv pandocenv pythonenv latexenv ];
 }

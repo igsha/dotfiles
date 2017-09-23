@@ -3,6 +3,7 @@
 
 { config, pkgs, ... }:
 
+with import ./nixpkgs/langenv.nix { inherit pkgs; };
 {
   boot.loader = {
     grub.device = "/dev/sda";
@@ -44,8 +45,6 @@
     xsel xclip xdotool
     neovim
     ed
-    cmake
-    gnumake
     xscreensaver
     rxvt_unicode-with-plugins
     xlibs.xhost unclutter hsetroot xorg.xev xorg.xkill
@@ -105,24 +104,13 @@
     androidsdk android-udev-rules
     screen tmux
     nix-repl
-    pandoc
     patchutils
     samba
-    asymptote
     pass
-    pypi2nix
-    libxslt
+    pypi2nix cabal2nix cabal-install
     moreutils
     xorg.xwininfo
-    # for latex
-    imagemagick exif
-    gnuplot
-    aspell aspellDicts.en
-    (aspellDicts.ru.overrideAttrs (oldAttrs: rec {
-      postInstall = ''
-        echo "special - -*-" >> $out/lib/aspell/ru.dat
-      '';
-    }))
+    trash-cli
     # gui
     davmail
     mpv
@@ -158,7 +146,7 @@
     # self packed
     #(import ./nixpkgs/qutebrowser/requirements.nix { }).packages.qutebrowser
     (import ./nixpkgs/thefuck/requirements.nix { }).packages.thefuck
-  ];
+  ] ++ my-environments;
 
   environment.etc = {
     "fuse.conf".text = ''
