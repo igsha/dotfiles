@@ -5,7 +5,7 @@ let
   myInteractiveShell = pkgs.bashInteractive.out + pkgs.bashInteractive.shellPath;
 in rec {
   createEnv = { name, buildInputs, env ? {} }:
-    pkgs.runCommand "my-env-${name}" { buildInputs = buildInputs; }
+    pkgs.runCommand "my-env-${name}" ({ buildInputs = buildInputs; } // env)
     ''
       mkdir -p $out/bin
       cat > $out/bin/load-env-${name} <<EOF
