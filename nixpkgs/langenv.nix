@@ -32,6 +32,9 @@ rec {
     fetchFromGitHub = pkgs.fetchFromGitHub;
     inherit python-docx;
   };
+  panflute = pkgs.callPackage ./panflute.nix {
+    pythonPackages = defaultPythonPackages;
+  };
   pandoc-crossref = pkgs.haskell.packages.ghc802.callPackage ./pandoc-crossref.nix { };
 
   image-related = with pkgs; [
@@ -65,12 +68,13 @@ rec {
       virtualenv
       pillow
       tabulate
-      gnureadline
       sphinx docutils
       future
       sympy
       pip
       python-docx
+      panflute
+      pandocfilters
       build-common
     ];
   };

@@ -15,7 +15,7 @@ pythonPackages.buildPythonPackage rec {
 
   meta = with stdenv.lib; {
     homepage = https://github.com/python-openxml/python-docx;
-    license = "The MIT License (MIT)";
+    license = license.mit;
     description = "Create and update Microsoft Word .docx files.";
   };
 }
