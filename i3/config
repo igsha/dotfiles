@@ -206,7 +206,7 @@ assign [class="VirtualBox"] 7
 exec --no-startup-id ~/.dotfiles/urxvt-start.sh
 
 # startup
-#exec nvim-qt
+exec nvim-qt
 exec claws-mail
 exec davmail
 exec qutebrowser
