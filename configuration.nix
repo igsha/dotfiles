@@ -72,7 +72,7 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
     dunst libnotify
     ocamlPackages.csv
     vifm
-    fuse fuseiso fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount fusesmb
+    fuse fuseiso fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount
     pwgen
     bviplus
     dhex vbindiff
