@@ -1,21 +1,21 @@
 { stdenv, pythonPackages, python-docx, fetchFromGitHub }:
 
 pythonPackages.buildPythonPackage rec {
-  pname = "combine-docx";
-  version = "0.2.3";
+  pname = "docx-combine";
+  version = "0.2.4";
   name = "${pname}-${version}";
 
   src = fetchFromGitHub {
-    owner = "igsha";
+    owner = "cvlabmiet";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0gg04s1cpnx3h9j300r4dpijhwphz9x04rhq3fg8l6939n7xkpw7";
+    sha256 = "023wajp7d2xrp4765w61mb57cs3n0sfg95fqiz8n383y8fihlrh7";
   };
 
   propagatedBuildInputs = [ python-docx ];
 
   meta = with stdenv.lib; {
-    homepage = https://github.com/igsha/combine-docx;
+    homepage = https://github.com/cvlabmiet/docx-combine;
     license = licenses.mit;
     description = "Combine several docx files into one";
   };

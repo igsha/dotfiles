@@ -27,11 +27,17 @@ rec {
   opc-diag = pkgs.callPackage ./opc-diag.nix {
     pythonPackages = defaultPythonPackages;
   };
-  combine-docx = pkgs.callPackage ./combine-docx.nix {
+  docx-combine = pkgs.callPackage ./docx-combine.nix {
     pythonPackages = defaultPythonPackages;
     fetchFromGitHub = pkgs.fetchFromGitHub;
     inherit python-docx;
   };
+  docx-replace = pkgs.callPackage ./docx-replace.nix {
+    pythonPackages = defaultPythonPackages;
+    fetchFromGitHub = pkgs.fetchFromGitHub;
+    inherit python-docx;
+  };
+
   panflute = pkgs.callPackage ./panflute.nix {
     pythonPackages = defaultPythonPackages;
   };
@@ -81,7 +87,7 @@ rec {
   pandocenv = createEnv {
     name = "pandoc";
     buildInputs = with pkgs; [
-      pandoc combine-docx opc-diag
+      pandoc docx-combine opc-diag docx-replace
       (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
       (import ./pandoc-fignos/requirements.nix { }).packages.pandoc-fignos
       (import ./pandoc-tablenos/requirements.nix { }).packages.pandoc-tablenos
