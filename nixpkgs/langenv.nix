@@ -110,6 +110,15 @@ rec {
       build-common
     ];
   };
+  nodejsenv = createEnv {
+    name = "nodejs";
+    buildInputs = with pkgs; with nodePackages; [
+      nodejs
+      npm
+      webpack
+      browserify
+    ];
+  };
 
-  my-environments = [ clangenv gccenv pandocenv pythonenv latexenv ];
+  my-environments = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv ];
 }
