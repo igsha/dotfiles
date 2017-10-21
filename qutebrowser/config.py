@@ -1,5 +1,3 @@
-c.backend = 'webkit'
-
 c.editor.command = ['urxvt', '-name', 'editor', '-e', 'nvim', '{}']
 
 #c.content.developer_extras = True
@@ -28,7 +26,7 @@ c.hints.next_regexes += [r'\bmore$$\b', r'\bдальше\b', r'\bnachher\b', r'\
 c.hints.prev_regexes += [r'\bназад\b', r'\bvorher\b']
 
 c.url.default_page = 'DEFAULT'
-c.url.start_pages = ['DEFAULT']
+c.url.start_pages = ['https://nixos.org']
 c.url.searchengines = {
     'kinopoisk': 'http://www.kinopoisk.ru/index.php?first=no&what=&kp_query={}',
     'google': 'https://www.google.com/search?q={}',
