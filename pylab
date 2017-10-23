@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-nix-shell ~/.nixpkgs/python.drv --run 'ipython --pylab -i ~/.config/matplotlib/matplotlib.init.py'
+load-env-python --run 'ipython --pylab -i ~/.config/matplotlib/matplotlib.init.py'

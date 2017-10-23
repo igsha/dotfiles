@@ -11,7 +11,7 @@ in rec {
       cat > $out/bin/load-env-${name} <<EOF
       #! ${pkgs.stdenv.shell}
       export NIX_BUILD_SHELL=${myInteractiveShell}
-      exec nix-shell \$(nix-store --query --deriver $out)
+      exec nix-shell \$(nix-store --query --deriver $out) "\$@"
       # $buildInputs $nativeBuildInputs
       EOF
       chmod +x $out/bin/load-env-${name}
