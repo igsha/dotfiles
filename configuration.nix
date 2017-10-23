@@ -39,7 +39,7 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
   };
 
   environment.systemPackages = with pkgs; [
-    stdenv
+    stdenv gnumake
     gitFull subversion
     wget
     xsel xclip xdotool
