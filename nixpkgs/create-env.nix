@@ -4,8 +4,8 @@
 let
   myInteractiveShell = pkgs.bashInteractive.out + pkgs.bashInteractive.shellPath;
 in rec {
-  createEnv = { name, buildInputs, env ? {} }:
-    pkgs.runCommand "my-env-${name}" ({ buildInputs = buildInputs; hardeningDisable = [ "all" ]; } // env)
+  createEnv = { name, buildInputs, ...}@args:
+    pkgs.runCommand "my-env-${name}" (removeAttrs args [ "name" ] // { hardeningDisable = [ "all" ]; })
     ''
       mkdir -p $out/bin
       cat > $out/bin/load-env-${name} <<EOF

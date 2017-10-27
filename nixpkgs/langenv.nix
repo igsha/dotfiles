@@ -64,7 +64,10 @@ rec {
   };
   gccenv = createEnv {
     name = "gcc";
-    buildInputs = cxx-common ++ [ pkgs.gcc6 ];
+    buildInputs = cxx-common ++ [ pkgs.gcc6 pkgs.linuxPackages.kernel ];
+    shellHook = ''
+      alias kbuild='make -C ${pkgs.linuxPackages.kernel.dev}/lib/modules/4.9.58/build SUBDIRS=$PWD'
+    '';
   };
   pythonenv = createEnv {
     name = "python";
