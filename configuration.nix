@@ -128,7 +128,7 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
       enableSpellcheck = true;
       enablePluginRssyl = true;
       enablePluginPdf = true;
-      webkitgtk24x-gtk2 = webkitgtk216x;
+      webkitgtk24x-gtk2 = webkitgtk;
     })
     libreoffice
     neovim-qt
@@ -213,7 +213,7 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
       };
     };
     compton = {
-      enable = true;
+      enable = false;
       vSync = "opengl";
       # https://github.com/chjj/compton/issues/152
       extraOptions = ''
@@ -221,13 +221,14 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
         xrender-sync-fence = true
       '';
     };
-    actkbd = {
-      enable = true;
-    };
+    actkbd.enable = true;
     rogue.enable = true;
     logind.extraConfig = ''
       IdleAction=suspend
       IdleActionSec=30min
+    '';
+    udev.extraRules = ''
+      KERNEL=="eldrv", MODE="0666"
     '';
   };
 
