@@ -197,7 +197,7 @@ function MakeDefaultLocalvimrc()
     endif
     let l:commands = [
                 \       "let project_root_dir = g:localvimrc_script_dir . '/..'",
-                \       "let &l:makeprg = 'cmake --build ' . project_root_dir . '/build -- -j '"
+                \       "let &l:makeprg = 'make -C ' . project_root_dir . '/build -j '"
                 \    ]
     let l:result = writefile(l:commands, l:localvimrc_file, )
     if l:result != 0
