@@ -47,16 +47,15 @@ c.aliases['noprivate'] = 'set content.private_browsing false'
 c.aliases['noproxy'] = 'set content.proxy system'
 c.aliases['tor'] = 'set content.proxy socks://localhost:9050'
 
-config.bind('O', 'set-cmd-text :open {url:pretty}')
 config.bind('t', 'set-cmd-text -s :open -t')
+config.bind('O', 'set-cmd-text :open {url:pretty}')
+config.bind('T', 'set-cmd-text -s :open -t {url:pretty}')
 config.bind('D', 'tab-prev ;; tab-close')
 config.bind('gj', 'tab-focus')
 config.bind('gt', 'tab-next')
 config.bind('<Ctrl-Tab>', 'tab-next')
 config.bind('gT', 'tab-prev')
 config.bind('<Ctrl-Shift-Tab>', 'tab-prev')
-config.bind('Th', 'back -t')
-config.bind('Tl', 'forward -t')
 config.bind('gD', 'download')
 config.bind('gd', 'download-open')
 config.bind('gv', 'set-cmd-text -s :buffer')

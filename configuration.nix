@@ -146,6 +146,7 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
     # self packed
     #(import ./nixpkgs/qutebrowser/requirements.nix { }).packages.qutebrowser
     (import ./nixpkgs/thefuck/requirements.nix { }).packages.thefuck
+    virtinst
   ] ++ my-environments;
 
   environment.etc = {
@@ -236,6 +237,7 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
 
   virtualisation = {
     virtualbox.host.enable = true;
+    libvirtd.enable = true;
   };
 
   hardware = {

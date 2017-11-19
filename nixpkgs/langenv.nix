@@ -119,6 +119,10 @@ rec {
       browserify
     ];
   };
+  docenv = createEnv {
+    name = "docenv";
+    buildInputs = pandocenv.buildInputs ++ latexenv.buildInputs;
+  };
 
-  my-environments = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv ];
+  my-environments = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv docenv ];
 }
