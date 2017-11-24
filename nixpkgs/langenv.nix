@@ -42,6 +42,7 @@ rec {
     pythonPackages = defaultPythonPackages;
   };
   pandoc-crossref = pkgs.haskell.packages.ghc802.callPackage ./pandoc-crossref.nix { };
+  pandoc-citeproc = pkgs.haskell.packages.ghc802.callPackage ./pandoc-citeproc.nix { };
 
   image-related = with pkgs; [
     ghostscript
@@ -92,6 +93,7 @@ rec {
       (import ./pandoc-fignos/requirements.nix { }).packages.pandoc-fignos
       (import ./pandoc-tablenos/requirements.nix { }).packages.pandoc-tablenos
       pandoc-crossref
+      pandoc-citeproc
       pythonenv.buildInputs
       image-related
       build-common
