@@ -65,7 +65,7 @@ rec {
   };
   gccenv = createEnv {
     name = "gcc";
-    buildInputs = cxx-common ++ [ pkgs.gcc6 pkgs.linuxPackages.kernel ];
+    buildInputs = with pkgs; cxx-common ++ [ gcc6 linuxPackages.kernel fuse3 ];
   };
   pythonenv = createEnv {
     name = "python";
