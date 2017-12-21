@@ -305,7 +305,7 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
   };
 
   system.autoUpgrade = {
-    enable = true;
+    enable = false;
     dates = "Fri 20:00";
   };
 

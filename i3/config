@@ -210,7 +210,7 @@ exec nvim-qt
 exec claws-mail
 exec davmail
 exec qutebrowser
-exec dropbox start
+#exec dropbox start
 exec telegram-desktop
 #exec i3-sensible-terminal
 
