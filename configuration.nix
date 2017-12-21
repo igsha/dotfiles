@@ -35,7 +35,6 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
     firefox.enableAdobeFlash = true;
     chromium.enablePepperFlash = true;
     allowTexliveBuilds = true;
-    wine.release = "unstable";
   };
 
   environment.systemPackages = with pkgs; [
@@ -146,7 +145,7 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
     # self packed
     #(import ./nixpkgs/qutebrowser/requirements.nix { }).packages.qutebrowser
     (import ./nixpkgs/thefuck/requirements.nix { }).packages.thefuck
-    virtinst
+    virtinst virtmanager
   ] ++ my-environments;
 
   environment.etc = {
