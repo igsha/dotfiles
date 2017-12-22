@@ -225,17 +225,20 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
     rogue.enable = true;
     logind.extraConfig = ''
       IdleAction=suspend
-      IdleActionSec=30min
+      IdleActionSec=1800
+      HandlePowerKey=suspend
     '';
-    udev.extraRules = ''
-      KERNEL=="eldrv", MODE="0666"
-    '';
+  };
+
+  i18n = {
+    consoleUseXkbConfig = true;
+    consoleFont = "LatArCyrHeb-16";
   };
 
   sound.mediaKeys.enable = true;
 
   virtualisation = {
-    virtualbox.host.enable = true;
+    virtualbox.host.enable = false;
     libvirtd.enable = true;
   };
 
