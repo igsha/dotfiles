@@ -1,6 +1,0 @@
-Jinja2==2.9.5
-MarkupSafe==1.0
-Pygments==2.2.0
-pyPEG2==2.15.2
-PyYAML==3.12
-qutebrowser==0.10.1

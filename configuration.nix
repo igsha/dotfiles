@@ -133,7 +133,7 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
     neovim-qt
     flashplayer-standalone
     networkmanagerapplet
-    skype tdesktop
+    tdesktop
     google-chrome
     ((qutebrowser.overrideAttrs (oldAttrs: rec {
       postFixup = oldAttrs.postFixup + ''
@@ -142,9 +142,6 @@ with import ./nixpkgs/langenv.nix { inherit pkgs; };
     })).override {
       withWebEngineDefault = true;
     })
-    # self packed
-    #(import ./nixpkgs/qutebrowser/requirements.nix { }).packages.qutebrowser
-    (import ./nixpkgs/thefuck/requirements.nix { }).packages.thefuck
     virtinst virtmanager
   ] ++ my-environments;
 
