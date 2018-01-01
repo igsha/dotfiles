@@ -6,8 +6,8 @@
 }:
 mkDerivation {
   pname = "pandoc-citeproc";
-  version = "0.12.1";
-  sha256 = "7f12b25b0cf2f7c1ffe376d54113b6a85da0548d7b73e52e6d66f5daf65fc2ac";
+  version = "0.12.2.2";
+  sha256 = "8209341dfc1496920e8b357c56bdef382ecf57fa3fcb9d2befa5ce3bef099f01";
   isLibrary = true;
   isExecutable = true;
   enableSeparateDataOutput = true;

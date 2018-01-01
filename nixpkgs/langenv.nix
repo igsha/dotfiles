@@ -1,8 +1,7 @@
-{ pkgs }:
+{ config, pkgs, ... }:
 
 with import ./create-env.nix { inherit pkgs; };
-rec {
-
+let
   build-common = with pkgs; [
     cmake clang-tools
     pkgconfig
@@ -126,5 +125,6 @@ rec {
     buildInputs = pandocenv.buildInputs ++ latexenv.buildInputs;
   };
 
-  my-environments = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv docenv ];
+in {
+  environment.systemPackages = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv docenv ];
 }

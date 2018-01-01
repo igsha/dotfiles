@@ -210,14 +210,6 @@ exec nvim-qt
 exec claws-mail
 exec davmail
 exec qutebrowser
-#exec dropbox start
 exec telegram-desktop
-#exec i3-sensible-terminal
-
-exec xscreensaver -no-splash
-exec unclutter
-exec dunst
-exec nm-applet
-exec numlockx
-exec setxkbmap
 exec feh --randomize --bg-center ~/Pictures/
+exec nm-applet
