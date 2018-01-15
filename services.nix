@@ -42,7 +42,7 @@
       IdleActionSec=1800
       HandlePowerKey=suspend
     '';
-    xbanish.enable = true;
+    unclutter-xfixes.enable = true;
     smartd.notifications = {
       enable = true;
       x11.enable = true;

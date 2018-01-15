@@ -19,6 +19,10 @@
         enablePluginPdf = true;
         webkitgtk24x-gtk2 = pkgs.webkitgtk;
       };
+
+      virtmanager = pkgs.virtmanager.overrideAttrs (oldAttrs: rec {
+        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.gobjectIntrospection ];
+      });
     };
 
     allowUnfree = true;

@@ -18,6 +18,8 @@
     efi.canTouchEfiVariables = true;
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   networking = {
     hostName = "nixos-pc";
     networkmanager.enable = true;
