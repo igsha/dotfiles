@@ -9,9 +9,9 @@ let
   ];
 
   cxx-common = with pkgs; [
-    gdb valgrind doxygen openmpi
+    gdb valgrind doxygen graphviz openmpi
     boost catch cimg pngpp gtest
-    libjpeg zlib readline netpbm libxml2 ncurses SDL SDL_image
+    libjpeg zlib readline netpbm libxml2 ncurses SDL SDL_image imagemagick
     rpm
     opencv3
     ffmpeg

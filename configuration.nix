@@ -82,7 +82,6 @@
       corefonts
       dejavu_fonts
       freefont_ttf
-      terminus_font_ttf
       ttf_bitstream_vera
       inconsolata-lgc
       google-fonts
