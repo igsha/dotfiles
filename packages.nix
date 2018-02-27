@@ -30,6 +30,9 @@
     firefox.enableAdobeFlash = true;
     chromium.enablePepperFlash = true;
     allowTexliveBuilds = true;
+    permittedInsecurePackages = [
+      "polipo-1.1.1"
+    ];
   };
 
   environment.etc = {
@@ -66,8 +69,7 @@
     tree file which mkpasswd
     openssl encfs
     ocamlPackages.csv
-    vifm
-    fuse fuseiso fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount
+    vifm fuse fuseiso fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount
     pwgen
     bviplus dhex vbindiff
     universal-ctags
@@ -75,7 +77,6 @@
     python27Packages.pymetar
     wcalc jq
     ntfs3g gparted xfsprogs
-    tmux
     xchm
     youtube-dl
     libxml2
@@ -94,7 +95,7 @@
     rtags
     ncdu
     androidsdk android-udev-rules
-    screen tmux
+    screen
     nix-repl
     patchutils
     samba
@@ -103,6 +104,7 @@
     moreutils
     xorg.xwininfo
     trash-cli
+    nix-bash-completions
     # gui
     davmail
     mpv

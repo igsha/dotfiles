@@ -47,5 +47,6 @@
       enable = true;
       x11.enable = true;
     };
+    kmscon.enable = true;
   };
 }

@@ -40,8 +40,8 @@ let
   panflute = pkgs.callPackage ./panflute.nix {
     pythonPackages = defaultPythonPackages;
   };
-  pandoc-crossref = pkgs.haskell.packages.ghc802.callPackage ./pandoc-crossref.nix { };
-  pandoc-citeproc = pkgs.haskell.packages.ghc802.callPackage ./pandoc-citeproc.nix { };
+  pandoc-crossref = pkgs.haskellPackages.callPackage ./pandoc-crossref.nix { };
+  pandoc-citeproc = pkgs.haskellPackages.callPackage ./pandoc-citeproc.nix { };
 
   image-related = with pkgs; [
     ghostscript
