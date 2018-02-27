@@ -23,6 +23,8 @@
       virtmanager = pkgs.virtmanager.overrideAttrs (oldAttrs: rec {
         nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.gobjectIntrospection ];
       });
+
+      neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped { withRuby = false; };
     };
 
     allowUnfree = true;
@@ -84,7 +86,7 @@
     fakeroot fakechroot debootstrap
     transmission
     wine winetricks
-    maim
+#maim
     sdcv
     elinks
     httpie
