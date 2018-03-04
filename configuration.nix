@@ -36,6 +36,7 @@
       };
       userControlled.enable = true;
     };
+    firewall.allowedTCPPorts = [ 22 80 8080 8888 4200 ];
   };
 
   i18n = {

@@ -25,6 +25,9 @@
       });
 
       neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped { withRuby = false; };
+      matplotlib = pkgs.python3Packages.matplotlib.overrideAttrs (oldAttrs: rec {
+        enableQt = true;
+      });
     };
 
     allowUnfree = true;
@@ -86,7 +89,7 @@
     fakeroot fakechroot debootstrap
     transmission
     wine winetricks
-#maim
+    maim
     sdcv
     elinks
     httpie

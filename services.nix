@@ -36,7 +36,7 @@
       '';
     };
     actkbd.enable = true;
-#rogue.enable = true;
+    rogue.enable = true;
     logind.extraConfig = ''
       IdleAction=suspend
       IdleActionSec=1800
@@ -48,5 +48,6 @@
       x11.enable = true;
     };
     kmscon.enable = true;
+    shellinabox.enable = true;
   };
 }

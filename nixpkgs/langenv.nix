@@ -69,7 +69,7 @@ let
   pythonenv = createEnv {
     name = "python";
     buildInputs = with defaultPythonPackages; [
-      ipython matplotlib scipy opencv3
+      ipython (matplotlib.override { enableQt = true; }) scipy opencv3 jupyter
       pyside
       virtualenv
       pillow
