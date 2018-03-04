@@ -151,11 +151,11 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+b bar mode toggle
 
-bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id amixer sset Master 1%-
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 1%+
+bindsym XF86AudioMute exec --no-startup-id ponymix toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 5%
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id ponymix decrease 1%
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id ponymix increase 1%
 
 bindsym XF86Calculator exec calculator
 bindsym $mod+Control+c exec calculator
