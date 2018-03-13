@@ -110,6 +110,7 @@
     xorg.xwininfo
     trash-cli
     nix-bash-completions
+    gptfdisk parted
     # gui
     davmail
     mpv
