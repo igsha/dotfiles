@@ -111,6 +111,7 @@
     trash-cli
     nix-bash-completions
     gptfdisk parted
+    cdrtools
     # gui
     davmail
     mpv
