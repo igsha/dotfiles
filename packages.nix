@@ -56,7 +56,6 @@
     dmenu nox
     xfontsel
     man stdman man-pages posix_man_pages
-    xkb_switch
     utillinuxCurses freetype
     gitAndTools.gitflow tig
     lm_sensors
@@ -79,7 +78,6 @@
     bviplus dhex vbindiff
     universal-ctags
     unrar unzip zip p7zip
-    python27Packages.pymetar
     wcalc jq
     ntfs3g gparted xfsprogs
     xchm
@@ -123,6 +121,7 @@
     ffmpeg-full
     freerdp
     clawsMail
+    thunderbird
     libreoffice
     neovim-qt
     tdesktop
