@@ -45,6 +45,11 @@ in rec {
       autoNumlock = true;
     };
 
+    xautolock = {
+      enable = true;
+      locker = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
+    };
+
     windowManager = {
       default = "i3";
       i3 = {
@@ -52,10 +57,8 @@ in rec {
         package = pkgs.i3-gaps;
         extraPackages = with pkgs; [
           feh networkmanagerapplet xterm scrot davmail numlockx i3blocks-gaps metar yad ack metar xkb_switch
+          i3lock-fancy
         ];
-        extraSessionCommands = ''
-          numlockx
-        '';
         configFile = i3-config;
       };
     };

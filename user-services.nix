@@ -24,11 +24,6 @@ in {
       };
     };
 
-    xscreensaver = oneshot {
-      description = "Xscreensaver - screen savers";
-      execute = "${pkgs.xscreensaver}/bin/xscreensaver -no-splash";
-    };
-
     dunst = oneshot {
       description = "dunst - notification daemon";
       execute = "${pkgs.dunst}/bin/dunst";
@@ -42,7 +37,6 @@ in {
 
   environment.systemPackages = with pkgs; [
     dropbox-cli
-    xscreensaver
     dunst libnotify
     xorg.setxkbmap
   ];
