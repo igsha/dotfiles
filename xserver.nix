@@ -3,21 +3,13 @@
 let
   i3blocks-config = builtins.toPath ./templates/i3blocks.conf;
   i3-config = pkgs.writeText "i3.conf" (lib.concatStrings [ (builtins.readFile ./templates/i3.conf) "\n" ''
-    bar {
-        status_command DEFAULT_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks SCRIPT_DIR=${builtins.dirOf i3blocks-config} i3blocks -c ${i3blocks-config}
-        font pango:Font Awesome 5 Free 10
-        position top
-        workspace_buttons yes
-    }
-
     # startup
-    exec urxvtc
+    exec $I3BLOCKS_CONF_DIR/../urxvt-start.sh
     exec nvim-qt
     exec thunderbird
     exec davmail
     exec qutebrowser
     exec telegram-desktop
-    exec feh --randomize --bg-center ~/Pictures/
     exec nm-applet
   '' ]);
 
@@ -33,6 +25,15 @@ in rec {
     autoRepeatInterval = 20;
     enableTCP = true;
 
+    monitorSection = ''
+      Option "DPMS" "true"
+    '';
+    serverLayoutSection = ''
+      Option "StandbyTime" "10"
+      Option "SuspendTime" "20"
+      Option "OffTime" "30"
+    '';
+
     videoDrivers = [ "nvidia" ];
 
     desktopManager = {
@@ -47,6 +48,7 @@ in rec {
 
     xautolock = {
       enable = true;
+      time = 5;
       locker = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
     };
 
@@ -59,6 +61,11 @@ in rec {
           feh networkmanagerapplet xterm scrot davmail numlockx i3blocks-gaps metar yad ack metar xkb_switch
           i3lock-fancy
         ];
+        extraSessionCommands = ''
+          numlockx
+          export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
+          export I3BLOCKS_CONF_DIR=${builtins.dirOf i3blocks-config}
+        '';
         configFile = i3-config;
       };
     };
