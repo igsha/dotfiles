@@ -203,6 +203,7 @@ nmap o :!nvim-qt %f<cr>
 " open file in the background using its default program
 nmap gb :file &<cr>l
 
+nmap <f2> :rename<cr>
 nmap <f3> :!less %f<cr>
 nmap <f4> :edit<cr>
 nmap <f5> :copy<cr>
