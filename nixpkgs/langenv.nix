@@ -40,8 +40,6 @@ let
   panflute = pkgs.callPackage ./panflute.nix {
     pythonPackages = defaultPythonPackages;
   };
-  pandoc-crossref = pkgs.haskellPackages.callPackage ./pandoc-crossref.nix { };
-  pandoc-citeproc = pkgs.haskellPackages.callPackage ./pandoc-citeproc.nix { };
 
   image-related = with pkgs; [
     ghostscript
@@ -91,8 +89,8 @@ let
       (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
       (import ./pandoc-fignos/requirements.nix { }).packages.pandoc-fignos
       (import ./pandoc-tablenos/requirements.nix { }).packages.pandoc-tablenos
-      pandoc-crossref
-      pandoc-citeproc
+      haskellPackages.pandoc-crossref
+      haskellPackages.pandoc-citeproc
       pythonenv.buildInputs
       image-related
       build-common

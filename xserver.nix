@@ -29,9 +29,9 @@ in rec {
       Option "DPMS" "true"
     '';
     serverLayoutSection = ''
-      Option "StandbyTime" "10"
-      Option "SuspendTime" "20"
-      Option "OffTime" "30"
+      Option "StandbyTime" "30"
+      Option "SuspendTime" "60"
+      Option "OffTime" "90"
     '';
 
     videoDrivers = [ "nvidia" ];
@@ -47,8 +47,7 @@ in rec {
     };
 
     xautolock = {
-      enable = true;
-      time = 5;
+      time = 10;
       locker = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
     };
 
