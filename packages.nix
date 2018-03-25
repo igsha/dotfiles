@@ -120,7 +120,6 @@
     zathura
     ffmpeg-full
     freerdp
-    clawsMail
     thunderbird
     libreoffice
     neovim-qt
