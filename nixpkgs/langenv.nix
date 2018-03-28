@@ -91,6 +91,7 @@ let
       (import ./pandoc-tablenos/requirements.nix { }).packages.pandoc-tablenos
       haskellPackages.pandoc-crossref
       haskellPackages.pandoc-citeproc
+      plantuml
       graphviz
       pythonenv.buildInputs
       image-related

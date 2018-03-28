@@ -3,13 +3,11 @@
 {
   nixpkgs.config = {
     packageOverrides = pkgs: {
-      qutebrowser = (pkgs.qutebrowser.overrideAttrs (oldAttrs: rec {
+      qutebrowser = pkgs.qutebrowser.overrideAttrs (oldAttrs: rec {
         postFixup = oldAttrs.postFixup + ''
           sed -i 's/\.qutebrowser-wrapped/qutebrowser/' $out/bin/..qutebrowser-wrapped-wrapped
         '';
-      })).override {
-        withWebEngineDefault = true;
-      };
+      });
 
       clawsMail = pkgs.clawsMail.override {
         enablePluginFancy = true;
@@ -20,11 +18,6 @@
         webkitgtk24x-gtk2 = pkgs.webkitgtk;
       };
 
-      virtmanager = pkgs.virtmanager.overrideAttrs (oldAttrs: rec {
-        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.gobjectIntrospection ];
-      });
-
-      neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped { withRuby = false; };
       matplotlib = pkgs.python3Packages.matplotlib.overrideAttrs (oldAttrs: rec {
         enableQt = true;
       });
