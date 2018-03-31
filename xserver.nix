@@ -2,16 +2,7 @@
 
 let
   i3blocks-config = builtins.toPath ./templates/i3blocks.conf;
-  i3-config = pkgs.writeText "i3.conf" (lib.concatStrings [ (builtins.readFile ./templates/i3.conf) "\n" ''
-    # startup
-    exec $I3BLOCKS_CONF_DIR/../urxvt-start.sh
-    exec nvim-qt
-    exec thunderbird
-    exec davmail
-    exec qutebrowser
-    exec telegram-desktop
-    exec nm-applet
-  '' ]);
+  i3-config = builtins.toPath ./templates/i3.conf;
 
 in rec {
 
@@ -57,8 +48,8 @@ in rec {
         enable = true;
         package = pkgs.i3-gaps;
         extraPackages = with pkgs; [
-          feh networkmanagerapplet xterm scrot davmail numlockx i3blocks-gaps metar yad ack metar xkb_switch
-          i3lock-fancy
+          feh networkmanagerapplet xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb_switch
+          i3lock-fancy flameshot
         ];
         extraSessionCommands = ''
           numlockx
