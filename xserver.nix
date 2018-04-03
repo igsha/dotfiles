@@ -20,6 +20,7 @@ in rec {
       Option "DPMS" "true"
     '';
     serverLayoutSection = ''
+      Option "BlankTime" "5"
       Option "StandbyTime" "30"
       Option "SuspendTime" "60"
       Option "OffTime" "90"
@@ -37,11 +38,6 @@ in rec {
       autoNumlock = true;
     };
 
-    xautolock = {
-      time = 10;
-      locker = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
-    };
-
     windowManager = {
       default = "i3";
       i3 = {
@@ -49,10 +45,11 @@ in rec {
         package = pkgs.i3-gaps;
         extraPackages = with pkgs; [
           feh networkmanagerapplet xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb_switch
-          i3lock-fancy flameshot
+          i3lock-fancy flameshot xss-lock
         ];
         extraSessionCommands = ''
           numlockx
+          xss-lock -- i3lock-fancy &
           export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
           export I3BLOCKS_CONF_DIR=${builtins.dirOf i3blocks-config}
         '';
