@@ -22,8 +22,7 @@ in rec {
     serverLayoutSection = ''
       Option "BlankTime" "5"
       Option "StandbyTime" "30"
-      Option "SuspendTime" "60"
-      Option "OffTime" "90"
+      Option "OffTime" "45"
     '';
 
     videoDrivers = [ "nvidia" ];

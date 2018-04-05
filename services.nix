@@ -39,7 +39,7 @@
     rogue.enable = true;
     logind.extraConfig = ''
       IdleAction=suspend
-      IdleActionSec=1800
+      IdleActionSec=3600
       HandlePowerKey=suspend
     '';
     unclutter-xfixes.enable = true;
