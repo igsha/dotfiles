@@ -80,6 +80,7 @@ let
       panflute
       pandocfilters
       build-common
+      fusepy
     ];
   };
   pandocenv = createEnv {
