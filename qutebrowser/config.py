@@ -21,6 +21,9 @@ c.content.geolocation = True
 #c.content.cookies.accept = 'no-unknown-3rdparty'
 c.content.host_blocking.enabled = False
 
+config.set('auto_save.session', True)
+c.session.lazy_restore = True
+
 c.hints.chars = 'asdfghjklqwertyuiopzxcvbnm'
 c.hints.next_regexes += [r'\bmore$$\b', r'\bдальше\b', r'\bnachher\b', r'\bвпер(е|ё)д\b']
 c.hints.prev_regexes += [r'\bназад\b', r'\bvorher\b']
