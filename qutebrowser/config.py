@@ -1,3 +1,4 @@
+c.qt.force_software_rendering = True
 c.editor.command = ['urxvt', '-name', 'editor', '-e', 'nvim', '{}']
 
 #c.content.developer_extras = True

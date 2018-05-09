@@ -11,7 +11,7 @@ let
   cxx-common = with pkgs; [
     gdb valgrind doxygen graphviz openmpi
     boost catch cimg pngpp gtest
-    libjpeg zlib readline netpbm libxml2 ncurses SDL SDL_image imagemagick
+    libjpeg zlib readline netpbm libxml2 ncurses SDL SDL_image imagemagick7
     rpm
     opencv3
     ffmpeg
@@ -45,7 +45,7 @@ let
     ghostscript
     poppler_utils
     gnome3.libgxps
-    imagemagick exif
+    imagemagick7 exif
     gnuplot
     aspell aspellDicts.en
     (aspellDicts.ru.overrideAttrs (oldAttrs: rec {

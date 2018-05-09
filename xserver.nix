@@ -25,8 +25,6 @@ in rec {
       Option "OffTime" "45"
     '';
 
-    videoDrivers = [ "nvidia" ];
-
     desktopManager = {
       default = "none";
       xterm.enable = false;

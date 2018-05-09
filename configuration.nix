@@ -19,6 +19,7 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  #services.xserver.videoDrivers = [ "nvidia" ];
 
   networking = {
     hostName = "nixos-pc";

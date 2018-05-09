@@ -27,13 +27,14 @@
     teamviewer.enable = false;
     urxvtd.enable = true;
     compton = {
-      enable = false;
+      enable = true;
       vSync = "opengl";
       # https://github.com/chjj/compton/issues/152
       extraOptions = ''
         xrender-sync = true
         xrender-sync-fence = true
       '';
+      backend = "xr_glx_hybrid";
     };
     actkbd.enable = true;
     rogue.enable = true;
