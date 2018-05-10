@@ -125,7 +125,14 @@ let
     name = "docenv";
     buildInputs = pandocenv.buildInputs ++ latexenv.buildInputs;
   };
+  luaenv = createEnv {
+    name = "lua";
+    buildInputs = with pkgs; [ love libGL lua ];
+    shellHook = ''
+      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${pkgs.libGL}/lib
+    '';
+  };
 
 in {
-  environment.systemPackages = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv docenv ];
+  environment.systemPackages = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv docenv luaenv ];
 }
