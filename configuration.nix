@@ -18,9 +18,6 @@
     efi.canTouchEfiVariables = true;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  #services.xserver.videoDrivers = [ "nvidia" ];
-
   networking = {
     hostName = "nixos-pc";
     networkmanager.enable = true;
@@ -97,9 +94,12 @@
     '';
   };
 
-  system.autoUpgrade = {
-    enable = false;
-    dates = "Fri 20:00";
+  system = {
+    nixos.stateVersion = "unstable";
+    autoUpgrade = {
+      enable = false;
+      dates = "Fri 20:00";
+    };
   };
 
   programs.bash = {

@@ -56,6 +56,15 @@ let
     asymptote
   ];
 
+  pandocWithDeps = pkgs.haskell.packages.ghc842.ghcWithPackages (pkgs: with pkgs; [
+    pandoc
+    pandoc-crossref
+    pandoc-citeproc
+    pandoc-placetable
+    pandoc-filter-graphviz
+    (pandoc-include-code.overrideAttrs (oldAttrs: rec { doCheck = false; }))
+  ]);
+
   clangenv = createEnv {
     name = "clang";
     buildInputs = cxx-common ++ [ pkgs.clang ];
@@ -86,17 +95,13 @@ let
   pandocenv = createEnv {
     name = "pandoc";
     buildInputs = with pkgs; [
-      pandoc docx-combine opc-diag docx-replace
-      (import ./pandoc-eqnos/requirements.nix { }).packages.pandoc-eqnos
-      (import ./pandoc-fignos/requirements.nix { }).packages.pandoc-fignos
-      (import ./pandoc-tablenos/requirements.nix { }).packages.pandoc-tablenos
-      #haskellPackages.pandoc-crossref
-      haskellPackages.pandoc-citeproc
+      docx-combine opc-diag docx-replace
       plantuml
       graphviz
       pythonenv.buildInputs
       image-related
       build-common
+      pandocWithDeps
     ];
   };
   latexenv = createEnv {
