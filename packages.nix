@@ -4,7 +4,9 @@
   nixpkgs.config = {
     packageOverrides = pkgs: {
       qutebrowser = pkgs.qutebrowser.overrideAttrs (oldAttrs: rec {
+        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.libGL ];
         postFixup = oldAttrs.postFixup + ''
+          wrapProgram $out/bin/qutebrowser --suffix LD_LIBRARY_PATH : "${pkgs.libGL}/lib"
           sed -i 's/\.qutebrowser-wrapped/qutebrowser/' $out/bin/..qutebrowser-wrapped-wrapped
         '';
       });
