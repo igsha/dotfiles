@@ -40,6 +40,10 @@ let
   panflute = pkgs.callPackage ./panflute.nix {
     pythonPackages = defaultPythonPackages;
   };
+  pantable = pkgs.callPackage ./pantable.nix {
+    pythonPackages = defaultPythonPackages;
+    panflute = panflute;
+  };
 
   image-related = with pkgs; [
     ghostscript
@@ -88,6 +92,7 @@ let
       python-docx
       panflute
       pandocfilters
+      pantable
       build-common
       fusepy
     ];
