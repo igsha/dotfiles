@@ -17,6 +17,7 @@ let
     ffmpeg
     bison flex
     amdappsdk
+    dpkg
   ] ++ build-common;
 
   defaultPythonPackages = pkgs.python3Packages;
