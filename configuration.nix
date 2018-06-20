@@ -59,7 +59,6 @@
     };
     pulseaudio = {
       enable = true;
-      systemWide = true;
       support32Bit = true;
       daemon.config = {
         flat-volumes = "no";

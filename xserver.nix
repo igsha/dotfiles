@@ -20,9 +20,10 @@ in rec {
       Option "DPMS" "true"
     '';
     serverLayoutSection = ''
-      Option "BlankTime" "5"
+      Option "BlankTime" "15"
       Option "StandbyTime" "30"
-      Option "OffTime" "45"
+      Option "SuspendTime" "45"
+      Option "OffTime" "60"
     '';
 
     desktopManager = {

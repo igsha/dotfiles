@@ -120,6 +120,6 @@
     neovim-qt
     tdesktop
     qutebrowser flashplayer-standalone google-chrome
-    virtinst virtmanager
+    virtinst virtmanager virt-viewer
   ];
 }
