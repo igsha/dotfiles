@@ -47,6 +47,7 @@
   virtualisation = {
     virtualbox.host.enable = false;
     libvirtd.enable = true;
+    docker.enable = true;
   };
 
   hardware = {

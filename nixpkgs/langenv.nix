@@ -61,9 +61,9 @@ let
     asymptote
   ];
 
-  pandocWithDeps = pkgs.haskell.packages.ghc842.ghcWithPackages (pkgs: with pkgs; [
+  pandocWithDeps = pkgs.haskell.packages.ghc843.ghcWithPackages (pkgs: with pkgs; [
     pandoc
-    pandoc-crossref
+#pandoc-crossref
     pandoc-citeproc
     pandoc-placetable
     pandoc-filter-graphviz

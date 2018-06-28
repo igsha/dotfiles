@@ -116,7 +116,7 @@
     ffmpeg-full
     freerdp
     thunderbird
-    libreoffice
+    abiword
     neovim-qt
     tdesktop
     qutebrowser flashplayer-standalone google-chrome
