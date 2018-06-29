@@ -45,6 +45,10 @@ let
     pythonPackages = defaultPythonPackages;
     panflute = panflute;
   };
+  pandoc-plantuml-filter = pkgs.callPackage ./pandoc-plantuml-filter.nix {
+    pythonPackages = defaultPythonPackages;
+    pandocfilters = defaultPythonPackages.pandocfilters;
+  };
 
   image-related = with pkgs; [
     ghostscript
@@ -96,6 +100,7 @@ let
       pantable
       build-common
       fusepy
+      pandoc-plantuml-filter
     ];
   };
   pandocenv = createEnv {
