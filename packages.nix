@@ -109,8 +109,8 @@
     davmail
     mpv
     pavucontrol
-    gpicview
-    inkscape gimp
+    pqiv
+    inkscape krita
     xournal
     zathura
     ffmpeg-full
