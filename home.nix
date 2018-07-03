@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, email ? "igsha@users.noreply.github.com", ... }:
 
 {
   home.packages = [
@@ -10,7 +10,7 @@
     git = {
       enable = true;
       userName  = "Igor Sharonov";
-      userEmail = "igsha@users.noreply.github.com";
+      userEmail = email;
       aliases = {
         st = "status";
         di = "difftool";
@@ -46,6 +46,7 @@
     ".config/vifm/vifmrc".source = configs/vifmrc;
     ".config/qutebrowser/config.py".source = configs/qutebrowser/config.py;
     ".config/qutebrowser/scrollbar.css".source = configs/qutebrowser/scrollbar.css;
+    ".config/dunst/dunstrc".source = configs/dunstrc;
     ".wcalcrc".source = configs/wcalcrc;
     ".gdbinit".source = configs/gdbinit;
     ".Xdefaults".source = configs/Xdefaults;
