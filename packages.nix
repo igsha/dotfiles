@@ -23,6 +23,10 @@
       matplotlib = pkgs.python3Packages.matplotlib.overrideAttrs (oldAttrs: rec {
         enableQt = true;
       });
+
+      neovim = pkgs.neovim.override {
+      	configure = import ./vimrcConfig.nix { pkgs = pkgs; };
+      };
     };
 
     allowUnfree = true;
