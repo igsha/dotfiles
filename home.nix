@@ -1,4 +1,4 @@
-{ pkgs, email ? "igsha@users.noreply.github.com", ... }:
+{ pkgs, email ? "igsha@users.noreply.github.com" }:
 
 {
   home.packages = [
@@ -39,6 +39,10 @@
       };
     };
     fzf.enable = true;
+    pidgin = {
+      enable = true;
+      plugins = with pkgs; [ pidgin-latex pidgin-osd purple-hangouts telegram-purple pidgin-window-merge ];
+    };
   };
 
   home.file = {

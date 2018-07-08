@@ -34,6 +34,19 @@ let
     airlineConf = "let g:airline_section_z = '%3p%% (0x%2B) %#__accent_bold#%4l%#__restore__#:%3c'";
     hybridConf = "let g:hybrid_reduced_contrast = 1";
   };
+  bdall = pkgs.vimUtils.buildVimPlugin {
+    name = "bdall";
+    src = ./configs/nvim/bdall;
+  };
+  plantuml = pkgs.vimUtils.buildVimPlugin {
+    name = "plantuml";
+    src = pkgs.fetchFromGitHub {
+      owner = "aklt";
+      repo = "plantuml-syntax";
+      rev = "41eeca5";
+      sha256 = "1v11dj4vwk5hyx0zc8qkl0a5wh91zfmwhcq2ndl8zwp78h9yf5wr";
+    };
+  };
 
 in rec {
   customRC = ''
@@ -52,6 +65,8 @@ in rec {
       airline
       vim-nix
       multiple-cursors
+      bdall
+      plantuml
     ];
     opt = [ ];
   };
