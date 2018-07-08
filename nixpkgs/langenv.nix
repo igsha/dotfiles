@@ -67,7 +67,7 @@ let
 
   pandocWithDeps = pkgs.haskell.packages.ghc843.ghcWithPackages (pkgs: with pkgs; [
     pandoc
-#pandoc-crossref
+    (pandoc-crossref.overrideAttrs (oldAttrs: { doCheck = false; }))
     pandoc-citeproc
     pandoc-placetable
     pandoc-filter-graphviz

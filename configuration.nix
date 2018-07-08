@@ -51,6 +51,8 @@
     docker.enable = true;
   };
 
+  nixpkgs.config.pulseaudio = true;
+
   hardware = {
     opengl = {
       enable = true;
