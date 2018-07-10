@@ -21,22 +21,8 @@ let
   ] ++ build-common;
 
   defaultPythonPackages = pkgs.python3Packages;
-  python-docx = pkgs.callPackage ./python-docx.nix {
-    pythonPackages = defaultPythonPackages;
-  };
-  opc-diag = pkgs.callPackage ./opc-diag.nix {
-    pythonPackages = defaultPythonPackages;
-  };
-  docx-combine = pkgs.callPackage ./docx-combine.nix {
-    pythonPackages = defaultPythonPackages;
-    fetchFromGitHub = pkgs.fetchFromGitHub;
-    inherit python-docx;
-  };
-  docx-replace = pkgs.callPackage ./docx-replace.nix {
-    pythonPackages = defaultPythonPackages;
-    fetchFromGitHub = pkgs.fetchFromGitHub;
-    inherit python-docx;
-  };
+  docx-combine = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-combine/tarball/master) { pkgs = pkgs; };
+  docx-replace = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-replace/tarball/master) { pkgs = pkgs; };
 
   panflute = pkgs.callPackage ./panflute.nix {
     pythonPackages = defaultPythonPackages;
@@ -106,7 +92,8 @@ let
   pandocenv = createEnv {
     name = "pandoc";
     buildInputs = with pkgs; [
-      docx-combine opc-diag docx-replace
+      docx-combine
+      docx-replace
       plantuml
       graphviz
       pythonenv.buildInputs
