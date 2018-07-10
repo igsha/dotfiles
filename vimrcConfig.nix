@@ -15,7 +15,6 @@ let
       let g:tagbar_left = 1
       let g:tagbar_autoclose = 1
     '';
-    easybufferConf = "nmap <Leader>b :EasyBuffer<CR>";
     localvimrcConf = ''
       let g:localvimrc_sandbox = 0
       let g:localvimrc_ask = 0
@@ -67,6 +66,7 @@ in rec {
       multiple-cursors
       bdall
       plantuml
+      vim-buffergator
     ];
     opt = [ ];
   };
