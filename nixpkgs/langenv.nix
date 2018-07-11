@@ -60,6 +60,7 @@ let
     (pandoc-include-code.overrideAttrs (oldAttrs: rec { doCheck = false; }))
   ]);
 
+in rec {
   clangenv = createEnv {
     name = "clang";
     buildInputs = cxx-common ++ [ pkgs.clang ];
@@ -136,6 +137,5 @@ let
     '';
   };
 
-in {
   all-envs = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv docenv luaenv ];
 }
