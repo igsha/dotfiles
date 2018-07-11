@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs ? import <nixpkgs> { } }:
 
 with import ./create-env.nix { inherit pkgs; };
 let
@@ -21,8 +21,8 @@ let
   ] ++ build-common;
 
   defaultPythonPackages = pkgs.python3Packages;
-  docx-combine = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-combine/tarball/master) { pkgs = pkgs; };
-  docx-replace = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-replace/tarball/master) { pkgs = pkgs; };
+  docx-combine = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-combine/tarball/master) { inherit pkgs; };
+  docx-replace = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-replace/tarball/master) { inherit pkgs; };
 
   panflute = pkgs.callPackage ./panflute.nix {
     pythonPackages = defaultPythonPackages;
@@ -137,5 +137,5 @@ let
   };
 
 in {
-  environment.systemPackages = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv docenv luaenv ];
+  all-envs = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv docenv luaenv ];
 }
