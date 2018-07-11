@@ -82,12 +82,8 @@ in rec {
       sympy
       pip
       python-docx
-      panflute
-      pandocfilters
-      pantable
       build-common
       fusepy
-      pandoc-plantuml-filter
     ];
   };
   pandocenv = createEnv {
@@ -95,11 +91,14 @@ in rec {
     buildInputs = with pkgs; [
       docx-combine
       docx-replace
+      (defaultPythonPackages.python.withPackages (p: [ p.python-docx ]))
       plantuml
       graphviz
-      pythonenv.buildInputs
-      image-related
-      build-common
+      pantable
+      pandoc-plantuml-filter
+      imagemagick7
+      cmake
+      gnumake
       pandocWithDeps
     ];
   };
