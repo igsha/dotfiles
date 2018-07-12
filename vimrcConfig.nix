@@ -20,16 +20,6 @@ let
       let g:localvimrc_ask = 0
       let g:localvimrc_name = [ ".lvimrc", ".git/localvimrc" ]
     '';
-    buftabsConf = ''
-      set laststatus=2
-      "let g:buftabs_in_statusline = 0
-      let g:buftabs_only_basename = 1
-      let g:buftabs_separator = ":"
-      let g:buftabs_marker_start = "["
-      let g:buftabs_marker_end = "]"
-      let g:buftabs_marker_modified = ""
-      "set statusline=%{buftabs#statusline()}\ %=%h%m%r\ %-14.(%l,%c%V%)\ %P
-    '';
     airlineConf = "let g:airline_section_z = '%3p%% (0x%2B) %#__accent_bold#%4l%#__restore__#:%3c'";
     hybridConf = "let g:hybrid_reduced_contrast = 1";
   };
@@ -45,6 +35,10 @@ let
       rev = "41eeca5";
       sha256 = "1v11dj4vwk5hyx0zc8qkl0a5wh91zfmwhcq2ndl8zwp78h9yf5wr";
     };
+  };
+  smarthomekey = pkgs.vimUtils.buildVimPlugin {
+    name = "smarthomekey";
+    src = builtins.fetchTarball https://api.github.com/repos/chenkaie/smarthomekey.vim/tarball/master;
   };
 
 in rec {
@@ -67,6 +61,8 @@ in rec {
       bdall
       plantuml
       vim-buffergator
+      vim-grammarous
+      smarthomekey
     ];
     opt = [ ];
   };

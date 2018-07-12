@@ -2,32 +2,7 @@
 
 {
   nixpkgs.config = {
-    packageOverrides = pkgs: {
-      qutebrowser = pkgs.qutebrowser.overrideAttrs (oldAttrs: rec {
-        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.libGL ];
-        postFixup = oldAttrs.postFixup + ''
-          wrapProgram $out/bin/qutebrowser --suffix LD_LIBRARY_PATH : "${pkgs.libGL}/lib"
-          sed -i 's/\.qutebrowser-wrapped/qutebrowser/' $out/bin/..qutebrowser-wrapped-wrapped
-        '';
-      });
-
-      clawsMail = pkgs.clawsMail.override {
-        enablePluginFancy = true;
-        enablePluginVcalendar = true;
-        enableSpellcheck = true;
-        enablePluginRssyl = true;
-        enablePluginPdf = true;
-        webkitgtk24x-gtk2 = pkgs.webkitgtk;
-      };
-
-      matplotlib = pkgs.python3Packages.matplotlib.overrideAttrs (oldAttrs: rec {
-        enableQt = true;
-      });
-
-      neovim = pkgs.neovim.override {
-      	configure = import ./vimrcConfig.nix { pkgs = pkgs; };
-      };
-    };
+    packageOverrides = import ./packages;
 
     allowUnfree = true;
     virtualbox.enableExtensionPack = true;
@@ -49,11 +24,7 @@
     stdenv gnumake
     gitFull subversion
     wget
-    xsel xclip xdotool
     neovim ed
-    xlibs.xhost hsetroot xorg.xev xorg.xkill
-    dmenu nox
-    xfontsel
     man stdman man-pages posix_man_pages
     utillinuxCurses freetype
     gitAndTools.gitflow tig
@@ -79,37 +50,41 @@
     unrar unzip zip p7zip
     wcalc jq
     ntfs3g gparted xfsprogs
-    xchm
     youtube-dl
     libxml2
     ponysay ponymix
     fakeroot fakechroot debootstrap
     transmission
-    wine winetricks
     maim
     sdcv
     elinks
     httpie
     parallel
     mcomix
-    glxinfo
     gnupg
     rtags
     ncdu
     androidsdk android-udev-rules
     screen
-    nix-repl
     patchutils
     samba
     pass
     pypi2nix cabal2nix cabal-install
     moreutils
-    xorg.xwininfo
     trash-cli
     nix-bash-completions
     gptfdisk parted
     cdrtools
+    # X11
+    xsel xclip xdotool
+    xlibs.xhost hsetroot xorg.xev xorg.xkill
+    dmenu
+    xfontsel
+    xorg.xwininfo
+    glxinfo
+    xchm
     # gui
+    wine winetricks
     davmail
     mpv
     pavucontrol

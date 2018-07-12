@@ -21,20 +21,6 @@ let
   ] ++ build-common;
 
   defaultPythonPackages = pkgs.python3Packages;
-  docx-combine = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-combine/tarball/master) { inherit pkgs; };
-  docx-replace = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-replace/tarball/master) { inherit pkgs; };
-
-  panflute = pkgs.callPackage ./panflute.nix {
-    pythonPackages = defaultPythonPackages;
-  };
-  pantable = pkgs.callPackage ./pantable.nix {
-    pythonPackages = defaultPythonPackages;
-    panflute = panflute;
-  };
-  pandoc-plantuml-filter = pkgs.callPackage ./pandoc-plantuml-filter.nix {
-    pythonPackages = defaultPythonPackages;
-    pandocfilters = defaultPythonPackages.pandocfilters;
-  };
 
   image-related = with pkgs; [
     ghostscript
@@ -50,15 +36,6 @@ let
     }))
     asymptote
   ];
-
-  pandocWithDeps = pkgs.haskell.packages.ghc843.ghcWithPackages (pkgs: with pkgs; [
-    pandoc
-    (pandoc-crossref.overrideAttrs (oldAttrs: { doCheck = false; }))
-    pandoc-citeproc
-    pandoc-placetable
-    pandoc-filter-graphviz
-    (pandoc-include-code.overrideAttrs (oldAttrs: rec { doCheck = false; }))
-  ]);
 
 in rec {
   clangenv = createEnv {
@@ -86,22 +63,6 @@ in rec {
       fusepy
     ];
   };
-  pandocenv = createEnv {
-    name = "pandoc";
-    buildInputs = with pkgs; [
-      docx-combine
-      docx-replace
-      (defaultPythonPackages.python.withPackages (p: [ p.python-docx panflute ]))
-      plantuml
-      graphviz
-      pantable
-      pandoc-plantuml-filter
-      imagemagick7
-      cmake
-      gnumake
-      pandocWithDeps
-    ];
-  };
   latexenv = createEnv {
     name = "latex";
     buildInputs = with pkgs; [
@@ -124,10 +85,6 @@ in rec {
       browserify
     ];
   };
-  docenv = createEnv {
-    name = "docenv";
-    buildInputs = pandocenv.buildInputs ++ latexenv.buildInputs;
-  };
   luaenv = createEnv {
     name = "lua";
     buildInputs = with pkgs; [ love libGL lua ];
@@ -136,5 +93,5 @@ in rec {
     '';
   };
 
-  all-envs = [ clangenv gccenv pandocenv pythonenv latexenv nodejsenv docenv luaenv ];
+  all-envs = [ clangenv gccenv pythonenv latexenv nodejsenv luaenv ];
 }
