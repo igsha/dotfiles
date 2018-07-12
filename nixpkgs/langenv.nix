@@ -91,7 +91,7 @@ in rec {
     buildInputs = with pkgs; [
       docx-combine
       docx-replace
-      (defaultPythonPackages.python.withPackages (p: [ p.python-docx ]))
+      (defaultPythonPackages.python.withPackages (p: [ p.python-docx panflute ]))
       plantuml
       graphviz
       pantable
