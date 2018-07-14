@@ -1,8 +1,26 @@
 { pkgs, user, email }:
 
 {
-  home.packages = [
-    pkgs.atool
+  home.packages = with pkgs; [
+    atool
+    wine winetricks
+    davmail
+    mpv
+    pavucontrol
+    pqiv
+    inkscape krita
+    xournal
+    zathura
+    ffmpeg-full
+    freerdp
+    thunderbird
+    abiword
+    neovim-qt
+    tdesktop
+    qutebrowser flashplayer-standalone google-chrome
+    virtmanager virt-viewer
+    mcomix
+    maim
   ];
 
   programs = {
@@ -11,16 +29,24 @@
     fzf.enable = true;
     pidgin = {
       enable = true;
-      plugins = with pkgs; [ pidgin-latex pidgin-osd purple-hangouts telegram-purple pidgin-window-merge ];
+      plugins = with pkgs; [ pidgin-latex pidgin-osd purple-hangouts telegram-purple pidgin-window-merge pidgin-skypeweb ];
     };
   };
 
+  services = {
+    flameshot.enable = true;
+  };
+
+  nixpkgs.config = import ./nixpkgs-config.nix;
+
+  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
+  xdg.configFile."matplotlib".source = configs/matplotlib;
+  xdg.configFile."vifm/vifmrc".source = configs/vifmrc;
+  xdg.configFile."qutebrowser/config.py".source = configs/qutebrowser/config.py;
+  xdg.configFile."qutebrowser/scrollbar.css".source = configs/qutebrowser/scrollbar.css;
+  xdg.configFile."dunst/dunstrc".source = configs/dunstrc;
+
   home.file = {
-    ".config/matplotlib".source = configs/matplotlib;
-    ".config/vifm/vifmrc".source = configs/vifmrc;
-    ".config/qutebrowser/config.py".source = configs/qutebrowser/config.py;
-    ".config/qutebrowser/scrollbar.css".source = configs/qutebrowser/scrollbar.css;
-    ".config/dunst/dunstrc".source = configs/dunstrc;
     ".wcalcrc".source = configs/wcalcrc;
     ".gdbinit".source = configs/gdbinit;
     ".Xdefaults".source = configs/Xdefaults;

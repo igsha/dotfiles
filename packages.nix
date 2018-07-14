@@ -1,18 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  nixpkgs.config = {
-    packageOverrides = import ./packages;
-
-    allowUnfree = true;
-    virtualbox.enableExtensionPack = true;
-    firefox.enableAdobeFlash = true;
-    chromium.enablePepperFlash = true;
-    allowTexliveBuilds = true;
-    permittedInsecurePackages = [
-      "polipo-1.1.1"
-    ];
-  };
+  nixpkgs.config = import ./nixpkgs-config.nix;
 
   environment.etc = {
     "fuse.conf".text = ''
@@ -31,7 +20,6 @@
     lm_sensors
     ack silver-searcher
     psmisc
-    xdg_utils
     fzf
     pythonPackages.glances
     syslinux
@@ -55,12 +43,10 @@
     ponysay ponymix
     fakeroot fakechroot debootstrap
     transmission
-    maim
     sdcv
     elinks
     httpie
     parallel
-    mcomix
     gnupg
     rtags
     ncdu
@@ -83,22 +69,6 @@
     xorg.xwininfo
     glxinfo
     xchm
-    # gui
-    wine winetricks
-    davmail
-    mpv
-    pavucontrol
-    pqiv
-    inkscape krita
-    xournal
-    zathura
-    ffmpeg-full
-    freerdp
-    thunderbird
-    abiword
-    neovim-qt
-    tdesktop
-    qutebrowser flashplayer-standalone google-chrome
-    virtinst virtmanager virt-viewer
+    xdg_utils
   ];
 }
