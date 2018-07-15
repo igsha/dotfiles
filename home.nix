@@ -1,6 +1,10 @@
 { pkgs, user, email }:
 
-{
+let
+  packagesPath = builtins.toPath ./packages/default.nix;
+  nixpkgsConfig = builtins.replaceStrings [ "./packages" ] [ packagesPath ] (builtins.readFile ./nixpkgs-config.nix);
+
+in rec {
   home.packages = with pkgs; [
     atool
     wine winetricks
@@ -39,7 +43,7 @@
 
   nixpkgs.config = import ./nixpkgs-config.nix;
 
-  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
+  xdg.configFile."nixpkgs/config.nix".text = nixpkgsConfig;
   xdg.configFile."matplotlib".source = configs/matplotlib;
   xdg.configFile."vifm/vifmrc".source = configs/vifmrc;
   xdg.configFile."qutebrowser/config.py".source = configs/qutebrowser/config.py;

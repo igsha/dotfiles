@@ -41,9 +41,7 @@ rec {
     panflute = panflute;
   };
 
-  pandocenv = pkgs.callPackage ./envs/pandoc.nix {
-    pkgs = pkgs // { inherit docx-combine docx-replace pantable panflute; };
-  };
-
+  pandocenv = pkgs.callPackage ./envs/pandoc.nix (pkgs // { inherit docx-combine docx-replace pantable panflute; });
   gccenv = pkgs.callPackage ./envs/gcc.nix pkgs;
+  pythonenv = pkgs.callPackage ./envs/python.nix pkgs;
 }
