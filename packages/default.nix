@@ -1,6 +1,9 @@
 pkgs:
 
-rec {
+let
+  fetchMaster = user-repo: builtins.fetchTarball "https://api.github.com/repos/${user-repo}/tarball/master";
+
+in rec {
   qutebrowser = pkgs.qutebrowser.overrideAttrs (oldAttrs: rec {
     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.libGL ];
     postFixup = oldAttrs.postFixup + ''
@@ -23,15 +26,11 @@ rec {
   });
 
   neovim = pkgs.neovim.override {
-    configure = import ../vimrcConfig.nix { pkgs = pkgs; };
+    configure = import ../vimrcConfig.nix { inherit (pkgs) vimUtils vimPlugins fetchFromGitHub; };
   };
 
-  docx-combine = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-combine/tarball/master) {
-    inherit pkgs;
-  };
-  docx-replace = import (builtins.fetchTarball https://api.github.com/repos/cvlabmiet/docx-replace/tarball/master) {
-    inherit pkgs;
-  };
+  docx-combine = import (fetchMaster "cvlabmiet/docx-combine") { inherit pkgs; };
+  docx-replace = import (fetchMaster "cvlabmiet/docx-replace") { inherit pkgs; };
 
   panflute = pkgs.callPackage ./panflute {
     pythonPackages = pkgs.python3Packages;
@@ -41,14 +40,12 @@ rec {
     panflute = panflute;
   };
 
-  pandoc-pipe = import (builtins.fetchTarball https://api.github.com/repos/igsha/pandoc-pipe/tarball/master) {
-    pkgs = pkgs // { inherit panflute; };
-  };
-  pandoc-inline-image = import (builtins.fetchTarball https://api.github.com/repos/igsha/pandoc-inline-image/tarball/master) {
-    pkgs = pkgs // { inherit panflute; };
-  };
+  pandoc-pipe = import (fetchMaster "igsha/pandoc-pipe") { pkgs = pkgs // { inherit panflute; }; };
+  pandoc-inline-image = import (fetchMaster "igsha/pandoc-inline-image") { pkgs = pkgs // { inherit panflute; }; };
 
-  pandocenv = pkgs.callPackage ./envs/pandoc.nix (pkgs // { inherit docx-combine docx-replace pantable panflute pandoc-pipe pandoc-inline-image; });
+  docproc = import (fetchMaster "igsha/docproc") { inherit pkgs; };
+
+  pandocenv = pkgs.callPackage ./envs/pandoc.nix { ghcWithPackages = pkgs.haskell.packages.ghc843.ghcWithPackages; };
   gccenv = pkgs.callPackage ./envs/gcc.nix pkgs;
   pythonenv = pkgs.callPackage ./envs/python.nix pkgs;
   latexenv = pkgs.callPackage ./envs/latex.nix pkgs;

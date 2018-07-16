@@ -1,7 +1,21 @@
-pkgs:
+{ mkShell,
+  buildEnv,
+  ghcWithPackages,
+  docproc,
+  docx-combine,
+  docx-replace,
+  python3,
+  plantuml,
+  graphviz,
+  pantable,
+  panflute,
+  imagemagick7,
+  cmake,
+  gnumake
+}:
 
 let
-  pandocWithDeps = pkgs.haskell.packages.ghc843.ghcWithPackages (p: with p; [
+  pandocWithDeps = ghcWithPackages (p: with p; [
     pandoc
     (pandoc-crossref.overrideAttrs (oldAttrs: { doCheck = false; }))
     pandoc-citeproc
@@ -10,12 +24,12 @@ let
     (pandoc-include-code.overrideAttrs (oldAttrs: rec { doCheck = false; }))
   ]);
 
-in pkgs.stdenv.mkDerivation rec {
+in mkShell rec {
   name = "pandocenv";
-  buildInputs = with pkgs; [
+  buildInputs = [
     docx-combine
     docx-replace
-    (python3Packages.python.withPackages (p: [ p.python-docx panflute ]))
+    (python3.withPackages (p: [ p.python-docx panflute ]))
     plantuml
     graphviz
     pantable
@@ -23,9 +37,10 @@ in pkgs.stdenv.mkDerivation rec {
     cmake
     gnumake
     pandocWithDeps
+    docproc
   ];
 
-  env = pkgs.buildEnv {
+  env = buildEnv {
     inherit name;
     paths = buildInputs;
   };
