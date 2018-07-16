@@ -12,8 +12,6 @@
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
   ];
 
-  environment.systemPackages = (import ./nixpkgs/langenv.nix { inherit pkgs; }).all-envs;
-
   boot.loader = {
     grub.device = "/dev/sda";
     systemd-boot.enable = true;

@@ -41,7 +41,14 @@ rec {
     panflute = panflute;
   };
 
-  pandocenv = pkgs.callPackage ./envs/pandoc.nix (pkgs // { inherit docx-combine docx-replace pantable panflute; });
+  pandoc-pipe = import (builtins.fetchTarball https://api.github.com/repos/igsha/pandoc-pipe/tarball/master) {
+    pkgs = pkgs // { inherit panflute; };
+  };
+  pandoc-inline-image = import (builtins.fetchTarball https://api.github.com/repos/igsha/pandoc-inline-image/tarball/master) {
+    pkgs = pkgs // { inherit panflute; };
+  };
+
+  pandocenv = pkgs.callPackage ./envs/pandoc.nix (pkgs // { inherit docx-combine docx-replace pantable panflute pandoc-pipe pandoc-inline-image; });
   gccenv = pkgs.callPackage ./envs/gcc.nix pkgs;
   pythonenv = pkgs.callPackage ./envs/python.nix pkgs;
   latexenv = pkgs.callPackage ./envs/latex.nix pkgs;
