@@ -12,19 +12,19 @@ let
     ];
   };
 
-in pkgs.mkShell {
+in pkgs.mkShell rec {
   name = "latexenv";
   propagatedNativeBuildInputs = with pkgs; [
     (texlive.combine {
       inherit (texlive) scheme-full metafont;
       pkgFilter = pkg: pkg.tlType == "run" || pkg.tlType == "bin" || pkg.pname == "core" || pkg.pname == "doc";
     })
-    biber
     pythonPkgs
     ghostscript
     poppler_utils
     gnome3.libgxps
     imagemagick7
+    librsvg
     exif
     gnuplot
     aspell
@@ -37,4 +37,10 @@ in pkgs.mkShell {
     asymptote
     cmake gnumake
   ];
+
+  env = pkgs.buildEnv {
+    inherit name;
+    paths = propagatedNativeBuildInputs;
+    ignoreCollisions = true;
+  };
 }
