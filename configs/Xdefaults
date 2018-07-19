@@ -4,35 +4,9 @@
 ! and the reduced contrast background color from Codecademys online editor:
 ! https://www.codecademy.com/learn
 
-URxvt*background: #232C31
-URxvt*foreground: #C5C8C6
-! black
-URxvt*color0: #2D3C46
-URxvt*color8: #425059
-! red
-URxvt*color1: #A54242
-URxvt*color9: #CC6666
-! green
-URxvt*color2: #8C9440
-URxvt*color10: #B5BD68
-! yellow
-URxvt*color3: #DE935F
-URxvt*color11: #F0C674
-! blue
-URxvt*color4: #5F819D
-URxvt*color12: #81A2BE
-! magenta
-URxvt*color5: #85678F
-URxvt*color13: #B294BB
-! cyan
-URxvt*color6: #5E8D87
-URxvt*color14: #8ABEB7
-! white
-URxvt*color7: #6C7A80
-URxvt*color15: #C5C8C6
-
 URxvt*title:                URXVT
 URxvt*font:                 xft:DejaVu Sans Mono:size=10
+!urxvt.font: xft:Inconsolata:size=10
 URxvt*boldFont:
 URxvt*italicFont:
 URxvt*boldItalicFont:
@@ -47,20 +21,30 @@ URxvt.scrollstyle:          plain
 URxvt.scrollTtyOutput:      false
 URxvt.scrollTtyKeypress:    true
 URxvt.scrollWithBuffer:     true
-URxvt.secondaryScroll:      true
+URxvt.secondaryScroll:      false
 URxvt.scrollBar_right:      true
+URxvt.secondaryScreen:      true
+URxvt.secondaryWheel:       true
 
 URxvt.cursorBlink:          false
 URxvt.pointerBlank:         true
 URxvt.pointerBlankDelay:    13
 
-URxvt.perl-lib:             .urxvt/
-URxvt.perl-ext-common:      default,matcher,tabbedex,clipboard,keyboard-select,url-select
-URxvt.perl-ext:             default,url-select
+!URxvt.perl-lib:             .urxvt/
+URxvt.perl-ext-common:      default,matcher,tabbedex,clipboard,keyboard-select,url-select,font-size,vtwheel,color-themes
+!URxvt.perl-ext:             default,url-select
 
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.url-select.launcher:  xdg-open
 URxvt.url-select.underline: true
+
+URxvt.keysym.M-C-n: color-themes:next
+URxvt.keysym.M-C-p: color-themes:prev
+URxvt.keysym.M-C-l: color-themes:load-state
+URxvt.keysym.M-C-s: color-themes:save-state
+
+URxvt.keysym.C-minus:     font-size:decrease
+URxvt.keysym.C-plus:      font-size:increase
 
 URxvt.urlLauncher:          xdg-open
 URxvt.matcher.button:       1
@@ -83,11 +67,11 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 
 !URxvt.keysym.Home:          \033[1~
 !URxvt.keysym.End:           \033[4~
-URxvt.keysym.C-Tab:         \033{
-URxvt.keysym.Control-Shift-ISO_Left_Tab: \033}
+!URxvt.keysym.C-Tab:         \033{
+!URxvt.keysym.Control-Shift-ISO_Left_Tab: \033}
 ! disable ctrl-shift
-URxvt*iso14755: False
-URxvt*iso14755_52: False
+URxvt*iso14755: false
+URxvt*iso14755_52: false
 
 Xcursor*theme:              gentoo
 Xcursor*size:               22

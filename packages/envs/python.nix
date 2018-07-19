@@ -23,7 +23,12 @@ let
     ];
   };
 
-in pkgs.mkShell {
+in pkgs.mkShell rec {
   name = "pythonenv";
   propagatedNativeBuildInputs = with pkgs; [ pythonWithLibs cmake gnumake ];
+
+  env = pkgs.buildEnv {
+    inherit name;
+    paths = propagatedNativeBuildInputs;
+  };
 }

@@ -7,8 +7,8 @@ in rec {
   qutebrowser = pkgs.qutebrowser.overrideAttrs (oldAttrs: rec {
     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.libGL ];
     postFixup = oldAttrs.postFixup + ''
-          wrapProgram $out/bin/qutebrowser --suffix LD_LIBRARY_PATH : "${pkgs.libGL}/lib"
-          sed -i 's/\.qutebrowser-wrapped/qutebrowser/' $out/bin/..qutebrowser-wrapped-wrapped
+      wrapProgram $out/bin/qutebrowser --suffix LD_LIBRARY_PATH : "${pkgs.libGL}/lib"
+      sed -i 's/\.qutebrowser-wrapped/qutebrowser/' $out/bin/..qutebrowser-wrapped-wrapped
     '';
   });
 
@@ -45,7 +45,9 @@ in rec {
 
   docproc = import (fetchMaster "igsha/docproc") { inherit pkgs; };
 
-  pandocenv = pkgs.callPackage ./envs/pandoc.nix { ghcWithPackages = pkgs.haskell.packages.ghc843.ghcWithPackages; };
+  inherit (pkgs.callPackage ./perl-packages {}) PandocElements;
+
+  pandocenv = pkgs.callPackage ./envs/pandoc.nix { inherit (pkgs.haskell.packages.ghc843) ghcWithPackages; };
   gccenv = pkgs.callPackage ./envs/gcc.nix pkgs;
   pythonenv = pkgs.callPackage ./envs/python.nix pkgs;
   latexenv = pkgs.callPackage ./envs/latex.nix pkgs;

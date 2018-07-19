@@ -11,7 +11,8 @@
   panflute,
   imagemagick7,
   cmake,
-  gnumake
+  gnumake,
+  PandocElements
 }:
 
 let
@@ -38,6 +39,7 @@ in mkShell rec {
     gnumake
     pandocWithDeps
     docproc
+    PandocElements
   ];
 
   env = buildEnv {

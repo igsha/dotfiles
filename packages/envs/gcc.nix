@@ -24,5 +24,8 @@ in pkgs.mkShell rec {
 
   propagatedNativeBuildInputs = [ gcc8 ] ++ debugging ++ documenting ++ compiling;
 
-  env = buildInputs ++ propagatedNativeBuildInputs;
+  env = buildEnv {
+    inherit name;
+    paths = buildInputs ++ propagatedNativeBuildInputs;
+  };
 }

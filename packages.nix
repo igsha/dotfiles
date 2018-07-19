@@ -3,6 +3,14 @@
 {
   nixpkgs.config = import ./nixpkgs-config.nix;
 
+  system.extraDependencies = with pkgs; [
+    gccenv.env
+    pythonenv.env
+    pandocenv.env
+    latexenv.env
+    luaenv.env
+  ];
+
   environment.etc = {
     "fuse.conf".text = ''
       user_allow_other
