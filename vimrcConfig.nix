@@ -22,6 +22,7 @@ let
     '';
     airlineConf = "let g:airline_section_z = '%3p%% (0x%2B) %#__accent_bold#%4l%#__restore__#:%3c'";
     hybridConf = "let g:hybrid_reduced_contrast = 1";
+    buffergator = "let g:buffergator_viewport_split_policy = 'T'";
   };
   bdall = vimUtils.buildVimPlugin {
     name = "bdall";
