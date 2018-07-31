@@ -1,8 +1,6 @@
 ! vim: ft=xdefaults
-! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
-! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
-! and the reduced contrast background color from Codecademys online editor:
-! https://www.codecademy.com/learn
+
+#include ".themes/urxvt/tango"
 
 URxvt*title:                URXVT
 URxvt*font:                 xft:DejaVu Sans Mono:size=10
