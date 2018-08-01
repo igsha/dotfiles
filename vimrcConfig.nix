@@ -11,8 +11,8 @@ let
       command -nargs=* AckWord :Ack <cword> <args>
     '';
     tagbarConf = ''
-      nmap <Leader>t :TagbarToggle<cr>
-      let g:tagbar_left = 1
+      nnoremap <Leader>t :TagbarToggle<cr>
+      let g:tagbar_left = 0
       let g:tagbar_autoclose = 1
     '';
     localvimrcConf = ''
@@ -22,7 +22,11 @@ let
     '';
     airlineConf = "let g:airline_section_z = '%3p%% (0x%2B) %#__accent_bold#%4l%#__restore__#:%3c'";
     hybridConf = "let g:hybrid_reduced_contrast = 1";
-    buffergator = "let g:buffergator_viewport_split_policy = 'T'";
+    buffergator = ''
+      let g:buffergator_suppress_keymaps = 1
+      let g:buffergator_viewport_split_policy = 'T'
+      nnoremap <Leader>b :BuffergatorToggle<CR>
+    '';
   };
   bdall = vimUtils.buildVimPlugin {
     name = "bdall";
