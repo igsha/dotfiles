@@ -97,7 +97,7 @@
   };
 
   system = {
-    nixos.stateVersion = "unstable";
+    stateVersion = "unstable";
     autoUpgrade = {
       enable = false;
       dates = "Fri 20:00";
