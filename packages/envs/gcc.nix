@@ -13,7 +13,6 @@ let
 in pkgs.mkShell rec {
   name = "gccenv";
   buildInputs = [
-    gcc8
     libxslt
     libxml2
     zlib
@@ -23,7 +22,7 @@ in pkgs.mkShell rec {
     fuse3
   ] ++ testing ++ image ++ generic ++ huge;
 
-  propagatedNativeBuildInputs = debugging ++ documenting ++ compiling;
+  propagatedNativeBuildInputs = [ gcc8 ] ++ debugging ++ documenting ++ compiling;
 
   hardeningDisable = [ "all" ];
 
