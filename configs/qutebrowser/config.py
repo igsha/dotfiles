@@ -26,7 +26,7 @@ config.set('auto_save.session', True)
 c.session.lazy_restore = True
 
 c.hints.chars = 'asdfghjklqwertyuiopzxcvbnm'
-c.hints.next_regexes += [r'\bmore$$\b', r'\bдальше\b', r'\bnachher\b', r'\bвпер(е|ё)д\b']
+c.hints.next_regexes += [r'\bmore$$\b', r'\bдальше\b', r'\bnachher\b', r'\bвпер(е|ё)д\b', r'\bСледующая\b']
 c.hints.prev_regexes += [r'\bназад\b', r'\bvorher\b']
 
 c.url.default_page = 'DEFAULT'

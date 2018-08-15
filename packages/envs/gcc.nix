@@ -22,12 +22,12 @@ in pkgs.mkShell rec {
     fuse3
   ] ++ testing ++ image ++ generic ++ huge;
 
-  propagatedNativeBuildInputs = [ gcc8 ] ++ debugging ++ documenting ++ compiling;
+  nativeBuildInputs = [ gcc8 ] ++ debugging ++ documenting ++ compiling;
 
   hardeningDisable = [ "all" ];
 
   env = buildEnv {
     inherit name;
-    paths = buildInputs ++ propagatedNativeBuildInputs;
+    paths = buildInputs ++ nativeBuildInputs;
   };
 }

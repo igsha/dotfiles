@@ -25,6 +25,7 @@ in rec {
     virtmanager virt-viewer
     mcomix
     maim
+    gnome3.evolution
   ];
 
   programs = {
