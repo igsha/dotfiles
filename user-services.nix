@@ -23,21 +23,9 @@ in {
         ExecStop = "${pkgs.dropbox-cli}/bin/dropbox stop";
       };
     };
-
-    dunst = oneshot {
-      description = "dunst - notification daemon";
-      execute = "${pkgs.dunst}/bin/dunst";
-    };
-
-    setxkbmap = oneshot {
-      description = "setxkbmap - activate layout changing";
-      execute = "${pkgs.xorg.setxkbmap}/bin/setxkbmap";
-    };
   };
 
   environment.systemPackages = with pkgs; [
     dropbox-cli
-    dunst libnotify
-    xorg.setxkbmap
   ];
 }

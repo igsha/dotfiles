@@ -46,7 +46,7 @@
 
   virtualisation = {
     virtualbox.host.enable = false;
-    libvirtd.enable = true;
+    #libvirtd.enable = true;
     docker.enable = true;
   };
 
@@ -54,7 +54,6 @@
 
   hardware = {
     opengl = {
-      enable = true;
       driSupport = true;
       driSupport32Bit = true;
       s3tcSupport = true;

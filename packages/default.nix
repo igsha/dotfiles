@@ -41,7 +41,6 @@ in rec {
   };
 
   pandoc-pipe = import (fetchMaster "igsha/pandoc-pipe") { pkgs = pkgs // { inherit panflute; }; };
-  pandoc-inline-image = import (fetchMaster "igsha/pandoc-inline-image") { pkgs = pkgs // { inherit panflute; }; };
 
   docproc = import (fetchMaster "igsha/docproc") { inherit pkgs; };
 

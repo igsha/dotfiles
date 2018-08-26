@@ -13,8 +13,7 @@
   cmake,
   gnumake,
   PandocElements,
-  pandoc-pipe,
-  pandoc-inline-image
+  pandoc-pipe
 }:
 
 let
@@ -43,7 +42,6 @@ in mkShell rec {
     docproc
     PandocElements
     pandoc-pipe
-    pandoc-inline-image
   ];
 
   env = buildEnv {
