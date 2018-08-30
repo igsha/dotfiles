@@ -104,6 +104,7 @@ in rec {
     '';
     initExtra = ''
       numlockx
+      xset -dpms
       export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
       export I3BLOCKS_CONF_DIR=${builtins.dirOf i3blocks-config}
     '';
