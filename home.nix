@@ -78,6 +78,7 @@ in rec {
         };
       };
     };
+    gnome-keyring.enable = true;
   };
 
   nixpkgs.config = import ./nixpkgs-config.nix;
