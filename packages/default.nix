@@ -29,6 +29,10 @@ in rec {
     configure = import ../vimrcConfig.nix { inherit (pkgs) vimUtils vimPlugins fetchFromGitHub; };
   };
 
+  clang-tools = pkgs.clang-tools.override {
+    llvmPackages = pkgs.llvmPackages_6;
+  };
+
   docx-combine = import (fetchMaster "cvlabmiet/docx-combine") { inherit pkgs; };
   docx-replace = import (fetchMaster "cvlabmiet/docx-replace") { inherit pkgs; };
 
