@@ -44,11 +44,9 @@ in rec {
     panflute = panflute;
   };
 
-  pandoc-pipe = import (fetchMaster "igsha/pandoc-pipe") { pkgs = pkgs // { inherit panflute; }; };
-
-  docproc = import (fetchMaster "igsha/docproc") { inherit pkgs; };
-
   inherit (pkgs.callPackage ./perl-packages {}) PandocElements;
+  docproc = pkgs.callPackage (fetchMaster "igsha/docproc") { };
+  pandoc-pipe = pkgs.callPackage (fetchMaster "igsha/pandoc-pipe") { };
 
   pandocenv = pkgs.callPackage ./envs/pandoc.nix { inherit (pkgs.haskell.packages.ghc843) ghcWithPackages; };
   gccenv = pkgs.callPackage ./envs/gcc.nix pkgs;

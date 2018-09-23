@@ -29,7 +29,7 @@ in rec {
       mcomix
       maim
       gnome3.evolution
-      libreoffice-fresh
+      libreoffice-still
 
       i3-gaps
       feh xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb_switch i3lock-fancy libnotify

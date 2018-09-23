@@ -17,13 +17,13 @@
 }:
 
 let
+  pandoc_p = p: p.pandoc_2_3.override { haddock-library = p.haddock-library_1_6_0; };
+  pandoc_m = ghcWithPackages (p: [ (pandoc_p p) ]);
   pandocWithDeps = ghcWithPackages (p: with p; [
-    pandoc
-    (pandoc-crossref.overrideAttrs (oldAttrs: { doCheck = false; }))
-    pandoc-citeproc
+    pandoc-crossref
+    (pandoc-citeproc_0_14_4.override { pandoc = pandoc_p p; })
     pandoc-placetable
-    pandoc-filter-graphviz
-    (pandoc-include-code.overrideAttrs (oldAttrs: rec { doCheck = false; }))
+    (pandoc-include-code.overrideAttrs (old: rec { doCheck = false; }))
   ]);
 
 in mkShell rec {
@@ -32,14 +32,14 @@ in mkShell rec {
     docx-combine
     docx-replace
     (python3.withPackages (p: [ p.python-docx panflute ]))
-    plantuml
-    graphviz
     pantable
-    imagemagick7
-    cmake
-    gnumake
     pandocWithDeps
     docproc
+    cmake
+    gnumake
+    plantuml
+    graphviz
+    imagemagick7
     PandocElements
     pandoc-pipe
   ];
