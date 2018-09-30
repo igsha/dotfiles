@@ -18,9 +18,9 @@
 
 let
   pandoc_p = p: p.pandoc_2_3.override { haddock-library = p.haddock-library_1_6_0; };
-  pandoc_m = ghcWithPackages (p: [ (pandoc_p p) ]);
+  pandoc_m = ghcWithPackages (p: [ (p.pandoc_2_3.override { haddock-library = p.haddock-library_1_6_0; }) ]);
   pandocWithDeps = ghcWithPackages (p: with p; [
-    pandoc-crossref
+    (pandoc-crossref.override { pandoc = pandoc_p p; })
     (pandoc-citeproc_0_14_4.override { pandoc = pandoc_p p; })
     pandoc-placetable
     (pandoc-include-code.overrideAttrs (old: rec { doCheck = false; }))

@@ -17,7 +17,7 @@ in rec {
       pqiv
       inkscape krita
       xournal
-      zathura
+      (zathura.override { synctexSupport = false; })
       ffmpeg-full
       freerdp
       thunderbird
