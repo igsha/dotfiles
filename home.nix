@@ -14,20 +14,15 @@ in rec {
       davmail
       mpv
       pavucontrol
-      pqiv
+      viewnior
       inkscape krita
-      xournal
       (zathura.override { synctexSupport = false; })
       ffmpeg-full
       freerdp
-      thunderbird
-      abiword
       neovim-qt
       tdesktop
       qutebrowser flashplayer-standalone google-chrome
       #virtmanager virt-viewer
-      mcomix
-      maim
       gnome3.evolution
       libreoffice-still
 
