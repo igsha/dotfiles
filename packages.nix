@@ -52,7 +52,8 @@
     fakeroot fakechroot debootstrap
     transmission
     sdcv
-    elinks
+    alacritty
+    links2
     httpie
     parallel
     gnupg

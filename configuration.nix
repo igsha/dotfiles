@@ -6,7 +6,6 @@
 {
   imports = [
     ./packages.nix
-    ./user-services.nix
     ./services.nix
     ./xserver.nix
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
@@ -45,8 +44,6 @@
   sound.mediaKeys.enable = true;
 
   virtualisation = {
-    virtualbox.host.enable = false;
-    #libvirtd.enable = true;
     docker.enable = true;
   };
 
@@ -54,10 +51,12 @@
 
   hardware = {
     opengl = {
+      enable = true;
       driSupport = true;
       driSupport32Bit = true;
       s3tcSupport = true;
-      extraPackages = [ pkgs.vaapiVdpau ];
+      extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiVdpau libvdpau-va-gl vaapiVdpau ];
     };
     pulseaudio = {
       enable = true;
@@ -125,7 +124,7 @@
       export PDFVIEWER=zathura
       export PSVIEWER=$PDFVIEWER
       export DVIVIEWER=$PDFVIEWER
-      export TERMINAL=urxvtc
+      export TERMINAL=alacritty
     '';
   };
 
@@ -134,8 +133,20 @@
     clock24 = true;
     keyMode = "vi";
     terminal = "screen-256color";
+    shortcut = "a";
     extraTmuxConf = ''
       set -g mouse on
+    '';
+  };
+
+  programs.sway = {
+    enable = true;
+    extraSessionCommands = ''
+      export XKB_DEFAULT_LAYOUT=us,ru
+      export XKB_DEFAULT_VARIANT=nodeadkeys
+      export XKB_DEFAULT_OPTIONS=grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys
+      export WLC_REPEAT_DELAY=300
+      export WLC_REPEAT_RATE=20
     '';
   };
 }

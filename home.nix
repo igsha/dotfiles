@@ -22,12 +22,11 @@ in rec {
       neovim-qt
       tdesktop
       qutebrowser flashplayer-standalone google-chrome
-      #virtmanager virt-viewer
       gnome3.evolution
       libreoffice-still
 
       i3-gaps
-      feh xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb_switch i3lock-fancy libnotify
+      feh xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb_switch i3lock-fancy libnotify dropbox-cli
     ];
     keyboard = {
       layout = "us,ru";

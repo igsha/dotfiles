@@ -34,7 +34,6 @@ in pkgs.mkShell rec {
         echo "special - -*-" >> $out/lib/aspell/ru.dat
       '';
     }))
-    asymptote
     cmake gnumake
   ];
 

@@ -46,8 +46,6 @@ c.url.searchengines = {
     'DEFAULT': 'https://www.google.com/search?q={}',
 }
 
-c.aliases['private'] = 'set content.private_browsing true'
-c.aliases['noprivate'] = 'set content.private_browsing false'
 c.aliases['noproxy'] = 'set content.proxy system'
 c.aliases['tor'] = 'set content.proxy socks://localhost:9050'
 
@@ -67,3 +65,4 @@ config.bind(';m', 'hint links spawn mpv --load-unsafe-playlists {hint-url}')
 config.bind(';M', 'hint links spawn torsocks mpv --load-unsafe-playlists {hint-url}')
 config.bind(';p', 'hint links spawn google-chrome-stable --incognito {hint-url}')
 config.bind(';P', 'spawn google-chrome-stable --incognito {url}')
+config.bind(';v', 'hint links spawn youtube-dl {hint-url} --exec "viewnior {}"')
