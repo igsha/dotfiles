@@ -1,6 +1,6 @@
 # vim: ts=2
 window:
-  decorations: full
+  decorations: false
 
 scrolling:
   history: 10000

@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-urxvtc -name calculator -title wcalc -geometry 40x24 -e wcalc

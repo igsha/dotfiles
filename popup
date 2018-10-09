@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+_program=${0#*popup-}
+$TERMINAL --class popup -t $_program -e $_program
