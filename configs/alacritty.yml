@@ -1,0 +1,93 @@
+# vim: ts=2
+window:
+  decorations: full
+
+scrolling:
+  history: 10000
+  multiplier: 3
+  faux_multiplier: 3
+  auto_scroll: true
+
+font:
+  normal:
+    family: monospace
+
+  bold:
+    family: monospace
+
+  italic:
+    family: monospace
+
+  size: 11.0
+  scale_with_dpi: true
+
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+selection:
+  semantic_escape_chars: ",│`|\"' ()[]{}<>"
+  save_to_clipboard: false
+
+dynamic_title: true
+hide_cursor_when_typing: false
+tabspaces: 4
+background_opacity: 0.8
+render_timer: false
+draw_bold_text_with_bright_colors: true
+cursor_style: Block
+unfocused_hollow_cursor: true
+live_config_reload: true
+
+shell:
+  program: tmux
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Paste, action: Paste }
+  - { key: Copy, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Subtract, mods: Control, action: DecreaseFontSize }
+  - { key: Home, chars: "\x1bOH", mode: AppCursor }
+  - { key: Home, chars: "\x1b[H", mode: ~AppCursor }
+  - { key: End, chars: "\x1bOF", mode: AppCursor }
+  - { key: End, chars: "\x1b[F", mode: ~AppCursor }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp }
+  - { key: PageUp, mods: Control, action: ScrollToTop }
+  - { key: PageUp, chars: "\x1b[5~" }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown }
+  - { key: PageDown, mods: Control, action: ScrollToBottom }
+  - { key: PageDown, chars: "\x1b[6~" }
+  - { key: Tab, mods: Shift, chars: "\x1b[Z" }
+  - { key: Insert, chars: "\x1b[2~" }
+  - { key: Delete, chars: "\x1b[3~" }
+  - { key: Left, mods: Shift, chars: "\x1b[1;2D" }
+  - { key: Left, mods: Control, chars: "\x1b[1;5D" }
+  - { key: Left, mods: Alt, chars: "\x1b[1;3D" }
+  - { key: Left, chars: "\x1b[D", mode: ~AppCursor }
+  - { key: Left, chars: "\x1bOD", mode: AppCursor }
+  - { key: Right, mods: Shift, chars: "\x1b[1;2C" }
+  - { key: Right, mods: Control, chars: "\x1b[1;5C" }
+  - { key: Right, mods: Alt, chars: "\x1b[1;3C" }
+  - { key: Right, chars: "\x1b[C", mode: ~AppCursor }
+  - { key: Right, chars: "\x1bOC", mode: AppCursor }
+  - { key: Up, mods: Shift, chars: "\x1b[1;2A" }
+  - { key: Up, mods: Control, chars: "\x1b[1;5A" }
+  - { key: Up, mods: Alt, chars: "\x1b[1;3A" }
+  - { key: Up, chars: "\x1b[A", mode: ~AppCursor }
+  - { key: Up, chars: "\x1bOA", mode: AppCursor }
+  - { key: Down, mods: Shift, chars: "\x1b[1;2B" }
+  - { key: Down, mods: Control, chars: "\x1b[1;5B" }
+  - { key: Down, mods: Alt, chars: "\x1b[1;3B" }
+  - { key: Down, chars: "\x1b[B", mode: ~AppCursor }
+  - { key: Down, chars: "\x1bOB", mode: AppCursor }

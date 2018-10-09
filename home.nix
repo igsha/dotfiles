@@ -82,6 +82,7 @@ in rec {
   xdg.configFile."vifm/vifmrc".source = configs/vifmrc;
   xdg.configFile."qutebrowser/config.py".source = configs/qutebrowser/config.py;
   xdg.configFile."qutebrowser/scrollbar.css".source = configs/qutebrowser/scrollbar.css;
+  xdg.configFile."alacritty/alacritty.yml".source = configs/alacritty.yml;
 
   home.file = {
     ".wcalcrc".source = configs/wcalcrc;
