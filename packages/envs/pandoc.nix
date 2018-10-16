@@ -17,17 +17,11 @@
 }:
 
 let
-  pandoc_p = p: p.pandoc_2_3_1.override {
-    haddock-library = p.haddock-library_1_6_0;
-    hslua = p.hslua_1_0_1;
-    hslua-module-text = p.hslua-module-text_0_2_0.override { hslua = p.hslua_1_0_1; };
-  };
-  pandoc_m = ghcWithPackages (p: [ (pandoc_p p) ]);
   pandocWithDeps = ghcWithPackages (p: with p; [
-    (pandoc-crossref.override { pandoc = pandoc_p p; })
-    (pandoc-citeproc.override { pandoc = pandoc_p p; })
+    pandoc-crossref
+    pandoc-citeproc
     pandoc-placetable
-    (pandoc-include-code.overrideAttrs (old: rec { doCheck = false; }))
+    pandoc-include-code
   ]);
 
 in mkShell rec {

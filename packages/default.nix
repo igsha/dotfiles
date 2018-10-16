@@ -48,7 +48,20 @@ in rec {
   docproc = pkgs.callPackage (fetchMaster "igsha/docproc") { };
   pandoc-pipe = pkgs.callPackage (fetchMaster "igsha/pandoc-pipe") { };
 
-  pandocenv = pkgs.callPackage ./envs/pandoc.nix { inherit (pkgs.haskell.packages.ghc843) ghcWithPackages; };
+  myGhc = pkgs.haskell.packages.ghc843.override {
+    overrides = self: super: {
+      pandoc = super.pandoc_2_3_1.override {
+        haddock-library = super.haddock-library_1_6_0;
+        hslua = super.hslua_1_0_1;
+        hslua-module-text = super.hslua-module-text_0_2_0.override { hslua = super.hslua_1_0_1; };
+      };
+      pandoc-crossref = super.pandoc-crossref.override { pandoc = self.pandoc; };
+      pandoc-citeproc = super.pandoc-citeproc.override { pandoc = self.pandoc; };
+      pandoc-include-code = super.pandoc-include-code.overrideAttrs (old: rec { doCheck = false; });
+    };
+  };
+
+  pandocenv = pkgs.callPackage ./envs/pandoc.nix { inherit (myGhc) ghcWithPackages; };
   gccenv = pkgs.callPackage ./envs/gcc.nix pkgs;
   pythonenv = pkgs.callPackage ./envs/python.nix pkgs;
   latexenv = pkgs.callPackage ./envs/latex.nix pkgs;
