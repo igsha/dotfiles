@@ -5,11 +5,11 @@ c.editor.command = ['urxvt', '-name', 'editor', '-e', 'nvim', '{}']
 c.downloads.position = 'bottom'
 c.downloads.location.directory = '~/Downloads'
 
-c.scrolling.bar = True
+c.scrolling.bar = 'always'
 
 c.window.title_format = '{perc}{title}{title_sep}qutebrowser{private}'
 
-c.completion.web_history_max_items = 100
+c.completion.web_history.max_items = 100
 
 c.input.partial_timeout = 2000
 
