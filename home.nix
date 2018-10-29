@@ -73,6 +73,12 @@ in rec {
       };
     };
     gnome-keyring.enable = true;
+    redshift = {
+      enable = true;
+      latitude = "55.749792";
+      longitude = "37.6324949";
+      provider = "manual";
+    };
   };
 
   nixpkgs.config = import ./nixpkgs-config.nix;

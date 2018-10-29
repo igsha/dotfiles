@@ -16,16 +16,9 @@
     nixosManual.showManual = true;
     tor.enable = true;
     atd.enable = true;
-    redshift = {
-      enable = true;
-      latitude = "55.749792";
-      longitude = "37.6324949";
-    };
     polipo.enable = true;
     journald.extraConfig = "SystemMaxUse=4G";
     geoclue2.enable = true;
-    teamviewer.enable = false;
-    urxvtd.enable = true;
     compton = {
       enable = true;
       vSync = "opengl";

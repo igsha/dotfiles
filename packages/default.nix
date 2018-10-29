@@ -4,6 +4,8 @@ let
   fetchMaster = user-repo: builtins.fetchTarball "https://api.github.com/repos/${user-repo}/tarball/master";
 
 in rec {
+  nur = import (fetchMaster "nix-community/NUR") { inherit pkgs; };
+
   qutebrowser = pkgs.qutebrowser.overrideAttrs (oldAttrs: rec {
     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.libGL ];
     postFixup = oldAttrs.postFixup + ''
