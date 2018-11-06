@@ -14,7 +14,10 @@
     openntpd.enable = true;
     printing.enable = true;
     nixosManual.showManual = true;
-    tor.enable = true;
+    tor = {
+      enable = true;
+      client.enable = true;
+    };
     atd.enable = true;
     polipo.enable = true;
     journald.extraConfig = "SystemMaxUse=4G";

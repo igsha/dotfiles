@@ -4,7 +4,7 @@ let
   fetchMaster = user-repo: builtins.fetchTarball "https://api.github.com/repos/${user-repo}/tarball/master";
 
 in rec {
-  nur = import (fetchMaster "nix-community/NUR") { inherit pkgs; };
+  #nur = import (fetchMaster "nix-community/NUR") { inherit pkgs; };
 
   qutebrowser = pkgs.qutebrowser.overrideAttrs (oldAttrs: rec {
     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.libGL ];
@@ -52,8 +52,30 @@ in rec {
 
   myGhc = pkgs.haskell.packages.ghc843.override {
     overrides = self: super: {
+      "haddock-library_1_6_1" = super.callPackage
+        ({ mkDerivation, base, base-compat, bytestring, containers, deepseq
+         , directory, filepath, hspec, hspec-discover, optparse-applicative
+         , QuickCheck, transformers, tree-diff
+         }:
+         mkDerivation {
+           pname = "haddock-library";
+           version = "1.6.1";
+           sha256 = "195fhaxr0c652icnd325jvzbi0anr2zlwyfjpl0dyn68v38apn5n";
+           libraryHaskellDepends = [
+             base bytestring containers deepseq transformers
+           ];
+           testHaskellDepends = [
+             base base-compat bytestring containers deepseq directory filepath
+             hspec optparse-applicative QuickCheck transformers tree-diff
+           ];
+           testToolDepends = [ hspec-discover ];
+           doHaddock = false;
+           description = "Library exposing some functionality of Haddock";
+           license = pkgs.stdenv.lib.licenses.bsd3;
+           hydraPlatforms = pkgs.stdenv.lib.platforms.none;
+         }) {};
       pandoc = super.pandoc_2_3_1.override {
-        haddock-library = super.haddock-library_1_6_0;
+        haddock-library = self.haddock-library_1_6_1;
         hslua = super.hslua_1_0_1;
         hslua-module-text = super.hslua-module-text_0_2_0.override { hslua = super.hslua_1_0_1; };
       };
