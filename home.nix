@@ -1,8 +1,6 @@
 { pkgs, user, email }:
 
 let
-  packagesPath = builtins.toPath ./packages/default.nix;
-  nixpkgsConfig = builtins.replaceStrings [ "./packages" ] [ packagesPath ] (builtins.readFile ./nixpkgs-config.nix);
   i3blocks-config = builtins.toPath ./templates/i3blocks.conf;
   i3-config = builtins.toPath ./templates/i3.conf;
 
@@ -11,19 +9,29 @@ in rec {
     packages = with pkgs; [
       atool
       wine winetricks
+      alacritty
       davmail
       mpv
       pavucontrol
       viewnior
+      imv
       inkscape krita
-      (zathura.override { synctexSupport = false; })
+      zathura
       ffmpeg-full
       freerdp
       neovim-qt
       tdesktop
-      qutebrowser flashplayer-standalone google-chrome
+      qutebrowser /*flashplayer-standalone*/ google-chrome
       gnome3.evolution
       libreoffice-still
+      skypeforlinux
+      steam
+      # X11
+      xsel xclip xdotool
+      xlibs.xhost hsetroot xorg.xev xorg.xkill
+      dmenu
+      xfontsel
+      xorg.xwininfo
 
       i3-gaps
       feh xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb_switch i3lock-fancy libnotify dropbox-cli
@@ -81,9 +89,7 @@ in rec {
     };
   };
 
-  nixpkgs.config = import ./nixpkgs-config.nix;
-
-  xdg.configFile."nixpkgs/config.nix".text = nixpkgsConfig;
+  xdg.configFile."nixpkgs/config.nix".text = builtins.readFile ./nixpkgs-config.nix;
   xdg.configFile."matplotlib".source = configs/matplotlib;
   xdg.configFile."vifm/vifmrc".source = configs/vifmrc;
   xdg.configFile."qutebrowser/config.py".source = configs/qutebrowser/config.py;

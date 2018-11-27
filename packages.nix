@@ -52,14 +52,13 @@
     fakeroot fakechroot debootstrap
     transmission
     sdcv
-    alacritty
     links2
     httpie
     parallel
     gnupg
     rtags
     ncdu
-    androidsdk android-udev-rules
+    android-udev-rules
     screen
     patchutils
     samba
@@ -70,14 +69,8 @@
     nix-bash-completions
     gptfdisk parted
     cdrtools
-    # X11
-    xsel xclip xdotool
-    xlibs.xhost hsetroot xorg.xev xorg.xkill
-    dmenu
-    xfontsel
-    xorg.xwininfo
+    taskwarrior
     glxinfo
-    xchm
     xdg_utils
   ];
 }

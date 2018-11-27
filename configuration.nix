@@ -83,17 +83,6 @@
     polkit.enable = true;
   };
 
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "Fri 20:00";
-    };
-    extraOptions = ''
-      gc-keep-outputs = true
-      gc-keep-derivations = true
-    '';
-  };
-
   system = {
     stateVersion = "unstable";
     autoUpgrade = {

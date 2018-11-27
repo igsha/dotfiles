@@ -48,5 +48,10 @@
     shellinabox.enable = true;
     gnome3.gnome-keyring.enable = true;
     dbus.packages = [ pkgs.gnome3.dconf ];
+    taskserver = {
+      enable = true;
+      fqdn = "nixos-pc";
+      listenHost = "::";
+    };
   };
 }
