@@ -1,6 +1,6 @@
 # vim: ts=2
 window:
-  decorations: false
+  decorations: none
 
 scrolling:
   history: 10000
@@ -19,7 +19,6 @@ font:
     family: monospace
 
   size: 11.0
-  scale_with_dpi: true
 
 visual_bell:
   animation: EaseOutExpo
@@ -31,19 +30,20 @@ mouse_bindings:
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
+  hide_when_typing: false
 
 selection:
   semantic_escape_chars: ",│`|\"' ()[]{}<>"
   save_to_clipboard: false
 
 dynamic_title: true
-hide_cursor_when_typing: false
 tabspaces: 4
 background_opacity: 0.8
 render_timer: false
 draw_bold_text_with_bright_colors: true
-cursor_style: Block
-unfocused_hollow_cursor: true
+cursor:
+  style: Block
+  unfocused_hollow: true
 live_config_reload: true
 
 shell:
