@@ -72,5 +72,6 @@
     taskwarrior
     glxinfo
     xdg_utils
+    powerline-go
   ];
 }

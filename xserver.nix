@@ -27,6 +27,7 @@ rec {
       google-fonts
       anonymousPro
       font-awesome-ttf
+      powerline-fonts
     ];
   };
 }
