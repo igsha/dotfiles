@@ -13,3 +13,11 @@ expshinc = vectorize(__expshinc1)
 
 def abf(x):
     return abs(fft.fft(x))
+
+def slplot(x, fn, limits, *args):
+    p = sum(limits) / 2
+    lines, = plot(x, fn(p), *args)
+    grid()
+
+    param = Slider(axes([0.05, 0.03, 0.9, 0.02]), 'Param', limits[0], limits[1], valinit=p)
+    param.on_changed(lambda _: lines.set_ydata(fn(param.val)))
