@@ -19,21 +19,8 @@
 
   networking = {
     hostName = "nixos-pc";
-    networkmanager.enable = true;
-    connman = {
-      enable = false;
-      enableVPN = true;
-    };
-    wireless = {
-      enable = false;
-      networks = {
-        SomeNetwork = {
-          psk = "SomePassword";
-        };
-      };
-      userControlled.enable = true;
-    };
     firewall.allowedTCPPorts = [ 22 80 8080 8888 4200 ];
+    wireless.iwd.enable = true;
   };
 
   i18n = {

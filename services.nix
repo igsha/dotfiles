@@ -53,5 +53,9 @@
       fqdn = "nixos-pc";
       listenHost = "::";
     };
+    redshift = {
+      enable = true;
+      provider = "geoclue2";
+    };
   };
 }

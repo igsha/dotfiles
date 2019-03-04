@@ -55,7 +55,6 @@ in rec {
 
   services = {
     flameshot.enable = true;
-    network-manager-applet.enable = true;
     random-background = {
       enable = true;
       imageDirectory = "%h/Pictures";
@@ -81,12 +80,6 @@ in rec {
       };
     };
     gnome-keyring.enable = true;
-    redshift = {
-      enable = true;
-      latitude = "55.749792";
-      longitude = "37.6324949";
-      provider = "manual";
-    };
   };
 
   xdg.configFile."nixpkgs/config.nix".text = builtins.readFile ./nixpkgs-config.nix;
