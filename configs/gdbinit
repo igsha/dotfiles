@@ -57,3 +57,5 @@ Dump raw data as ppm RGB image. Format:
 It will write ppm image to <filename> from <address> by <width>x<height>.
 Optional value of <max pixel value> can be passed.
 end
+
+set auto-load safe-path /
