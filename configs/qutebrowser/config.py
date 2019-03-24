@@ -1,5 +1,5 @@
 #c.qt.force_software_rendering = True
-c.editor.command = ['urxvt', '-name', 'editor', '-e', 'nvim', '{}']
+c.editor.command = ['alacritty', '--class', 'editor', '-e', 'nvim', '{}']
 
 #c.content.developer_extras = True
 c.downloads.position = 'bottom'
@@ -32,21 +32,20 @@ c.hints.prev_regexes = [r'\bНазад\b']
 c.url.default_page = 'DEFAULT'
 c.url.start_pages = ['https://nixos.org']
 c.url.searchengines = {
-    'kinopoisk': 'http://www.kinopoisk.ru/index.php?first=no&what=&kp_query={}',
     'google': 'https://www.google.com/search?q={}',
     'youtube': 'https://www.youtube.com/results?search_query={}',
     'goosh': 'https://goosh.org/#{}',
-    'multitran': 'http://www.multitran.com/m.exe?s={}&l1=1&l2=2',
+    'translate': 'https://translate.yandex.ru/?text={}',
     'wikipedia': 'https://ru.wikipedia.org/wiki/{}',
     'enwikipedia': 'https://en.wikipedia.org/wiki/{}',
-    'duckduckgo': 'https://duckduckgo.com/?q={}',
     'cppreference': 'http://cppreference.com/?search={}',
     'github': 'https://github.com/search?q={}',
     'cmake': 'https://cmake.org/cmake/help/latest/search.html?q={}',
     'DEFAULT': 'https://www.google.com/search?q={}',
 }
 
-c.aliases['noproxy'] = 'set content.proxy system'
+c.aliases['defproxy'] = 'set content.proxy system'
+c.aliases['noproxy'] = 'set content.proxy none'
 c.aliases['tor'] = 'set content.proxy socks://localhost:9050'
 
 config.bind('t', 'set-cmd-text -s :open -t')

@@ -122,14 +122,4 @@
       ${builtins.readFile ./configs/tmux.conf}
     '';
   };
-
-  programs.sway = {
-    enable = true;
-    extraSessionCommands = ''
-      export XKB_DEFAULT_LAYOUT=us,ru
-      export XKB_DEFAULT_OPTIONS=grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys
-      export WLC_REPEAT_DELAY=300
-      export WLC_REPEAT_RATE=20
-    '';
-  };
 }
