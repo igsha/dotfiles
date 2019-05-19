@@ -21,7 +21,7 @@ in rec {
       freerdp
       neovim-qt
       tdesktop
-      qutebrowser /*flashplayer-standalone*/ google-chrome
+      qutebrowser flashplayer-standalone google-chrome
       gnome3.evolution
       libreoffice-still
       skypeforlinux
@@ -34,7 +34,7 @@ in rec {
       xorg.xwininfo
 
       i3-gaps
-      feh xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb-switch i3lock-fancy libnotify dropbox-cli
+      feh xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb-switch i3lock-fancy libnotify dropbox slack-dark
     ];
     keyboard = {
       layout = "us,ru";
