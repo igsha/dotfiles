@@ -24,7 +24,7 @@
     geoclue2.enable = true;
     compton = {
       enable = true;
-      vSync = "opengl";
+      vSync = true;
       # https://github.com/chjj/compton/issues/152
       extraOptions = ''
         xrender-sync = true

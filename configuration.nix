@@ -32,6 +32,7 @@
 
   virtualisation = {
     docker.enable = true;
+    libvirtd.enable = true;
   };
 
   nixpkgs.config.pulseaudio = true;

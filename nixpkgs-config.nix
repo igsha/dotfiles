@@ -5,7 +5,7 @@
     else import (builtins.fetchTarball https://api.github.com/repos/igsha/nix-overrides/tarball/master);
   nix.useSandbox = true;
   allowUnfree = true;
-  virtualbox.enableExtensionPack = true;
+  virtualbox.host.enableExtensionPack = true;
   firefox.enableAdobeFlash = false;
   chromium.enablePepperFlash = false;
   allowTexliveBuilds = true;
