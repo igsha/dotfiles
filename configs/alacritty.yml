@@ -39,7 +39,6 @@ selection:
 dynamic_title: true
 tabspaces: 4
 background_opacity: 0.8
-render_timer: false
 draw_bold_text_with_bright_colors: true
 cursor:
   style: Block

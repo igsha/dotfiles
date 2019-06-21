@@ -44,7 +44,7 @@
     bviplus dhex vbindiff
     universal-ctags
     unrar unzip zip p7zip
-    wcalc jq
+    wcalc jq jo
     ntfs3g gparted xfsprogs
     youtube-dl
     libxml2
