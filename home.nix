@@ -34,7 +34,7 @@ in rec {
       xorg.xwininfo
 
       i3-gaps
-      feh xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb-switch i3lock-fancy libnotify dropbox slack-dark
+      feh xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb-switch i3lock-fancy libnotify dropbox slack-dark iplay
     ];
     keyboard = {
       layout = "us,ru";

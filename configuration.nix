@@ -89,9 +89,7 @@
       grep = "grep --color";
       cal = "cal -m3";
       df = "df -h";
-      wineru = "LC_ALL=ru_RU.UTF-8 wine";
-      wineru64 = "WINEARCH=win64 WINEPREFIX=~/.wine64 wineru";
-      fix = "TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1)) && eval $TF_CMD && history -s $TF_CMD";
+      fzf = "fzf-tmux";
     };
     loginShellInit = ''
       export HISTCONTROL=ignoredups
