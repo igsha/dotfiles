@@ -46,7 +46,7 @@ c.url.searchengines = {
 c.aliases['defproxy'] = 'set content.proxy system'
 c.aliases['noproxy'] = 'set content.proxy none'
 c.aliases['tor'] = 'set content.proxy socks://localhost:9050'
-c.aliases['play'] = 'spawn alacritty --class iplay -e iplay {url}'
+c.aliases['play'] = 'spawn alacritty --class popup -e iplay -b {url}'
 
 config.bind('t', 'set-cmd-text -s :open -t')
 config.bind('O', 'set-cmd-text :open {url:pretty}')

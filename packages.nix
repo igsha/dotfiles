@@ -73,5 +73,6 @@
     glxinfo
     xdg_utils
     powerline-go
+    virtviewer virtmanager
   ];
 }
