@@ -75,7 +75,8 @@ in rec {
         shortcuts = {
           close = "ctrl+space";
           close_all = "ctrl+shift+space";
-          context = "ctrl+shift+period";
+          history = "ctrl+grave";
+          context = "ctrl+shift+apostrophe";
         };
       };
     };

@@ -1,7 +1,7 @@
 set print pretty on
 set print array on
 set print array-indexes on
-set print elements 10
+set print elements 100
 
 define imagedump
     set logging overwrite on

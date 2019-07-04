@@ -33,7 +33,7 @@
     syslinux
     dmidecode lshw smartmontools pciutils usbutils
     htop iotop lsof inetutils
-    mtr nethogs ngrep nmap bind iftop iptraf wireshark-cli proxychains
+    mtr nethogs ngrep nmap bind iftop iptraf wireshark-cli proxychains tcpdump proxytunnel
     sysstat dstat connect corkscrew torsocks socat wakelan
     pv
     tree file which mkpasswd
