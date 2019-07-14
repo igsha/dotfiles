@@ -1,9 +1,0 @@
-"hg6923
-
-loadplugins '\.(js|penta)$'
-group user
-highlight FontFixed font-family: terminus !important; font-size: 10pt !important;
-
-set hintkeys=asdfjklhqwertyuiopzxcvbnm;
-
-" vim: set ft=pentadactyl:

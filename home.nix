@@ -97,9 +97,9 @@ in rec {
     ".git-prompt.sh".source = configs/git-prompt.sh;
     ".bashrc".source = configs/bashrc;
     ".themes/urxvt".source = builtins.fetchTarball https://api.github.com/repos/felixr/urxvt-color-themes/tarball/master;
-    "bin/popup-wcalc".source = ./popup;
-    "bin/popup-sdcv".source = ./popup;
-    "bin/message-recorder".source = ./message-recorder;
+    "bin/popup-wcalc".source = configs/popup;
+    "bin/popup-sdcv".source = configs/popup;
+    "bin/message-recorder".source = configs/message-recorder;
   };
 
   xsession = {
