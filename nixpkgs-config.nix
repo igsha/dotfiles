@@ -12,4 +12,5 @@
   permittedInsecurePackages = [
     "polipo-1.1.1"
   ];
+  pulseaudio = true;
 }

@@ -5,11 +5,23 @@
 
 {
   imports = [
-    ./packages.nix
-    ./services.nix
-    ./xserver.nix
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
   ];
+
+  nixpkgs.config = import ./nixpkgs-config.nix;
+  services = import ./services.nix { pkgs = pkgs; };
+  fonts = import ./fonts.nix { pkgs = pkgs; };
+  hardware = import ./hardware.nix { pkgs = pkgs; };
+  programs = import ./programs.nix { pkgs = pkgs; };
+
+  environment = {
+    etc = {
+      "fuse.conf".text = ''
+        user_allow_other
+      '';
+    };
+    systemPackages = import ./packages.nix { pkgs = pkgs; };
+  };
 
   boot.loader = {
     grub.device = "/dev/sda";
@@ -35,26 +47,6 @@
     libvirtd.enable = true;
   };
 
-  nixpkgs.config.pulseaudio = true;
-
-  hardware = {
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      s3tcSupport = true;
-      extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [ vaapiVdpau libvdpau-va-gl vaapiVdpau ];
-    };
-    pulseaudio = {
-      enable = true;
-      support32Bit = true;
-      daemon.config = {
-        flat-volumes = "no";
-      };
-    };
-  };
-
   time.timeZone = "Europe/Moscow";
 
   systemd.coredump = {
@@ -77,48 +69,12 @@
       enable = false;
       dates = "Fri 20:00";
     };
-  };
-
-  programs.bash = {
-    enableCompletion = true;
-    shellAliases = {
-      ls = "ls -h --color";
-      "ls.pure" = "`which ls`";
-      la = "ls -lta";
-      ll = "ls -lt";
-      grep = "grep --color";
-      cal = "cal -m3";
-      df = "df -h";
-      fzf = "fzf-tmux";
-    };
-    loginShellInit = ''
-      export HISTCONTROL=ignoredups
-      unset SSH_ASKPASS
-      export EDITOR=nvim
-      export BROWSER=qutebrowser
-      export PDFVIEWER=zathura
-      export PSVIEWER=$PDFVIEWER
-      export DVIVIEWER=$PDFVIEWER
-      export TERMINAL=alacritty
-    '';
-  };
-
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-    keyMode = "vi";
-    terminal = "screen-256color";
-    shortcut = "a";
-    extraTmuxConf = ''
-      run-shell ${pkgs.tmuxPlugins.prefix-highlight}/share/tmux-plugins/prefix-highlight/prefix_highlight.tmux
-      run-shell ${pkgs.tmuxPlugins.sidebar}/share/tmux-plugins/sidebar/sidebar.tmux
-      run-shell ${pkgs.tmuxPlugins.urlview}/share/tmux-plugins/urlview/urlview.tmux
-      run-shell ${pkgs.tmuxPlugins.yank}/share/tmux-plugins/yank/yank.tmux
-      run-shell ${pkgs.tmuxPlugins.pain-control}/share/tmux-plugins/pain-control/pain_control.tmux
-      run-shell ${pkgs.tmuxPlugins.logging}/share/tmux-plugins/logging/logging.tmux
-      run-shell ${pkgs.tmuxPlugins.open}/share/tmux-plugins/open/open.tmux
-      run-shell ${pkgs.tmuxPlugins.copycat}/share/tmux-plugins/copycat/copycat.tmux
-      ${builtins.readFile ./configs/tmux.conf}
-    '';
+    extraDependencies = with pkgs; [
+      gccenv.env
+      pythonenv.env
+      pandocenv.env
+      latexenv.env
+      luaenv.env
+    ];
   };
 }
