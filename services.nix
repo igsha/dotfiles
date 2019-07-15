@@ -6,6 +6,7 @@
     autoRepeatDelay = 300;
     autoRepeatInterval = 20;
     enableTCP = true;
+    wacom.enable = true;
   };
 
   openssh = {
@@ -54,7 +55,7 @@
 
   logind.extraConfig = ''
     IdleAction=suspend
-    IdleActionSec=180
+    IdleActionSec=20min
     HandlePowerKey=suspend
   '';
 

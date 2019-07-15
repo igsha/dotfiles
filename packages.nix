@@ -57,4 +57,5 @@ with pkgs; [
   xdg_utils
   powerline-go
   virtviewer virtmanager
+  xf86_input_wacom
 ]
