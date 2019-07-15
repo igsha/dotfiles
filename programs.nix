@@ -40,7 +40,12 @@
       run-shell ${pkgs.tmuxPlugins.logging}/share/tmux-plugins/logging/logging.tmux
       run-shell ${pkgs.tmuxPlugins.open}/share/tmux-plugins/open/open.tmux
       run-shell ${pkgs.tmuxPlugins.copycat}/share/tmux-plugins/copycat/copycat.tmux
-      ${builtins.readFile ./configs/tmux.conf}
+
+      set -g mouse on
+      bind-key -T root MouseDown2Pane run-shell -b "xclip -o | tmux load-buffer - && tmux paste-buffer"
+      set -g status-right '#{prefix_highlight} %a %Y-%m-%dT%H:%M'
+      set -g base-index 1
+      set -s escape-time 0
     '';
   };
 }
