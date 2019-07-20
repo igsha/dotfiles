@@ -26,15 +26,13 @@ in rec {
       libreoffice-still
       skypeforlinux
       steam
-      # X11
       xsel xclip xdotool
       xlibs.xhost hsetroot xorg.xev xorg.xkill
       dmenu
       xfontsel
       xorg.xwininfo
-
-      i3-gaps
-      davmail numlockx i3blocks-gaps metar yad ack metar xkb-switch i3lock-fancy libnotify dropbox slack-dark iplay
+      i3-gaps i3blocks-gaps
+      davmail metar yad ack metar xkb-switch libnotify dropbox slack-dark iplay
     ];
   };
 
@@ -55,11 +53,6 @@ in rec {
       enable = true;
       imageDirectory = "%h/Pictures";
       interval = "2hours";
-    };
-    screen-locker = {
-      enable = true;
-      inactiveInterval = 15;
-      lockCmd = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
     };
     dunst = {
       enable = true;
@@ -103,9 +96,10 @@ in rec {
       ${pkgs.i3-gaps}/bin/i3 -c ${i3-config}
     '';
     initExtra = ''
-      numlockx
+      ${pkgs.numlockx}/bin/numlockx
       export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
       export I3BLOCKS_CONF_DIR=${builtins.dirOf i3blocks-config}
+      ${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock-fancy}/bin/i3lock-fancy &
     '';
   };
 }

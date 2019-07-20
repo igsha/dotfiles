@@ -18,6 +18,15 @@
     xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys";
     xkbModel = "evdev";
     layout = "us,ru";
+
+    xautolock = {
+      enable = true;
+      enableNotifier = true;
+      extraOptions = [ "-detectsleep" ];
+      notifier = "${pkgs.libnotify}/bin/notify-send \"Locking in 10 seconds\"";
+      time = 10;
+      locker = "${pkgs.systemd}/bin/loginctl lock-session $XDG_SESSION_ID";
+    };
   };
 
   openssh = {
@@ -96,7 +105,7 @@
 
   jupyter = {
     enable = true;
-    password = "from notebook.auth import passwd";
+    password = "'sha1:66226798cbb5:552e68bea700ec46fee4d72375d0b4e554893f5d'";
     kernels = {
       python3 = let
         env = ((pkgs.python3.overrideAttrs (old: rec {
