@@ -94,6 +94,7 @@ in rec {
     "bin/popup-wcalc".source = configs/popup;
     "bin/popup-sdcv".source = configs/popup;
     "bin/message-recorder".source = configs/message-recorder;
+    "bin/color-tester".source = configs/color-tester.sh;
   };
 
   xsession = {

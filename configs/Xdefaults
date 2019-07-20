@@ -1,34 +1,44 @@
 ! vim: ft=xdefaults
 
 ! https://github.com/nanotech/jellybeans.vim/blob/master/ansi-term-colors.txt
-*foreground:   #a7a7a7
-*background:   #1e1e1e
-! Black  + DarkGray  rgb(59,59,59)     #3b3b3b
-*color0:       #1e1e1e
-*color8:       #5f5a60
-! Red      rgb(207,106,76)   #cf6a4c
-*color1:       #cf6a4c
-*color9:       #cf6a4c
-! Green    rgb(153,173,106)  #99ad6a
-*color2:       #8f9d6a
-*color10:      #8f9d6a
-! Yellow   rgb(216,173,76)   #d8ad4c
-*color3:       #f9ee98
-*color11:      #f9ee98
-! Blue     rgb(89,123,197)   #597bc5
-*color4:       #7587a6
-*color12:      #7587a6
-! Magenta  rgb(160,55,176)   #a037b0
-*color5:       #9b859d
-*color13:      #9b859d
-! Cyan     rgb(113,185,248)  #71b9f8
-*color6:       #afc4db
-*color14:      #afc4db
-! LightGrey + White    rgb(173,173,173)  #adadad
-*color7:       #a7a7a7
-*color15:      #ffffff
+! Black rgb(0,0,0)
+st.color0:  #3b3b3b
+! DarkRed rgb(128,0,0)
+st.color1:  #cf6a4c
+! DarkGreen rgb(0,128,0)
+st.color2:  #99ad6a
+! DarkYellow rgb(128,128,0)
+st.color3:  #d8ad4c
+! DarkBlue rgb(0,0,128)
+st.color4:  #597bc5
+! Purple rgb(128,0,128)
+st.color5:  #a037b0
+! DarkCyan rgb(0,128,128)
+st.color6:  #71b9f8
+! LightGrey rgb(192,192,192)
+st.color7:  #adadad
+! Grey rgb(128,128,128)
+st.color8:  #3b3b3b
+! Red rgb(255,0,0)
+st.color9:  #cf6a4c
+! Green rgb(0,255,0)
+st.color10: #99ad6a
+! Yellow rgb(255,255,0)
+st.color11: #d8ad4c
+! Blue rgb(0,0,255)
+st.color12: #597bc5
+! Magenta rgb(255,0,255)
+st.color13: #a037b0
+! Cyan rgb(0,255,255)
+st.color14: #71b9f8
+! White rgb(255,255,255)
+st.color15: #adadad
+
+st.foreground: #c0c0c0
+st.background: #000000
 
 !st.termname:   st-256color
+st.shell:       tmux
 st.font:        Hack:pixelsize=16:antialias=true:autohint=true
 st.borderpx:    2
 st.opacity:     230

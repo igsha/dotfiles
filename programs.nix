@@ -48,4 +48,6 @@
       set -s escape-time 0
     '';
   };
+
+  udevil.enable = true;
 }
