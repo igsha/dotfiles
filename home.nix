@@ -9,7 +9,7 @@ in rec {
     packages = with pkgs; [
       atool
       wine winetricks
-      alacritty
+      xst
       davmail
       mpv
       pavucontrol
@@ -34,12 +34,8 @@ in rec {
       xorg.xwininfo
 
       i3-gaps
-      xterm davmail numlockx i3blocks-gaps metar yad ack metar xkb-switch i3lock-fancy libnotify dropbox slack-dark iplay
+      davmail numlockx i3blocks-gaps metar yad ack metar xkb-switch i3lock-fancy libnotify dropbox slack-dark iplay
     ];
-    keyboard = {
-      layout = "us,ru";
-      options = [ "grp:sclk_toggle" "grp:shift_caps_toggle" "grp_led:scroll" "keypad:pointerkeys" ];
-    };
   };
 
   programs = {
@@ -76,7 +72,7 @@ in rec {
           close = "ctrl+space";
           close_all = "ctrl+shift+space";
           history = "ctrl+grave";
-          context = "ctrl+shift+apostrophe";
+          context = "ctrl+apostrophe";
         };
       };
     };
@@ -88,7 +84,6 @@ in rec {
   xdg.configFile."vifm/vifmrc".source = configs/vifmrc;
   xdg.configFile."qutebrowser/config.py".source = configs/qutebrowser/config.py;
   xdg.configFile."qutebrowser/scrollbar.css".source = configs/qutebrowser/scrollbar.css;
-  xdg.configFile."alacritty/alacritty.yml".source = configs/alacritty.yml;
 
   home.file = {
     ".wcalcrc".source = configs/wcalcrc;
@@ -96,7 +91,6 @@ in rec {
     ".Xdefaults".source = configs/Xdefaults;
     ".git-prompt.sh".source = configs/git-prompt.sh;
     ".bashrc".source = configs/bashrc;
-    ".themes/urxvt".source = builtins.fetchTarball https://api.github.com/repos/felixr/urxvt-color-themes/tarball/master;
     "bin/popup-wcalc".source = configs/popup;
     "bin/popup-sdcv".source = configs/popup;
     "bin/message-recorder".source = configs/message-recorder;
@@ -109,7 +103,6 @@ in rec {
     '';
     initExtra = ''
       numlockx
-      xset -dpms
       export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
       export I3BLOCKS_CONF_DIR=${builtins.dirOf i3blocks-config}
     '';

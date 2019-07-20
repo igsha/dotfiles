@@ -1,5 +1,7 @@
+import os
+
 #c.qt.force_software_rendering = True
-c.editor.command = ['alacritty', '--class', 'editor', '-e', 'nvim', '{}']
+c.editor.command = [os.environ['TERMINAL'], '-c', 'editor', '-e', 'nvim', '{}']
 
 c.downloads.position = 'bottom'
 c.downloads.location.directory = '~/Downloads'
@@ -46,7 +48,7 @@ c.url.searchengines = {
 c.aliases['defproxy'] = 'set content.proxy system'
 c.aliases['noproxy'] = 'set content.proxy none'
 c.aliases['tor'] = 'set content.proxy socks://localhost:9050'
-c.aliases['play'] = 'spawn alacritty --class popup -e iplay -b {url}'
+c.aliases['play'] = 'spawn {} -c popup -e iplay -b {{url}}'.format(os.environ['TERMINAL'])
 
 config.bind('t', 'set-cmd-text -s :open -t')
 config.bind('O', 'set-cmd-text :open {url:pretty}')

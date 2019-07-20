@@ -7,6 +7,16 @@
     autoRepeatInterval = 20;
     enableTCP = true;
     wacom.enable = true;
+    serverFlagsSection = ''
+      Option "BlankTime" "0"
+    '';
+    monitorSection = ''
+      Option "DPMS" "false"
+    '';
+    exportConfiguration = true;
+    useGlamor = true;
+    xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys";
+    layout = "us,ru";
   };
 
   openssh = {

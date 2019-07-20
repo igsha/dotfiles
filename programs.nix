@@ -21,7 +21,7 @@
       export PDFVIEWER=zathura
       export PSVIEWER=$PDFVIEWER
       export DVIVIEWER=$PDFVIEWER
-      export TERMINAL=alacritty
+      export TERMINAL=st
     '';
   };
 

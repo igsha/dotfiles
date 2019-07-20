@@ -1,105 +1,34 @@
 ! vim: ft=xdefaults
 
-#include ".themes/urxvt/tango"
+! https://github.com/nanotech/jellybeans.vim/blob/master/ansi-term-colors.txt
+*foreground:   #a7a7a7
+*background:   #1e1e1e
+! Black  + DarkGray  rgb(59,59,59)     #3b3b3b
+*color0:       #1e1e1e
+*color8:       #5f5a60
+! Red      rgb(207,106,76)   #cf6a4c
+*color1:       #cf6a4c
+*color9:       #cf6a4c
+! Green    rgb(153,173,106)  #99ad6a
+*color2:       #8f9d6a
+*color10:      #8f9d6a
+! Yellow   rgb(216,173,76)   #d8ad4c
+*color3:       #f9ee98
+*color11:      #f9ee98
+! Blue     rgb(89,123,197)   #597bc5
+*color4:       #7587a6
+*color12:      #7587a6
+! Magenta  rgb(160,55,176)   #a037b0
+*color5:       #9b859d
+*color13:      #9b859d
+! Cyan     rgb(113,185,248)  #71b9f8
+*color6:       #afc4db
+*color14:      #afc4db
+! LightGrey + White    rgb(173,173,173)  #adadad
+*color7:       #a7a7a7
+*color15:      #ffffff
 
-URxvt*title:                URXVT
-URxvt*font:                 xft:DejaVu Sans Mono:size=10
-!urxvt.font: xft:Inconsolata:size=10
-URxvt*boldFont:
-URxvt*italicFont:
-URxvt*boldItalicFont:
-URxvt*intensityStyles:      on
-URxvt*saveLines:            65535
-URxvt*cursorColor:          green
-URxvt*transparent:          false
-URxvt*shading:              25
-
-URxvt.scrollBar:            true
-URxvt.scrollstyle:          plain
-URxvt.scrollTtyOutput:      false
-URxvt.scrollTtyKeypress:    true
-URxvt.scrollWithBuffer:     true
-URxvt.secondaryScroll:      false
-URxvt.scrollBar_right:      true
-URxvt.secondaryScreen:      true
-URxvt.secondaryWheel:       true
-
-URxvt.cursorBlink:          false
-URxvt.pointerBlank:         true
-URxvt.pointerBlankDelay:    13
-
-!URxvt.perl-lib:             .urxvt/
-URxvt.perl-ext-common:      default,matcher,tabbedex,clipboard,keyboard-select,url-select,font-size,vtwheel,color-themes
-!URxvt.perl-ext:             default,url-select
-
-URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.url-select.launcher:  xdg-open
-URxvt.url-select.underline: true
-
-URxvt.keysym.M-C-n: color-themes:next
-URxvt.keysym.M-C-p: color-themes:prev
-URxvt.keysym.M-C-l: color-themes:load-state
-URxvt.keysym.M-C-s: color-themes:save-state
-
-URxvt.keysym.C-minus:     font-size:decrease
-URxvt.keysym.C-plus:      font-size:increase
-
-URxvt.urlLauncher:          xdg-open
-URxvt.matcher.button:       1
-
-URxvt.tabbed.title:         true
-URxvt.tabbed.tabbar-fg:     7
-URxvt.tabbed.tabbar-bg:     0
-URxvt.tabbed.tab-fg:        0
-URxvt.tabbed.tab-bg:        8
-
-URxvt.keysym.M-x:           perl:keyboard-select:activate
-URxvt.keysym.M-c:           perl:clipboard:copy
-URxvt.keysym.M-v:           perl:clipboard:paste
-URxvt.keysym.M-C-v:         perl:clipboard:paste_escaped
-URxvt.clipboard.autocopy:   true
-URxvt.clipboard.copycmd:    xsel -i --clipboard
-URxvt.clipboard.pastecmd:   xsel -o --clipboard
-
-URxvt.keysym.M-s:           perl:keyboard-select:search
-
-!URxvt.keysym.Home:          \033[1~
-!URxvt.keysym.End:           \033[4~
-!URxvt.keysym.C-Tab:         \033{
-!URxvt.keysym.Control-Shift-ISO_Left_Tab: \033}
-! disable ctrl-shift
-URxvt*iso14755: false
-URxvt*iso14755_52: false
-
-Xcursor*theme:              gentoo
-Xcursor*size:               22
-
-! XTerm settings
-XTerm*utf8:                 2
-XTerm*utf8Title:            true
-!XTerm*font:                 xft:DejaVu Sans Mono:size=10
-XTerm*renderFont:           false
-XTerm*faceName:             xft:DejaVu Sans Mono:pixelsize=16
-XTerm*locale:               true
-!XTerm*renderFont:           true
-!XTerm*faceName:             Terminus
-!XTerm*faceSize:             14
-XTerm*dynamicColors:        true
-XTerm*loginShell:           true
-XTerm*saveLines:            999999
-XTerm*background:           black
-XTerm*foreground:           white
-XTerm*cursorColor:          green
-XTerm*scrollBar:            true
-XTerm*rightScrollBar:       true
-XTerm*scrollKey:            true
-XTerm*scrollTtyOutput:      false
-XTerm*scrollBarBorder:      1
-XTerm*allowBoldFonts:       false
-XTerm*termName:             xterm-256color
-UXTerm*termName:            xterm-256color
-XTerm*transclations:        #override <Btn1Up>: 'select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)'
-
-!Xft*dpi:                    96
-!Xft*antialias:              true
-!Xft*hinting:                full
+!st.termname:   st-256color
+st.font:        Hack:pixelsize=16:antialias=true:autohint=true
+st.borderpx:    2
+st.opacity:     230
