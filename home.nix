@@ -13,13 +13,11 @@ in rec {
       davmail
       mpv
       pavucontrol
-      viewnior
-      imv
+      (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
       inkscape krita
       zathura
       ffmpeg-full
       freerdp
-      neovim-qt
       tdesktop
       qutebrowser flashplayer-standalone google-chrome
       gnome3.evolution
@@ -97,6 +95,7 @@ in rec {
     '';
     initExtra = ''
       ${pkgs.numlockx}/bin/numlockx
+      ${pkgs.xorg.setxkbmap}/bin/setxkbmap
       export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
       export I3BLOCKS_CONF_DIR=${builtins.dirOf i3blocks-config}
       ${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock-fancy}/bin/i3lock-fancy &

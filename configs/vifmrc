@@ -61,6 +61,7 @@ set wildmenu
 " Selected color scheme
 
 colorscheme Default
+highlight Win ctermbg=none
 
 " The FUSE_HOME directory will be used as a root dir for all FUSE mounts.
 " Unless it exists with write/exec permissions set, vifm will attempt to
@@ -198,8 +199,6 @@ set vifminfo=bookmarks
 nmap s :shell<cr>
 nmap S :sort<cr>
 nmap w :view<cr>
-nmap O :!nvim-qt --remote-tab-silent %f<cr>
-nmap o :!nvim-qt %f<cr>
 " open file in the background using its default program
 nmap gb :file &<cr>l
 
