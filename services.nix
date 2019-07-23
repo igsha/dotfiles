@@ -16,7 +16,6 @@
     exportConfiguration = true;
     useGlamor = true;
     xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys";
-    xkbModel = "pc104";
     layout = "us,ru";
 
     xautolock = {

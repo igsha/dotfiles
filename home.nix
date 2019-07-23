@@ -32,6 +32,10 @@ in rec {
       i3-gaps i3blocks-gaps
       davmail metar yad ack metar xkb-switch libnotify dropbox slack-dark iplay
     ];
+    keyboard = {
+      layout = "us,ru";
+      options = [ "grp:sclk_toggle" "grp:shift_caps_toggle" "grp_led:scroll" "keypad:pointerkeys" ];
+    };
   };
 
   programs = {
@@ -95,7 +99,6 @@ in rec {
     '';
     initExtra = ''
       ${pkgs.numlockx}/bin/numlockx
-      ${pkgs.xorg.setxkbmap}/bin/setxkbmap
       export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
       export I3BLOCKS_CONF_DIR=${builtins.dirOf i3blocks-config}
       ${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock-fancy}/bin/i3lock-fancy &
