@@ -43,3 +43,4 @@ st.font:        Hack:pixelsize=16:antialias=true:autohint=true
 st.borderpx:    2
 st.opacity:     200
 st.blinktimeout:   0
+st.bold_font:   1
