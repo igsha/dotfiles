@@ -41,4 +41,5 @@ st.background: #000000
 st.shell:       tmux
 st.font:        Hack:pixelsize=16:antialias=true:autohint=true
 st.borderpx:    2
-st.opacity:     230
+st.opacity:     200
+st.blinktimeout:   0
