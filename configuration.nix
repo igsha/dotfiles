@@ -69,12 +69,5 @@
       enable = false;
       dates = "Fri 20:00";
     };
-    extraDependencies = with pkgs; [
-      gccenv.env
-      pythonenv.env
-      pandocenv.env
-      latexenv.env
-      luaenv.env
-    ];
   };
 }

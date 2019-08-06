@@ -8,14 +8,16 @@ c.downloads.location.directory = '~/Downloads'
 
 c.scrolling.bar = 'always'
 
-c.window.title_format = '{perc}{title}{title_sep}qutebrowser{private}'
+c.window.title_format = '{perc}{current_title}{title_sep}qutebrowser{private}'
+
+c.colors.statusbar.command.private.bg = "black"
 
 c.completion.web_history.max_items = 100
 
 c.input.partial_timeout = 2000
 
 c.tabs.background = True
-c.tabs.title.format = '{index}: {title}{private}'
+c.tabs.title.format = '{index}: {current_title}{private}'
 
 c.content.user_stylesheets = 'scrollbar.css'
 c.content.plugins = True

@@ -62,11 +62,6 @@
   compton = {
     enable = true;
     vSync = true;
-    # https://github.com/chjj/compton/issues/152
-    extraOptions = ''
-      xrender-sync = true
-      xrender-sync-fence = true
-    '';
     backend = "xr_glx_hybrid";
   };
 
@@ -114,7 +109,7 @@
         })).withPackages (pp: with pp; [
           ipykernel
           pandas
-          scikitlearn
+          #(scikitlearn.overrideAttrs (old: { doCheck = false; }))
           scipy
           matplotlib
           opencv3
