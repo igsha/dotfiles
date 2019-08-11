@@ -109,7 +109,7 @@
         })).withPackages (pp: with pp; [
           ipykernel
           pandas
-          #(scikitlearn.overrideAttrs (old: { doCheck = false; }))
+          (scikitlearn.overridePythonAttrs (x: rec { doCheck = false; }))
           scipy
           matplotlib
           opencv3
