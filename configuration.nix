@@ -23,6 +23,10 @@
     systemPackages = import ./packages.nix { pkgs = pkgs; };
   };
 
+  location = {
+    provider = "geoclue2";
+  };
+
   boot.loader = {
     grub.device = "/dev/sda";
     systemd-boot.enable = true;

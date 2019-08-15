@@ -40,24 +40,25 @@
     '';
   };
 
+  kmscon.enable = true;
+  gnome3.gnome-keyring.enable = true;
   openntpd.enable = true;
-
   printing.enable = true;
-
   nixosManual.showManual = true;
+  atd.enable = true;
+  geoclue2.enable = true;
+  polipo.enable = true;
+  actkbd.enable = true;
+  rogue.enable = true;
+  unclutter-xfixes.enable = true;
+  redshift.enable = true;
 
   tor = {
     enable = true;
     client.enable = true;
   };
 
-  atd.enable = true;
-
-  polipo.enable = true;
-
   journald.extraConfig = "SystemMaxUse=4G";
-
-  geoclue2.enable = true;
 
   compton = {
     enable = true;
@@ -65,26 +66,16 @@
     backend = "xr_glx_hybrid";
   };
 
-  actkbd.enable = true;
-
-  rogue.enable = true;
-
   logind.extraConfig = ''
     #IdleAction=suspend
     #IdleActionSec=20min
     HandlePowerKey=suspend
   '';
 
-  unclutter-xfixes.enable = true;
-
   smartd.notifications = {
     enable = true;
     x11.enable = true;
   };
-
-  kmscon.enable = true;
-
-  gnome3.gnome-keyring.enable = true;
 
   dbus.packages = [ pkgs.gnome3.dconf ];
 
@@ -92,11 +83,6 @@
     enable = true;
     fqdn = "nixos-pc";
     listenHost = "::";
-  };
-
-  redshift = {
-    enable = true;
-    provider = "geoclue2";
   };
 
   jupyter = {
