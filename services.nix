@@ -24,8 +24,6 @@
       extraOptions = [ "-detectsleep" ];
       notifier = "${pkgs.libnotify}/bin/notify-send \"Locking in 10 seconds\"";
       time = 10;
-      killer = "${pkgs.systemd}/bin/systemctl suspend";
-      killtime = 30;
       locker = "${pkgs.systemd}/bin/loginctl lock-session $XDG_SESSION_ID";
     };
   };
@@ -67,8 +65,8 @@
   };
 
   logind.extraConfig = ''
-    #IdleAction=suspend
-    #IdleActionSec=20min
+    IdleAction=suspend
+    IdleActionSec=20min
     HandlePowerKey=suspend
   '';
 
@@ -78,12 +76,6 @@
   };
 
   dbus.packages = [ pkgs.gnome3.dconf ];
-
-  taskserver = {
-    enable = true;
-    fqdn = "nixos-pc";
-    listenHost = "::";
-  };
 
   jupyter = {
     enable = true;

@@ -8,13 +8,14 @@ in rec {
   home = {
     packages = with pkgs; [
       atool
-      wine winetricks
+      winetricks wineWowPackages.full
       xst
       davmail
       mpv
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
-      inkscape krita
+      inkscape krita mypaint
+      kpcli
       zathura
       ffmpeg-full
       freerdp

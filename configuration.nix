@@ -53,11 +53,6 @@
 
   time.timeZone = "Europe/Moscow";
 
-  systemd.coredump = {
-    enable = true;
-    extraConfig = "Storage=external";
-  };
-
   security = {
     sudo.enable = true;
     pam.loginLimits = [
