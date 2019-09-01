@@ -102,7 +102,7 @@ in rec {
       ${pkgs.numlockx}/bin/numlockx
       export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
       export I3BLOCKS_CONF_DIR=${builtins.dirOf i3blocks-config}
-      ${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock-fancy}/bin/i3lock-fancy &
+      ${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock-fancy}/bin/i3lock-fancy -- ${pkgs.maim}/bin/maim &
     '';
   };
 }
