@@ -21,7 +21,7 @@
     xautolock = {
       enable = true;
       enableNotifier = true;
-      extraOptions = [ "-detectsleep" ];
+      extraOptions = [ "-detectsleep" "-killtime 50"];
       notifier = "${pkgs.libnotify}/bin/notify-send \"Locking in 10 seconds\"";
       time = 10;
       locker = "${pkgs.systemd}/bin/loginctl lock-session $XDG_SESSION_ID";
@@ -45,7 +45,6 @@
   nixosManual.showManual = true;
   atd.enable = true;
   geoclue2.enable = true;
-  polipo.enable = true;
   actkbd.enable = true;
   rogue.enable = true;
   unclutter-xfixes.enable = true;

@@ -51,7 +51,6 @@ c.aliases['defproxy'] = 'set content.proxy system'
 c.aliases['noproxy'] = 'set content.proxy none'
 c.aliases['tor'] = 'set content.proxy socks://localhost:9050'
 c.aliases['play'] = 'spawn {} -c popup -e iplay -b {{url}}'.format(os.environ['TERMINAL'])
-c.aliases['tplay'] = 'spawn {} -c popup -e iplay -t -b {{url}}'.format(os.environ['TERMINAL'])
 
 config.bind('t', 'set-cmd-text -s :open -t')
 config.bind('O', 'set-cmd-text :open {url:pretty}')
@@ -70,4 +69,3 @@ config.bind(';M', 'hint links spawn torsocks mpv --load-unsafe-playlists {hint-u
 config.bind(';p', 'hint links spawn google-chrome-stable --incognito {hint-url}')
 config.bind(';P', 'spawn google-chrome-stable --incognito {url}')
 config.bind(';l', 'hint links spawn {} -c popup -e iplay -b {{hint-url}}'.format(os.environ['TERMINAL']))
-config.bind(';L', 'hint links spawn {} -c popup -e iplay -t -b {{hint-url}}'.format(os.environ['TERMINAL']))
