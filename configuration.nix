@@ -13,6 +13,7 @@
   fonts = import ./fonts.nix { pkgs = pkgs; };
   hardware = import ./hardware.nix { pkgs = pkgs; };
   programs = import ./programs.nix { pkgs = pkgs; };
+  xdg.portal.enable = true;
 
   environment = {
     etc = {

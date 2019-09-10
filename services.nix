@@ -26,6 +26,28 @@
       time = 10;
       locker = "${pkgs.systemd}/bin/loginctl lock-session $XDG_SESSION_ID";
     };
+
+    displayManager = {
+      sddm = {
+        enable = true;
+        autoLogin.enable = false;
+      };
+    };
+
+    windowManager = {
+      i3 = {
+        enable = true;
+        configFile = builtins.toPath ./templates/i3.conf;
+        package = pkgs.i3-gaps;
+        extraPackages = with pkgs; [ i3blocks-gaps dmenu xkb-switch metar ];
+        extraSessionCommands = ''
+          ${pkgs.numlockx}/bin/numlockx
+          export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
+          export I3BLOCKS_CONF_DIR=${builtins.dirOf (builtins.toPath ./templates/i3blocks.conf)}
+          ${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock-fancy}/bin/i3lock-fancy -- ${pkgs.maim}/bin/maim &
+        '';
+      };
+    };
   };
 
   openssh = {

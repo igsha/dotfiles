@@ -52,7 +52,6 @@ with pkgs; [
   nix-bash-completions
   gptfdisk parted
   cdrtools
-  taskwarrior
   glxinfo
   xdg_utils
   powerline-go

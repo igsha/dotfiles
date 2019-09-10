@@ -1,16 +1,11 @@
 { pkgs, user, email }:
 
-let
-  i3blocks-config = builtins.toPath ./templates/i3blocks.conf;
-  i3-config = builtins.toPath ./templates/i3.conf;
-
-in rec {
+{
   home = {
     packages = with pkgs; [
       atool
       winetricks wineWowPackages.full
       xst
-      davmail
       mpv
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
@@ -27,11 +22,9 @@ in rec {
       steam
       xsel xclip xdotool
       xlibs.xhost hsetroot xorg.xev xorg.xkill
-      dmenu
       xfontsel
       xorg.xwininfo
-      i3-gaps i3blocks-gaps
-      davmail metar yad ack metar xkb-switch libnotify dropbox slack-dark iplay
+      davmail yad ack libnotify dropbox slack-dark iplay
     ];
     keyboard = {
       layout = "us,ru";
@@ -91,18 +84,5 @@ in rec {
     "bin/popup-sdcv".source = configs/popup;
     "bin/message-recorder".source = configs/message-recorder;
     "bin/color-tester".source = configs/color-tester.sh;
-  };
-
-  xsession = {
-    enable = true;
-    windowManager.command = ''
-      ${pkgs.i3-gaps}/bin/i3 -c ${i3-config}
-    '';
-    initExtra = ''
-      ${pkgs.numlockx}/bin/numlockx
-      export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
-      export I3BLOCKS_CONF_DIR=${builtins.dirOf i3blocks-config}
-      ${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock-fancy}/bin/i3lock-fancy -- ${pkgs.maim}/bin/maim &
-    '';
   };
 }
