@@ -15,7 +15,7 @@
       ffmpeg-full
       freerdp
       tdesktop
-      qutebrowser flashplayer-standalone google-chrome
+      qutebrowser google-chrome
       gnome3.evolution
       libreoffice-still
       skypeforlinux
