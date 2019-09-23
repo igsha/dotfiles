@@ -1,14 +1,22 @@
 # use it in /etc/nixos/configuration.nix:
 # imports = [ /home/user/.dotfiles/configuration.nix ];
 
-{ config, pkgs, ... }:
+{ config, pkgs, options, ... }:
 
-{
+let
+  overlays = let my-packages = /etc/nix-overlays; in
+    if builtins.pathExists my-packages then my-packages
+    else https://api.github.com/repos/igsha/nix-overlays/tarball/master;
+
+in {
   imports = [
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
   ];
 
   nixpkgs.config = import ./nixpkgs-config.nix;
+  nixpkgs.overlays = [ (import overlays) ];
+  nix.nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=${overlays}" ];
+
   services = import ./services.nix { pkgs = pkgs; };
   fonts = import ./fonts.nix { pkgs = pkgs; };
   hardware = import ./hardware.nix { pkgs = pkgs; };
