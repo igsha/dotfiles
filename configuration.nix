@@ -4,9 +4,10 @@
 { config, pkgs, options, ... }:
 
 let
-  overlays = let my-packages = /etc/nix-overlays; in
+  overlay = let my-packages = /etc/nix-overlays; in
     if builtins.pathExists my-packages then my-packages
-    else https://api.github.com/repos/igsha/nix-overlays/tarball/master;
+    else builtins.fetchTarball https://api.github.com/repos/igsha/nix-overlays/tarball/master;
+  overlay-compat = builtins.toPath ./overlays.nix;
 
 in {
   imports = [
@@ -14,8 +15,8 @@ in {
   ];
 
   nixpkgs.config = import ./nixpkgs-config.nix;
-  nixpkgs.overlays = [ (import overlays) ];
-  nix.nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=${overlays}" ];
+  nixpkgs.overlays = [ (import overlay) ];
+  nix.nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=${overlay-compat}" ];
 
   services = import ./services.nix { pkgs = pkgs; };
   fonts = import ./fonts.nix { pkgs = pkgs; };
