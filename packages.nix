@@ -46,7 +46,6 @@ with pkgs; [
   patchutils
   samba
   pass
-  pypi2nix cabal2nix cabal-install
   moreutils
   trash-cli
   nix-bash-completions
