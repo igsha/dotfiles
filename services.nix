@@ -104,6 +104,7 @@
   jupyter = {
     enable = true;
     password = "'sha1:66226798cbb5:552e68bea700ec46fee4d72375d0b4e554893f5d'";
+    group = "users";
     kernels = {
       python3 = let
         env = ((pkgs.python3.overrideAttrs (old: rec {
@@ -111,9 +112,10 @@
         })).withPackages (pp: with pp; [
           ipykernel
           pandas
-          (scikitlearn.overridePythonAttrs (x: rec { doCheck = false; }))
+          scikitlearn
           scipy
           matplotlib
+          numpy
           opencv3
           pillow
         ]));
