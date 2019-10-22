@@ -48,6 +48,9 @@
       set -g status-right '#{prefix_highlight} %a %Y-%m-%dT%H:%M'
       set -ga terminal-overrides ',*:Tc'
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+
+      bind-key -n Home send Escape "OH"
+      bind-key -n End send Escape "OF"
     '';
   };
 
