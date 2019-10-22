@@ -4,7 +4,8 @@ with pkgs; [
   stdenv gnumake
   gitFull subversion
   wget
-  neovim ed
+  neovim ed aerc
+  catimg
   man stdman man-pages posix_man_pages
   utillinuxCurses freetype
   gitAndTools.gitflow tig

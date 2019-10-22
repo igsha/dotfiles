@@ -5,7 +5,7 @@
     packages = with pkgs; [
       atool
       winetricks wineWowPackages.full
-      xst
+      hexyl
       mpv
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
@@ -41,6 +41,47 @@
       plugins = with pkgs; [ pidgin-latex pidgin-osd purple-hangouts telegram-purple pidgin-window-merge pidgin-skypeweb ];
     };
     command-not-found.enable = true;
+    termite = {
+      enable = true;
+      allowBold = true;
+      font = "Hack 12";
+      scrollOnOutput = true;
+      scrollOnKeystroke = true;
+      scrollbackLines = 65536;
+      cursorBlink = "on";
+      cursorShape = "block";
+      scrollbar = "right";
+      backgroundColor = "rgba(0, 0, 0, 0.75)";
+      foregroundColor = "#c5c8c6";
+      foregroundBoldColor = "#c5c8c6";
+      colorsExtra = ''
+        # black
+        color0  = #282a2e
+        color8  = #373b41
+        # red
+        color1  = #a54242
+        color9  = #cc6666
+        # green
+        color2  = #8c9440
+        color10 = #b5bd68
+        # yellow
+        color3  = #de935f
+        color11 = #f0c674
+        # blue
+        color4  = #5f819d
+        color12 = #81a2be
+        # magenta
+        color5  = #85678f
+        color13 = #b294bb
+        # cyan
+        color6  = #5e8d87
+        color14 = #8abeb7
+        # white
+        color7  = #707880
+        color15 = #c5c8c6
+      '';
+      hintsPadding = 2;
+    };
   };
 
   services = {
@@ -69,7 +110,6 @@
   };
 
   xdg.configFile."nixpkgs/config.nix".text = builtins.readFile ./nixpkgs-config.nix;
-  xdg.configFile."matplotlib".source = configs/matplotlib;
   xdg.configFile."vifm/vifmrc".source = configs/vifmrc;
   xdg.configFile."qutebrowser/config.py".source = configs/qutebrowser/config.py;
   xdg.configFile."qutebrowser/scrollbar.css".source = configs/qutebrowser/scrollbar.css;

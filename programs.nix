@@ -21,7 +21,7 @@
       export PDFVIEWER=zathura
       export PSVIEWER=$PDFVIEWER
       export DVIVIEWER=$PDFVIEWER
-      export TERMINAL=xst
+      export TERMINAL=termite
     '';
   };
 
@@ -29,8 +29,10 @@
     enable = true;
     clock24 = true;
     keyMode = "vi";
-    terminal = "screen-256color";
+    terminal = "tmux-256color";
     shortcut = "a";
+    baseIndex = 1;
+    escapeTime = 0;
     extraTmuxConf = ''
       run-shell ${pkgs.tmuxPlugins.prefix-highlight}/share/tmux-plugins/prefix-highlight/prefix_highlight.tmux
       run-shell ${pkgs.tmuxPlugins.sidebar}/share/tmux-plugins/sidebar/sidebar.tmux
@@ -44,8 +46,8 @@
       set -g mouse on
       bind-key -T root MouseDown2Pane run-shell -b "xclip -o | tmux load-buffer - && tmux paste-buffer"
       set -g status-right '#{prefix_highlight} %a %Y-%m-%dT%H:%M'
-      set -g base-index 1
-      set -s escape-time 0
+      set -ga terminal-overrides ',*:Tc'
+      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
     '';
   };
 

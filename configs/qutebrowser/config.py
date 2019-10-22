@@ -1,7 +1,7 @@
 import os
 
 #c.qt.force_software_rendering = True
-c.editor.command = [os.environ['TERMINAL'], '-c', 'editor', '-e', 'nvim', '{}']
+c.editor.command = [os.environ['TERMINAL'], '--class', 'editor', '--exec', 'nvim', '{}']
 
 c.downloads.position = 'bottom'
 c.downloads.location.directory = '~/Downloads'
