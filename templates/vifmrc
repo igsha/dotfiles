@@ -62,6 +62,7 @@ set wildmenu
 
 colorscheme Default
 highlight Win ctermbg=none
+highlight CmdLine ctermbg=none
 
 " The FUSE_HOME directory will be used as a root dir for all FUSE mounts.
 " Unless it exists with write/exec permissions set, vifm will attempt to
@@ -133,8 +134,7 @@ fileviewer *.so,*.so.* readelf -a %c | less
 
 " Image
 filetype *.jpg,*.jpeg,*.png,*.gif,*.tiff,*.tif,*.bmp,*.ppm,*.pgm,*.pbm xdg-open %c
-fileviewer *.jpg,*.jpeg catimg %c
-fileviewer *.png,*.gif,*.tiff,*.tif,*.bmp catimg %c
+fileviewer *.png,*.gif,*.tiff,*.tif,*.bmp,*jpg,*.jpeg catimg -w $(tput cols) %c
 
 " Md5
 filetype *.md5 md5sum -c %f

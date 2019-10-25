@@ -110,19 +110,17 @@
   };
 
   xdg.configFile."nixpkgs/config.nix".text = builtins.readFile ./nixpkgs-config.nix;
-  xdg.configFile."vifm/vifmrc".source = configs/vifmrc;
-  xdg.configFile."qutebrowser/config.py".source = configs/qutebrowser/config.py;
-  xdg.configFile."qutebrowser/scrollbar.css".source = configs/qutebrowser/scrollbar.css;
+  xdg.configFile."vifm/vifmrc".source = templates/vifmrc;
+  xdg.configFile."qutebrowser/config.py".source = templates/qutebrowser/config.py;
+  xdg.configFile."qutebrowser/scrollbar.css".source = templates/qutebrowser/scrollbar.css;
 
   home.file = {
-    ".wcalcrc".source = configs/wcalcrc;
-    ".gdbinit".source = configs/gdbinit;
-    ".Xdefaults".source = configs/Xdefaults;
-    ".git-prompt.sh".source = configs/git-prompt.sh;
-    ".bashrc".source = configs/bashrc;
-    "bin/popup-wcalc".source = configs/popup;
-    "bin/popup-sdcv".source = configs/popup;
-    "bin/message-recorder".source = configs/message-recorder;
-    "bin/color-tester".source = configs/color-tester.sh;
+    ".wcalcrc".source = templates/wcalcrc;
+    ".gdbinit".source = templates/gdbinit;
+    ".bashrc".source = templates/bashrc;
+    "bin/popup-wcalc".source = templates/popup;
+    "bin/popup-sdcv".source = templates/popup;
+    "bin/message-recorder".source = templates/message-recorder;
+    "bin/color-tester".source = templates/color-tester.sh;
   };
 }

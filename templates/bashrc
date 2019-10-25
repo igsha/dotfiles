@@ -14,10 +14,6 @@ if [[ $- != *i* ]] ; then
 fi
 
 export GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PROMPT_FILE=$HOME/.git-prompt.sh
-if [[ -f $GIT_PROMPT_FILE ]]; then
-    source $GIT_PROMPT_FILE
-fi
 
 function _update_ps1() {
     PS1="$(powerline-go -cwd-mode dironly -numeric-exit-codes -mode patched -modules "time,nix-shell,user,ssh,cwd,perms,git,jobs,exit,root" -shell bash -error $?)"

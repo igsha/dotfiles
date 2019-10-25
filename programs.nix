@@ -46,7 +46,7 @@
       set -g mouse on
       bind-key -T root MouseDown2Pane run-shell -b "xclip -o | tmux load-buffer - && tmux paste-buffer"
       set -g status-right '#{prefix_highlight} %a %Y-%m-%dT%H:%M'
-      set -ga terminal-overrides ',*:Tc'
+      set -ga status-style "bg=black fg=white"
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
 
       bind-key -n Home send Escape "OH"
