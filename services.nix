@@ -113,6 +113,7 @@
           ipykernel
           pandas
           scikitlearn
+          scikitimage
           scipy
           matplotlib
           numpy

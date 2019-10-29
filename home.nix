@@ -50,7 +50,7 @@
       scrollbackLines = 65536;
       cursorBlink = "on";
       cursorShape = "block";
-      scrollbar = "right";
+      scrollbar = "off";
       backgroundColor = "rgba(0, 0, 0, 0.75)";
       foregroundColor = "#c5c8c6";
       foregroundBoldColor = "#c5c8c6";
