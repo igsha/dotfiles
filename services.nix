@@ -107,9 +107,7 @@
     group = "users";
     kernels = {
       python3 = let
-        env = ((pkgs.python3.overrideAttrs (old: rec {
-          propagatedNativeBuildInputs = old.propagatedNativeBuildInputs ++ [ pkgs.graphviz ];
-        })).withPackages (pp: with pp; [
+        env = pkgs.python3.withPackages (pp: with pp; [
           ipykernel
           pandas
           scikitlearn
@@ -119,7 +117,7 @@
           numpy
           opencv3
           pillow
-        ]));
+        ]);
       in {
         displayName = "Python 3 for machine learning";
         argv = [

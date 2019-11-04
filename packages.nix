@@ -13,7 +13,6 @@ with pkgs; [
   ack silver-searcher
   psmisc
   fzf
-  pythonPackages.glances
   syslinux
   dmidecode lshw smartmontools pciutils usbutils
   htop iotop lsof inetutils
