@@ -18,7 +18,6 @@
       qutebrowser google-chrome
       gnome3.evolution
       libreoffice-still
-      skypeforlinux
       steam
       xsel xclip xdotool
       xlibs.xhost hsetroot xorg.xev xorg.xkill
