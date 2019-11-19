@@ -3,7 +3,6 @@
 {
   enableFontDir = true;
   enableGhostscriptFonts = true;
-  enableCoreFonts = true;
   fontconfig = {
     defaultFonts.monospace = ["DejaVu Sans Mono"];
     antialias = true;
