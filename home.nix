@@ -1,6 +1,16 @@
 { pkgs, user, email }:
 
-{
+let
+  popup-wcalc = pkgs.writeScriptBin "popup-wcalc" (builtins.readFile templates/popup);
+  popup-sdcv = pkgs.writeScriptBin "popup-sdcv" (builtins.readFile templates/popup);
+  message-recorder = pkgs.writeScriptBin "message-recorder" (builtins.readFile templates/message-recorder);
+  color-tester = pkgs.writeScriptBin "color-tester" (builtins.readFile templates/color-tester.sh);
+  home-bin = pkgs.runCommand "home-bin" { ignoreCollisions = true; envVariable = true; } ''
+    mkdir $out
+    ln -s -t $out/ ${user.home}/bin
+  '';
+
+in {
   home = {
     packages = with pkgs; [
       atool
@@ -9,7 +19,7 @@
       mpv
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
-      inkscape krita mypaint
+      inkscape krita mypaint gimp
       kpcli
       zathura
       ffmpeg-full
@@ -24,6 +34,7 @@
       xfontsel
       xorg.xwininfo
       davmail yad ack libnotify dropbox slack-dark iplay
+      popup-wcalc popup-sdcv message-recorder color-tester
     ];
     keyboard = {
       layout = "us,ru";
@@ -33,7 +44,7 @@
 
   programs = {
     home-manager.enable = true;
-    git = import ./gitConfig.nix { userName = user; userEmail = email; };
+    git = import ./gitConfig.nix { userName = user.description; userEmail = email; };
     fzf.enable = true;
     pidgin = {
       enable = true;
@@ -117,9 +128,5 @@
     ".wcalcrc".source = templates/wcalcrc;
     ".gdbinit".source = templates/gdbinit;
     ".bashrc".source = templates/bashrc;
-    "bin/popup-wcalc".source = templates/popup;
-    "bin/popup-sdcv".source = templates/popup;
-    "bin/message-recorder".source = templates/message-recorder;
-    "bin/color-tester".source = templates/color-tester.sh;
   };
 }
