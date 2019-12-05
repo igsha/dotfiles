@@ -1,7 +1,7 @@
 import os
 
 #c.qt.force_software_rendering = True
-c.editor.command = [os.environ['TERMINAL'], '--class', 'editor', '--exec', 'nvim', '{}']
+c.editor.command = [os.environ['TERMINAL'], '--class', 'editor', '--exec', 'nvim {}']
 
 c.downloads.position = 'bottom'
 c.downloads.location.directory = '~/Downloads'
@@ -50,7 +50,7 @@ c.url.searchengines = {
 c.aliases['defproxy'] = 'set content.proxy system'
 c.aliases['noproxy'] = 'set content.proxy none'
 c.aliases['tor'] = 'set content.proxy socks://localhost:9050'
-c.aliases['play'] = 'spawn {} -c popup -e iplay -b {{url}}'.format(os.environ['TERMINAL'])
+c.aliases['play'] = 'spawn {} --class popup -e "iplay -b {{url}}"'.format(os.environ['TERMINAL'])
 
 config.bind('t', 'set-cmd-text -s :open -t')
 config.bind('O', 'set-cmd-text :open {url:pretty}')
@@ -68,4 +68,4 @@ config.bind(';m', 'hint links spawn mpv --load-unsafe-playlists {hint-url}')
 config.bind(';M', 'hint links spawn torsocks mpv --load-unsafe-playlists {hint-url}')
 config.bind(';p', 'hint links spawn google-chrome-stable --incognito {hint-url}')
 config.bind(';P', 'spawn google-chrome-stable --incognito {url}')
-config.bind(';l', 'hint links spawn {} -c popup -e iplay -b {{hint-url}}'.format(os.environ['TERMINAL']))
+config.bind(';l', 'hint links spawn {} --class popup -e "iplay -b {{hint-url}}"'.format(os.environ['TERMINAL']))
