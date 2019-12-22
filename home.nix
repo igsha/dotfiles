@@ -35,6 +35,7 @@ in {
       xorg.xwininfo
       davmail yad ack libnotify dropbox slack-dark iplay
       popup-wcalc popup-sdcv message-recorder color-tester
+      fzy
     ];
     keyboard = {
       layout = "us,ru";

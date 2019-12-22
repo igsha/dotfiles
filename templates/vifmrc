@@ -133,7 +133,7 @@ filetype *.so,*.so.* readelf -d %c | less
 fileviewer *.so,*.so.* readelf -a %c | less
 
 " Image
-filetype *.jpg,*.jpeg,*.png,*.gif,*.tiff,*.tif,*.bmp,*.ppm,*.pgm,*.pbm xdg-open %c
+filetype *.jpg,*.jpeg,*.png,*.gif,*.tiff,*.tif,*.bmp,*.ppm,*.pgm,*.pbm,*.psd xdg-open %c
 fileviewer *.png,*.gif,*.tiff,*.tif,*.bmp,*jpg,*.jpeg catimg -w $(tput cols) %c
 
 " Md5

@@ -49,9 +49,9 @@ in {
     wireless.iwd.enable = true;
   };
 
-  i18n = {
-    consoleUseXkbConfig = true;
-    consoleFont = "LatArCyrHeb-16";
+  console = {
+    useXkbConfig = true;
+    font = "LatArCyrHeb-16";
   };
 
   sound.mediaKeys.enable = true;
