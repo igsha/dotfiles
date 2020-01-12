@@ -15,7 +15,7 @@
     '';
     exportConfiguration = true;
     useGlamor = true;
-    xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys";
+    xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys,compose:shift_paus";
     layout = "us,ru";
 
     xautolock = {
@@ -71,7 +71,6 @@
   atd.enable = true;
   geoclue2.enable = true;
   actkbd.enable = true;
-  rogue.enable = true;
   unclutter-xfixes.enable = true;
   redshift.enable = true;
 
