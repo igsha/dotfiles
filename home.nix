@@ -124,6 +124,7 @@ in {
   xdg.configFile."vifm/vifmrc".source = templates/vifmrc;
   xdg.configFile."qutebrowser/config.py".source = templates/qutebrowser/config.py;
   xdg.configFile."qutebrowser/scrollbar.css".source = templates/qutebrowser/scrollbar.css;
+  xdg.configFile."mpv/input.conf".source = templates/mpv-input.conf;
 
   home.file = {
     ".wcalcrc".source = templates/wcalcrc;

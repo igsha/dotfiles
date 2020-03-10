@@ -33,7 +33,7 @@
     shortcut = "a";
     baseIndex = 1;
     escapeTime = 0;
-    extraTmuxConf = ''
+    extraConfig = ''
       run-shell ${pkgs.tmuxPlugins.prefix-highlight}/share/tmux-plugins/prefix-highlight/prefix_highlight.tmux
       run-shell ${pkgs.tmuxPlugins.sidebar}/share/tmux-plugins/sidebar/sidebar.tmux
       run-shell ${pkgs.tmuxPlugins.urlview}/share/tmux-plugins/urlview/urlview.tmux

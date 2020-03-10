@@ -6,7 +6,7 @@
   chromium.enablePepperFlash = false;
   allowTexliveBuilds = true;
   permittedInsecurePackages = [
-    "polipo-1.1.1"
+    "openssl-1.0.2u"
   ];
   pulseaudio = true;
 }
