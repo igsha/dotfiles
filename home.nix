@@ -15,7 +15,6 @@ in {
     packages = with pkgs; [
       atool
       winetricks wineWowPackages.full
-      hexyl
       mpv
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
@@ -27,6 +26,7 @@ in {
       tdesktop
       qutebrowser google-chrome
       gnome3.evolution
+      quiterss
       libreoffice-still
       steam
       xsel xclip xdotool

@@ -73,6 +73,7 @@
   actkbd.enable = true;
   unclutter-xfixes.enable = true;
   redshift.enable = true;
+  flatpak.enable = true;
 
   tor = {
     enable = true;
