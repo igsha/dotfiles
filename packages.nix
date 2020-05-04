@@ -48,7 +48,7 @@ with pkgs; [
   pass
   moreutils
   trash-cli
-  nix-bash-completions
+  nix-bash-completions bash-completion
   gptfdisk parted
   cdrtools
   glxinfo
@@ -56,4 +56,5 @@ with pkgs; [
   powerline-go
   virtviewer virtmanager
   xf86_input_wacom libwacom wacomtablet
+  cpufrequtils
 ]

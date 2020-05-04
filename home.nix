@@ -25,8 +25,7 @@ in {
       freerdp
       tdesktop
       qutebrowser google-chrome
-      gnome3.evolution
-      quiterss
+      gnome3.evolution thunderbird
       libreoffice-still
       steam
       xsel xclip xdotool
@@ -58,7 +57,7 @@ in {
       font = "Hack 12";
       scrollOnOutput = true;
       scrollOnKeystroke = true;
-      scrollbackLines = 65536;
+      scrollbackLines = -1;
       cursorBlink = "on";
       cursorShape = "block";
       scrollbar = "off";
@@ -92,6 +91,7 @@ in {
         color15 = #c5c8c6
       '';
       hintsPadding = 2;
+      clickableUrl = false;
     };
   };
 

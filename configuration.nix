@@ -31,6 +31,7 @@ in {
       '';
     };
     systemPackages = import ./packages.nix { pkgs = pkgs; };
+    homeBinInPath = true;
   };
 
   location = {
