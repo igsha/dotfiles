@@ -12,7 +12,7 @@ let
 in {
   imports = [
     "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
-  ];
+  ] ++ (import "${overlay}/module-list.nix");
 
   nixpkgs.config = import ./nixpkgs-config.nix;
   nixpkgs.overlays = [ (import overlay) ];
