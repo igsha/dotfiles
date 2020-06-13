@@ -26,7 +26,7 @@ with pkgs; [
   pwgen
   bviplus dhex vbindiff
   universal-ctags
-  unrar unzip zip p7zip
+  unrar unzipNLS zip p7zip
   wcalc jq jo
   ntfs3g gparted xfsprogs
   youtube-dl
