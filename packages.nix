@@ -57,4 +57,5 @@ with pkgs; [
   virtviewer virtmanager
   xf86_input_wacom libwacom wacomtablet
   cpufrequtils
+  nixFlakes
 ]

@@ -26,7 +26,7 @@ in {
       tdesktop
       qutebrowser google-chrome
       gnome3.evolution thunderbird
-      libreoffice-still
+      libreoffice-still hunspellDicts.ru-ru
       steam
       xsel xclip xdotool
       xlibs.xhost hsetroot xorg.xev xorg.xkill
@@ -35,6 +35,7 @@ in {
       davmail yad ack libnotify dropbox slack-dark iplay
       popup-wcalc popup-sdcv message-recorder color-tester
       fzy
+      asciinema discord obs-studio trueconf
     ];
     keyboard = {
       layout = "us,ru";
