@@ -16,9 +16,18 @@ fi
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 function _update_ps1() {
-    PS1="$(powerline-go -cwd-mode dironly -numeric-exit-codes -mode patched -modules "time,nix-shell,user,ssh,cwd,perms,git,jobs,exit,root" -shell bash -error $?)"
+    PS1="$(powerline-go -cwd-mode dironly -numeric-exit-codes -condensed -mode patched -modules "time,nix-shell,user,ssh,cwd,perms,git,jobs,exit,root" -shell bash -error $?)"
 }
 
 if [[ "$TERM" != "linux" ]] && command -v powerline-go &>/dev/null; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
+# Workaround for nix-shell --pure
+if [ "$IN_NIX_SHELL" == "pure" ]; then
+    if [ -x "$HOME/.nix-profile/bin/powerline-go" ]; then
+        alias powerline-go="$HOME/.nix-profile/bin/powerline-go"
+    elif [ -x "/run/current-system/sw/bin/powerline-go" ]; then
+        alias powerline-go="/run/current-system/sw/bin/powerline-go"
+    fi
 fi
