@@ -1,10 +1,21 @@
 { pkgs }:
 
-with pkgs; [
+with pkgs;
+let
+  customNeovim = (neovim.override {
+    configure = import ./vimrcConfig.nix { inherit (pkgs) vimUtils vimPlugins fetchFromGitHub python3Packages; };
+  }).overrideAttrs (old: rec {
+    buildCommand = old.buildCommand + ''
+      substitute $out/share/applications/nvim.desktop $out/share/applications/nvim.desktop \
+        --replace 'Exec=nvim' "Exec=termite --class editor -e nvim"
+    '';
+  });
+
+in [
   stdenv gnumake
   gitFull subversion
   wget
-  neovim ed aerc
+  customNeovim ed aerc
   catimg
   man stdman man-pages posix_man_pages
   utillinuxCurses freetype

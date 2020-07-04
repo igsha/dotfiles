@@ -90,7 +90,7 @@
 
   logind.extraConfig = ''
     IdleAction=suspend
-    IdleActionSec=20min
+    IdleActionSec=40min
     HandlePowerKey=suspend
   '';
 
