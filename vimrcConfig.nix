@@ -61,6 +61,10 @@ let
     name = "jupytext-vim";
     src = builtins.fetchTarball https://api.github.com/repos/goerz/jupytext.vim/tarball/master;
   };
+  linediff-vim = vimUtils.buildVimPlugin {
+    name = "linediff-vim";
+    src = builtins.fetchTarball https://api.github.com/repos/AndrewRadev/linediff.vim/tarball/master;
+  };
 
 in rec {
   customRC = ''
@@ -88,6 +92,7 @@ in rec {
       jupytext-vim
       csv
       editorconfig-vim
+      linediff-vim
     ];
     opt = [ ];
   };

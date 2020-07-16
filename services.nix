@@ -28,10 +28,7 @@
     };
 
     displayManager = {
-      sddm = {
-        enable = true;
-        autoLogin.enable = false;
-      };
+      autoLogin.enable = false;
     };
 
     windowManager = {
