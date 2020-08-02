@@ -1,5 +1,7 @@
 import os
 
+c.qt.args = ['disable-seccomp-filter-sandbox']
+
 #c.qt.force_software_rendering = True
 c.editor.command = [os.environ['TERMINAL'], '--class', 'editor', '--exec', 'nvim {}']
 
