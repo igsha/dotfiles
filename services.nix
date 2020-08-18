@@ -64,7 +64,6 @@
   gnome3.gnome-keyring.enable = true;
   openntpd.enable = true;
   printing.enable = true;
-  nixosManual.showManual = true;
   atd.enable = true;
   geoclue2.enable = true;
   actkbd.enable = true;
@@ -92,8 +91,8 @@
   '';
 
   smartd.notifications = {
-    enable = true;
     x11.enable = true;
+    wall.enable = true;
   };
 
   dbus.packages = [ pkgs.gnome3.dconf ];
