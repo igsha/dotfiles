@@ -1,6 +1,9 @@
 { vimUtils, vimPlugins, fetchFromGitHub, python3Packages }:
 
 let
+  jupytext = python3Packages.jupytext.overridePythonAttrs (old: {
+    propagatedBuildInputs = old.propagatedBuildInputs ++ [ python3Packages.toml ];
+  });
   customConfigs = {
     ackConf = ''
       nnoremap <Leader>q :cclose<CR>
@@ -33,7 +36,7 @@ let
       set background=
     '';
     jupytext = ''
-      let g:jupytext_command = '${python3Packages.jupytext}/bin/jupytext'
+      let g:jupytext_command = '${jupytext}/bin/jupytext'
     '';
   };
   vimCustom = vimUtils.buildVimPlugin {
