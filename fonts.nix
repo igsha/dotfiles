@@ -1,7 +1,7 @@
 { pkgs }:
 
 {
-  enableFontDir = true;
+  fontDir.enable = true;
   enableGhostscriptFonts = true;
   fontconfig = {
     defaultFonts.monospace = ["DejaVu Sans Mono"];
