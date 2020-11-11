@@ -69,4 +69,5 @@ in [
   xf86_input_wacom libwacom wacomtablet
   cpufrequtils
   nixFlakes
+  python3Packages.jsbeautifier
 ]
