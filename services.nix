@@ -70,6 +70,7 @@
   unclutter-xfixes.enable = true;
   redshift.enable = true;
   flatpak.enable = true;
+  davfs2.enable = true;
 
   tor = {
     enable = true;
