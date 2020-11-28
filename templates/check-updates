@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+__names=(`grep -Po 'name = "\K[^"]+' ~/.nix-defexpr/channels_root/manifest.nix`)
+for _n in ${__names[@]}; do
+    echo $_n
+    __channel=`grep -Po "\w+" <<< "$_n" | head -n1`-unstable
+    curl -sL -m 15 https://channels.nixos.org/$__channel | xmllint --xpath "//title/text() | //body/p" - | sed -E 's;<[^>]+>;;g'
+    echo ---
+done

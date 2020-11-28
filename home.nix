@@ -5,6 +5,7 @@ let
   popup-sdcv = pkgs.writeScriptBin "popup-sdcv" (builtins.readFile templates/popup);
   message-recorder = pkgs.writeScriptBin "message-recorder" (builtins.readFile templates/message-recorder);
   color-tester = pkgs.writeScriptBin "color-tester" (builtins.readFile templates/color-tester.sh);
+  check-updates = pkgs.writeScriptBin "check-updates" (builtins.readFile templates/check-updates);
   home-bin = pkgs.runCommand "home-bin" { ignoreCollisions = true; envVariable = true; } ''
     mkdir $out
     ln -s -t $out/ ${user.home}/bin
@@ -33,7 +34,7 @@ in {
       xfontsel
       xorg.xwininfo
       davmail yad ack libnotify dropbox slack-dark iplay
-      popup-wcalc popup-sdcv message-recorder color-tester
+      popup-wcalc popup-sdcv message-recorder color-tester check-updates
       fzy
       asciinema discord obs-studio trueconf
     ];
