@@ -18,7 +18,7 @@ in [
   customNeovim ed aerc
   catimg
   man stdman man-pages posix_man_pages
-  utillinuxCurses freetype
+  utillinux freetype
   gitAndTools.gitflow tig
   lm_sensors
   ack silver-searcher
