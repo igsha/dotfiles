@@ -1,8 +1,14 @@
 { pkgs, user, email }:
 
 let
-  popup-wcalc = pkgs.writeScriptBin "popup-wcalc" (builtins.readFile templates/popup);
-  popup-sdcv = pkgs.writeScriptBin "popup-sdcv" (builtins.readFile templates/popup);
+  popup-wcalc = pkgs.writeScriptBin "popup-wcalc" ''
+    #!/usr/bin/env bash
+    $TERMINAL --class popup --title wcalc --exec wcalc
+  '';
+  popup-translate = pkgs.writeScriptBin "popup-translate" ''
+    #!/usr/bin/env bash
+    $TERMINAL --class popup --title translate --exec "trans -I"
+  '';
   message-recorder = pkgs.writeScriptBin "message-recorder" (builtins.readFile templates/message-recorder);
   color-tester = pkgs.writeScriptBin "color-tester" (builtins.readFile templates/color-tester.sh);
   check-updates = pkgs.writeScriptBin "check-updates" (builtins.readFile templates/check-updates);
@@ -34,9 +40,10 @@ in {
       xfontsel
       xorg.xwininfo
       davmail yad ack libnotify dropbox slack-dark iplay
-      popup-wcalc popup-sdcv message-recorder color-tester check-updates
+      popup-wcalc popup-translate message-recorder color-tester check-updates
       fzy
       asciinema discord obs-studio trueconf
+      translate-shell
     ];
     keyboard = {
       layout = "us,ru";

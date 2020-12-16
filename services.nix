@@ -119,6 +119,7 @@
           opencv3
           pillow
           python-gitlab
+          bitstring
         ]);
       in {
         displayName = "Python 3 for machine learning";
