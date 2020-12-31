@@ -23,7 +23,7 @@
       enableNotifier = true;
       extraOptions = [ "-detectsleep" ];
       notifier = "${pkgs.libnotify}/bin/notify-send \"Locking in 10 seconds\"";
-      time = 10;
+      time = 20;
       locker = "${pkgs.systemd}/bin/loginctl lock-session $XDG_SESSION_ID";
     };
 

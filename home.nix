@@ -12,10 +12,6 @@ let
   message-recorder = pkgs.writeScriptBin "message-recorder" (builtins.readFile templates/message-recorder);
   color-tester = pkgs.writeScriptBin "color-tester" (builtins.readFile templates/color-tester.sh);
   check-updates = pkgs.writeScriptBin "check-updates" (builtins.readFile templates/check-updates);
-  home-bin = pkgs.runCommand "home-bin" { ignoreCollisions = true; envVariable = true; } ''
-    mkdir $out
-    ln -s -t $out/ ${user.home}/bin
-  '';
 
 in {
   home = {
