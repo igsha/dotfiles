@@ -98,17 +98,12 @@
 
   dbus.packages = [ pkgs.gnome3.dconf ];
 
-  jupyter = {
+  jupyterhub = {
     enable = true;
-    group = "users";
+    port = 8888;
     kernels = {
       python3 = let
-        env = (pkgs.python3.buildEnv.override {
-          extraLibs = [
-            pkgs.pandoc
-            pkgs.texlive.combined.scheme-small
-          ];
-        }).withPackages (pp: with pp; [
+        env = pkgs.python3.withPackages (pp: with pp; [
           ipykernel
           pandas
           scikitlearn
@@ -120,14 +115,14 @@
           pillow
           python-gitlab
           bitstring
+          sympy
         ]);
       in {
-        displayName = "Python 3 for machine learning";
+        displayName = "Python3";
         argv = [
           "${env.interpreter}"
           "-m"
           "ipykernel_launcher"
-          "--pylab=inline"
           "-f"
           "{connection_file}"
         ];
