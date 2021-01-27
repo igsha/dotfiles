@@ -28,7 +28,7 @@ in {
       freerdp
       tdesktop
       qutebrowser google-chrome
-      gnome3.evolution thunderbird
+      evolutionWithPlugins thunderbird
       libreoffice-still hunspellDicts.ru-ru
       steam
       xsel xclip xdotool
