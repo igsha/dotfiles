@@ -11,7 +11,7 @@ let
 
 in {
   imports = [
-    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
+    "${builtins.fetchTarball https://github.com/nix-community/home-manager/archive/master.tar.gz}/nixos"
   ] ++ (import "${overlay}/modules/module-list.nix");
 
   nixpkgs.config = import ./nixpkgs-config.nix;

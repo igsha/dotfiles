@@ -56,6 +56,7 @@ in {
       plugins = with pkgs; [ pidgin-latex pidgin-osd purple-hangouts telegram-purple pidgin-window-merge pidgin-skypeweb ];
     };
     command-not-found.enable = true;
+    direnv.enable = true;
     termite = {
       enable = true;
       allowBold = true;
