@@ -49,14 +49,29 @@ in {
 
   programs = {
     home-manager.enable = true;
+    bash.enable = true;
     git = import ./gitConfig.nix { userName = user.description; userEmail = email; };
     fzf.enable = true;
+    command-not-found.enable = true;
+    powerline-go = {
+      enable = true;
+      modules = [ "time" "nix-shell" "user" "ssh" "cwd" "perms" "git" "jobs" "exit" "root" ];
+      settings = {
+        cwd-mode = "dironly";
+        numeric-exit-codes = true;
+        condensed = true;
+        mode = "patched";
+        shell = "bash";
+      };
+    };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+    };
     pidgin = {
       enable = true;
       plugins = with pkgs; [ pidgin-latex pidgin-osd purple-hangouts telegram-purple pidgin-window-merge pidgin-skypeweb ];
     };
-    command-not-found.enable = true;
-    direnv.enable = true;
     termite = {
       enable = true;
       allowBold = true;
@@ -103,6 +118,7 @@ in {
 
   services = {
     flameshot.enable = true;
+    gnome-keyring.enable = true;
     random-background = {
       enable = true;
       imageDirectory = "%h/Pictures";
@@ -123,7 +139,6 @@ in {
         };
       };
     };
-    gnome-keyring.enable = true;
   };
 
   xdg.configFile."nixpkgs/config.nix".text = builtins.readFile ./nixpkgs-config.nix;
@@ -135,6 +150,5 @@ in {
   home.file = {
     ".wcalcrc".source = templates/wcalcrc;
     ".gdbinit".source = templates/gdbinit;
-    ".bashrc".source = templates/bashrc;
   };
 }
