@@ -10,9 +10,8 @@ let
   overlay-compat = builtins.toPath ./overlays.nix;
 
 in {
-  imports = [
-    "${builtins.fetchTarball https://github.com/nix-community/home-manager/archive/master.tar.gz}/nixos"
-  ] ++ (import "${overlay}/modules/module-list.nix");
+  # nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+  imports = [ (import <home-manager> {}).nixos ] ++ (import "${overlay}/modules/module-list.nix");
 
   nixpkgs.config = import ./nixpkgs-config.nix;
   nixpkgs.overlays = [ (import overlay) ];

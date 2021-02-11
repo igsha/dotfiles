@@ -1,5 +1,8 @@
 import os
 
+config.set('auto_save.session', True)
+config.load_autoconfig(False)
+
 c.qt.args = ['disable-seccomp-filter-sandbox']
 
 #c.qt.force_software_rendering = True
@@ -24,10 +27,8 @@ c.tabs.title.format = '{index}: {current_title}{private}'
 c.content.user_stylesheets = 'scrollbar.css'
 c.content.plugins = True
 c.content.geolocation = True
-#c.content.cookies.accept = 'no-unknown-3rdparty'
-c.content.host_blocking.enabled = False
+c.content.blocking.enabled = False
 
-config.set('auto_save.session', True)
 c.session.lazy_restore = True
 
 c.hints.chars = 'asdfghjklqwertyuiopzxcvbnm'
