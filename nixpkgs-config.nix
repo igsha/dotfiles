@@ -8,4 +8,5 @@
     "openssl-1.0.2u"
   ];
   pulseaudio = true;
+  android_sdk.accept_license = true;
 }

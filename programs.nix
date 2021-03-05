@@ -55,4 +55,5 @@
   };
 
   udevil.enable = true;
+  adb.enable = true;
 }
