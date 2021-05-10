@@ -70,4 +70,5 @@ in [
   cpufrequtils
   nixFlakes
   python3Packages.jsbeautifier
+  openldap cifs-utils
 ]

@@ -35,9 +35,10 @@ let
       let g:jellybeans_overrides = {'background':{'ctermbg':'none','256ctermbg':'none','guibg':'none'}}
       set background=
     '';
+    /* https://github.com/NixOS/nixpkgs/pull/121648
     jupytext = ''
       let g:jupytext_command = '${jupytext}/bin/jupytext'
-    '';
+    '';*/
   };
   vimCustom = vimUtils.buildVimPlugin {
     name = "vim-custom";

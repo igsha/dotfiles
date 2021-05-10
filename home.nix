@@ -21,7 +21,7 @@ in {
       mpv
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
-      inkscape krita mypaint gimp
+      inkscape krita
       kpcli
       zathura
       ffmpeg-full
@@ -35,7 +35,7 @@ in {
       xlibs.xhost hsetroot xorg.xev xorg.xkill
       xfontsel
       xorg.xwininfo
-      davmail yad ack libnotify dropbox slack-dark iplay
+      davmail yad ack libnotify dropbox slack-dark iplay google-drive-ocamlfuse
       popup-wcalc popup-translate message-recorder color-tester check-updates
       fzy
       asciinema discord obs-studio trueconf
