@@ -61,7 +61,7 @@
   };
 
   kmscon.enable = true;
-  gnome3.gnome-keyring.enable = true;
+  gnome.gnome-keyring.enable = true;
   openntpd.enable = true;
   printing.enable = true;
   atd.enable = true;
