@@ -71,4 +71,5 @@ in [
   nixFlakes
   python3Packages.jsbeautifier
   openldap cifs-utils
+  poke
 ]

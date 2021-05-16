@@ -151,4 +151,19 @@ in {
     ".wcalcrc".source = templates/wcalcrc;
     ".gdbinit".source = templates/gdbinit;
   };
+
+  systemd.user.services.google-drive = {
+    Unit = {
+      Description = "Mount google drive";
+      After = [ "networ-online.target" ];
+    };
+
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+
+    Service = {
+      ExecStart = "${pkgs.google-drive-ocamlfuse}/bin/google-drive-ocamlfuse -f /home/${user.name}/Drive";
+    };
+  };
 }
