@@ -103,15 +103,17 @@
     port = 8888;
     kernels = {
       python3 = let
-        env = pkgs.python3.withPackages (pp: with pp; [
+        env = pkgs.python37.withPackages (pp: with pp; [
           ipykernel
           pandas
           scikitlearn
-          scikitimage
+          #scikitimage
           scipy
           matplotlib
           numpy
-          opencv3
+          tensorflow-bin
+          #pytorch
+          #opencv3
           pillow
           python-gitlab
           bitstring
