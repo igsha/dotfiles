@@ -56,4 +56,5 @@
 
   udevil.enable = true;
   adb.enable = true;
+  steam.enable = true;
 }

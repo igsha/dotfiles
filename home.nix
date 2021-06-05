@@ -17,7 +17,7 @@ in {
   home = {
     packages = with pkgs; [
       atool
-      winetricks wineWowPackages.full
+      winetricks wineWowPackages.unstable
       mpv
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
@@ -30,7 +30,6 @@ in {
       qutebrowser google-chrome
       evolutionWithPlugins thunderbird
       libreoffice-still hunspellDicts.ru-ru
-      steam
       xsel xclip xdotool
       xlibs.xhost hsetroot xorg.xev xorg.xkill
       xfontsel
