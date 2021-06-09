@@ -9,7 +9,7 @@
       la = "ls -lta";
       ll = "ls -lt";
       grep = "grep --color";
-      cal = "cal -m3";
+      cal = "cal -m";
       df = "df -h";
       fzf = "fzf-tmux";
     };
