@@ -39,7 +39,7 @@ in {
       fzy
       asciinema discord obs-studio trueconf
       translate-shell
-    ];
+    ] ++ (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev ]);
     keyboard = {
       layout = "us,ru";
       options = [ "grp:sclk_toggle" "grp:shift_caps_toggle" "grp_led:scroll" "keypad:pointerkeys" ];
