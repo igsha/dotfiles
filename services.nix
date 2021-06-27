@@ -113,7 +113,6 @@
           matplotlib
           numpy
           tensorflow
-          pytorch
           opencv3
           pillow
           python-gitlab
