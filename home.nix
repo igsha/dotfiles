@@ -18,7 +18,6 @@ in {
     packages = with pkgs; [
       atool
       winetricks wineWowPackages.unstable
-      mpv
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
       inkscape krita
@@ -113,6 +112,15 @@ in {
       hintsPadding = 2;
       clickableUrl = false;
     };
+    mpv = {
+      enable = true;
+      bindings = {
+        F1  = ''cycle-values af "dynaudnorm=g=5:f=250:r=0.9:p=0.5" "loudnorm=I=-16:TP=-3:LRA=4" ""'';
+      };
+      config = {
+        ytdl-format = "bestvideo[height<=720]+bestaudio/best";
+      };
+    };
   };
 
   services = {
@@ -144,7 +152,6 @@ in {
   xdg.configFile."vifm/vifmrc".source = templates/vifmrc;
   xdg.configFile."qutebrowser/config.py".source = templates/qutebrowser/config.py;
   xdg.configFile."qutebrowser/scrollbar.css".source = templates/qutebrowser/scrollbar.css;
-  xdg.configFile."mpv/input.conf".source = templates/mpv-input.conf;
 
   home.file = {
     ".wcalcrc".source = templates/wcalcrc;

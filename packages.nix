@@ -26,7 +26,7 @@ in [
   fzf
   syslinux
   dmidecode lshw smartmontools pciutils usbutils
-  htop iotop lsof inetutils
+  htop atop iotop lsof inetutils
   mtr nethogs ngrep nmap bind iftop wireshark-cli tcpdump proxytunnel
   sysstat dstat connect corkscrew torsocks socat wakelan
   pv
@@ -45,7 +45,6 @@ in [
   ponysay ponymix
   fakeroot fakechroot debootstrap
   transmission
-  sdcv
   links2
   httpie
   parallel
