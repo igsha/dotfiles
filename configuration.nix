@@ -54,7 +54,10 @@ in {
     font = "LatArCyrHeb-16";
   };
 
-  sound.mediaKeys.enable = true;
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
+  };
 
   virtualisation = {
     docker.enable = true;
