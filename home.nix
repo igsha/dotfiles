@@ -169,7 +169,7 @@ in {
     };
 
     Service = {
-      ExecStart = "${pkgs.google-drive-ocamlfuse}/bin/google-drive-ocamlfuse -f /home/${user.name}/Drive";
+      ExecStart = "${pkgs.google-drive-ocamlfuse}/bin/google-drive-ocamlfuse -f /home/${user.name}/Google/Drive";
     };
   };
 }
