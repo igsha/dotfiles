@@ -14,7 +14,6 @@
       fzf = "fzf-tmux";
     };
     loginShellInit = ''
-      export HISTCONTROL=ignoredups
       unset SSH_ASKPASS
       export EDITOR=nvim
       export BROWSER=qutebrowser

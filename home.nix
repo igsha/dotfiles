@@ -47,7 +47,10 @@ in {
 
   programs = {
     home-manager.enable = true;
-    bash.enable = true;
+    bash = {
+      enable = true;
+      historyControl = [ "ignoredups" "ignorespace" ];
+    };
     git = import ./gitConfig.nix { userName = user.description; userEmail = email; };
     fzf.enable = true;
     command-not-found.enable = true;
