@@ -33,7 +33,7 @@ in {
       xlibs.xhost hsetroot xorg.xev xorg.xkill
       xfontsel
       xorg.xwininfo
-      davmail yad ack libnotify dropbox slack-dark iplay google-drive-ocamlfuse
+      yad ack libnotify slack-dark iplay google-drive-ocamlfuse
       popup-wcalc popup-translate message-recorder color-tester check-updates
       fzy
       asciinema discord obs-studio trueconf
