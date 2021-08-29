@@ -80,10 +80,13 @@
 
   journald.extraConfig = "SystemMaxUse=4G";
 
-  compton = {
+  picom = {
     enable = true;
     vSync = true;
     backend = "xr_glx_hybrid";
+    settings = {
+      unredir-if-possible = false;
+    };
   };
 
   logind.extraConfig = ''
