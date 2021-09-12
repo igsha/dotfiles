@@ -1,9 +1,6 @@
 { vimUtils, vimPlugins, fetchFromGitHub, python3Packages }:
 
 let
-  jupytext = python3Packages.jupytext.overridePythonAttrs (old: {
-    propagatedBuildInputs = old.propagatedBuildInputs ++ [ python3Packages.toml ];
-  });
   customConfigs = {
     ackConf = ''
       nnoremap <Leader>q :cclose<CR>
@@ -35,10 +32,9 @@ let
       let g:jellybeans_overrides = {'background':{'ctermbg':'none','256ctermbg':'none','guibg':'none'}}
       set background=
     '';
-    /* https://github.com/NixOS/nixpkgs/pull/121648
     jupytext = ''
-      let g:jupytext_command = '${jupytext}/bin/jupytext'
-    '';*/
+      let g:jupytext_command = '${python3Packages.jupytext}/bin/jupytext'
+    '';
   };
   vimCustom = vimUtils.buildVimPlugin {
     name = "vim-custom";

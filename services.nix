@@ -83,7 +83,7 @@
   picom = {
     enable = true;
     vSync = true;
-    backend = "xr_glx_hybrid";
+    backend = "xrender";
     settings = {
       unredir-if-possible = false;
     };
