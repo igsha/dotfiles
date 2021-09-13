@@ -34,6 +34,7 @@ let
     '';
     jupytext = ''
       let g:jupytext_command = '${python3Packages.jupytext}/bin/jupytext'
+      let g:jupytext_enable = 0
     '';
   };
   vimCustom = vimUtils.buildVimPlugin {
