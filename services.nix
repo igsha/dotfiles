@@ -62,7 +62,7 @@
 
   kmscon.enable = true;
   gnome.gnome-keyring.enable = true;
-  openntpd.enable = true;
+  timesyncd.enable = true;
   printing.enable = true;
   atd.enable = true;
   geoclue2.enable = true;

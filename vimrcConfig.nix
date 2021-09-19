@@ -38,32 +38,38 @@ let
     '';
   };
   vimCustom = vimUtils.buildVimPlugin {
-    name = "vim-custom";
+    pname = "vim-custom";
+    version = "2021-09-14";
     src = ./templates/vim-custom;
   };
   plantuml = vimUtils.buildVimPlugin {
-    name = "plantuml";
+    pname = "plantuml";
+    version = "2021-09-01";
     src = fetchFromGitHub {
       owner = "aklt";
       repo = "plantuml-syntax";
-      rev = "41eeca5";
-      sha256 = "1v11dj4vwk5hyx0zc8qkl0a5wh91zfmwhcq2ndl8zwp78h9yf5wr";
+      rev = "405186847a44c16dd039bb644541b4c8fbdab095";
+      sha256 = "07s9wjls1rix7wyc2b2nfzsgcqd54slbv64fy7lyv3bkzrbdz8c0";
     };
   };
   smarthomekey = vimUtils.buildVimPlugin {
-    name = "smarthomekey";
+    pname = "smarthomekey";
+    version = "master";
     src = builtins.fetchTarball https://api.github.com/repos/chenkaie/smarthomekey.vim/tarball/master;
   };
   jellybeans = vimUtils.buildVimPlugin {
-    name = "jellybeans";
+    pname = "jellybeans";
+    version = "master";
     src = builtins.fetchTarball https://api.github.com/repos/nanotech/jellybeans.vim/tarball/master;
   };
   jupytext-vim = vimUtils.buildVimPlugin {
-    name = "jupytext-vim";
+    pname = "jupytext-vim";
+    version = "master";
     src = builtins.fetchTarball https://api.github.com/repos/goerz/jupytext.vim/tarball/master;
   };
   linediff-vim = vimUtils.buildVimPlugin {
-    name = "linediff-vim";
+    pname = "linediff-vim";
+    version = "master";
     src = builtins.fetchTarball https://api.github.com/repos/AndrewRadev/linediff.vim/tarball/master;
   };
 
