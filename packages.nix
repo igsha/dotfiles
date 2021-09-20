@@ -71,4 +71,5 @@ in [
   openldap cifs-utils
   poke
   nix-index
+  hydra-check
 ]

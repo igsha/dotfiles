@@ -46,7 +46,6 @@ in {
   };
 
   programs = {
-    home-manager.enable = true;
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
