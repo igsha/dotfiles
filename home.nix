@@ -27,7 +27,7 @@ in {
       freerdp
       tdesktop
       qutebrowser google-chrome
-      evolutionWithPlugins thunderbird
+      evolutionWithPlugins
       libreoffice-still hunspellDicts.ru-ru
       xsel xclip xdotool
       xlibs.xhost hsetroot xorg.xev xorg.xkill
@@ -123,6 +123,7 @@ in {
         ytdl-format = "bestvideo[height<=720]+bestaudio/best";
       };
     };
+    bottom.enable = true;
   };
 
   services = {
@@ -150,10 +151,19 @@ in {
     };
   };
 
-  xdg.configFile."nixpkgs/config.nix".text = builtins.readFile ./nixpkgs-config.nix;
-  xdg.configFile."vifm/vifmrc".source = templates/vifmrc;
-  xdg.configFile."qutebrowser/config.py".source = templates/qutebrowser/config.py;
-  xdg.configFile."qutebrowser/scrollbar.css".source = templates/qutebrowser/scrollbar.css;
+  xdg = {
+    enable = true;
+    configFile = {
+      "nixpkgs/config.nix".text = builtins.readFile ./nixpkgs-config.nix;
+      "vifm/vifmrc".source = templates/vifmrc;
+      "qutebrowser/config.py".source = templates/qutebrowser/config.py;
+      "qutebrowser/scrollbar.css".source = templates/qutebrowser/scrollbar.css;
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications = import ./xdg-default.nix;
+    };
+  };
 
   home.file = {
     ".wcalcrc".source = templates/wcalcrc;

@@ -2,12 +2,16 @@
 
 with pkgs;
 let
+  nvimCmd = pkgs.writeScript "nvim-desktop.sh" ''
+    #!/usr/bin/env sh
+    termite --class editor -e "nvim \"$1\""
+  '';
   customNeovim = (neovim.override {
     configure = import ./vimrcConfig.nix { inherit (pkgs) vimUtils vimPlugins fetchFromGitHub python3Packages; };
   }).overrideAttrs (old: rec {
     buildCommand = old.buildCommand + ''
       substitute $out/share/applications/nvim.desktop $out/share/applications/nvim.desktop \
-        --replace 'Exec=nvim' "Exec=termite --class editor -e nvim"
+        --replace 'Exec=nvim' "Exec=${nvimCmd} %U"
     '';
   });
 

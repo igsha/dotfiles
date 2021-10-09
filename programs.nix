@@ -16,6 +16,7 @@
     loginShellInit = ''
       unset SSH_ASKPASS
       export EDITOR=nvim
+      export VISUAL=nvim
       export BROWSER=qutebrowser
       export PDFVIEWER=zathura
       export PSVIEWER=$PDFVIEWER
