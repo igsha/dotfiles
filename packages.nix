@@ -76,4 +76,5 @@ in [
   poke
   nix-index
   hydra-check
+  evtest
 ]

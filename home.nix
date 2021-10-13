@@ -49,6 +49,9 @@ in {
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
+      sessionVariables = {
+        PAGER = "bat";
+      };
     };
     git = import ./gitConfig.nix { userName = user.description; userEmail = email; };
     fzf.enable = true;
@@ -124,6 +127,7 @@ in {
       };
     };
     bottom.enable = true;
+    bat.enable = true;
   };
 
   services = {
