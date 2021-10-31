@@ -44,7 +44,6 @@ in [
   unrar unzipNLS zip p7zip
   wcalc jq jo
   ntfs3g gparted xfsprogs
-  youtube-dl
   libxml2
   ponysay ponymix
   fakeroot fakechroot debootstrap

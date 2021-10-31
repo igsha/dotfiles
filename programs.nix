@@ -23,11 +23,6 @@
       export DVIVIEWER=$PDFVIEWER
       export TERMINAL=termite
     '';
-    undistractMe = {
-      enable = true;
-      timeout = 30;
-      playSound = true;
-    };
   };
 
   tmux = {

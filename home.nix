@@ -38,6 +38,7 @@ in {
       fzy
       asciinema discord obs-studio trueconf
       translate-shell
+      (yt-dlp.override { withAlias = true; phantomjsSupport = true; })
     ] ++ (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev ]);
     keyboard = {
       layout = "us,ru";
@@ -51,6 +52,7 @@ in {
       historyControl = [ "ignoredups" "ignorespace" ];
       sessionVariables = {
         PAGER = "bat";
+        MANPAGER = "less";
       };
     };
     git = import ./gitConfig.nix { userName = user.description; userEmail = email; };
