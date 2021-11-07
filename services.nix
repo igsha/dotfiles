@@ -71,7 +71,6 @@
   redshift.enable = true;
   flatpak.enable = true;
   davfs2.enable = true;
-  pipewire.enable = true;
 
   tor = {
     enable = true;
