@@ -39,7 +39,7 @@ in {
       asciinema discord obs-studio trueconf
       translate-shell
       (yt-dlp.override { withAlias = true; phantomjsSupport = true; })
-    ] ++ (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev ]);
+    ] ++ (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]);
     keyboard = {
       layout = "us,ru";
       options = [ "grp:sclk_toggle" "grp:shift_caps_toggle" "grp_led:scroll" "keypad:pointerkeys" ];
@@ -126,6 +126,7 @@ in {
       };
       config = {
         ytdl-format = "bestvideo[height<=720]+bestaudio/best";
+        write-filename-in-watch-later-config = true;
       };
     };
     bottom.enable = true;
@@ -160,7 +161,6 @@ in {
   xdg = {
     enable = true;
     configFile = {
-      "nixpkgs/config.nix".text = builtins.readFile ./nixpkgs-config.nix;
       "vifm/vifmrc".source = templates/vifmrc;
       "qutebrowser/config.py".source = templates/qutebrowser/config.py;
       "qutebrowser/scrollbar.css".source = templates/qutebrowser/scrollbar.css;

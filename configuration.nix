@@ -13,9 +13,25 @@ in {
   # nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
   imports = [ (import <home-manager> {}).nixos ] ++ (import "${overlay}/modules/module-list.nix");
 
-  nixpkgs.config = import ./nixpkgs-config.nix;
-  nixpkgs.overlays = [ (import overlay) ];
-  nix.nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=${overlay-compat}" ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      virtualbox.host.enableExtensionPack = true;
+      allowTexliveBuilds = true;
+      pulseaudio = true;
+      android_sdk.accept_license = true;
+    };
+    overlays = [ (import overlay) ];
+  };
+
+  nix = {
+    useSandbox = true;
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+    nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=${overlay-compat}" ];
+  };
 
   services = import ./services.nix { pkgs = pkgs; };
   fonts = import ./fonts.nix { pkgs = pkgs; };
