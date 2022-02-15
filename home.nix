@@ -39,10 +39,19 @@ in {
       asciinema discord obs-studio trueconf
       translate-shell
       (yt-dlp.override { withAlias = true; phantomjsSupport = true; })
+      xkb-switch-i3 metar
     ] ++ (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]);
     keyboard = {
       layout = "us,ru";
       options = [ "grp:sclk_toggle" "grp:shift_caps_toggle" "grp_led:scroll" "keypad:pointerkeys" ];
+    };
+    sessionVariables = {
+      I3BLOCKS_DIR = "${pkgs.i3blocks-gaps}/libexec/i3blocks";
+      I3BLOCKS_CONF_DIR = "${builtins.dirOf (builtins.toPath ./templates/i3blocks.conf)}";
+    };
+    file = {
+      ".wcalcrc".source = templates/wcalcrc;
+      ".gdbinit".source = templates/gdbinit;
     };
   };
 
@@ -156,6 +165,26 @@ in {
         };
       };
     };
+    picom = {
+      enable = true;
+      vSync = true;
+      backend = "xrender";
+      extraOptions = ''
+        unredir-if-possible = false;
+      '';
+    };
+    screen-locker = {
+      enable = true;
+      inactiveInterval = 20;
+      lockCmd = "${pkgs.i3lock-fancy}/bin/i3lock-fancy -- ${pkgs.maim}/bin/maim";
+      xautolock = {
+        enable = true;
+        extraOptions = [
+          "-notify 10"
+          "-notifier '${pkgs.libnotify}/bin/notify-send \"Locking in 10 seconds\"'"
+        ];
+      };
+    };
   };
 
   xdg = {
@@ -171,11 +200,6 @@ in {
     };
   };
 
-  home.file = {
-    ".wcalcrc".source = templates/wcalcrc;
-    ".gdbinit".source = templates/gdbinit;
-  };
-
   systemd.user.services.google-drive = {
     Unit = {
       Description = "Mount google drive";
@@ -188,6 +212,120 @@ in {
 
     Service = {
       ExecStart = "${pkgs.google-drive-ocamlfuse}/bin/google-drive-ocamlfuse -f /home/${user.name}/Google/Drive";
+    };
+  };
+
+  xsession = {
+    enable = true;
+    numlock.enable = true;
+    scriptPath = ".xsession-hm";
+    initExtra = ''
+      ${pkgs.xorg.setxkbmap}/bin/setxkbmap
+    '';
+    windowManager = {
+      i3 = let
+        modeSystem = "System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown";
+        modifier = "Mod4";
+      in {
+        enable = true;
+        package = pkgs.i3-gaps;
+        config = {
+          modifier = modifier;
+          assigns = {
+            "1" = [{ class = "Termite"; }];
+            "2" = [{ instance = "qutebrowser"; }];
+            "3" = [{ class = "Thunderbird|Evolution|.evolution-wrapped_"; }];
+            "4" = [{ instance = "telegram-desktop"; }];
+            "5" = [{ class = "Steam|steam|steam.exe"; }];
+            "6" = [{ class = "Wine"; }];
+          };
+          bars = [
+            {
+              position = "top";
+              statusCommand = "${pkgs.i3blocks-gaps}/bin/i3blocks -c ${builtins.toPath ./templates/i3blocks.conf}";
+              fonts = {
+                names = [ "FontAwesome5Free" "DejaVu Sans Mono" ];
+                style = "Semi-Condensed";
+                size = 10.0;
+              };
+              workspaceButtons = true;
+              workspaceNumbers = true;
+              trayOutput = "primary";
+              extraConfig = ''
+                output primary
+              '';
+            }
+          ];
+          floating = {
+            criteria = [
+              { class = "Galculator|ffplay|XTerm|Wine|popup"; }
+              { instance = "popup|yad|nm-connection-editor"; }
+              { class = "Kruler"; }
+            ];
+          };
+          focus.followMouse = false;
+          fonts = {
+            names = [ "FontAwesome5Free" "DejaVu Sans Mono" ];
+            style = "Semi-Condensed";
+            size = 10.0;
+          };
+          keybindings = pkgs.lib.mkOptionDefault {
+            XF86AudioMute = "exec --no-startup-id ponymix toggle && pkill -RTMIN+10 i3blocks";
+            XF86AudioLowerVolume = "exec --no-startup-id ponymix decrease 5% && pkill -RTMIN+10 i3blocks";
+            XF86AudioRaiseVolume = "exec --no-startup-id ponymix increase 5% && pkill -RTMIN+10 i3blocks";
+            "Shift+XF86AudioLowerVolume" = "exec --no-startup-id ponymix decrease 1% && pkill -RTMIN+10 i3blocks";
+            "Shift+XF86AudioRaiseVolume" = "exec --no-startup-id ponymix increase 1% && pkill -RTMIN+10 i3blocks";
+            XF86Calculator = "exec popup-wcalc";
+            "${modifier}+Control+c" = "exec popup-wcalc";
+            XF86Search = "exec popup-translate";
+            "${modifier}+Control+t" = "exec popup-translate";
+            "${modifier}+Shift+Print" = "exec flameshot full -p $HOME";
+            "${modifier}+Print" = "exec flameshot gui -p $HOME";
+            "${modifier}+m" = "exec --no-startup-id message-recorder -t";
+            "${modifier}+r" = "mode resize";
+            "${modifier}+Pause" = ''mode "${modeSystem}"'';
+            "${modifier}+Tab" = "workspace next";
+            "${modifier}+Shift+Tab" = "workspace prev";
+            "--release ISO_Next_Group" = "exec --no-startup-id pkill -RTMIN+11 i3blocks";
+            "--release Caps_Lock" = "exec --no-startup-id pkill -RTMIN+11 i3blocks";
+            "--release Num_Lock" = "exec --no-startup-id pkill -RTMIN+11 i3blocks";
+          };
+          modes = {
+            resize = {
+              Left = "resize shrink width 10 px or 10 ppt";
+              Down = "resize grow height 10 px or 10 ppt";
+              Up = "resize shrink height 10 px or 10 ppt";
+              Right = "resize grow width 10 px or 10 ppt";
+              Return = "mode default";
+              Escape = "mode default";
+            };
+            "${modeSystem}" = {
+              l = "exec --no-startup-id loginctl lock-session $XDG_SESSION_ID, mode default";
+              e = ''[class=".*"] kill, exec --no-startup-id i3-msg exit, mode default'';
+              s = "exec --no-startup-id systemctl suspend, mode default";
+              h = "exec --no-startup-id systemctl hibernate, mode default";
+              r = "exec --no-startup-id systemctl reboot, mode default";
+              "Shift+s" = "exec --no-startup-id systemctl poweroff, mode default";
+              Return = "mode default";
+              Escape = "mode default";
+            };
+          };
+          startup = [
+            { command = "i3-sensible-terminal -e tmux"; }
+            { command = "qutebrowser"; }
+            { command = "evolution"; }
+            { command = "telegram-desktop"; }
+          ];
+          window = {
+            commands = [
+              { command = "border none"; criteria = { class = "Kruler"; }; }
+            ];
+          };
+          workspaceAutoBackAndForth = true;
+          workspaceLayout = "tabbed";
+          defaultWorkspace = "workspace number 1";
+        };
+      };
     };
   };
 }

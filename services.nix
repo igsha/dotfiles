@@ -15,38 +15,18 @@
     '';
     exportConfiguration = true;
     useGlamor = true;
-    xkbOptions = "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys,compose:shift_paus";
-    layout = "us,ru";
-
-    xautolock = {
-      enable = true;
-      enableNotifier = true;
-      extraOptions = [ "-detectsleep" ];
-      notifier = "${pkgs.libnotify}/bin/notify-send \"Locking in 10 seconds\"";
-      time = 20;
-      locker = "${pkgs.systemd}/bin/loginctl lock-session $XDG_SESSION_ID";
-    };
-
     displayManager = {
       autoLogin.enable = false;
-    };
-
-    windowManager = {
-      i3 = {
-        enable = true;
-        configFile = builtins.toPath ./templates/i3.conf;
-        package = pkgs.i3-gaps;
-        extraPackages = with pkgs; [ i3blocks-gaps dmenu xkb-switch metar ];
-        extraSessionCommands = ''
-          ${pkgs.numlockx}/bin/numlockx
-          export I3BLOCKS_DIR=${pkgs.i3blocks-gaps}/libexec/i3blocks
-          export I3BLOCKS_CONF_DIR=${builtins.dirOf (builtins.toPath ./templates/i3blocks.conf)}
-          ${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock-fancy}/bin/i3lock-fancy -- ${pkgs.maim}/bin/maim &
-          ${pkgs.xorg.setxkbmap}/bin/setxkbmap
-          ${pkgs.systemd}/bin/systemctl import-environment --user XDG_SESSION_ID
-          ${pkgs.systemd}/bin/systemctl restart --user xautolock.service
-        '';
-      };
+      session = [
+        {
+          name = "home-manager";
+          manage = "window";
+          start = ''
+            ${pkgs.runtimeShell} $HOME/.xsession-hm &
+            waitPID=$!
+          '';
+        }
+      ];
     };
   };
 
@@ -78,15 +58,6 @@
   };
 
   journald.extraConfig = "SystemMaxUse=4G";
-
-  picom = {
-    enable = true;
-    vSync = true;
-    backend = "xrender";
-    settings = {
-      unredir-if-possible = false;
-    };
-  };
 
   logind.extraConfig = ''
     IdleAction=suspend
