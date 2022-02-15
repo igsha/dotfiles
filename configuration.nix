@@ -25,7 +25,7 @@ in {
   };
 
   nix = {
-    useSandbox = true;
+    settings.sandbox = true;
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes

@@ -25,9 +25,10 @@ in [
   utillinux freetype
   gitAndTools.gitflow tig
   lm_sensors
-  ack silver-searcher
+  ack silver-searcher ripgrep
   psmisc
   fzf
+  sqlite
   syslinux
   dmidecode lshw smartmontools pciutils usbutils
   htop atop iotop lsof inetutils

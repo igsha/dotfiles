@@ -70,7 +70,7 @@
     wall.enable = true;
   };
 
-  dbus.packages = [ pkgs.gnome3.dconf ];
+  dbus.packages = [ pkgs.dconf ];
 
   jupyterhub = {
     enable = true;

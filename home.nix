@@ -221,6 +221,7 @@ in {
     scriptPath = ".xsession-hm";
     initExtra = ''
       ${pkgs.xorg.setxkbmap}/bin/setxkbmap
+      ${pkgs.xorg.xrandr}/bin/xrandr $(${pkgs.xorg.xrandr}/bin/xrandr --listactivemonitors | awk '{print $4}') --primary
     '';
     windowManager = {
       i3 = let
