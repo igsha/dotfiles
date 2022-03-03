@@ -15,7 +15,7 @@
     inconsolata-lgc
     google-fonts
     anonymousPro
-    font-awesome-ttf
+    font-awesome
     powerline-fonts
   ];
 }

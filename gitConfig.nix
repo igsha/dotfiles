@@ -13,6 +13,8 @@
     sm = "submodule";
     ci = "commit";
     graph = "log --graph --oneline --all";
+    logf = "git log --pretty=fuller";
+    logf1 = "git logf -1";
   };
   extraConfig = {
     core.editor = "nvim";
