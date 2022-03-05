@@ -29,20 +29,22 @@
     enable = true;
     clock24 = true;
     keyMode = "vi";
-    terminal = "tmux-256color";
+    terminal = "xterm-256color";
     shortcut = "a";
     baseIndex = 1;
     escapeTime = 0;
+    historyLimit = 50000;
+    plugins = with pkgs.tmuxPlugins; [
+      prefix-highlight
+      sidebar
+      urlview
+      yank
+      pain-control
+      logging
+      open
+      copycat
+    ];
     extraConfig = ''
-      run-shell ${pkgs.tmuxPlugins.prefix-highlight}/share/tmux-plugins/prefix-highlight/prefix_highlight.tmux
-      run-shell ${pkgs.tmuxPlugins.sidebar}/share/tmux-plugins/sidebar/sidebar.tmux
-      run-shell ${pkgs.tmuxPlugins.urlview}/share/tmux-plugins/urlview/urlview.tmux
-      run-shell ${pkgs.tmuxPlugins.yank}/share/tmux-plugins/yank/yank.tmux
-      run-shell ${pkgs.tmuxPlugins.pain-control}/share/tmux-plugins/pain-control/pain_control.tmux
-      run-shell ${pkgs.tmuxPlugins.logging}/share/tmux-plugins/logging/logging.tmux
-      run-shell ${pkgs.tmuxPlugins.open}/share/tmux-plugins/open/open.tmux
-      run-shell ${pkgs.tmuxPlugins.copycat}/share/tmux-plugins/copycat/copycat.tmux
-
       set -g mouse on
       bind-key -T root MouseDown2Pane run-shell -b "xclip -o | tmux load-buffer - && tmux paste-buffer"
       set -g status-right '#{prefix_highlight} %a %Y-%m-%dT%H:%M'

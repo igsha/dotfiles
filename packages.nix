@@ -38,7 +38,7 @@ in [
   tree file which mkpasswd
   openssl encfs
   ocamlPackages.csv
-  vifm fuse fuseiso fuse-7z-ng curlftpfs jmtpfs sshfsFuse archivemount
+  vifm fuse fuseiso fuse-7z-ng curlftpfs jmtpfs sshfs-fuse archivemount
   pwgen
   bviplus dhex vbindiff
   universal-ctags
@@ -68,7 +68,7 @@ in [
   glxinfo
   xdg_utils
   powerline-go
-  virtviewer virtmanager
+  virt-viewer virtmanager
   xf86_input_wacom libwacom wacomtablet
   cpufrequtils
   python3Packages.jsbeautifier

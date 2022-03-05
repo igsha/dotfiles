@@ -86,7 +86,7 @@
           matplotlib
           numpy
           tensorflow
-          opencv3
+          opencv4
           pillow
           python-gitlab
           bitstring

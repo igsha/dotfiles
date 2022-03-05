@@ -30,7 +30,7 @@ in {
       evolutionWithPlugins
       libreoffice-still hunspellDicts.ru-ru
       xsel xclip xdotool
-      xlibs.xhost hsetroot xorg.xev xorg.xkill
+      xorg.xhost hsetroot xorg.xev xorg.xkill
       xfontsel
       xorg.xwininfo
       yad ack libnotify slack-dark iplay google-drive-ocamlfuse

@@ -10,11 +10,12 @@
     br = "branch";
     co = "checkout";
     lg = "log --oneline";
+    lg1 = "lg -1";
     sm = "submodule";
     ci = "commit";
     graph = "log --graph --oneline --all";
-    logf = "git log --pretty=fuller";
-    logf1 = "git logf -1";
+    logf = "log --pretty=fuller";
+    logf1 = "logf -1";
   };
   extraConfig = {
     core.editor = "nvim";
