@@ -4,7 +4,9 @@
   fontDir.enable = true;
   enableGhostscriptFonts = true;
   fontconfig = {
-    defaultFonts.monospace = ["DejaVu Sans Mono"];
+    enable = true;
+    defaultFonts.emoji = [ "Font Awesome 5 Free" "Font Awesome 5 Brands" ];
+    allowBitmaps = false;
     antialias = true;
   };
   fonts = with pkgs; [
@@ -17,5 +19,7 @@
     anonymousPro
     font-awesome
     powerline-fonts
+    powerline-symbols
+    symbola
   ];
 }

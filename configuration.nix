@@ -30,7 +30,6 @@ in {
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=${overlay-compat}" ];
   };
 
   services = import ./services.nix { pkgs = pkgs; };
@@ -84,10 +83,13 @@ in {
 
   security = {
     sudo.enable = true;
-    pam.loginLimits = [
-      { domain = "*"; type = "hard"; item = "core"; value = "unlimited"; }
-      { domain = "*"; type = "soft"; item = "core"; value = "unlimited"; }
-    ];
+    pam = {
+      loginLimits = [
+        { domain = "*"; type = "hard"; item = "core"; value = "unlimited"; }
+        { domain = "*"; type = "soft"; item = "core"; value = "unlimited"; }
+      ];
+      services.swaylock = {};
+    };
     polkit.enable = true;
   };
 

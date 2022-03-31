@@ -95,7 +95,8 @@ function AttachGitTags()
     let l:rootdir = system('git rev-parse --show-toplevel')
     if v:shell_error != 0 | return | endif
     let l:tagfile = substitute(l:rootdir, '\n\+$', '', '') . '/.git/tags'
-    let &l:tags = l:tagfile
+    if index(split(&tags, ','), l:tagfile) != -1 | return | endif
+    let &tags .= ',' . l:tagfile
 endfunction
 
 autocmd BufEnter *.c,*.h,*.tex,*.cpp,*.s,*.hpp,*.cxx,*.cc,*.hh,*.hxx :call AttachGitTags()

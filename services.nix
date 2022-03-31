@@ -1,10 +1,22 @@
 { pkgs }:
 
 {
+  gnome.gnome-keyring.enable = true;
+  timesyncd.enable = true;
+  printing.enable = true;
+  atd.enable = true;
+  geoclue2.enable = true;
+  actkbd.enable = true;
+  flatpak.enable = true;
+  davfs2.enable = true;
+  unclutter-xfixes.enable = true;
+  redshift.enable = false;
+
   xserver = {
     enable = true;
-    autoRepeatDelay = 300;
-    autoRepeatInterval = 20;
+    autorun = false;
+    autoRepeatDelay = 250;
+    autoRepeatInterval = 40;
     enableTCP = true;
     wacom.enable = true;
     serverFlagsSection = ''
@@ -16,17 +28,7 @@
     exportConfiguration = true;
     useGlamor = true;
     displayManager = {
-      autoLogin.enable = false;
-      session = [
-        {
-          name = "home-manager";
-          manage = "window";
-          start = ''
-            ${pkgs.runtimeShell} $HOME/.xsession-hm &
-            waitPID=$!
-          '';
-        }
-      ];
+      sx.enable = true;
     };
   };
 
@@ -40,17 +42,10 @@
     '';
   };
 
-  kmscon.enable = true;
-  gnome.gnome-keyring.enable = true;
-  timesyncd.enable = true;
-  printing.enable = true;
-  atd.enable = true;
-  geoclue2.enable = true;
-  actkbd.enable = true;
-  unclutter-xfixes.enable = true;
-  redshift.enable = true;
-  flatpak.enable = true;
-  davfs2.enable = true;
+  pipewire = {
+    enable = false;
+    pulse.enable = true;
+  };
 
   tor = {
     enable = true;

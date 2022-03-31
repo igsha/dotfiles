@@ -3,11 +3,11 @@
 let
   popup-wcalc = pkgs.writeScriptBin "popup-wcalc" ''
     #!/usr/bin/env bash
-    $TERMINAL --class popup --title wcalc --exec wcalc
+    $TERMINAL --class popup -t wcalc -e wcalc
   '';
   popup-translate = pkgs.writeScriptBin "popup-translate" ''
     #!/usr/bin/env bash
-    $TERMINAL --class popup --title translate --exec "trans -I"
+    $TERMINAL --class popup -t translate -e trans -I
   '';
   message-recorder = pkgs.writeScriptBin "message-recorder" (builtins.readFile templates/message-recorder);
   color-tester = pkgs.writeScriptBin "color-tester" (builtins.readFile templates/color-tester.sh);
@@ -17,7 +17,7 @@ in {
   home = {
     packages = with pkgs; [
       atool
-      winetricks wineWowPackages.unstable
+      bottles wineWowPackages.unstable
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
       inkscape krita
@@ -29,17 +29,18 @@ in {
       qutebrowser google-chrome
       evolutionWithPlugins
       libreoffice-still hunspellDicts.ru-ru
-      xsel xclip xdotool
-      xorg.xhost hsetroot xorg.xev xorg.xkill
-      xfontsel
-      xorg.xwininfo
       yad ack libnotify slack-dark iplay google-drive-ocamlfuse
       popup-wcalc popup-translate message-recorder color-tester check-updates
       fzy
       asciinema discord obs-studio trueconf
       translate-shell
       (yt-dlp.override { withAlias = true; phantomjsSupport = true; })
-      xkb-switch-i3 metar
+      metar rtorrent gitui python3Packages.speedtest-cli pre-commit
+      xsel xclip xdotool
+      xorg.xhost hsetroot xorg.xev xorg.xkill
+      xfontsel
+      xorg.xwininfo
+      xkb-switch-i3
     ] ++ (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]);
     keyboard = {
       layout = "us,ru";
@@ -86,47 +87,22 @@ in {
       enable = true;
       plugins = with pkgs; [ pidgin-latex pidgin-osd purple-hangouts telegram-purple pidgin-window-merge pidgin-skypeweb ];
     };
-    termite = {
+    foot = {
       enable = true;
-      allowBold = true;
-      font = "Hack 12";
-      scrollOnOutput = true;
-      scrollOnKeystroke = true;
-      scrollbackLines = -1;
-      cursorBlink = "on";
-      cursorShape = "block";
-      scrollbar = "off";
-      backgroundColor = "rgba(0, 0, 0, 0.75)";
-      foregroundColor = "#c5c8c6";
-      foregroundBoldColor = "#c5c8c6";
-      colorsExtra = ''
-        # black
-        color0  = #282a2e
-        color8  = #373b41
-        # red
-        color1  = #a54242
-        color9  = #cc6666
-        # green
-        color2  = #8c9440
-        color10 = #b5bd68
-        # yellow
-        color3  = #de935f
-        color11 = #f0c674
-        # blue
-        color4  = #5f819d
-        color12 = #81a2be
-        # magenta
-        color5  = #85678f
-        color13 = #b294bb
-        # cyan
-        color6  = #5e8d87
-        color14 = #8abeb7
-        # white
-        color7  = #707880
-        color15 = #c5c8c6
-      '';
-      hintsPadding = 2;
-      clickableUrl = false;
+      settings = {
+        main = {
+          term = "xterm-256color";
+          font = "Fira Code:size=11";
+          dpi-aware = "yes";
+        };
+        mouse.hide-when-typing = "yes";
+      };
+    };
+    alacritty = {
+      enable = true;
+      settings = {
+        window.opacity = 0.8;
+      };
     };
     mpv = {
       enable = true;
@@ -140,6 +116,41 @@ in {
     };
     bottom.enable = true;
     bat.enable = true;
+    rofi = {
+      enable = true;
+      #package = pkgs.rofi-wayland;
+      plugins = [ pkgs.rofi-calc ];
+      terminal = "alacritty";
+    };
+    tmux = {
+      enable = true;
+      clock24 = true;
+      keyMode = "vi";
+      terminal = "xterm-256color";
+      shortcut = "a";
+      baseIndex = 1;
+      escapeTime = 0;
+      historyLimit = 50000;
+      plugins = with pkgs.tmuxPlugins; [
+        prefix-highlight
+        sidebar
+        urlview
+        { plugin = yank; extraConfig = "set -g @yank_selection 'primary'"; }
+        pain-control
+        logging
+        open
+        copycat
+      ];
+      extraConfig = ''
+        set -g mouse on
+        set -g status-right '#{prefix_highlight} %a %Y-%m-%dT%H:%M'
+        set -ga status-style "bg=black fg=white"
+        set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+
+        bind-key -n Home send Escape "OH"
+        bind-key -n End send Escape "OF"
+      '';
+    };
   };
 
   services = {
@@ -185,6 +196,11 @@ in {
         ];
       };
     };
+    gammastep = {
+      enable = true;
+      provider = "geoclue2";
+      tray = false;
+    };
   };
 
   xdg = {
@@ -203,7 +219,7 @@ in {
   systemd.user.services.google-drive = {
     Unit = {
       Description = "Mount google drive";
-      After = [ "networ-online.target" ];
+      After = [ "network-online.target" ];
     };
 
     Install = {
@@ -215,12 +231,19 @@ in {
     };
   };
 
+  manual = {
+    html.enable = true;
+    json.enable = true;
+    manpages.enable = true;
+  };
+
   xsession = {
     enable = true;
     numlock.enable = true;
-    scriptPath = ".xsession-hm";
+    scriptPath = ".config/sx/sxrc";
     initExtra = ''
       ${pkgs.xorg.setxkbmap}/bin/setxkbmap
+      ${pkgs.xorg.xset}/bin/xset r rate 250 40
       ${pkgs.xorg.xrandr}/bin/xrandr --output $(${pkgs.xorg.xrandr}/bin/xrandr --listactivemonitors | awk '{print $4}') --primary
     '';
     windowManager = {
@@ -233,7 +256,7 @@ in {
         config = {
           modifier = modifier;
           assigns = {
-            "1" = [{ class = "Termite"; }];
+            "1" = [{ class = "Alacritty"; }];
             "2" = [{ instance = "qutebrowser"; }];
             "3" = [{ class = "Thunderbird|Evolution|.evolution-wrapped_"; }];
             "4" = [{ instance = "telegram-desktop"; }];
@@ -266,7 +289,7 @@ in {
           };
           focus.followMouse = false;
           fonts = {
-            names = [ "FontAwesome5Free" "DejaVu Sans Mono" ];
+            names = [ "DejaVu Sans Mono" "Font Awesome 5 Free" ];
             style = "Semi-Condensed";
             size = 10.0;
           };
@@ -301,7 +324,7 @@ in {
               Escape = "mode default";
             };
             "${modeSystem}" = {
-              l = "exec --no-startup-id loginctl lock-session $XDG_SESSION_ID, mode default";
+              l = "exec --no-startup-id loginctl lock-session, mode default";
               e = ''[class=".*"] kill, exec --no-startup-id i3-msg exit, mode default'';
               s = "exec --no-startup-id systemctl suspend, mode default";
               h = "exec --no-startup-id systemctl hibernate, mode default";
@@ -312,7 +335,7 @@ in {
             };
           };
           startup = [
-            { command = "i3-sensible-terminal -e tmux"; }
+            { command = "alacritty -e tmux"; }
             { command = "qutebrowser"; }
             { command = "evolution"; }
             { command = "telegram-desktop"; }

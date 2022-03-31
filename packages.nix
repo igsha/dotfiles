@@ -4,7 +4,7 @@ with pkgs;
 let
   nvimCmd = pkgs.writeScript "nvim-desktop.sh" ''
     #!/usr/bin/env sh
-    termite --class editor -e "nvim \"$1\""
+    $TERMINAL --class editor -e nvim "$1"
   '';
   customNeovim = (neovim.override {
     configure = import ./vimrcConfig.nix { inherit (pkgs) vimUtils vimPlugins fetchFromGitHub python3Packages; };

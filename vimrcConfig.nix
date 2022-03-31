@@ -39,7 +39,7 @@ let
   };
   vimCustom = vimUtils.buildVimPlugin {
     pname = "vim-custom";
-    version = "2021-09-14";
+    version = "2022-03-22";
     src = ./templates/vim-custom;
   };
   plantuml = vimUtils.buildVimPlugin {

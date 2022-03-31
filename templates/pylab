@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-nix-shell '<nixpkgs>' -A pythonenv --run 'ipython --pylab -i ~/.config/matplotlib/matplotlib.init.py'
