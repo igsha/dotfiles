@@ -23,6 +23,7 @@ c.input.partial_timeout = 2000
 
 c.tabs.background = True
 c.tabs.title.format = '{index}: {current_title}{private}'
+c.tabs.show = 'never'
 
 c.content.user_stylesheets = 'scrollbar.css'
 c.content.plugins = True
@@ -72,3 +73,4 @@ config.bind(';M', 'hint links spawn torsocks mpv --load-unsafe-playlists {hint-u
 config.bind(';p', 'hint links spawn google-chrome-stable --incognito {hint-url}')
 config.bind(';P', 'spawn google-chrome-stable --incognito {url}')
 config.bind(';l', 'hint links spawn {} --class popup -e "iplay -b {{hint-url}}"'.format(os.environ['TERMINAL']))
+config.bind(';b', 'set-cmd-text -s :tab-select')

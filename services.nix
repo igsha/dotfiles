@@ -36,9 +36,9 @@
     enable = true;
     forwardX11 = true;
     extraConfig = ''
-        AllowTcpForwarding yes
-        TCPKeepAlive yes
-        PermitTunnel yes
+      AllowTcpForwarding yes
+      TCPKeepAlive yes
+      PermitTunnel yes
     '';
   };
 
@@ -54,11 +54,12 @@
 
   journald.extraConfig = "SystemMaxUse=4G";
 
-  logind.extraConfig = ''
-    IdleAction=suspend
-    IdleActionSec=120min
-    HandlePowerKey=suspend
-  '';
+  logind = {
+    killUserProcesses = true;
+    extraConfig = ''
+      HandlePowerKey=suspend
+    '';
+  };
 
   smartd.notifications = {
     x11.enable = true;
