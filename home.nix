@@ -83,10 +83,6 @@ in {
       enable = true;
       enableBashIntegration = true;
     };
-    pidgin = {
-      enable = true;
-      plugins = with pkgs; [ pidgin-latex pidgin-osd purple-hangouts telegram-purple pidgin-window-merge pidgin-skypeweb ];
-    };
     foot = {
       enable = true;
       settings = {
@@ -118,7 +114,7 @@ in {
     bat.enable = true;
     rofi = {
       enable = true;
-      #package = pkgs.rofi-wayland;
+      package = pkgs.rofi-wayland;
       plugins = [ pkgs.rofi-calc ];
       terminal = "alacritty";
     };
@@ -165,8 +161,7 @@ in {
       enable = true;
       settings = {
         global = {
-          transparency = 10;
-          geometry = "300x5-30+30";
+          ignore_dbusclose = true;
         };
         shortcuts = {
           close = "ctrl+space";
@@ -256,7 +251,7 @@ in {
         config = {
           modifier = modifier;
           assigns = {
-            "1" = [{ class = "Alacritty"; }];
+            "1" = [{ instance = "Alacritty"; }];
             "2" = [{ instance = "qutebrowser"; }];
             "3" = [{ class = "Thunderbird|Evolution|.evolution-wrapped_"; }];
             "4" = [{ instance = "telegram-desktop"; }];
@@ -313,6 +308,7 @@ in {
             "--release ISO_Next_Group" = "exec --no-startup-id pkill -RTMIN+11 i3blocks";
             "--release Caps_Lock" = "exec --no-startup-id pkill -RTMIN+11 i3blocks";
             "--release Num_Lock" = "exec --no-startup-id pkill -RTMIN+11 i3blocks";
+            "${modifier}+d" = "exec rofi -show run";
           };
           modes = {
             resize = {

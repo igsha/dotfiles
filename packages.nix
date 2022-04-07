@@ -38,7 +38,7 @@ in [
   tree file which mkpasswd
   openssl encfs
   ocamlPackages.csv
-  vifm fuse fuseiso fuse-7z-ng curlftpfs jmtpfs sshfs-fuse archivemount
+  vifm fuse fuseiso /*fuse-7z-ng*/ curlftpfs jmtpfs sshfs-fuse archivemount
   pwgen
   bviplus dhex vbindiff
   universal-ctags
