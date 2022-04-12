@@ -6,7 +6,7 @@ config.load_autoconfig(False)
 c.qt.args = ['disable-seccomp-filter-sandbox']
 
 #c.qt.force_software_rendering = True
-c.editor.command = [os.environ['TERMINAL'], '--class', 'editor', '--exec', 'nvim {}']
+c.editor.command = [os.environ['TERMINAL'], '--class', 'editor', '-e', 'nvim', '{}']
 
 c.downloads.position = 'bottom'
 c.downloads.location.directory = '~/Downloads'
@@ -23,7 +23,7 @@ c.input.partial_timeout = 2000
 
 c.tabs.background = True
 c.tabs.title.format = '{index}: {current_title}{private}'
-c.tabs.show = 'never'
+c.tabs.show = 'always'
 
 c.content.user_stylesheets = 'scrollbar.css'
 c.content.plugins = True
