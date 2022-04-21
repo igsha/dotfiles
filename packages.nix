@@ -53,10 +53,9 @@ in [
   httpie
   parallel
   gnupg
-  rtags
   ncdu
   android-udev-rules
-  screen
+  tio
   patchutils
   samba
   pass
@@ -74,7 +73,6 @@ in [
   python3Packages.jsbeautifier
   openldap cifs-utils
   poke
-  nix-index
   hydra-check
   evtest
 ]

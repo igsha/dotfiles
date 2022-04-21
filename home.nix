@@ -41,6 +41,7 @@ in {
       xfontsel
       xorg.xwininfo
       xkb-switch-i3
+      wpsoffice
     ] ++ (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]);
     keyboard = {
       layout = "us,ru";
@@ -147,6 +148,77 @@ in {
         bind-key -n End send Escape "OF"
       '';
     };
+    qutebrowser = {
+      enable = true;
+      aliases = {
+        defproxy = "set content.proxy system";
+        noproxy = "set content.proxy none";
+        tor = "set content.proxy socks://localhost:9050";
+        play = "spawn alacritty --class popup -e iplay -b {url}";
+      };
+      keyBindings = {
+        normal = {
+          "t" = "set-cmd-text -s :open -t";
+          "O" = "set-cmd-text :open {url:pretty}";
+          "T" = "set-cmd-text -s :open -t {url:pretty}";
+          "D" = "tab-prev ;; tab-close";
+          "gt" = "tab-next";
+          "<Ctrl-Tab>" = "tab-next";
+          "gT" = "tab-prev";
+          "<Ctrl-Shift-Tab>" = "tab-prev";
+          "gD" = "download";
+          "gd" = "download-open";
+          ";P" = "spawn google-chrome-stable --incognito {url}";
+          ";b" = "set-cmd-text -s :tab-select";
+          ";m" = "hint all spawn mpv --load-unsafe-playlists {hint-url}";
+          ";M" = "hint all spawn torsocks mpv --load-unsafe-playlists {hint-url}";
+          ";p" = "hint all spawn google-chrome-stable --incognito {hint-url}";
+          ";l" = "hint all spawn alacritty --class popup -e iplay -b {hint-url}";
+        };
+      };
+      searchEngines = {
+        google = "https://www.google.com/search?q={}";
+        youtube = "https://www.youtube.com/results?search_query={}";
+        goosh = "https://goosh.org/#{}";
+        translate = "https://translate.yandex.ru/?text={}";
+        wikipedia = "https://ru.wikipedia.org/wiki/{}";
+        enwikipedia = "https://en.wikipedia.org/wiki/{}";
+        cppreference = "http://cppreference.com/?search={}";
+        github = "https://github.com/search?q={}";
+        cmake = "https://cmake.org/cmake/help/latest/search.html?q={}";
+        DEFAULT = "https://www.google.com/search?q={}";
+      };
+      settings = {
+        url.start_pages = https://nixos.org;
+        editor.command = [ "alacritty" "--class" "editor" "-e" "nvim" "{}" ];
+        downloads = {
+          position = "bottom";
+          location.directory = "~/Downloads";
+        };
+        scrolling.bar = "always";
+        window.title_format = "{perc}{current_title}{title_sep}qutebrowser{private}";
+        colors.statusbar.command.private.bg = "black";
+        completion.web_history.max_items = 100;
+        input.partial_timeout = 2000;
+        tabs = {
+          background = true;
+          title.format = "{index}: {current_title}{private}";
+          show = "always";
+        };
+        content = {
+          user_stylesheets = "${builtins.toPath ./templates/qutebrowser/scrollbar.css}";
+          plugins = true;
+          geolocation = true;
+          blocking.enabled = false;
+        };
+        session.lazy_restore = true;
+        hints = {
+          chars = "asdfghjklqwertyuiopzxcvbnm";
+          next_regexes = [ ''\\bДальше\\b'' ''\\bВпер(е|ё)д\\b'' ''\\bСледующая\\b'' ];
+          prev_regexes = [ ''\\bНазад\\b'' ];
+        };
+      };
+    };
   };
 
   services = {
@@ -202,8 +274,6 @@ in {
     enable = true;
     configFile = {
       "vifm/vifmrc".source = templates/vifmrc;
-      "qutebrowser/config.py".source = templates/qutebrowser/config.py;
-      "qutebrowser/scrollbar.css".source = templates/qutebrowser/scrollbar.css;
     };
     mimeApps = {
       enable = true;

@@ -10,7 +10,6 @@
   flatpak.enable = true;
   davfs2.enable = true;
   unclutter-xfixes.enable = true;
-  redshift.enable = false;
 
   xserver = {
     enable = true;

@@ -30,6 +30,7 @@ in {
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=${overlay-compat}" ];
   };
 
   services = import ./services.nix { pkgs = pkgs; };
