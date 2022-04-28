@@ -38,12 +38,12 @@ in [
   tree file which mkpasswd
   openssl encfs
   ocamlPackages.csv
-  vifm fuse fuseiso /*fuse-7z-ng*/ curlftpfs jmtpfs sshfs-fuse archivemount
+  vifm fuse fuseiso /*fuse-7z-ng*/ curlftpfs jmtpfs sshfs-fuse archivemount rar2fs
   pwgen
   bviplus dhex vbindiff
   universal-ctags
   unrar unzipNLS zip p7zip
-  wcalc jq jo
+  wcalc jq jo yq htmlq
   ntfs3g gparted xfsprogs
   libxml2
   ponysay ponymix

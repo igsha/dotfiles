@@ -34,8 +34,7 @@ command df df -h %m 2> /dev/null
 command diff nvim -d %f %F
 command zip zip -r %f.zip %f
 command run !! ./%f
-command make !!make
-command vgrep nvim "+grep %a"
+command rg rg %a %d
 
 " :filetype pattern1,pattern2 defaultprogram,program2
 " :fileviewer pattern1,pattern2 consoleviewer
@@ -44,13 +43,13 @@ command vgrep nvim "+grep %a"
 " The %a macro is ignored.  To use a % you must put %%.
 
 " Pdf
-filetype *.pdf,*.djvu,*.ps,*.eps zathura %f
+filetype *.pdf,*.djvu,*.ps,*.eps xdg-open %f
 
 " Xps
 filetype *.xps mupdf %f
 
 " Mp3
-filetype *.mp3 ffplay %f
+filetype *.mp3 xdg-open %f
 fileviewer *.mp3 ffprobe -show_format -pretty %f 2> /dev/null
 
 " Video
@@ -83,7 +82,7 @@ fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
 filetype *.bz2,*.tgz,*.tar.gz,*.deb,*.xz,*.xar,*.pkg,*.tar FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
 fileviewer *.bz2,*.tgz,*.tar.gz tar -tzf %c
 
-filetype *.rar,*.7z FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
+filetype *.rar FUSE_MOUNT|rar2fs %SOURCE_FILE %DESTINATION_DIR
 fileviewer *.rar unrar l %c
 
 " IsoMount
@@ -99,10 +98,10 @@ filetype *.ftp FUSE_MOUNT2|curlftpfs %PARAM %DESTINATION_DIR
 filetype *.exe wine %f
 
 " MS-Office
-filetype *.doc,*.docx,*.odt libreoffice --writer %f
-filetype *.ppt,*.pptx,*.odp libreoffice --impress %f
-filetype *.vsd,*.odg libreoffice --draw %f
-filetype *.xls,*.xlsx,*.ods libreoffice --calc %f
+filetype *.doc,*.docx,*.odt xdg-open %f
+filetype *.ppt,*.pptx,*.odp xdg-opens %f
+filetype *.vsd,*.odg xdg-open %f
+filetype *.xls,*.xlsx,*.ods xdg-open %f
 
 " For automated FUSE mounts, you must register an extension with FILETYPE=..
 " in one of following formats:
