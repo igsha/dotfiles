@@ -20,7 +20,7 @@ in {
       bottles wineWowPackages.unstable
       pavucontrol
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
-      inkscape krita
+      inkscape krita gimp mypaint
       kpcli
       zathura
       ffmpeg-full
@@ -28,7 +28,7 @@ in {
       tdesktop
       qutebrowser google-chrome
       evolutionWithPlugins
-      libreoffice-still hunspellDicts.ru-ru
+      hunspellDicts.ru-ru
       yad ack libnotify slack-dark iplay google-drive-ocamlfuse
       popup-wcalc popup-translate message-recorder color-tester check-updates
       fzy
@@ -170,10 +170,10 @@ in {
           "gd" = "download-open";
           ";P" = "spawn google-chrome-stable --incognito {url}";
           ";b" = "set-cmd-text -s :tab-select";
-          ";m" = "hint all spawn mpv --load-unsafe-playlists {hint-url}";
-          ";M" = "hint all spawn torsocks mpv --load-unsafe-playlists {hint-url}";
+          ";m" = "hint links spawn mpv --load-unsafe-playlists {hint-url}";
+          ";M" = "hint links spawn torsocks mpv --load-unsafe-playlists {hint-url}";
           ";p" = "hint all spawn google-chrome-stable --incognito {hint-url}";
-          ";l" = "hint all spawn alacritty --class popup -e iplay -b {hint-url}";
+          ";l" = "hint links spawn alacritty --class popup -e iplay -b {hint-url}";
         };
       };
       searchEngines = {
