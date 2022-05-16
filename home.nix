@@ -42,6 +42,8 @@ in {
       xorg.xwininfo
       xkb-switch-i3
       wpsoffice
+      termplay
+      v4l-utils
     ] ++ (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]);
     keyboard = {
       layout = "us,ru";
