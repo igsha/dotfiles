@@ -34,7 +34,7 @@ in {
       fzy
       asciinema discord obs-studio trueconf
       translate-shell
-      (yt-dlp.override { withAlias = true; phantomjsSupport = true; })
+      (yt-dlp.override { withAlias = true; })
       metar rtorrent gitui python3Packages.speedtest-cli pre-commit
       xsel xclip xdotool
       xorg.xhost hsetroot xorg.xev xorg.xkill
