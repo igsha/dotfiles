@@ -18,7 +18,7 @@ in {
     packages = with pkgs; [
       atool
       bottles wineWowPackages.unstable
-      pavucontrol
+      pavucontrol helvum
       (imv.overrideAttrs (old: { buildInputs = old.buildInputs ++ [ librsvg ]; }))
       inkscape krita gimp mypaint
       kpcli

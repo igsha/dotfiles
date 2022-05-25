@@ -42,7 +42,7 @@
   };
 
   pipewire = {
-    enable = false;
+    enable = true;
     pulse.enable = true;
   };
 

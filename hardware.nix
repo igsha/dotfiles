@@ -10,7 +10,7 @@
   };
 
   pulseaudio = {
-    enable = true;
+    enable = false;
     support32Bit = true;
   };
 }
