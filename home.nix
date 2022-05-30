@@ -111,6 +111,7 @@ in {
       config = {
         ytdl-format = "bestvideo[height<=720]+bestaudio/best";
         write-filename-in-watch-later-config = true;
+        osd-status-msg = ''''${playback-time/full} / ''${duration} (''${percent-pos}%)\nframe: ''${estimated-frame-number} / ''${estimated-frame-count}'';
       };
     };
     bottom.enable = true;
