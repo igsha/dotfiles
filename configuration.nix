@@ -7,7 +7,7 @@ let
   overlay = let my-packages = /etc/nix-overlays; in
     if builtins.pathExists my-packages then my-packages
     else builtins.fetchTarball https://api.github.com/repos/igsha/nix-overlays/tarball/master;
-  overlay-compat = builtins.toPath ./overlays.nix;
+  overlay-compat = ./overlays.nix;
 
 in {
   # nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
@@ -30,7 +30,7 @@ in {
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=${overlay-compat}" ];
+    #nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=${overlay-compat}" ];
   };
 
   services = import ./services.nix { pkgs = pkgs; };

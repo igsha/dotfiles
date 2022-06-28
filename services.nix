@@ -68,7 +68,7 @@
   dbus.packages = [ pkgs.dconf ];
 
   jupyterhub = {
-    enable = true;
+    enable = false;
     port = 8888;
     kernels = {
       python3 = let

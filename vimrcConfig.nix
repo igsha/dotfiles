@@ -32,10 +32,10 @@ let
       let g:jellybeans_overrides = {'background':{'ctermbg':'none','256ctermbg':'none','guibg':'none'}}
       set background=
     '';
-    jupytext = ''
+    /*jupytext = ''
       let g:jupytext_command = '${python3Packages.jupytext}/bin/jupytext'
       let g:jupytext_enable = 0
-    '';
+    '';*/
   };
   vimCustom = vimUtils.buildVimPlugin {
     pname = "vim-custom";

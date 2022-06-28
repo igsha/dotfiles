@@ -12,9 +12,59 @@ let
   message-recorder = pkgs.writeScriptBin "message-recorder" (builtins.readFile templates/message-recorder);
   color-tester = pkgs.writeScriptBin "color-tester" (builtins.readFile templates/color-tester.sh);
   check-updates = pkgs.writeScriptBin "check-updates" (builtins.readFile templates/check-updates);
+  i3blocks-conf = builtins.toFile "i3blocks.conf" ''
+    command=$I3BLOCKS_DIR/$BLOCK_NAME
+    align=center
+    color=#FFFFFF
+    separator=true
+    interval=once
+    markup=pango
+
+    [keyindicator]
+    command=${./templates/keyindicator.sh}
+    signal=11
+
+    [lang]
+    command=xkb-switch -p | tr [:lower:] [:upper:]
+    signal=11
+
+    [cpu_usage]
+    label=
+    command=$I3BLOCKS_DIR/$BLOCK_NAME -d 0
+    interval=3
+
+    [memory]
+    label=
+    interval=5
+
+    [disk]
+    label=
+    instance=/nix
+    interval=10
+
+    [bandwidth]
+    command=$I3BLOCKS_DIR/$BLOCK_NAME -i '▼ ' -o '▲ '
+    interval=3
+
+    [volume]
+    label=
+    instance=Master
+    signal=10
+
+    [weather]
+    label=
+    command=metar -d UUEE | awk '/Temperature/{printf "%d℃\n", $3}'
+    interval=360
+
+    [datetime]
+    label=
+    command=date '+%Y-%m-%d %a %H:%M'
+    interval=1
+  '';
 
 in {
   home = {
+    stateVersion = "22.11";
     packages = with pkgs; [
       atool
       bottles wineWowPackages.unstable
@@ -26,7 +76,7 @@ in {
       ffmpeg-full
       freerdp
       tdesktop
-      qutebrowser google-chrome
+      google-chrome
       evolutionWithPlugins
       hunspellDicts.ru-ru
       yad ack libnotify slack-dark iplay google-drive-ocamlfuse
@@ -51,7 +101,6 @@ in {
     };
     sessionVariables = {
       I3BLOCKS_DIR = "${pkgs.i3blocks-gaps}/libexec/i3blocks";
-      I3BLOCKS_CONF_DIR = "${builtins.dirOf (builtins.toPath ./templates/i3blocks.conf)}";
     };
     file = {
       ".wcalcrc".source = templates/wcalcrc;
@@ -209,7 +258,7 @@ in {
           show = "always";
         };
         content = {
-          user_stylesheets = "${builtins.toPath ./templates/qutebrowser/scrollbar.css}";
+          user_stylesheets = "${./templates/qutebrowser/scrollbar.css}";
           plugins = true;
           geolocation = true;
           blocking.enabled = false;
@@ -334,7 +383,7 @@ in {
           bars = [
             {
               position = "top";
-              statusCommand = "${pkgs.i3blocks-gaps}/bin/i3blocks -c ${builtins.toPath ./templates/i3blocks.conf}";
+              statusCommand = "${pkgs.i3blocks-gaps}/bin/i3blocks -c ${i3blocks-conf}";
               fonts = {
                 names = [ "FontAwesome5Free" "DejaVu Sans Mono" ];
                 style = "Semi-Condensed";
