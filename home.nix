@@ -299,9 +299,9 @@ in {
       enable = true;
       vSync = true;
       backend = "xrender";
-      extraOptions = ''
+      settings = {
         unredir-if-possible = false;
-      '';
+      };
     };
     screen-locker = {
       enable = true;
