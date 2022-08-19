@@ -20,6 +20,7 @@ in {
       allowTexliveBuilds = true;
       pulseaudio = true;
       android_sdk.accept_license = true;
+      zathura.useMupdf = false;
     };
     overlays = [ (import overlay) ];
   };
@@ -61,7 +62,7 @@ in {
 
   networking = {
     hostName = "nixos-pc";
-    firewall.allowedTCPPorts = [ 22 80 8080 8888 4200 ];
+    firewall.allowedTCPPorts = [ 22 80 8080 8888 4200 8554 1935 ];
     wireless.iwd.enable = true;
   };
 
