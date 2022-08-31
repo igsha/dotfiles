@@ -25,7 +25,6 @@
       Option "DPMS" "false"
     '';
     exportConfiguration = true;
-    useGlamor = true;
     displayManager = {
       sx.enable = true;
     };
