@@ -1,0 +1,47 @@
+command=$I3BLOCKS_DIR/$BLOCK_NAME
+align=center
+color=#FFFFFF
+separator=true
+interval=once
+markup=pango
+
+[keyindicator]
+command=$HOME/.config/i3blocks/keyindicator.sh
+signal=11
+
+[lang]
+command=xkb-switch -p | tr [:lower:] [:upper:]
+signal=11
+
+[cpu_usage]
+label=
+command=$I3BLOCKS_DIR/$BLOCK_NAME -d 0
+interval=3
+
+[memory]
+label=
+interval=5
+
+[disk]
+label=
+instance=/nix
+interval=10
+
+[bandwidth]
+command=$I3BLOCKS_DIR/$BLOCK_NAME -i '▼ ' -o '▲ '
+interval=3
+
+[volume]
+label=
+instance=Master
+signal=10
+
+[weather]
+label=
+command=metar -d UUEE | awk '/Temperature/{printf "%d℃\n", $3}'
+interval=360
+
+[datetime]
+label=
+command=date '+%Y-%m-%d %a %H:%M'
+interval=1

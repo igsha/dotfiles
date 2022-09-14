@@ -1,0 +1,20 @@
+systemctl --user stop graphical-session.target graphical-session-pre.target
+systemctl --user import-environment DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY XDG_DATA_DIRS XDG_RUNTIME_DIR XDG_SESSION_ID
+
+setxkbmap -layout "us,ru" -option "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"
+xset r rate 250 40
+xrandr --output $(xrandr --listactivemonitors | awk '{print $4}') --primary
+numlockx
+
+systemctl --user start graphical-session-pre.target
+
+export I3BLOCKS_DIR=$(which i3blocks | xargs readlink -f | xargs dirname | xargs printf "%s/../libexec/i3blocks")
+i3 -c /etc/i3/config
+
+systemctl --user stop graphical-session.target
+systemctl --user stop graphical-session-pre.target
+
+# Wait until the units actually stop.
+while [ -n "$(systemctl --user --no-legend --state=deactivating list-units)" ]; do
+  sleep 0.5
+done

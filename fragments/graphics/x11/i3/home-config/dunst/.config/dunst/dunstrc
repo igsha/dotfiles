@@ -1,0 +1,8 @@
+[global]
+ignore_dbusclose=yes
+
+[shortcuts]
+close="ctrl+space"
+close_all="ctrl+shift+space"
+context="ctrl+apostrophe"
+history="ctrl+grave"
