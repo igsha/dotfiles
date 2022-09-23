@@ -4,8 +4,9 @@
   imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" ];
-    kernelModules = [ "kvm-intel" "sg" ];
+    initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+    initrd.kernelModules = [ "drm" ];
+    kernelModules = [ "kvm-intel" "sg" "drm" ];
     extraModulePackages = [ ];
     loader = {
       grub.device = "/dev/sda";

@@ -5,10 +5,9 @@ let
 
 in {
   imports = [
-    (import <home-manager> {}).nixos
     ../../home-config
     ../../fragments/boot
-    (import ../../fragments/network "centimanus")
+    ./network.nix
     ../../fragments/graphics/x11
     ../../fragments/graphics/x11/i3
     ../../fragments/graphics/x11/picom
