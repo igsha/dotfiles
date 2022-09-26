@@ -1,13 +1,22 @@
 name: { config, pkgs, ... }:
 
-{
+let
+  popup-wcalc = pkgs.writeShellScriptBin "popup-wcalc" ''
+    $TERMINAL --class popup -t wcalc -e wcalc
+  '';
+  popup-translate = pkgs.writeShellScriptBin "popup-translate" ''
+    $TERMINAL --class popup -t translate -e trans -I
+  '';
+
+in {
   users.users = {
     "${name}" = {
       isNormalUser = true;
       description = "Ordinary user";
       extraGroups = [ "wheel" "disk" "audio" "cdrom" "video" "adm" "systemd-journal" "lp" "networkmanager" "dialout" "docker" "input" ];
-      initialHashedPassword = "$6$44A.fbM7DIBXU$qMqdRA82y5NXAQMDLCflWQPWiN2yfkmyEmjYFsia4bvhgnKUJ2e25skNMWlNpk6ILaxNTaNVK7lXcEzCgWffD0";
+      initialHashedPassword = "root";
       packages = with pkgs; [
+        popup-wcalc popup-translate
         atool bottom
         bottles wineWowPackages.unstable
         pavucontrol helvum
@@ -32,6 +41,7 @@ name: { config, pkgs, ... }:
         termplay
         v4l-utils
         qutebrowser alacritty rofi mpv
+        python3Packages.python-gitlab otpclient jitsi-meet-electron
       ] ++
       (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]) ++
       lib.optionals config.services.xserver.enable [
@@ -44,7 +54,7 @@ name: { config, pkgs, ... }:
   };
 
   home-config.users = {
-    packages = [ "qutebrowser" "alacritty" "rofi" "mpv" ];
+    packages = [ "qutebrowser" "alacritty" "rofi" "mpv" "home-bin" ];
     dir = builtins.toString ./home-config;
   };
 }

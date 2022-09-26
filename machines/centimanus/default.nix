@@ -10,6 +10,9 @@ in {
     ./network.nix
     ../../fragments/graphics/x11
     ../../fragments/graphics/x11/i3
+    ../../fragments/graphics/x11/i3blocks
+    ../../fragments/graphics/x11/dunst
+    ../../fragments/graphics/x11/lock
     ../../fragments/graphics/x11/picom
     ../../fragments/graphics/x11/redshift
     ../../fragments/other

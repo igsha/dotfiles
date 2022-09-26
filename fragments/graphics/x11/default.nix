@@ -17,14 +17,6 @@
     exportConfiguration = true;
     displayManager.sx.enable = true;
     videoDrivers = [ "nvidia" "nouveau" ];
-    xautolock = rec {
-      enable = true;
-      time = 20;
-      notify = 10;
-      notifier = "${pkgs.libnotify}/bin/notify-send 'Locking in 10 seconds'";
-      locker = "${pkgs.i3lock-fancy}/bin/i3lock-fancy -- ${pkgs.maim}/bin/maim";
-      nowlocker = locker;
-    };
   };
 
   home-config.x11 = {
@@ -48,6 +40,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    numlockx
     evtest
     xf86_input_wacom
     libwacom

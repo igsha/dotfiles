@@ -2,7 +2,7 @@
 
 let
   update-home-configs = cfg: let
-    concater = x: lib.strings.concatStringsSep " " ([ "-d" x.dir "-t $HOME \"$@\"" ] ++ x.packages);
+    concater = x: lib.strings.concatStringsSep " " ([ "--no-folding -d" x.dir "-t $HOME \"$@\"" ] ++ x.packages);
     args = builtins.map concater (builtins.attrValues cfg);
     calls = lib.strings.concatStringsSep "\n" (builtins.map (x: "${pkgs.stow}/bin/stow ${x}") args);
   in pkgs.writeShellScriptBin "update-home-configs" ''
