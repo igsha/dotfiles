@@ -4,9 +4,13 @@
   programs = {
     command-not-found.enable = true;
     system-config-printer.enable = true;
-    #neovim
-    #less
-    #evolution
+    less = {
+      enable = true;
+      envVariables = {
+        LESS = "-R";
+      };
+    };
+    evolution.enable = true;
     fuse.userAllowOther = true;
     starship.enable = true;
     udevil.enable = true;

@@ -28,7 +28,6 @@ in {
         freerdp
         tdesktop
         google-chrome
-        evolutionWithPlugins
         hunspellDicts.ru-ru
         hunspellDicts.en-us
         yad libnotify slack-dark iplay
@@ -56,5 +55,13 @@ in {
   home-config.users = {
     packages = [ "qutebrowser" "alacritty" "rofi" "mpv" "home-bin" ];
     dir = builtins.toString ./home-config;
+  };
+
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "zathura.desktop";
+    "image/png" = "imv.desktop";
+    "image/jpeg" = "imv.desktop";
+    "image/jpg" = "imv.desktop";
+    "image/svg" = "imv.desktop";
   };
 }

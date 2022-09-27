@@ -24,11 +24,11 @@ in {
     ../../fragments/services/google-drive
     ../../fragments/services/random-background
     ../../fragments/packages
-    ../../fragments/packages/neovim
     ../../fragments/programs
     ../../fragments/programs/git
     ../../fragments/programs/bash
     ../../fragments/programs/tmux
+    ../../fragments/programs/neovim
     (import ../../fragments/users user)
     ../../fragments/users/guest
   ];

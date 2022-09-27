@@ -13,6 +13,7 @@
       swaybg
       foot
       mako
+      swaykbdd
     ];
     extraSessionCommands = ''
       systemctl --user stop graphical-session.target graphical-session-pre.target
