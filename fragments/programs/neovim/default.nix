@@ -122,6 +122,6 @@ in {
   };
 
   xdg.mime.defaultApplications = {
-    "test/plain" = "nvim.desktop";
+    "text/plain" = "nvim.desktop";
   };
 }

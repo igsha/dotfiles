@@ -7,6 +7,8 @@ let
   popup-translate = pkgs.writeShellScriptBin "popup-translate" ''
     $TERMINAL --class popup -t translate -e trans -I
   '';
+  mimeWithPrefix = app: prefix: mimes: builtins.listToAttrs (builtins.map (x: { name = prefix + x; value = app; }) mimes);
+  mime = app: mimes: mimeWithPrefix app "" mimes;
 
 in {
   users.users = {
@@ -57,11 +59,8 @@ in {
     dir = builtins.toString ./home-config;
   };
 
-  xdg.mime.defaultApplications = {
-    "application/pdf" = "zathura.desktop";
-    "image/png" = "imv.desktop";
-    "image/jpeg" = "imv.desktop";
-    "image/jpg" = "imv.desktop";
-    "image/svg" = "imv.desktop";
-  };
+  xdg.mime.defaultApplications =
+    (mimeWithPrefix "org.pwmt.zathura.desktop" "application/" [ "pdf" "postscript" ]) //
+    (mime "org.qutebrowser.qutebrowser.desktop" [ "text/html" "x-scheme-handler/http" "x-scheme-handler/https" ]) //
+    (mimeWithPrefix "imv.desktop" "image/" [ "png" "jpeg" "jpg" "gif" "vnd.adobe.photoshop" "svg" "heif" ]);
 }
