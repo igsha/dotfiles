@@ -11,7 +11,7 @@ _:
   services = {
     openvpn.servers = {
       elvees = {
-        config = "config /home/isharonov/.vpn/elvees2fa.conf";
+        config = "config /home/igor/.vpn/elvees2fa.conf";
         autoStart = false;
         updateResolvConf = true;
       };
