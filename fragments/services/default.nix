@@ -1,4 +1,4 @@
-_:
+{ config, ... }:
 
 {
   services = {
@@ -10,7 +10,7 @@ _:
     actkbd.enable = true;
     flatpak.enable = true;
     davfs2.enable = true;
-    unclutter-xfixes.enable = true;
+    unclutter-xfixes.enable = config.services.xserver.enable;
 
     journald.extraConfig = "SystemMaxUse=4G";
 

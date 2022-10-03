@@ -1,9 +1,6 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
-let
-  user = "igor";
-
-in {
+{
   imports = [
     ../../home-config
     ../../fragments/boot
@@ -18,7 +15,7 @@ in {
     ../../fragments/other/fonts
     ../../fragments/other/virtualisation
     ../../fragments/services
-    (import ../../fragments/services/jupyter user)
+    ../../fragments/services/jupyterhub
     ../../fragments/services/google-drive
     ../../fragments/packages
     ../../fragments/programs
@@ -26,7 +23,7 @@ in {
     ../../fragments/programs/bash
     ../../fragments/programs/tmux
     ../../fragments/programs/neovim
-    (import ../../fragments/users user)
+    (import ../../fragments/users "igor")
     ../../fragments/users/guest
   ];
 

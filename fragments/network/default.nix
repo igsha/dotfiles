@@ -10,6 +10,7 @@ _:
   };
 
   services = {
+    resolved.enable = true;
     openssh = {
       enable = true;
       forwardX11 = true;

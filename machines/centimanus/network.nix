@@ -1,4 +1,4 @@
-_:
+{ pkgs, ... }:
 
 {
   imports = [ ../../fragments/network ];
@@ -37,9 +37,20 @@ _:
       elvees = {
         config = "config /home/isharonov/.vpn/elvees2fa.conf";
         autoStart = false;
-        updateResolvConf = true;
-        #up = "echo nameserver $nameserver | ${pkgs.openresolv}/bin/resolvconf -m 0 -a $dev";
-        #down = "${pkgs.openresolv}/bin/resolvconf -d $dev";
+        updateResolvConf = false;
+        up = ''
+          for var in ''${!foreign_option_*}; do
+            x=(''${!var})
+            if [ "''${x[0]}" = dhcp-option ]; then
+              if [ "''${x[1]}" = DOMAIN ]; then domains+=" ''${x[2]}"
+              elif [ "''${x[1]}" = DNS ]; then nameservers+=" ''${x[2]}"
+              fi
+            fi
+          done
+
+          ${pkgs.systemd}/bin/resolvectl dns $dev ''${nameservers[@]}
+          ${pkgs.systemd}/bin/resolvectl domain $dev ''${domains[@]}
+        '';
       };
     };
   };

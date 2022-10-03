@@ -1,18 +1,10 @@
-user: { pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  password-file = pkgs.runCommandLocal "jupyter-password-file" { nativeBuildInputs = [ pkgs.pwgen ]; }''
-    pwgen -1 > $out
-  '';
-
-in {
-  services.jupyter = {
+{
+  services.jupyterhub = {
     enable = true;
-    inherit user;
-    password = "open('${password-file}', 'r', encoding='utf8').read().strip()";
-    ip = "0.0.0.0";
     port = 8888;
-    notebookDir = "~/";
+    jupyterlabEnv = pkgs.python3.withPackages (p: [ p.jupyterhub ]);
     kernels = {
       python3 = let
         env = pkgs.python3.withPackages (pp: with pp; [
