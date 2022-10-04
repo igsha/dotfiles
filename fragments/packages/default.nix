@@ -8,8 +8,8 @@
       wget
       ed aerc
       catimg
-      man stdman man-pages posix_man_pages
-      utillinux freetype
+      man stdman man-pages man-pages-posix
+      util-linux freetype
       lm_sensors
       ack silver-searcher ripgrep
       psmisc
@@ -51,7 +51,7 @@
       gptfdisk parted
       cdrtools
       glxinfo
-      xdg_utils
+      xdg-utils
       cpufrequtils
       python3Packages.jsbeautifier
       openldap cifs-utils

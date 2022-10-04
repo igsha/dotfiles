@@ -32,7 +32,7 @@ in {
         google-chrome
         hunspellDicts.ru-ru
         hunspellDicts.en-us
-        yad libnotify slack-dark iplay
+        yad libnotify slack iplay
         fzy
         asciinema discord obs-studio trueconf
         translate-shell

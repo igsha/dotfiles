@@ -10,7 +10,7 @@
         env = pkgs.python3.withPackages (pp: with pp; [
           ipykernel
           pandas
-          scikitlearn
+          scikit-learn
           scikitimage
           scipy
           matplotlib
