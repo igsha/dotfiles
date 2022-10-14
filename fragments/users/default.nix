@@ -20,7 +20,7 @@ in {
       packages = with pkgs; [
         popup-wcalc popup-translate
         atool bottom
-        bottles wineWowPackages.unstable
+        wineWowPackages.unstable
         pavucontrol helvum
         imv inkscape krita gimp mypaint
         kpcli
