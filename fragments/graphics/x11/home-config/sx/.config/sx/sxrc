@@ -9,7 +9,7 @@ numlockx
 systemctl --user start graphical-session-pre.target
 
 export I3BLOCKS_DIR=$(which i3blocks | xargs readlink -f | xargs dirname | xargs printf "%s/../libexec/i3blocks")
-i3 -c /etc/i3/config
+i3 -c ~/.config/i3/config
 
 systemctl --user stop graphical-session.target
 systemctl --user stop graphical-session-pre.target

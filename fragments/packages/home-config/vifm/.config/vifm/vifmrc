@@ -103,6 +103,8 @@ filetype *.ppt,*.pptx,*.odp xdg-opens %f
 filetype *.vsd,*.odg xdg-open %f
 filetype *.xls,*.xlsx,*.ods xdg-open %f
 
+filetype * xdg-open %f
+
 " For automated FUSE mounts, you must register an extension with FILETYPE=..
 " in one of following formats:
 "

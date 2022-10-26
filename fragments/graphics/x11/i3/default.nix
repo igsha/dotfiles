@@ -9,6 +9,10 @@
       xkb-switch-i3
       flameshot
     ];
-    configFile = ./config;
+  };
+
+  home-config.i3 = {
+    packages = [ "i3" ];
+    dir = builtins.toString ./home-config;
   };
 }

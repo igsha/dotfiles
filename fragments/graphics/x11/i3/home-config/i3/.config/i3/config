@@ -1,8 +1,8 @@
 font pango:DejaVu Sans Mono, Font Awesome 6 Free Semi-Condensed 10.000000
 floating_modifier Mod4
-default_border pixel 2
-default_floating_border pixel 2
-hide_edge_borders none
+default_border 1pixel
+default_floating_border 1pixel
+hide_edge_borders smart
 force_focus_wrapping no
 focus_follows_mouse no
 focus_on_window_activation smart
