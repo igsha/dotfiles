@@ -4,7 +4,6 @@
   services.jupyterhub = {
     enable = true;
     port = 8888;
-    jupyterlabEnv = pkgs.python3.withPackages (p: [ p.jupyterhub ]);
     kernels = {
       python3 = let
         env = pkgs.python3.withPackages (pp: with pp; [
