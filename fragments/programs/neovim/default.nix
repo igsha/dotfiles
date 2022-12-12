@@ -120,8 +120,4 @@ in {
       };
     };
   };
-
-  xdg.mime.defaultApplications = {
-    "text/plain" = "nvim.desktop";
-  };
 }

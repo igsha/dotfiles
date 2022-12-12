@@ -7,8 +7,10 @@ let
   popup-translate = pkgs.writeShellScriptBin "popup-translate" ''
     $TERMINAL --class popup -t translate -e trans -I
   '';
-  mimeWithPrefix = app: prefix: mimes: builtins.listToAttrs (builtins.map (x: { name = prefix + x; value = app; }) mimes);
-  mime = app: mimes: mimeWithPrefix app "" mimes;
+  reverseNameValuePairs = name: builtins.map (x: pkgs.lib.attrsets.nameValuePair x name);
+  reverseMapList = pkgs.lib.attrsets.mapAttrsToList reverseNameValuePairs;
+  reverseAttrs = x: builtins.listToAttrs (pkgs.lib.lists.flatten (reverseMapList x));
+  listWithPrefix = prefix: builtins.map (x: prefix + x);
 
 in {
   users.users = {
@@ -43,7 +45,6 @@ in {
         v4l-utils
         qutebrowser alacritty rofi mpv
         python3Packages.python-gitlab otpclient jitsi-meet-electron
-        mimeo
       ] ++
       (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]) ++
       lib.optionals config.services.xserver.enable [
@@ -60,8 +61,15 @@ in {
     dir = builtins.toString ./home-config;
   };
 
-  xdg.mime.defaultApplications =
-    (mimeWithPrefix "org.pwmt.zathura.desktop" "application/" [ "pdf" "postscript" ]) //
-    (mime "org.qutebrowser.qutebrowser.desktop" [ "text/html" "x-scheme-handler/http" "x-scheme-handler/https" ]) //
-    (mimeWithPrefix "imv.desktop" "image/" [ "png" "jpeg" "jpg" "gif" "vnd.adobe.photoshop" "svg" "heif" ]);
+  xdg.mime = {
+    enable = true;
+    defaultApplications = reverseAttrs {
+      "org.pwmt.zathura.desktop" = listWithPrefix "application/" [ "pdf" "postscript" ];
+      "org.qutebrowser.qutebrowser.desktop"  = [ "text/html" ]
+        ++ listWithPrefix "x-scheme-handler/" [ "http" "https" ];
+      "imv.desktop" = listWithPrefix "image/" [ "png" "jpeg" "jpg" "gif" "vnd.adobe.photoshop" "svg" "heif" ];
+      "nvim.desktop" = (listWithPrefix "text/" ([ "plain" "markdown" ] ++ listWithPrefix "x-" [ "cmake" "python" "rst" "makefile" "patch" ]))
+        ++ listWithPrefix "application/" [ "json" "octet-stream" "x-yaml" "x-shellscript" ];
+    };
+  };
 }

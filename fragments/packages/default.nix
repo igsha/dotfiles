@@ -51,7 +51,6 @@
       gptfdisk parted
       cdrtools
       glxinfo
-      xdg-utils
       cpufrequtils
       python3Packages.jsbeautifier
       openldap cifs-utils
@@ -67,6 +66,9 @@
       allowTexliveBuilds = true;
       android_sdk.accept_license = true;
       zathura.useMupdf = false;
+      permittedInsecurePackages = [
+        "qtwebkit-5.212.0-alpha4"
+      ];
     };
     overlays = [ (import (builtins.fetchTarball https://api.github.com/repos/igsha/nix-overlays/tarball/master)) ];
   };
