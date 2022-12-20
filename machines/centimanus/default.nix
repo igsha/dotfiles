@@ -28,5 +28,8 @@ _:
     ../../fragments/programs/neovim
     (import ../../fragments/users "isharonov")
     ../../fragments/users/guest
+    ({ config, lib, ... }: {
+      config.systemd.services.openvpn-elvees.serviceConfig.Restart = lib.mkForce "no";
+    })
   ];
 }
