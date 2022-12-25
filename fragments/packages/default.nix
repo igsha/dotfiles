@@ -68,6 +68,7 @@
       zathura.useMupdf = false;
       permittedInsecurePackages = [
         "qtwebkit-5.212.0-alpha4"
+        "electron-17.4.1"
       ];
     };
     overlays = [ (import (builtins.fetchTarball https://api.github.com/repos/igsha/nix-overlays/tarball/master)) ];

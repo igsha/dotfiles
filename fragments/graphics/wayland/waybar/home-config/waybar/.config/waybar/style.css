@@ -1,4 +1,4 @@
-@import "../../.nix-profile/etc/xdg/waybar/style.css";
+@import "/run/current-system/sw/etc/xdg/waybar/style.css";
 * {
   font-family: Roboto, Helvetica, "Font Awesome 6 Free", sans-serif;
 }

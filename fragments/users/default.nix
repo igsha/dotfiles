@@ -36,7 +36,7 @@ in {
         hunspellDicts.en-us
         yad libnotify slack iplay
         fzy
-        asciinema discord obs-studio trueconf
+        asciinema discord obs-studio
         translate-shell
         (yt-dlp.override { withAlias = true; })
         metar rtorrent gitui python3Packages.speedtest-cli pre-commit

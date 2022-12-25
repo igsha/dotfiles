@@ -123,11 +123,10 @@ assign [app_id="Steam|steam|steam.exe"] 5
 assign [app_id="Wine"] 6
 for_window [app_id="Galculator|ffplay|Wine|popup|yad|kruler"] floating enable
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-exec systemctl --user start graphical-session.target
+include /etc/sway/config.d/*
+systemctl --user start graphical-session-pre.target
 
 exec alacritty -e tmux
 exec qutebrowser
 exec evolution
 exec telegram-desktop
-

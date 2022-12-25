@@ -40,4 +40,6 @@
   };
 
   swapDevices = lib.mkForce [ { device = "/dev/sda2"; } ];
+
+  virtualisation.waydroid.enable = true;
 }

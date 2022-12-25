@@ -26,6 +26,9 @@ _:
         enable = true;
         dns.enable = false;
       };
+      settings = {
+        FascistFirewall = true;
+      };
     };
   };
 }
