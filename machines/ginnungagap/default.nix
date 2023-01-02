@@ -5,6 +5,8 @@
     ../../home-config
     ../../fragments/boot
     ./network.nix
+    ../../fragments/graphics
+    ../../fragments/graphics/drivers/amd
     ../../fragments/graphics/wayland
     ../../fragments/graphics/wayland/sway
     ../../fragments/graphics/wayland/waybar

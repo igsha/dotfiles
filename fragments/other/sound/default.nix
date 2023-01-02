@@ -9,6 +9,7 @@ _:
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    alsa.enable = true;
   };
 
   nixpkgs.config.pulseaudio = true;

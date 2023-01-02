@@ -5,6 +5,8 @@ _:
     ../../home-config
     ../../fragments/boot
     ./network.nix
+    ../../fragments/graphics
+    ../../fragments/graphics/drivers/nvidia
     ../../fragments/graphics/x11
     ../../fragments/graphics/x11/i3
     ../../fragments/graphics/x11/i3blocks
