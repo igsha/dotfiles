@@ -14,6 +14,7 @@
       foot
       mako
       swaykbdd
+      sway-contrib.grimshot
     ];
   };
 
