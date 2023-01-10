@@ -69,7 +69,7 @@ in {
         ++ listWithPrefix "x-scheme-handler/" [ "http" "https" ];
       "imv.desktop" = listWithPrefix "image/" [ "png" "jpeg" "jpg" "gif" "vnd.adobe.photoshop" "svg" "heif" ];
       "nvim.desktop" = (listWithPrefix "text/" ([ "plain" "markdown" ] ++ listWithPrefix "x-" [ "cmake" "python" "rst" "makefile" "patch" ]))
-        ++ listWithPrefix "application/" [ "json" "octet-stream" "x-yaml" "x-shellscript" ];
+        ++ listWithPrefix "application/" [ "json" "octet-stream" "x-yaml" "x-shellscript" "x-wine-extension-ini" "xml" ];
     };
   };
 }
