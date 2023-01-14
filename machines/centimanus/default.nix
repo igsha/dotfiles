@@ -6,6 +6,7 @@ _:
     ../../fragments/boot
     ./network.nix
     ../../fragments/graphics
+    (import ../../fragments/graphics/greetd "sx")
     ../../fragments/graphics/drivers/nvidia
     ../../fragments/graphics/x11
     ../../fragments/graphics/x11/i3

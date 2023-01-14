@@ -15,6 +15,7 @@
       mako
       swaykbdd
       sway-contrib.grimshot
+      wl-clipboard
     ];
   };
 
