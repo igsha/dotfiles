@@ -68,8 +68,8 @@ in {
       "org.qutebrowser.qutebrowser.desktop"  = [ "text/html" ]
         ++ listWithPrefix "x-scheme-handler/" [ "http" "https" ];
       "imv.desktop" = listWithPrefix "image/" [ "png" "jpeg" "jpg" "gif" "vnd.adobe.photoshop" "svg" "heif" ];
-      "nvim.desktop" = (listWithPrefix "text/" ([ "plain" "markdown" ] ++ listWithPrefix "x-" [ "cmake" "python" "rst" "makefile" "patch" ]))
-        ++ listWithPrefix "application/" [ "json" "octet-stream" "x-yaml" "x-shellscript" "x-wine-extension-ini" "xml" ];
+      "nvim.desktop" = (listWithPrefix "text/" ([ "plain" "markdown" ] ++ listWithPrefix "x-" [ "cmake" "python" "rst" "makefile" "patch" "readme" ]))
+        ++ listWithPrefix "application/" ([ "json" "octet-stream" "xml" ] ++ listWithPrefix "x-" [ "yaml" "shellscript" "wine-extension-ini" ]);
     };
   };
 }
