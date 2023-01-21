@@ -45,6 +45,7 @@ in {
         v4l-utils
         qutebrowser alacritty rofi mpv
         python3Packages.python-gitlab otpclient jitsi-meet-electron
+        xdg-utils
       ] ++
       (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]) ++
       lib.optionals config.services.xserver.enable [
