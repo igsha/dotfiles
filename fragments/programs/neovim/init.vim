@@ -82,9 +82,12 @@ function MakeTagsInGitRootDir()
         return
     endif
     let l:tagfile = substitute(l:rootdir, '\n\+$', '', '') . '/.git/tags'
-    echo system('ctags -R --c++-kinds=+p --fields=+iaS --extras=+q --exclude="*.html" -o ' . l:tagfile . ' ' . l:rootdir)
+    let l:filelist = systemlist('find ' .. l:rootdir . ' -type f')
+    call filter(l:filelist, {idx, val -> val =~ '\.\(cpp\|c\|h\|hpp\|cxx\|hxx\|cc\|hh\)$' && val !~ '/\(build\|\.git\)/'})
+    echo system('ctags -L - --c++-kinds=+p --fields=+iaS --extras=+q -f ' .. l:tagfile, l:filelist)
     if v:shell_error != 0
         echoerr 'Got a error' v:shell_error
+        return
     endif
     echo 'Updated tags:' l:tagfile
 endfunction

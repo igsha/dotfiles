@@ -26,7 +26,7 @@
       ocamlPackages.csv
       vifm fuse fuseiso curlftpfs jmtpfs sshfs-fuse archivemount rar2fs
       pwgen
-      bviplus dhex vbindiff
+      bviplus dhex vbindiff hexyl hecate hexcurse
       universal-ctags
       unrar unzipNLS zip p7zip
       wcalc jq jo yq htmlq
@@ -57,6 +57,7 @@
       poke
       hydra-check
       stow
+      novnc
     ];
   };
 

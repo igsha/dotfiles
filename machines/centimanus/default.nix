@@ -1,4 +1,4 @@
-_:
+{ config, lib, ... }:
 
 {
   imports = [
@@ -31,8 +31,11 @@ _:
     ../../fragments/programs/neovim
     (import ../../fragments/users "isharonov")
     ../../fragments/users/guest
-    ({ config, lib, ... }: {
-      config.systemd.services.openvpn-elvees.serviceConfig.Restart = lib.mkForce "no";
-    })
+  ];
+
+  systemd.services.openvpn-elvees.serviceConfig.Restart = lib.mkForce "no";
+  systemd.suppressedSystemUnits = [
+    "systemd-ask-password-wall.path"
+    "systemd-ask-password-wall.service"
   ];
 }
