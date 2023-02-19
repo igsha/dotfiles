@@ -13,7 +13,7 @@ _:
     resolved.enable = true;
     openssh = {
       enable = true;
-      forwardX11 = true;
+      settings.X11Forwarding = true;
       extraConfig = ''
         AllowTcpForwarding yes
         TCPKeepAlive yes
