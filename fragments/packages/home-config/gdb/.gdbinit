@@ -58,4 +58,18 @@ It will write ppm image to <filename> from <address> by <width>x<height>.
 Optional value of <max pixel value> can be passed.
 end
 
+define num2addr
+    set $sum = 0ul
+    set $i = 0
+    while $i < $argc
+        eval "set $sum = $sum + ((uint64_t)$arg%d << ($i * 8))", $i
+        set $i = $i + 1
+    end
+    p/x $sum
+end
+
+document num2addr
+Convert number list to address
+end
+
 set auto-load safe-path /

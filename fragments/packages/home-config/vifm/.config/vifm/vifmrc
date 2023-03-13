@@ -99,7 +99,7 @@ filetype *.exe wine %f
 
 " MS-Office
 filetype *.doc,*.docx,*.odt xdg-open %f
-filetype *.ppt,*.pptx,*.odp xdg-opens %f
+filetype *.ppt,*.pptx,*.odp xdg-open %f
 filetype *.vsd,*.odg xdg-open %f
 filetype *.xls,*.xlsx,*.ods xdg-open %f
 
