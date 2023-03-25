@@ -34,9 +34,9 @@ in {
         google-chrome
         hunspellDicts.ru-ru
         hunspellDicts.en-us
-        yad libnotify slack iplay
+        yad libnotify iplay
         fzy
-        asciinema discord obs-studio
+        asciinema obs-studio
         translate-shell
         (yt-dlp.override { withAlias = true; })
         metar rtorrent gitui python3Packages.speedtest-cli pre-commit
@@ -44,7 +44,7 @@ in {
         termplay
         v4l-utils
         qutebrowser alacritty rofi mpv
-        python3Packages.python-gitlab otpclient jitsi-meet-electron
+        python3Packages.python-gitlab otpclient
         xdg-utils
       ] ++
       (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]) ++
