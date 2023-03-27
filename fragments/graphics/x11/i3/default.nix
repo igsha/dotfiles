@@ -8,6 +8,7 @@
       ponymix
       xkb-switch-i3
       flameshot
+      x11vnc
     ];
   };
 

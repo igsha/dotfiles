@@ -17,6 +17,7 @@
       sway-contrib.grimshot
       wl-clipboard
       ponymix
+      wayvnc
     ];
   };
 
