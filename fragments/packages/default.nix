@@ -68,6 +68,9 @@
       android_sdk.accept_license = true;
       zathura.useMupdf = false;
       permittedInsecurePackages = [
+        "python3.10-tensorflow-2.11.0"
+        "tensorflow-2.11.0"
+        "tensorflow-2.11.0-deps.tar.gz"
       ];
     };
     overlays = [ (import (builtins.fetchTarball https://api.github.com/repos/igsha/nix-overlays/tarball/master)) ];
