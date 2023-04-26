@@ -8,6 +8,7 @@
     ../../fragments/graphics
     (import ../../fragments/graphics/greetd "sway")
     ../../fragments/graphics/drivers/amd
+    ../../fragments/graphics/window-manager/qtile
     ../../fragments/graphics/wayland
     ../../fragments/graphics/wayland/sway
     ../../fragments/graphics/wayland/waybar
