@@ -22,8 +22,8 @@ def autostart():
         -option "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"
     '''.split())
     subprocess.call('xset r rate 250 40'.split())
+    subprocess.call(['numlockx'])
 
 @hook.subscribe.startup_complete
 def postautostart():
     subprocess.call('systemctl --user start graphical-session.target'.split())
-    subprocess.call(['numlockx'])

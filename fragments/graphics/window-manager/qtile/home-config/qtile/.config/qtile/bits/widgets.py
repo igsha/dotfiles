@@ -1,4 +1,4 @@
-import subprocess, re
+import subprocess, re, pathlib
 
 from libqtile.config import Key
 from libqtile.lazy import lazy
@@ -34,8 +34,24 @@ main_widgets = [
     widget.CPU(background="#333333", format=' {load_percent}%', **decor),
     widget.Memory(background="#222222", measure_mem='G', measure_swap='G',
                   format=' {MemUsed:.1f}{mm}/{MemTotal:.1f}{mm}[{SwapUsed:.1f}{ms}]', **decor),
+]
 
-    widget.Wlan(background="#333333", update_iterval=5, format='  {essid}[{percent:2.0%}]', **decor),
+is_bluetooth, is_wlan = False, False
+for f in pathlib.Path('/sys/class/rfkill').glob('rfkill*/type'):
+    is_bluetooth |= open(f).read().startswith('bluetooth')
+    is_wlan |= open(f).read().startswith('wlan')
+
+if is_bluetooth:
+    main_widgets += [
+        widget.Bluetooth(background="#555555", **decor),
+    ]
+
+if is_wlan:
+    main_widgets += [
+        widget.Wlan(background="#333333", update_iterval=5, format='  {essid}[{percent:2.0%}]', **decor),
+    ]
+
+main_widgets += [
     widget.Net(background="#111111", use_bits=True,
                format='▼ {down: >6}▲ {up: >6}', **decor),
     widget.Volume(background="#555555", fmt='󱄠 {}', **decor),
