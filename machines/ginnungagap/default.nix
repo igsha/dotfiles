@@ -8,7 +8,6 @@
     ../../fragments/graphics
     (import ../../fragments/graphics/greetd "sway")
     ../../fragments/graphics/drivers/amd
-    ../../fragments/graphics/window-manager/qtile
     ../../fragments/graphics/wayland
     ../../fragments/graphics/wayland/sway
     ../../fragments/graphics/wayland/waybar
@@ -19,7 +18,7 @@
     ../../fragments/other/fonts
     ../../fragments/other/virtualisation
     ../../fragments/services
-    ../../fragments/services/jupyterhub
+    (import ../../fragments/services/jupyter "igor")
     ../../fragments/services/google-drive
     ../../fragments/packages
     ../../fragments/programs
