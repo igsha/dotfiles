@@ -6,11 +6,10 @@
     ../../fragments/boot
     ./network.nix
     ../../fragments/graphics
-    (import ../../fragments/graphics/greetd "sx")
+    (import ../../fragments/graphics/greetd "startx")
     ../../fragments/graphics/drivers/nvidia
+    ../../fragments/graphics/window-manager/qtile
     ../../fragments/graphics/x11
-    ../../fragments/graphics/x11/i3
-    ../../fragments/graphics/x11/i3blocks
     ../../fragments/graphics/x11/dunst
     ../../fragments/graphics/x11/lock
     ../../fragments/graphics/x11/picom

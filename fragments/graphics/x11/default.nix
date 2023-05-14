@@ -23,12 +23,7 @@
       Option "DPMS" "false"
     '';
     exportConfiguration = true;
-    displayManager.sx.enable = true;
-  };
-
-  home-config.x11 = {
-    packages = [ "sx" ];
-    dir = builtins.toString ./home-config;
+    displayManager.startx.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
