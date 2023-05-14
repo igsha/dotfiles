@@ -20,6 +20,7 @@ in {
         LESS = "-R";
       };
     };
+    nix-ld.enable = true;
     evolution.enable = true;
     fuse.userAllowOther = true;
     starship.enable = true;

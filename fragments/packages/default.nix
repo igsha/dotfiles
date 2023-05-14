@@ -6,7 +6,7 @@
     systemPackages = with pkgs; [
       subversion tig
       wget
-      ed aerc
+      ed
       catimg
       man stdman man-pages man-pages-posix
       util-linux freetype

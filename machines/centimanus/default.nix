@@ -20,7 +20,7 @@
     ../../fragments/other/fonts
     ../../fragments/other/virtualisation
     ../../fragments/services
-    ../../fragments/services/jupyterhub
+    (import ../../fragments/services/jupyter "isharonov")
     ../../fragments/services/google-drive
     ../../fragments/services/random-background
     ../../fragments/packages

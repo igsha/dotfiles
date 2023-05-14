@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  services.xserver.windowManager.i3.extraPackages = [ pkgs.dunst ];
+  environment.systemPackages = [ pkgs.dunst ];
 
   home-config.dunst = {
     packages = [ "dunst" ];
