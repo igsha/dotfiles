@@ -8,6 +8,14 @@
     autoRepeatInterval = 40;
     enableTCP = true;
     wacom.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+        disableWhileTyping = true;
+        clickMethod = "clickfinger";
+      };
+    };
     serverFlagsSection = ''
       Option "BlankTime" "0"
     '';
