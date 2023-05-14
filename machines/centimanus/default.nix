@@ -16,9 +16,10 @@
     ../../fragments/graphics/x11/picom
     ../../fragments/graphics/x11/redshift
     ../../fragments/other
-    ../../fragments/other/sound
     ../../fragments/other/fonts
+    ../../fragments/other/sound
     ../../fragments/other/virtualisation
+    ../../fragments/other/xdg
     ../../fragments/services
     (import ../../fragments/services/jupyter "isharonov")
     ../../fragments/services/google-drive

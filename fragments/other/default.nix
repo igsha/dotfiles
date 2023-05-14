@@ -29,11 +29,6 @@
     font = "LatArCyrHeb-16";
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = !config.services.xserver.enable;
-  };
-
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="1002", MODE="0666"
   '';

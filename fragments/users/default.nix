@@ -7,10 +7,6 @@ let
   popup-translate = pkgs.writeShellScriptBin "popup-translate" ''
     $TERMINAL --class popup -t translate -e trans -I
   '';
-  reverseNameValuePairs = name: builtins.map (x: pkgs.lib.attrsets.nameValuePair x name);
-  reverseMapList = pkgs.lib.attrsets.mapAttrsToList reverseNameValuePairs;
-  reverseAttrs = x: builtins.listToAttrs (pkgs.lib.lists.flatten (reverseMapList x));
-  listWithPrefix = prefix: builtins.map (x: prefix + x);
 
 in {
   users.users = {
@@ -45,7 +41,6 @@ in {
         v4l-utils
         qutebrowser alacritty rofi mpv
         python3Packages.python-gitlab otpclient
-        xdg-utils
       ] ++
       (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]) ++
       lib.optionals config.services.xserver.enable [
@@ -60,17 +55,5 @@ in {
   home-config.users = {
     packages = [ "qutebrowser" "alacritty" "rofi" "mpv" "home-bin" ];
     dir = builtins.toString ./home-config;
-  };
-
-  xdg.mime = {
-    enable = true;
-    defaultApplications = reverseAttrs {
-      "org.pwmt.zathura.desktop" = listWithPrefix "application/" [ "pdf" "postscript" ];
-      "org.qutebrowser.qutebrowser.desktop"  = [ "text/html" ]
-        ++ listWithPrefix "x-scheme-handler/" [ "http" "https" ];
-      "imv.desktop" = listWithPrefix "image/" [ "png" "jpeg" "jpg" "gif" "vnd.adobe.photoshop" "svg" "heif" ];
-      "nvim.desktop" = (listWithPrefix "text/" ([ "plain" "markdown" ] ++ listWithPrefix "x-" [ "cmake" "python" "rst" "makefile" "patch" "readme" "log" ]))
-        ++ listWithPrefix "application/" ([ "json" "octet-stream" "xml" ] ++ listWithPrefix "x-" [ "yaml" "shellscript" "wine-extension-ini" ]);
-    };
   };
 }

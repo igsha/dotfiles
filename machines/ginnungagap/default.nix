@@ -14,9 +14,10 @@
     ../../fragments/graphics/wayland/gammastep
     ../../fragments/graphics/wayland/swayidle
     ../../fragments/other
-    ../../fragments/other/sound
     ../../fragments/other/fonts
+    ../../fragments/other/sound
     ../../fragments/other/virtualisation
+    ../../fragments/other/xdg
     ../../fragments/services
     (import ../../fragments/services/jupyter "igor")
     ../../fragments/services/google-drive
