@@ -5,7 +5,7 @@ _:
     resolvconf.extraOptions = [ "rotate" ];
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 80 8080 8888 4200 8554 1935 ];
+      allowedTCPPorts = [ 22 80 554 4200 5900 8080 8888 4200 8554 ];
     };
   };
 
@@ -30,6 +30,11 @@ _:
       };
     };
   };
+
+  systemd.suppressedSystemUnits = [
+    "systemd-ask-password-wall.path"
+    "systemd-ask-password-wall.service"
+  ];
 
   nixpkgs.overlays = [
     (self: super: {

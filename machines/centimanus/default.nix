@@ -1,10 +1,10 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
     ../../home-config
     ../../fragments/boot
-    ./network.nix
+    ../../fragments/network
     ../../fragments/graphics
     (import ../../fragments/graphics/greetd "startx")
     ../../fragments/graphics/drivers/nvidia
@@ -33,9 +33,49 @@
     ../../fragments/users/guest
   ];
 
-  systemd.services.openvpn-elvees.serviceConfig.Restart = lib.mkForce "no";
-  systemd.suppressedSystemUnits = [
-    "systemd-ask-password-wall.path"
-    "systemd-ask-password-wall.service"
-  ];
+  networking = {
+    hostName = "centimanus";
+    nameservers = [ "82.179.190.64" "82.179.191.64" ];
+    interfaces = {
+      enp3s0 = {
+        wakeOnLan.enable = true;
+        ipv4 = {
+          addresses = [
+            { address = "82.179.182.138"; prefixLength = 27; }
+          ];
+          routes = [
+            { address = "82.179.182.128"; prefixLength = 27; via = "82.179.182.129"; }
+            { address = "0.0.0.0"; prefixLength = 0; via = "82.179.182.129"; }
+          ];
+        };
+        useDHCP = false;
+      };
+      enp6s0 = {
+        ipv4 = {
+          addresses = [ { address = "83.179.182.146"; prefixLength = 27; } ];
+          routes = [
+            { address = "83.179.182.128"; prefixLength = 27; via = "83.179.182.146"; }
+          ];
+        };
+        useDHCP = false;
+      };
+    };
+  };
+
+  services = {
+    openvpn.servers = {
+      elvees = {
+        config = "config /home/isharonov/.vpn/elvees2fa.conf";
+        autoStart = false;
+        updateResolvConf = false;
+        up = pkgs.openvpn-systemd-resolved-up-script;
+      };
+      nto9 = {
+        config = "config /home/isharonov/.vpn/nto9.ovpn";
+        autoStart = false;
+        updateResolvConf = false;
+        up = pkgs.openvpn-systemd-resolved-up-script;
+      };
+    };
+  };
 }
