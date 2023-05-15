@@ -7,7 +7,7 @@
     ../../fragments/network
     ../../fragments/graphics
     (import ../../fragments/graphics/greetd "startx")
-    ../../fragments/graphics/drivers/nvidia
+    ../../fragments/graphics/drivers/nvidia-legacy
     ../../fragments/graphics/window-manager/qtile
     ../../fragments/graphics/x11
     ../../fragments/graphics/x11/dunst
