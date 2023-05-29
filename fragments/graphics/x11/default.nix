@@ -3,7 +3,7 @@
 {
   services.xserver = {
     enable = true;
-    autorun = false;
+    autorun = true;
     autoRepeatDelay = 250;
     autoRepeatInterval = 40;
     enableTCP = true;
@@ -16,6 +16,8 @@
         clickMethod = "clickfinger";
       };
     };
+    xkbOptions = "grp:alt_space_toggle,grp:sclk_toggle,keypad:pointerkeys";
+    layout = "us,ru";
     serverFlagsSection = ''
       Option "BlankTime" "0"
     '';
@@ -23,7 +25,7 @@
       Option "DPMS" "false"
     '';
     exportConfiguration = true;
-    displayManager.startx.enable = true;
+    desktopManager.xterm.enable = false;
   };
 
   environment.systemPackages = with pkgs; [

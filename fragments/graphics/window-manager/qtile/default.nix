@@ -17,6 +17,7 @@ let
 
 in {
   services.xserver = {
+    updateDbusEnvironment = true;
     windowManager.qtile = {
       enable = true;
       backend = if config.services.xserver.enable then "x11" else "wayland";
