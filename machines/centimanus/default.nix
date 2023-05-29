@@ -5,10 +5,13 @@
     ../../home-config
     ../../fragments/boot
     ../../fragments/network
+    ../../fragments/network/openvpn
+    ../../fragments/network/openvpn/elvees.nix
+    ../../fragments/network/openvpn/nto9.nix
     ../../fragments/graphics
-    (import ../../fragments/graphics/greetd "startx")
     ../../fragments/graphics/drivers/nvidia-legacy
     ../../fragments/graphics/window-manager/qtile
+    ../../fragments/graphics/sddm
     ../../fragments/graphics/x11
     ../../fragments/graphics/x11/dunst
     ../../fragments/graphics/x11/lock
@@ -58,23 +61,6 @@
           ];
         };
         useDHCP = false;
-      };
-    };
-  };
-
-  services = {
-    openvpn.servers = {
-      elvees = {
-        config = "config /home/isharonov/.vpn/elvees2fa.conf";
-        autoStart = false;
-        updateResolvConf = false;
-        up = pkgs.openvpn-systemd-resolved-up-script;
-      };
-      nto9 = {
-        config = "config /home/isharonov/.vpn/nto9.ovpn";
-        autoStart = false;
-        updateResolvConf = false;
-        up = pkgs.openvpn-systemd-resolved-up-script;
       };
     };
   };
