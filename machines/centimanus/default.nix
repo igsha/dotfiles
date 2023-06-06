@@ -3,7 +3,7 @@
 {
   imports = [
     ../../home-config
-    ../../fragments/boot
+    (import ../../fragments/boot)
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees.nix

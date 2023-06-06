@@ -3,7 +3,7 @@
 {
   imports = [
     ../../home-config
-    ../../fragments/boot
+    (import ../../fragments/boot { tmpsize = "16G"; })
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees.nix
@@ -39,11 +39,6 @@
   fileSystems = {
     "/" = lib.mkForce { device = "/dev/sda3"; fsType = "ext4"; };
     "/home" = lib.mkForce { device = "/dev/sda4"; fsType = "ext4"; };
-    "/tmp" = lib.mkForce {
-      device = "tmpfs";
-      fsType = "tmpfs";
-      options = [ "nosuid" "nodev" "relatime" "size=16G"];
-    };
   };
 
   networking = {
