@@ -11,10 +11,10 @@
     ../../fragments/graphics
     (import ../../fragments/graphics/greetd "sway")
     ../../fragments/graphics/drivers/amd
+    ../../fragments/graphics/redshift
     ../../fragments/graphics/wayland
     ../../fragments/graphics/wayland/sway
     ../../fragments/graphics/wayland/waybar
-    ../../fragments/graphics/wayland/gammastep
     ../../fragments/graphics/wayland/swayidle
     ../../fragments/other
     ../../fragments/other/fonts

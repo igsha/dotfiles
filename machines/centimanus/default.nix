@@ -12,11 +12,11 @@
     ../../fragments/graphics/drivers/nvidia-legacy
     ../../fragments/graphics/window-manager/qtile
     ../../fragments/graphics/sddm
+    ../../fragments/graphics/redshift
     ../../fragments/graphics/x11
     ../../fragments/graphics/x11/dunst
     ../../fragments/graphics/x11/lock
     ../../fragments/graphics/x11/picom
-    ../../fragments/graphics/x11/redshift
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/sound
