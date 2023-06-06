@@ -9,7 +9,7 @@ from bits.mouse import mouse, follow_mouse_focus, bring_front_click, cursor_warp
 from bits.screens import screens, auto_fullscreen, reconfigure_screens
 
 
-auto_minimize = True
+auto_minimize = False
 wl_input_rules = None
 wmname = "LG3D"
 
