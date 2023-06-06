@@ -23,6 +23,7 @@
     ../../fragments/other/virtualisation
     ../../fragments/other/xdg
     ../../fragments/services
+    ../../fragments/services/autosuspend
     (import ../../fragments/services/jupyter "isharonov")
     ../../fragments/services/google-drive
     ../../fragments/services/random-background
