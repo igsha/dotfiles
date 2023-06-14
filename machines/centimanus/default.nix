@@ -11,9 +11,10 @@
     ../../fragments/graphics
     ../../fragments/graphics/drivers/nvidia-legacy
     ../../fragments/graphics/window-manager/qtile
-    ../../fragments/graphics/sddm
+    (import ../../fragments/graphics/greetd "sx")
     ../../fragments/graphics/redshift
     ../../fragments/graphics/x11
+    ../../fragments/graphics/x11/sx
     ../../fragments/graphics/x11/dunst
     ../../fragments/graphics/x11/lock
     ../../fragments/graphics/x11/picom

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+PROG=()
+for s in $(tr : '\n' <<< "$XDG_DATA_DIRS"); do
+    [[ -d $s/xsessions ]] || continue
+    for i in $s/xsessions/*.desktop; do
+        PROG+=($(grep -Po '^Exec=\K.*' $i))
+    done
+done
+
+__session=${PROG[0]}
+
+systemctl --user import-environment \
+    DBUS_SESSION_BUS_ADDRESS \
+    DISPLAY \
+    XAUTHORITY \
+    PATH \
+    NIX_PATH \
+    XDG_{SESSION_{ID,TYPE},{DATA,CONFIG}_DIRS,{RUNTIME,DESKTOP_PORTAL}_DIR}
+
+xhost si:localuser:$USER # for autosuspend
+
+exec $__session
