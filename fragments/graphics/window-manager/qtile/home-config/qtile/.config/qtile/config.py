@@ -13,6 +13,16 @@ auto_minimize = False
 wl_input_rules = None
 wmname = "LG3D"
 
+@hook.subscribe.startup_once
+def autostart():
+    subprocess.call(['kbdd'])
+    subprocess.call('''
+        setxkbmap
+        -layout "us,ru"
+        -option "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"
+    '''.split())
+    subprocess.call('xset r rate 250 40'.split())
+
 @hook.subscribe.startup_complete
 def postautostart():
     subprocess.call('systemctl --user start graphical-session.target'.split())
