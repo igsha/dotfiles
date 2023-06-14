@@ -6,7 +6,7 @@
     (import ../../fragments/boot)
     ../../fragments/network
     ../../fragments/network/openvpn
-    ../../fragments/network/openvpn/elvees.nix
+    ../../fragments/network/openvpn/elvees2fa.nix
     ../../fragments/network/openvpn/nto9.nix
     ../../fragments/graphics
     ../../fragments/graphics/drivers/nvidia-legacy

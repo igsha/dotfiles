@@ -6,7 +6,7 @@
     (import ../../fragments/boot { tmpsize = "16G"; })
     ../../fragments/network
     ../../fragments/network/openvpn
-    ../../fragments/network/openvpn/elvees.nix
+    ../../fragments/network/openvpn/elvees2fa.nix
     ../../fragments/network/openvpn/miet.nix
     ../../fragments/graphics
     (import ../../fragments/graphics/greetd "sway")

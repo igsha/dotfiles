@@ -1,4 +1,4 @@
-window-manager:
+cmd:
 
 { pkgs, ... }:
 
@@ -7,7 +7,7 @@ window-manager:
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${window-manager}";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${cmd}";
       };
     };
     vt = 2;

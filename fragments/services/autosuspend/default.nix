@@ -45,7 +45,7 @@ in {
       } // lib.optionalAttrs config.services.xserver.enable {
         XIdleTime = {
           inherit timeout;
-          method = "logind";
+          method = if config.services.xserver.autorun then "logind" else "sockets";
         };
       };
       wakeups = {
