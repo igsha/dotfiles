@@ -8,6 +8,7 @@
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees2fa.nix
     ../../fragments/network/openvpn/miet.nix
+    ../../fragments/network/tor
     ../../fragments/graphics
     (import ../../fragments/graphics/greetd "sway")
     ../../fragments/graphics/drivers/amd

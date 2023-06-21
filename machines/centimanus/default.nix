@@ -8,6 +8,7 @@
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees2fa.nix
     ../../fragments/network/openvpn/nto9.nix
+    ../../fragments/network/tor
     ../../fragments/graphics
     ../../fragments/graphics/drivers/nvidia-legacy
     ../../fragments/graphics/window-manager/qtile

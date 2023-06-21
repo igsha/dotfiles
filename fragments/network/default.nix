@@ -19,16 +19,6 @@ _:
         PermitTunnel yes
       '';
     };
-    tor = {
-      enable = true;
-      client = {
-        enable = true;
-        dns.enable = false;
-      };
-      settings = {
-        FascistFirewall = true;
-      };
-    };
   };
 
   systemd.suppressedSystemUnits = [
