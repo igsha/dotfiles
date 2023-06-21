@@ -1,4 +1,4 @@
-name: { config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   popup-wcalc = pkgs.writeShellScriptBin "popup-wcalc" ''
@@ -10,10 +10,23 @@ let
 
 in {
   users.users = {
-    "${name}" = {
+    "${config.custom-args.user}" = {
       isNormalUser = true;
       description = "Ordinary user";
-      extraGroups = [ "wheel" "disk" "audio" "cdrom" "video" "adm" "systemd-journal" "lp" "networkmanager" "dialout" "docker" "input" ];
+      extraGroups = [
+        "wheel"
+        "disk"
+        "audio"
+        "cdrom"
+        "video"
+        "adm"
+        "systemd-journal"
+        "lp"
+        "networkmanager"
+        "dialout"
+        "docker"
+        "input"
+      ];
       initialHashedPassword = "root";
       packages = with pkgs; [
         popup-wcalc popup-translate
@@ -41,9 +54,15 @@ in {
         v4l-utils
         qutebrowser alacritty rofi mpv
         python3Packages.python-gitlab otpclient
-      ] ++
-      (with gst_all_1; [ gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gstreamer gstreamer.dev gst-libav ]) ++
-      lib.optionals config.services.xserver.enable [
+      ] ++ (with gst_all_1; [
+        gst-plugins-base
+        gst-plugins-good
+        gst-plugins-bad
+        gst-plugins-ugly
+        gstreamer
+        gstreamer.dev
+        gst-libav
+      ]) ++ lib.optionals config.services.xserver.enable [
         xsel xclip xdotool
         xorg.xhost hsetroot xorg.xev xorg.xkill
         xfontsel

@@ -1,13 +1,12 @@
-user:
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   services.jupyter = {
     enable = true;
-    inherit user;
+    user = config.custom-args.user;
     group = "users";
     password = "'argon2:$argon2id$v=19$m=10240,t=10,p=8$oTt1F61n/XuB0hK0oFjcbQ$Zd8tyVpryo85hNqOqe8lxm4UVh6jNEqtVM9xpLcySt0'";
-    notebookDir = "/home/${user}";
+    notebookDir = "/home/${config.custom-args.user}";
     kernels = {
       python3 = let
         env = pkgs.python3.withPackages (pp: with pp; [

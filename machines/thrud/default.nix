@@ -2,8 +2,9 @@
 
 {
   imports = [
+    ../../custom-args
     ../../home-config
-    (import ../../fragments/boot { devdisk = "/dev/nvme0n1p"; tmpsize = "16G"; })
+    ../../fragments/boot
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees2fa.nix
@@ -16,7 +17,7 @@
     ../../fragments/graphics/x11/dunst
     ../../fragments/graphics/x11/lock
     ../../fragments/graphics/x11/picom
-    (import ../../fragments/graphics/greetd "sx")
+    ../../fragments/graphics/greetd
     ../../fragments/graphics/window-manager/qtile
     ../../fragments/graphics/redshift
     ../../fragments/other
@@ -25,15 +26,24 @@
     ../../fragments/other/xdg
     ../../fragments/services
     ../../fragments/services/autosuspend
-    (import ../../fragments/services/jupyter "isharonov")
+    ../../fragments/services/jupyter
     ../../fragments/packages
     ../../fragments/programs
     ../../fragments/programs/git
     ../../fragments/programs/bash
     ../../fragments/programs/tmux
     ../../fragments/programs/neovim
-    (import ../../fragments/users "isharonov")
+    ../../fragments/users
   ];
+
+  custom-args = {
+    boot = {
+      devdisk = "/dev/nvme0n1p";
+      tmpsize = "16G";
+    };
+    greetd.cmd = "sx";
+    user = "isharonov";
+  };
 
   services = {
     upower.enable = true;

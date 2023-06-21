@@ -1,16 +1,17 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   imports = [
+    ../../custom-args
     ../../home-config
-    (import ../../fragments/boot { tmpsize = "16G"; })
+    ../../fragments/boot
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees2fa.nix
     ../../fragments/network/openvpn/miet.nix
     ../../fragments/network/tor
     ../../fragments/graphics
-    (import ../../fragments/graphics/greetd "sway")
+    ../../fragments/graphics/greetd
     ../../fragments/graphics/drivers/amd
     ../../fragments/graphics/redshift
     ../../fragments/graphics/wayland
@@ -23,7 +24,7 @@
     ../../fragments/other/virtualisation
     ../../fragments/other/xdg
     ../../fragments/services
-    (import ../../fragments/services/jupyter "igor")
+    ../../fragments/services/jupyter
     ../../fragments/services/google-drive
     ../../fragments/packages
     ../../fragments/programs
@@ -31,9 +32,18 @@
     ../../fragments/programs/bash
     ../../fragments/programs/tmux
     ../../fragments/programs/neovim
-    (import ../../fragments/users "igor")
+    ../../fragments/users
     ../../fragments/users/guest
   ];
+
+  custom-args = {
+    boot = {
+      devdisk = "/dev/sda";
+      tmpsize = "16G";
+    };
+    greetd.cmd = "sway";
+    user = "igor";
+  };
 
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl88x2bu ];
 

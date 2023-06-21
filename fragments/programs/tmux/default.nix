@@ -22,7 +22,7 @@
     ];
     extraConfig = ''
       set -g mouse on
-      set -g status-right '#{prefix_highlight} %a %Y-%m-%dT%H:%M'
+      set -g status-right '#{prefix_highlight} %a %Y-%m-%d %H:%M'
       set -ga status-style "bg=black fg=white"
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
       set -g @yank_selection 'primary'

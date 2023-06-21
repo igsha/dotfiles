@@ -1,5 +1,4 @@
-{ devdisk ? "/dev/sda", tmpsize ? "8G" }:
-{ lib, ... }:
+{ config, lib, ... }:
 
 {
   imports = [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix> ];
@@ -17,13 +16,13 @@
   };
 
   fileSystems = {
-    "/boot" = { device = "${devdisk}1"; fsType = "vfat"; };
-    "/" = { device = "${devdisk}2"; fsType = "ext4"; };
-    "/home" = { device = "${devdisk}3"; fsType = "ext4"; };
+    "/boot" = { device = "${config.custom-args.boot.devdisk}1"; fsType = "vfat"; };
+    "/" = { device = "${config.custom-args.boot.devdisk}2"; fsType = "ext4"; };
+    "/home" = { device = "${config.custom-args.boot.devdisk}3"; fsType = "ext4"; };
     "/tmp" = {
       device = "tmpfs";
       fsType = "tmpfs";
-      options = [ "nosuid" "nodev" "relatime" "size=${tmpsize}" ];
+      options = [ "nosuid" "nodev" "relatime" "size=${config.custom-args.boot.tmpsize}" ];
     };
   };
 

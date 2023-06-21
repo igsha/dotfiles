@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   imports = [
-    ../../home-config
-    (import ../../fragments/boot)
+    ../../custom-args
+    ../../fragments/boot
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees2fa.nix
@@ -12,7 +12,7 @@
     ../../fragments/graphics
     ../../fragments/graphics/drivers/nvidia-legacy
     ../../fragments/graphics/window-manager/qtile
-    (import ../../fragments/graphics/greetd "sx")
+    ../../fragments/graphics/greetd
     ../../fragments/graphics/redshift
     ../../fragments/graphics/x11
     ../../fragments/graphics/x11/sx
@@ -26,7 +26,7 @@
     ../../fragments/other/xdg
     ../../fragments/services
     ../../fragments/services/autosuspend
-    (import ../../fragments/services/jupyter "isharonov")
+    ../../fragments/services/jupyter
     ../../fragments/services/google-drive
     ../../fragments/services/random-background
     ../../fragments/packages
@@ -35,9 +35,19 @@
     ../../fragments/programs/bash
     ../../fragments/programs/tmux
     ../../fragments/programs/neovim
-    (import ../../fragments/users "isharonov")
+    ../../fragments/users
     ../../fragments/users/guest
+    ../../home-config
   ];
+
+  custom-args = {
+    boot = {
+      devdisk = "/dev/sda";
+      tmpsize = "8G";
+    };
+    greetd.cmd = "sx";
+    user = "isharonov";
+  };
 
   networking = {
     hostName = "centimanus";
