@@ -23,6 +23,7 @@
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/sound
+    ../../fragments/other/virtualisation
     ../../fragments/other/xdg
     ../../fragments/services
     ../../fragments/services/autosuspend
@@ -47,12 +48,11 @@
 
   services = {
     upower.enable = true;
-    autorandr.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     lutris
-  ];
+  ] ++ lib.optionals config.services.xserver.enable [ autorandr ];
 
   boot = {
     kernelParams = [ "clearcpuid=514" ];
