@@ -32,7 +32,6 @@ in {
   environment.systemPackages = with pkgs; [
     ponymix
     kbdd
-    flameshot
   ];
 
   home-config.qtile = {

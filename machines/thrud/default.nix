@@ -20,6 +20,7 @@
     ../../fragments/graphics/greetd
     ../../fragments/graphics/window-manager/qtile
     ../../fragments/graphics/redshift
+    ../../fragments/graphics/screenshot
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/sound
@@ -55,10 +56,6 @@
   ] ++ lib.optionals config.services.xserver.enable [ autorandr ];
 
   boot = {
-    kernelParams = [ "clearcpuid=514" ];
-    kernel.sysctl = {
-      "vm.max_map_count" = 256 * 1024;
-    };
     initrd.availableKernelModules = [ "nvme" ];
     kernelModules = [ "kvm-amd" ];
   };
@@ -71,5 +68,10 @@
   networking = {
     hostName = "thrud";
     wireless.iwd.enable = true;
+  };
+
+  home-config.autostart = {
+    packages = [ "autostart" ];
+    dir = builtins.toString ./home-config;
   };
 }
