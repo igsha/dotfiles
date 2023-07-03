@@ -55,8 +55,15 @@ main_widgets += [
     widget.Net(background="#111111", use_bits=True,
                format='▼ {down: >6}▲ {up: >6}', **decor),
     widget.Volume(background="#555555", fmt='󱄠 {}', **decor),
-    widget.Battery(background="#111111", notify_below=5, charge_char='󰂄', discharge_char='󰁹',
-                   format='{char}{percent:2.0%}[{hour:02d}:{min:02d}]', **decor),
+]
+
+if list(pathlib.Path('/sys/class/power_supply').glob('*')) != []:
+    main_widgets += [
+        widget.Battery(background="#111111", notify_below=5, charge_char='󰂄', discharge_char='󰁹',
+                       format='{char}{percent:2.0%}[{hour:02d}:{min:02d}]', **decor),
+    ]
+
+main_widgets += [
     widget.Wttr(background="#222222", location={'Moscow': 'M'}, format='☂ %t(%f)/%h/%P', **decor),
 
     # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
