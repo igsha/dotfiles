@@ -9,8 +9,6 @@ from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 from .keys import keys
 
 
-decor = dict(decorations=[RectDecoration()])
-
 def poll_indicators():
     output = subprocess.check_output(['xset', 'q'])
     mapping = dict(Caps='C', Num='N', Scroll='S')
@@ -18,6 +16,9 @@ def poll_indicators():
     transform = lambda k: f'<span foreground="{color_map[k[1]]}">{mapping[k[0]]}</span>'
     states = map(transform, re.findall(r"(Caps|Num|Scroll)\s+Lock:\s*(\w+)", output.decode()))
     return ' '.join(states)
+
+
+decor = dict(decorations=[RectDecoration()])
 
 main_widgets = [
     widget.GroupBox(background="#444444", highlight_method='line', hide_unused=True, **decor),
@@ -31,7 +32,7 @@ main_widgets = [
     widget.KeyboardKbdd(background="#444444", configured_keyboards=['us', 'ru'], **decor),
 
     widget.DF(partition='/', measure='G', warn_space=20, visible_on_warn=True, **decor),
-    widget.CPU(background="#333333", format=' {load_percent}%', **decor),
+    widget.CPU(background="#333333", format=' {load_percent: 3.0f}%', **decor),
     widget.Memory(background="#222222", measure_mem='G', measure_swap='G',
                   format=' {MemUsed:.1f}{mm}/{MemTotal:.1f}{mm}[{SwapUsed:.1f}{ms}]', **decor),
 ]

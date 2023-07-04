@@ -13,7 +13,7 @@ def createKeyChords(mod):
                      Key(["shift"], "s", lazy.spawn("systemctl poweroff")),
                      Key(["shift"], "r", lazy.spawn("systemctl reboot"))
                  ],
-                 mode=True,
+                 mode=False,
                  name="System (l) lock, (s) suspend, (h) hibernate, (Shift+e) logout, (Shift+r) reboot, (Shift+s) shutdown"
         ),
         KeyChord([mod], "F11",
