@@ -1,24 +1,25 @@
-{ config, lib, ... }:
+{ config, ... }:
 
 {
   imports = [
     ../../custom-args
     ../../fragments/boot
+    ../../fragments/graphics
+    ../../fragments/graphics/drivers/nvidia-legacy
+    ../../fragments/graphics/greetd
+    ../../fragments/graphics/redshift
+    ../../fragments/graphics/screenshot
+    ../../fragments/graphics/window-manager/qtile
+    ../../fragments/graphics/x11
+    ../../fragments/graphics/x11/dunst
+    ../../fragments/graphics/x11/lock
+    ../../fragments/graphics/x11/picom
+    ../../fragments/graphics/x11/sx
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees2fa.nix
     ../../fragments/network/openvpn/nto9.nix
     ../../fragments/network/tor
-    ../../fragments/graphics
-    ../../fragments/graphics/drivers/nvidia-legacy
-    ../../fragments/graphics/window-manager/qtile
-    ../../fragments/graphics/greetd
-    ../../fragments/graphics/redshift
-    ../../fragments/graphics/x11
-    ../../fragments/graphics/x11/sx
-    ../../fragments/graphics/x11/dunst
-    ../../fragments/graphics/x11/lock
-    ../../fragments/graphics/x11/picom
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/sound
@@ -26,15 +27,15 @@
     ../../fragments/other/xdg
     ../../fragments/services
     ../../fragments/services/autosuspend
-    ../../fragments/services/jupyter
     ../../fragments/services/google-drive
+    ../../fragments/services/jupyter
     ../../fragments/services/random-background
     ../../fragments/packages
     ../../fragments/programs
-    ../../fragments/programs/git
     ../../fragments/programs/bash
-    ../../fragments/programs/tmux
+    ../../fragments/programs/git
     ../../fragments/programs/neovim
+    ../../fragments/programs/tmux
     ../../fragments/users
     ../../fragments/users/guest
     ../../home-config
@@ -76,5 +77,10 @@
         useDHCP = false;
       };
     };
+  };
+
+  home-config.autostart = {
+    packages = [ "autostart" ];
+    dir = builtins.toString ./home-config;
   };
 }

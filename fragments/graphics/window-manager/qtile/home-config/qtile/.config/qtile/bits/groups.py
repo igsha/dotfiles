@@ -7,9 +7,9 @@ from .keys import keys, mod
 groups = [
     Group("1", matches=[Match(wm_class=["Alacritty"])]),
     Group("2", matches=[Match(wm_class=["qutebrowser"])]),
-    Group("3", matches=[Match(wm_class=["Thunderbird|Evolution|.evolution-wrapped_|evolution"])]),
+    Group("3", matches=[Match(wm_class=["Thunderbird", "Evolution"])]),
     Group("4", matches=[Match(wm_class=["telegram-desktop"])]),
-    Group("5", matches=[Match(wm_class=["Steam"])]),
+    Group("5", matches=[Match(wm_class=["Steam", "rocket.chat", "Rocket.Chat"])]),
 ]
 
 groups += list(map(Group, "67890"))
