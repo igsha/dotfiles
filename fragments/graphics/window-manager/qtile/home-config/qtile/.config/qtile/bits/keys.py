@@ -40,4 +40,7 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("ponymix increase 5"), desc="Increase volume"),
     Key([], "XF86AudioLowerVolume", lazy.spawn("ponymix decrease 5"), desc="Decrease volume"),
     Key([], "XF86AudioMute", lazy.spawn("ponymix toggle"), desc="Mute/unmute volume"),
+    # Misc
+    Key([mod, "control"], "c", lazy.spawn("popup-wcalc")),
+    Key([mod, "control"], "t", lazy.spawn("popup-translate")),
 ] + createKeyChords(mod)

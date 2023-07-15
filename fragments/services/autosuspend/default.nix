@@ -37,7 +37,7 @@ in {
         idle_time = timeout;
       };
       checks = {
-        Load.threshold = 3.0;
+        Load.threshold = 0.5;
         LogindSessionsIdle.enabled = true;
         /*ExternalCommand = {
           command = "${check-idle}/bin/check-idle.sh";
