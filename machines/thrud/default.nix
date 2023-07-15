@@ -1,14 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  autorandr2 = pkgs.autorandr.overrideAttrs (old: {
-    postPatch = ''
-      sed -i '/# KDE-specific/,+2d' Makefile
-      sed -i '/X-GNOME-Autostart-Phase/d' contrib/etc/xdg/autostart/autorandr.desktop
-    '';
-  });
-
-in {
+{
   imports = [
     ../../custom-args
     ../../home-config
@@ -21,6 +13,7 @@ in {
     ../../fragments/network/tor
     ../../fragments/graphics/drivers/nvidia-prime
     ../../fragments/graphics/x11
+    ../../fragments/graphics/x11/autorandr
     ../../fragments/graphics/x11/sx
     ../../fragments/graphics/x11/dunst
     ../../fragments/graphics/x11/lock
@@ -61,7 +54,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     lutris
-  ] ++ lib.optionals config.services.xserver.enable [ autorandr2 ];
+  ];
 
   boot = {
     initrd.availableKernelModules = [ "nvme" ];

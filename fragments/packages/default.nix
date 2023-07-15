@@ -74,7 +74,9 @@
         "qtwebkit-5.212.0-alpha4"
       ];
     };
-    overlays = [ (import (builtins.fetchTarball https://api.github.com/repos/igsha/nix-overlays/tarball/master)) ];
+    overlays = [
+      (import (builtins.fetchTarball https://api.github.com/repos/igsha/nix-overlays/tarball/master))
+    ];
   };
 
   services.smartd.notifications = {
