@@ -2,29 +2,11 @@
 
 let
   timeout = 1200;
-  check-idle = pkgs.writeShellApplication {
-    name = "check-idle.sh";
-    runtimeInputs = with pkgs; [ systemd jq coreutils xprintidle ];
+  check-time-interval = pkgs.writeShellApplication {
+    name = "check-time-interval.sh";
+    runtimeInputs = with pkgs; [ coreutils ];
     text = ''
-      DELTA=${builtins.toString timeout}
-      for __s in $(loginctl list-sessions --output json | jq -r '.[] | .session'); do
-        if [[ $(loginctl show-session "$__s" --value -p Active) != "yes" ]]; then
-          continue
-        fi
-        case $(loginctl show-session "$__s" --value -p Type) in
-          "tty")
-            __tty=$(loginctl show-session "$__s" --value -p TTY)
-            __d=$(( $(date +%s) - $(stat -c %X "/dev/$__tty") ))
-            if [[ $__d -lt $DELTA ]]; then exit 0; fi;;
-          "x11")
-            __disp=$(loginctl show-session "$__s" --value -p Display)
-            __xauth=/home/$(loginctl show-session "$__s" --value -p Name)/.Xauthority
-            __d=$(DISPLAY="$__disp" XAUTHORITY="$__xauth" xprintidle)
-            if [[ $__d -lt $DELTA ]]; then exit 0; fi;;
-          "wayland") echo No idle checker for wayland >&2;;
-        esac
-      done
-      exit 1
+      test "$(date +%H)" -ge 11 -a "$(date +%H)" -le 12
     '';
   };
 
@@ -37,11 +19,10 @@ in {
         idle_time = timeout;
       };
       checks = {
+        Users.host = "\\d{1,3}(\\.\\d{1,3}){3}";
         Load.threshold = 0.5;
         LogindSessionsIdle.enabled = true;
-        /*ExternalCommand = {
-          command = "${check-idle}/bin/check-idle.sh";
-        };*/
+        ExternalCommand.command = "${check-time-interval}/bin/check-time-interval.sh";
       } // lib.optionalAttrs config.services.xserver.enable {
         XIdleTime = {
           inherit timeout;
