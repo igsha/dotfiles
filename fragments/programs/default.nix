@@ -21,7 +21,6 @@ in {
       };
     };
     nix-ld.enable = true;
-    evolution.enable = true;
     fuse.userAllowOther = true;
     starship.enable = true;
     udevil.enable = true;

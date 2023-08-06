@@ -54,6 +54,7 @@ in {
         v4l-utils
         qutebrowser alacritty rofi mpv
         python3Packages.python-gitlab otpclient
+        betterbird
       ] ++ (with gst_all_1; [
         gst-plugins-base
         gst-plugins-good
