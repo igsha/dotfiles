@@ -31,7 +31,7 @@ main_widgets = [
     widget.GenPollText(background="#333333", func=poll_indicators, update_interval=0.5, **decor),
     widget.KeyboardKbdd(background="#444444", configured_keyboards=['us', 'ru'], **decor),
 
-    widget.DF(partition='/', measure='G', warn_space=20, visible_on_warn=True, **decor),
+    widget.DF(partition='/', measure='G', warn_space=40, visible_on_warn=True, **decor),
     widget.CPU(background="#333333", format=' {load_percent: 3.0f}%', **decor),
     widget.Memory(background="#222222", measure_mem='G', measure_swap='G',
                   format=' {MemUsed:.1f}{mm}/{MemTotal:.1f}{mm}[{SwapUsed:.1f}{ms}]', **decor),
