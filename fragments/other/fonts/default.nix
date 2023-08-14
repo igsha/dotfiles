@@ -3,7 +3,7 @@
 {
   fonts = {
     fontDir.enable = true;
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
     enableGhostscriptFonts = true;
     fontconfig = {
       enable = true;
@@ -11,7 +11,7 @@
       allowBitmaps = false;
       antialias = true;
     };
-    fonts = with pkgs; [
+    packages = with pkgs; [
       corefonts
       ttf_bitstream_vera
       inconsolata-lgc
