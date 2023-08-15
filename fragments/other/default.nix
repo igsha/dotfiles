@@ -15,6 +15,11 @@
   system.stateVersion = "unstable";
 
   time.timeZone = "Europe/Moscow";
+  i18n.supportedLocales = [
+    "${config.i18n.defaultLocale}/UTF-8"
+    "C.UTF-8/UTF-8"
+    "ru_RU.UTF-8/UTF-8"
+  ];
 
   nix = {
     settings.sandbox = true;
