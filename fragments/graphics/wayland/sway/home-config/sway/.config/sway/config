@@ -117,7 +117,7 @@ mode "resize" {
 
 assign [app_id="Alacritty"] 1
 assign [app_id="org.qutebrowser.qutebrowser"] 2
-assign [app_id="Thunderbird|Evolution|.evolution-wrapped_|evolution"] 3
+assign [app_id="Thunderbird|Evolution|.evolution-wrapped_|evolution|betterbird"] 3
 assign [app_id="org.telegram.desktop"] 4
 assign [app_id="Steam|steam|steam.exe"] 5
 assign [app_id="Wine"] 6
@@ -125,10 +125,5 @@ for_window [app_id="Galculator|ffplay|Wine|popup|yad|kruler"] floating enable
 
 include /etc/sway/config.d/*
 
-exec alacritty -e tmux
-exec qutebrowser
-exec evolution
-exec telegram-desktop
 exec swaykbdd
-
 exec systemctl --user start graphical-session.target

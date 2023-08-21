@@ -3,37 +3,37 @@
 {
   imports = [
     ../../custom-args
-    ../../home-config
     ../../fragments/boot
-    ../../fragments/network
-    ../../fragments/network/openvpn
-    ../../fragments/network/openvpn/elvees2fa.nix
-    ../../fragments/network/openvpn/miet.nix
-    ../../fragments/network/tor
     ../../fragments/graphics
-    ../../fragments/graphics/greetd
     ../../fragments/graphics/drivers/amd
+    ../../fragments/graphics/greetd
     ../../fragments/graphics/redshift
     ../../fragments/graphics/wayland
     ../../fragments/graphics/wayland/sway
     ../../fragments/graphics/wayland/waybar
     ../../fragments/graphics/wayland/swayidle
+    ../../fragments/network
+    ../../fragments/network/openvpn
+    ../../fragments/network/openvpn/elvees2fa.nix
+    ../../fragments/network/openvpn/miet.nix
+    ../../fragments/network/tor
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/sound
     ../../fragments/other/virtualisation
     ../../fragments/other/xdg
     ../../fragments/services
-    ../../fragments/services/jupyter
     ../../fragments/services/google-drive
+    ../../fragments/services/jupyter
     ../../fragments/packages
     ../../fragments/programs
-    ../../fragments/programs/git
     ../../fragments/programs/bash
-    ../../fragments/programs/tmux
+    ../../fragments/programs/git
     ../../fragments/programs/neovim
+    ../../fragments/programs/tmux
     ../../fragments/users
     ../../fragments/users/guest
+    ../../home-config
   ];
 
   custom-args = {
@@ -58,4 +58,9 @@
   };
 
   virtualisation.waydroid.enable = true;
+
+  home-config.autostart = {
+    packages = [ "autostart" ];
+    dir = builtins.toString ./home-config;
+  };
 }
