@@ -3,6 +3,8 @@ _:
 {
   services.openvpn.restartAfterSleep = false;
 
+  programs.openvpn3.enable = true;
+
   nixpkgs.overlays = [
     (self: super: {
       openvpn-systemd-resolved-up-script = ''
