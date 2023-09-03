@@ -5,13 +5,13 @@
     homeBinInPath = true;
     systemPackages = with pkgs; [
       subversion tig
-      wget
+      wget links2 httpie
       ed
       catimg
       man stdman man-pages man-pages-posix
       util-linux freetype
       lm_sensors
-      ack silver-searcher ripgrep
+      ripgrep
       psmisc
       fzf direnv
       sqlite
@@ -22,9 +22,10 @@
       sysstat dstat connect corkscrew torsocks socat wakelan
       pv
       tree file which mkpasswd
-      openssl encfs
+      openssl
       ocamlPackages.csv
-      vifm fuse fuseiso curlftpfs jmtpfs sshfs-fuse archivemount rar2fs
+      vifm
+      fuse fuseiso curlftpfs jmtpfs sshfs-fuse archivemount rar2fs encfs
       pwgen
       bviplus dhex vbindiff hexyl hecate hexcurse
       universal-ctags
@@ -35,8 +36,6 @@
       ponysay
       fakeroot fakechroot debootstrap
       transmission
-      links2
-      httpie
       parallel
       gnupg
       ncdu

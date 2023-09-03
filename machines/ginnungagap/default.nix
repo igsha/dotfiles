@@ -16,6 +16,7 @@
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees2fa.nix
     ../../fragments/network/openvpn/miet.nix
+    ../../fragments/network/openvpn/nto9.nix
     ../../fragments/network/tor
     ../../fragments/other
     ../../fragments/other/fonts

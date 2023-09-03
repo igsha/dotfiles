@@ -126,4 +126,15 @@ for_window [app_id="Galculator|ffplay|Wine|popup|yad|kruler"] floating enable
 include /etc/sway/config.d/*
 
 exec swaykbdd
-exec systemctl --user start graphical-session.target
+exec systemctl --user import-environment \
+    DBUS_SESSION_BUS_ADDRESS \
+    WAYLAND_DISPLAY \
+    PATH \
+    NIX_PATH \
+    XDG_SESSION_ID \
+    XDG_SESSION_TYPE \
+    XDG_DATA_DIRS \
+    XDG_CONFIG_DIRS \
+    XDG_RUNTIME_DIR \
+    XDG_DESKTOP_PORTAL_DIR
+exec systemctl --user start sway-session.target
