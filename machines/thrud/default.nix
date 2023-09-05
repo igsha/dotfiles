@@ -2,12 +2,6 @@
 
 {
   imports = [
-    <nixos-hardware/common/cpu/amd/pstate.nix>
-    <nixos-hardware/common/gpu/nvidia/prime.nix>
-    <nixos-hardware/common/hidpi.nix>
-    <nixos-hardware/common/pc>
-    <nixos-hardware/common/pc/laptop/ssd>
-
     ../../custom-args
     ../../fragments/boot
     ../../fragments/graphics/greetd

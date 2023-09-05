@@ -43,7 +43,7 @@ in {
         google-chrome
         hunspellDicts.ru-ru
         hunspellDicts.en-us
-        yad libnotify iplay
+        yad libnotify /*iplay*/
         fzy
         asciinema obs-studio
         translate-shell

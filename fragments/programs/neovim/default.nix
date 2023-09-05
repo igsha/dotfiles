@@ -44,10 +44,6 @@ let
       let g:jellybeans_overrides = {'background':{'ctermbg':'none','256ctermbg':'none','guibg':'none'}}
       set background=
     '';
-    /*jupytext = ''
-      let g:jupytext_command = '${python3Packages.jupytext}/bin/jupytext'
-      let g:jupytext_enable = 0
-    '';*/
   };
   vimCustom = pkgs.vimUtils.buildVimPlugin {
     pname = "vim-custom";
@@ -66,23 +62,33 @@ let
   };
   smarthomekey = pkgs.vimUtils.buildVimPlugin {
     pname = "smarthomekey";
-    version = "master";
-    src = builtins.fetchTarball https://api.github.com/repos/chenkaie/smarthomekey.vim/tarball/master;
+    version = "2012-10-26";
+    src = pkgs.fetchFromGitHub {
+      owner = "chenkaie";
+      repo = "smarthomekey.vim";
+      rev = "d607ad1d2c45869f159481a3cec33732f727d5e1";
+      hash = "sha256-DBA/CWo/4b27nNFg56Qm59JrGqUssskQtz2rCgS7BD4=";
+    };
   };
-  jellybeans = pkgs.vimUtils.buildVimPlugin {
+  jellybeans = pkgs.vimUtils.buildVimPlugin rec {
     pname = "jellybeans";
-    version = "master";
-    src = builtins.fetchTarball https://api.github.com/repos/nanotech/jellybeans.vim/tarball/master;
-  };
-  jupytext-vim = pkgs.vimUtils.buildVimPlugin {
-    pname = "jupytext-vim";
-    version = "master";
-    src = builtins.fetchTarball https://api.github.com/repos/goerz/jupytext.vim/tarball/master;
+    version = "1.7";
+    src = pkgs.fetchFromGitHub {
+      owner = "nanotech";
+      repo = "jellybeans.vim";
+      rev = "v${version}";
+      hash = "sha256-X+37Mlyt6+ZwfYlt4ZtdHPXDgcKtiXlUoUPZVb58w/8=";
+    };
   };
   linediff-vim = pkgs.vimUtils.buildVimPlugin {
     pname = "linediff-vim";
-    version = "master";
-    src = builtins.fetchTarball https://api.github.com/repos/AndrewRadev/linediff.vim/tarball/master;
+    version = "2023-03-15";
+    src = pkgs.fetchFromGitHub {
+      owner = "AndrewRadev";
+      repo = "linediff.vim";
+      rev = "245d16328c47a132574e0fa4298d24a0f78b20b0";
+      hash = "sha256-3VxpJpogPFBmo966GB90sQvcj/Ah56lGyR/y/WV3QT0=";
+    };
   };
 
 in {
@@ -111,7 +117,6 @@ in {
           vim-grammarous
           smarthomekey
           jellybeans
-          jupytext-vim
           csv
           editorconfig-vim
           linediff-vim
