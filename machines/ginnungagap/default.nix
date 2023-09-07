@@ -2,10 +2,14 @@
 
 {
   imports = [
+    <nixos-hardware/common/cpu/intel/cpu-only.nix>
+    <nixos-hardware/common/gpu/amd>
+    <nixos-hardware/common/hidpi.nix>
+    <nixos-hardware/common/pc>
+
     ../../custom-args
     ../../fragments/boot
     ../../fragments/graphics
-    ../../fragments/graphics/drivers/amd
     ../../fragments/graphics/greetd
     ../../fragments/graphics/redshift
     ../../fragments/graphics/wayland
