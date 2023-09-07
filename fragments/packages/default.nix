@@ -75,6 +75,17 @@
     };
     overlays = [
       (import (builtins.fetchTarball https://api.github.com/repos/igsha/nix-overlays/tarball/master))
+      (_: _: { stable = import <nixos-stable> {}; })
+      (final: prev: {
+        python3 = prev.python3.override {
+          packageOverrides = pself: psuper: {
+            tensorflow = prev.stable.python3Packages.tensorflow;
+            keras = prev.stable.python3Packages.keras;
+          };
+        };
+        libtensorflow = prev.stable.libtensorflow;
+        qtile = prev.stable.qtile;
+      })
     ];
   };
 

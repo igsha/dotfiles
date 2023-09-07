@@ -17,8 +17,8 @@
           scipy
           matplotlib
           numpy
-          #tensorflow
-          #keras
+          tensorflow
+          keras
           opencv4
           pillow
           python-gitlab
