@@ -12,10 +12,13 @@
     ../../fragments/graphics
     ../../fragments/graphics/greetd
     ../../fragments/graphics/redshift
-    ../../fragments/graphics/wayland
-    ../../fragments/graphics/wayland/sway
-    ../../fragments/graphics/wayland/waybar
-    ../../fragments/graphics/wayland/swayidle
+    ../../fragments/graphics/screenshot
+    ../../fragments/graphics/window-manager/qtile
+    ../../fragments/graphics/x11
+    ../../fragments/graphics/x11/dunst
+    ../../fragments/graphics/x11/lock
+    ../../fragments/graphics/x11/picom
+    ../../fragments/graphics/x11/sx
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees2fa.nix
@@ -28,6 +31,7 @@
     ../../fragments/other/virtualisation
     ../../fragments/other/xdg
     ../../fragments/services
+    ../../fragments/services/autosuspend
     ../../fragments/services/google-drive
     ../../fragments/services/jupyter
     ../../fragments/packages
@@ -46,7 +50,7 @@
       devdisk = "/dev/sda";
       tmpsize = "16G";
     };
-    greetd.cmd = "sway";
+    greetd.cmd = "sx";
     user = "igor";
   };
 
