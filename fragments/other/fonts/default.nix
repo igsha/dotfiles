@@ -25,7 +25,7 @@ in {
       allowBitmaps = false;
       antialias = true;
     };
-  } // (if lib.versionAtLeast pkgs.lib.version "23.11" then {
+  } // (if lib.versionAtLeast lib.version "23.11" then {
     enableDefaultPackages = true;
     inherit packages;
   } else {

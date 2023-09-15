@@ -2,10 +2,14 @@
 
 {
   imports = [
+    <nixos-hardware/common/cpu/intel/cpu-only.nix>
+    <nixos-hardware/common/gpu/nvidia>
+    <nixos-hardware/common/hidpi.nix>
+    <nixos-hardware/common/pc>
+
     ../../custom-args
     ../../fragments/boot
     ../../fragments/graphics
-    ../../fragments/graphics/drivers/nvidia-legacy
     ../../fragments/graphics/greetd
     ../../fragments/graphics/redshift
     ../../fragments/graphics/screenshot
@@ -77,6 +81,16 @@
         useDHCP = false;
       };
     };
+  };
+
+  hardware.nvidia = {
+    open = false;
+    modesetting.enable = true;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+  };
+
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 5;
   };
 
   home-config.autostart = {
