@@ -58,7 +58,7 @@ main_widgets += [
     widget.Volume(background="#555555", fmt='󱄠 {}', **decor),
 ]
 
-if list(pathlib.Path('/sys/class/power_supply').glob('*')) != []:
+if list(pathlib.Path('/sys/class/power_supply').glob('BAT*')) != []:
     main_widgets += [
         widget.Battery(background="#111111", notify_below=5, charge_char='󰂄', discharge_char='󰁹',
                        format='{char}{percent:2.0%}[{hour:02d}:{min:02d}]', **decor),
