@@ -55,6 +55,8 @@
   };
 
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl88x2bu ];
+  hardware.amdgpu.amdvlk = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   fileSystems = {
     "/" = lib.mkForce { device = "/dev/sda3"; fsType = "ext4"; };
