@@ -11,6 +11,7 @@
     flatpak.enable = true;
     davfs2.enable = true;
     unclutter-xfixes.enable = config.services.xserver.enable;
+    cron.enable = true;
 
     journald.extraConfig = "SystemMaxUse=4G";
 
