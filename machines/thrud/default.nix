@@ -2,26 +2,30 @@
 
 {
   imports = [
+    <nixos-hardware/common/cpu/amd/pstate.nix>
+    <nixos-hardware/common/gpu/nvidia/prime.nix>
+    <nixos-hardware/common/hidpi.nix>
+    <nixos-hardware/common/pc>
+    <nixos-hardware/common/pc/laptop/ssd>
+
     ../../custom-args
-    ../../home-config
     ../../fragments/boot
+    ../../fragments/graphics/greetd
+    ../../fragments/graphics/redshift
+    ../../fragments/graphics/screenshot
+    ../../fragments/graphics/window-manager/qtile
+    ../../fragments/graphics/x11
+    ../../fragments/graphics/x11/autorandr
+    ../../fragments/graphics/x11/dunst
+    ../../fragments/graphics/x11/lock
+    ../../fragments/graphics/x11/picom
+    ../../fragments/graphics/x11/sx
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/elvees2fa.nix
     ../../fragments/network/openvpn/miet.nix
     ../../fragments/network/openvpn/nto9.nix
     ../../fragments/network/tor
-    ../../fragments/graphics/drivers/nvidia-prime
-    ../../fragments/graphics/x11
-    ../../fragments/graphics/x11/autorandr
-    ../../fragments/graphics/x11/sx
-    ../../fragments/graphics/x11/dunst
-    ../../fragments/graphics/x11/lock
-    ../../fragments/graphics/x11/picom
-    ../../fragments/graphics/greetd
-    ../../fragments/graphics/window-manager/qtile
-    ../../fragments/graphics/redshift
-    ../../fragments/graphics/screenshot
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/sound
@@ -32,11 +36,12 @@
     ../../fragments/services/jupyter
     ../../fragments/packages
     ../../fragments/programs
-    ../../fragments/programs/git
     ../../fragments/programs/bash
-    ../../fragments/programs/tmux
+    ../../fragments/programs/git
     ../../fragments/programs/neovim
+    ../../fragments/programs/tmux
     ../../fragments/users
+    ../../home-config
   ];
 
   custom-args = {
@@ -46,6 +51,17 @@
     };
     greetd.cmd = "sx";
     user = "isharonov";
+  };
+
+  hardware.nvidia = {
+    prime = {
+      nvidiaBusId = "PCI:1:0:0";
+      amdgpuBusId = "PCI:4:0:0";
+    };
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
   };
 
   services = {

@@ -67,10 +67,9 @@
       android_sdk.accept_license = true;
       zathura.useMupdf = false;
       permittedInsecurePackages = [
-        "python3.10-tensorflow-2.11.0"
-        "tensorflow-2.11.0"
-        "tensorflow-2.11.0-deps.tar.gz"
-        "qtwebkit-5.212.0-alpha4"
+        "python3.10-tensorflow-2.11.1"
+        "tensorflow-2.11.1"
+        "tensorflow-2.11.1-deps.tar.gz"
       ];
     };
     overlays = [
