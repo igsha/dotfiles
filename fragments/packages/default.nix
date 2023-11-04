@@ -77,7 +77,6 @@
         qutebrowser = unstable.qutebrowser.override { enableVulkan = false; };
         mpv-unwrapped = unstable.mpv-unwrapped; # need for unstable.qutebrowser
         wrapMpv = unstable.wrapMpv.override { yt-dlp = final.yt-dlp; }; # need for mpv
-        betterbird = unstable.betterbird;
         telegram-desktop = unstable.telegram-desktop;
         yt-dlp = unstable.yt-dlp.overridePythonAttrs (old: rec { # need for mpv
           propagatedBuildInputs = old.propagatedBuildInputs ++ [ unstable.python3Packages.lxml ];
