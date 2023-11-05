@@ -1,13 +1,26 @@
 { config, lib, pkgs, ... }:
 
 let
+  basedir = builtins.toString ../.;
   update-home-configs = cfg: let
-    concater = x: lib.strings.concatStringsSep " " ([ "--no-folding -d" x.dir "-t $HOME \"$@\"" ] ++ x.packages);
+    replaceBaseDir = dir: ''"$BASEDIR${lib.strings.removePrefix basedir dir}"'';
+    buildArgs = x: [ "stow" "-v" "--no-folding -d" (replaceBaseDir x.dir) ''-t "$HOME" "$@"'' ] ++ x.packages;
+    concater = x: lib.strings.concatStringsSep " " (buildArgs x);
     args = builtins.map concater (builtins.attrValues cfg);
-    calls = lib.strings.concatStringsSep "\n" (builtins.map (x: "${pkgs.stow}/bin/stow -v ${x}") args);
-  in pkgs.writeShellScriptBin "update-home-configs" ''
-    ${calls}
-  '';
+  in pkgs.writeShellApplication {
+    name = "update-home-configs";
+    runtimeInputs = [ pkgs.stow ];
+    text = ''
+      ${if lib.strings.isStorePath basedir then ''
+        BASEDIR="$1" # ${basedir}
+        shift
+      '' else ''
+        BASEDIR="${basedir}"
+      ''}
+
+      ${lib.strings.concatStringsSep "\n" args}
+    '';
+  };
   packageOps = {
     options = {
       packages = lib.mkOption {
