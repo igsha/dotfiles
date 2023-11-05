@@ -57,6 +57,7 @@
       hydra-check
       stow
       novnc tigervnc
+      zx cling
     ];
   };
 
