@@ -50,7 +50,6 @@
   };
 
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl88x2bu ];
-  hardware.amdgpu.amdvlk = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   fileSystems = {
@@ -58,12 +57,12 @@
     "/home" = lib.mkForce { device = "/dev/sda4"; fsType = "ext4"; };
   };
 
+  swapDevices = [{ label = "swap"; }];
+
   networking = {
     hostName = "ginnungagap";
     wireless.iwd.enable = true;
   };
-
-  virtualisation.waydroid.enable = true;
 
   home-config.autostart = {
     packages = [ "autostart" ];
