@@ -4,3 +4,4 @@ configuration {
     xoffset: 0;
     yoffset: 0;
 }
+@import "/etc/rofi/themes/Monokai.rasi"

@@ -43,6 +43,7 @@ keys = [
     Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "Tab", lazy.group.next_window(), desc="Move window focus to other window"),
     Key([mod, "shift"], "Tab", lazy.group.prev_window(), desc="Move window focus to other window"),
+    Key(["mod1"], "Tab", lazy.spawn("rofi -show window"), desc="Choose window"),
     # Move windows between left/right columns or move up/down in current stack.
     Key([mod, "shift"], "Left", window_move('left'), desc="Move window to the left"),
     Key([mod, "shift"], "Right", window_move('right'), desc="Move window to the right"),
@@ -64,7 +65,7 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
     Key([mod], "Return", lazy.spawn(guess_terminal()), desc="Launch terminal"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn("rofi -show run"), desc="Spawn a command using a prompt widget"),
     Key([mod], "Print", lazy.spawn("flameshot gui"), desc="Take a screenshot"),
     # Sound
     Key([], "XF86AudioRaiseVolume", lazy.spawn("ponymix increase 5"), desc="Increase volume"),
@@ -73,4 +74,5 @@ keys = [
     # Misc
     Key([mod, "control"], "c", lazy.spawn("popup-wcalc")),
     Key([mod, "control"], "t", lazy.spawn("popup-translate")),
+    Key([mod], "F12", lazy.spawn("rofi -show power -modes power:rofi-power-menu.sh")),
 ] + createKeyChords(mod)

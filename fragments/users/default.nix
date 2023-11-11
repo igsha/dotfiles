@@ -52,7 +52,7 @@ in {
         wpsoffice
         termplay
         v4l-utils
-        qutebrowser alacritty rofi mpv
+        qutebrowser alacritty mpv
         python3Packages.python-gitlab otpclient
         thunderbird
       ] ++ (with gst_all_1; [
@@ -73,7 +73,7 @@ in {
   };
 
   home-config.users = {
-    packages = [ "qutebrowser" "alacritty" "rofi" "mpv" "home-bin" ];
+    packages = [ "qutebrowser" "alacritty" "mpv" "home-bin" ];
     dir = builtins.toString ./home-config;
   };
 }

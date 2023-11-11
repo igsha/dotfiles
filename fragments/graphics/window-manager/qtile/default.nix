@@ -32,10 +32,13 @@ in {
   environment.systemPackages = with pkgs; [
     ponymix
     kbdd
+    rofi
   ];
 
   home-config.qtile = {
-    packages = [ "qtile" ];
+    packages = [ "qtile" "rofi" ];
     dir = builtins.toString ./home-config;
   };
+
+  environment.etc."rofi/themes".source = "${pkgs.rofi}/share/rofi/themes";
 }
