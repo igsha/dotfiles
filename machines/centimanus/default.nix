@@ -2,11 +2,6 @@
 
 {
   imports = [
-    <nixos-hardware/common/cpu/intel/cpu-only.nix>
-    <nixos-hardware/common/gpu/nvidia>
-    <nixos-hardware/common/hidpi.nix>
-    <nixos-hardware/common/pc>
-
     ../../custom-args
     ../../fragments/boot
     ../../fragments/graphics

@@ -33,6 +33,10 @@
           inherit system;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
+            nixos-hardware.nixosModules.common-cpu-intel-cpu-only
+            nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+            nixos-hardware.nixosModules.common-hidpi
+            nixos-hardware.nixosModules.common-pc
             ./machines/centimanus
           ];
         };
