@@ -4,7 +4,7 @@ set -e
 powermenu() {
     declare -A MENU=()
     MENU["1 lock"]="loginctl lock-session ${XDG_SESSION_ID-}"
-    MENU["2 reload"]="qtile cmd-obj -o cmd -f reload"
+    MENU["2 reload"]="qtile cmd-obj -o cmd -f reload_config"
     MENU["3 suspend"]="systemctl suspend"
     MENU["4 hibernate"]="systemctl hibernate"
     MENU["5 logout"]="loginctl terminate-session ${XDG_SESSION_ID-}"

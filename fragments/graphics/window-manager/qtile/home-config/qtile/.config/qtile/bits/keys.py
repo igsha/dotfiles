@@ -75,4 +75,5 @@ keys = [
     Key([mod, "control"], "c", lazy.spawn("popup-wcalc")),
     Key([mod, "control"], "t", lazy.spawn("popup-translate")),
     Key([mod], "F12", lazy.spawn("rofi -show power -modes power:rofi-power-menu.sh")),
+    Key([mod], "F1", lazy.spawn("dunstctl close")),
 ] + createKeyChords(mod)
