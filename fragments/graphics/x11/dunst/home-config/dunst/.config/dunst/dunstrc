@@ -1,17 +1,11 @@
 [global]
 ignore_dbusclose = true
 transparency = 25
-timeout = 0
 show_age_threshold = -1
 
 [fullscreen_show]
 fullscreen = show
 
-[urgency_low]
-timeout = 0
-
-[urgency_normal]
-timeout = 0
-
-[urgency_critical]
+[thunderbird]
+appname = Thunderbird
 timeout = 0
