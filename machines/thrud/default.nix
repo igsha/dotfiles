@@ -71,8 +71,6 @@
     kernelModules = [ "kvm-amd" ];
   };
 
-  swapDevices = [{ label = "swap"; }];
-
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;

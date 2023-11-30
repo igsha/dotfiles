@@ -57,8 +57,6 @@
     "/home" = lib.mkForce { device = "/dev/sda4"; fsType = "ext4"; };
   };
 
-  swapDevices = [{ label = "swap"; }];
-
   networking = {
     hostName = "ginnungagap";
     wireless.iwd.enable = true;

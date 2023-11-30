@@ -26,5 +26,7 @@
     };
   };
 
+  swapDevices = [{ label = "swap"; }]; # need for hibernation
+
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
