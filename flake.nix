@@ -11,9 +11,34 @@
   outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, nixos-2305 }:
     let
       system = "x86_64-linux";
-      overlays = _: _: {
-        unstable = import nixos-unstable { inherit system; };
-        rocketchat-desktop = (import nixos-2305 { inherit system; }).rocketchat-desktop;
+      unstable = import nixos-unstable {
+        inherit system;
+        overlays = [
+          (_: prev: {
+            qutebrowser = prev.qutebrowser.override { enableVulkan = false; };
+            yt-dlp = prev.yt-dlp.overridePythonAttrs (old: rec { # need for mpv
+              propagatedBuildInputs = old.propagatedBuildInputs ++ [ prev.python3Packages.lxml ];
+              postPatch = ''
+                cp ${./fragments/packages/user_extractors.py} yt_dlp/extractor/user_extractors.py
+                echo "from .user_extractors import *" >> yt_dlp/extractor/_extractors.py
+              '';
+            });
+          })
+        ];
+      };
+      defaults = { pkgs, ... }: {
+        nixpkgs.overlays = [
+          (final: prev: {
+            rocketchat-desktop = (import nixos-2305 { inherit system; }).rocketchat-desktop;
+            qutebrowser = unstable.qutebrowser;
+            telegram-desktop = unstable.telegram-desktop;
+            yt-dlp = unstable.yt-dlp;
+          })
+        ];
+        nix.registry.nixpkgs.to = {
+          type = "path";
+          path = pkgs.path;
+        };
       };
 
     in {
@@ -22,7 +47,7 @@
           inherit system;
           specialArgs = { inherit nixos-hardware; };
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
+            defaults
             ./machines/ginnungagap
           ];
         };
@@ -30,7 +55,7 @@
           inherit system;
           specialArgs = { inherit nixos-hardware; };
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
+            defaults
             ./machines/centimanus
           ];
         };
@@ -38,7 +63,7 @@
           inherit system;
           specialArgs = { inherit nixos-hardware; };
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
+            defaults
             ./machines/thrud
           ];
         };

@@ -73,21 +73,6 @@
         "tensorflow-2.11.1-deps.tar.gz"
       ];
     };
-    overlays = [
-      (final: prev: with final; {
-        qutebrowser = unstable.qutebrowser.override { enableVulkan = false; };
-        mpv-unwrapped = unstable.mpv-unwrapped; # need for unstable.qutebrowser
-        wrapMpv = unstable.wrapMpv.override { yt-dlp = final.yt-dlp; }; # need for mpv
-        telegram-desktop = unstable.telegram-desktop;
-        yt-dlp = unstable.yt-dlp.overridePythonAttrs (old: rec { # need for mpv
-          propagatedBuildInputs = old.propagatedBuildInputs ++ [ unstable.python3Packages.lxml ];
-          postPatch = ''
-            cp ${./user_extractors.py} yt_dlp/extractor/user_extractors.py
-            echo "from .user_extractors import *" >> yt_dlp/extractor/_extractors.py
-          '';
-        });
-      })
-    ];
   };
 
   services.smartd.notifications = {
