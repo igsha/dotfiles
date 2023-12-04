@@ -55,6 +55,7 @@ in {
         qutebrowser alacritty mpv
         python3Packages.python-gitlab otpclient
         thunderbird
+        rocketchat-desktop
       ] ++ (with gst_all_1; [
         gst-plugins-base
         gst-plugins-good
