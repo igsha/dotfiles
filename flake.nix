@@ -20,35 +20,25 @@
       nixosConfigurations = {
         ginnungagap = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit nixos-hardware; };
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
-            nixos-hardware.nixosModules.common-cpu-intel-cpu-only
-            nixos-hardware.nixosModules.common-gpu-amd
-            nixos-hardware.nixosModules.common-hidpi
-            nixos-hardware.nixosModules.common-pc
             ./machines/ginnungagap
           ];
         };
         centimanus = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit nixos-hardware; };
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
-            nixos-hardware.nixosModules.common-cpu-intel-cpu-only
-            nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
-            nixos-hardware.nixosModules.common-hidpi
-            nixos-hardware.nixosModules.common-pc
             ./machines/centimanus
           ];
         };
         thrud = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit nixos-hardware; };
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
-            nixos-hardware.nixosModules.common-cpu-amd-pstate
-            nixos-hardware.nixosModules.common-gpu-nvidia
-            nixos-hardware.nixosModules.common-hidpi
-            nixos-hardware.nixosModules.common-pc
-            nixos-hardware.nixosModules.common-pc-laptop-ssd
             ./machines/thrud
           ];
         };

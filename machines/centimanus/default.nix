@@ -1,7 +1,12 @@
-{ config, ... }:
+{ config, nixos-hardware, ... }:
 
 {
   imports = [
+    nixos-hardware.nixosModules.common-cpu-intel-cpu-only
+    nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+    nixos-hardware.nixosModules.common-hidpi
+    nixos-hardware.nixosModules.common-pc
+
     ../../custom-args
     ../../fragments/boot
     ../../fragments/graphics
