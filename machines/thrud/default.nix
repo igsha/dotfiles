@@ -28,6 +28,7 @@
     ../../fragments/network/tor
     ../../fragments/other
     ../../fragments/other/fonts
+    ../../fragments/other/games
     ../../fragments/other/sound
     ../../fragments/other/virtualisation
     ../../fragments/other/xdg
