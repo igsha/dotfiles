@@ -41,6 +41,7 @@
     ../../fragments/programs/git
     ../../fragments/programs/neovim
     ../../fragments/programs/tmux
+    ../../fragments/programs/udevil
     ../../fragments/users
     ../../fragments/users/guest
     ../../home-config
