@@ -22,8 +22,10 @@ in {
       "org.qutebrowser.qutebrowser.desktop"  = [ "text/html" ]
         ++ listWithPrefix "x-scheme-handler/" [ "http" "https" ];
       "imv.desktop" = listWithPrefix "image/" [ "png" "jpeg" "jpg" "gif" "vnd.adobe.photoshop" "svg" "heif" ];
-      "nvim.desktop" = (listWithPrefix "text/" ([ "plain" "markdown" ] ++ listWithPrefix "x-" [ "cmake" "python" "rst" "makefile" "patch" "readme" "log" ]))
-        ++ listWithPrefix "application/" ([ "json" "octet-stream" "xml" ] ++ listWithPrefix "x-" [ "yaml" "shellscript" "wine-extension-ini" ]);
+      "nvim.desktop" = (listWithPrefix "text/" ([ "plain" "markdown" ]
+          ++ listWithPrefix "x-" [ "cmake" "python" "rst" "makefile" "patch" "readme" "log" ]))
+        ++ listWithPrefix "application/" ([ "json" "octet-stream" "xml" ]
+          ++ listWithPrefix "x-" [ "yaml" "shellscript" "wine-extension-ini" ]);
     };
   };
 
@@ -31,5 +33,6 @@ in {
     enable = true;
     xdgOpenUsePortal = false;
     wlr.enable = !config.services.xserver.enable;
+    config.common.default = "*";
   };
 }
