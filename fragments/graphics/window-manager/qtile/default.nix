@@ -9,7 +9,7 @@
       extraPackages = pythonPkgs: with pythonPkgs; [
         # TODO: https://github.com/NixOS/nixpkgs/issues/271610
         (qtile-extras.overridePythonAttrs (old: {
-          disabledTestPaths = [ "test/widget/test_strava.py" ];
+          doCheck = false;
         }))
       ];
     };

@@ -90,6 +90,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
   };
 
+  nixpkgs.config.nvidia.acceptLicense = true;
+
   boot.kernel.sysctl = {
     "vm.swappiness" = 5;
   };
