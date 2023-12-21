@@ -18,6 +18,14 @@ def poll_indicators():
     return ' '.join(states)
 
 
+def poll_net():
+    def isup(p):
+        return p.parent.name != "lo" and open(p).read().strip() == "1"
+
+    nets = filter(isup, pathlib.Path("/sys/class/net/").glob("*/carrier"))
+    return "🖧" + ",".join(map(lambda p: p.parent.name, nets))
+
+
 decor = dict(decorations=[RectDecoration()])
 
 main_widgets = [
@@ -53,8 +61,9 @@ if is_wlan:
     ]
 
 main_widgets += [
+    widget.GenPollText(background="#333333", func=poll_net, update_interval=3, **decor),
     widget.Net(background="#111111", use_bits=True,
-               format='▼ {down: >6}▲ {up: >6}', **decor),
+               format='▼{down:5.0f}{down_suffix:<2}▲{up:5.0f}{up_suffix:<2}', **decor),
     widget.Volume(background="#555555", fmt='󱄠 {}', **decor),
 ]
 
