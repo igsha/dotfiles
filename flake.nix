@@ -8,7 +8,7 @@
     nixos-2305.url = "nixpkgs/nixos-23.05";
   };
 
-  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, nixos-2305 }:
+  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, nixos-2305 }@inputs:
     let
       system = "x86_64-linux";
       unstable = import nixos-unstable {
@@ -37,10 +37,12 @@
             telegram-desktop = unstable.telegram-desktop;
           })
         ];
-        nix.registry.nixpkgs.to = {
-          type = "path";
-          path = pkgs.path;
-        };
+        nix.registry = builtins.mapAttrs (k: v: {
+          to = {
+            type = "path";
+            path = v.outPath;
+          };
+        }) (builtins.removeAttrs inputs [ "self" ]);
       };
 
     in {
