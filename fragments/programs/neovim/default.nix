@@ -120,6 +120,7 @@ in {
           csv
           editorconfig-vim
           linediff-vim
+          telescope-nvim
         ];
         opt = [ ];
       };

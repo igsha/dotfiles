@@ -55,7 +55,6 @@
       openldap cifs-utils
       poke
       hydra-check
-      stow
       novnc tigervnc
       zx cling
     ];

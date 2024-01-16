@@ -4,9 +4,9 @@ let
   basedir = builtins.toString ../.;
   update-home-configs = cfg: let
     replaceBaseDir = dir: ''"$BASEDIR${lib.strings.removePrefix basedir dir}"'';
-    buildArgs = x: [ "stow" "-v" "--no-folding -d" (replaceBaseDir x.dir) ''-t "$HOME" "$@"'' ] ++ x.packages;
-    concater = x: lib.strings.concatStringsSep " " (buildArgs x);
-    args = builtins.map concater (builtins.attrValues cfg);
+    stowArgs = dir: ''stow --dotfiles -v --no-folding -d ${replaceBaseDir dir} -t "$HOME" "$@"'';
+    buildArgs = x: (stowArgs x.dir) + " " + (lib.strings.concatStringsSep " " x.packages);
+    args = builtins.map buildArgs (builtins.attrValues cfg);
   in pkgs.writeShellApplication {
     name = "update-home-configs";
     runtimeInputs = [ pkgs.stow ];
@@ -51,6 +51,7 @@ in {
   config = {
     environment.systemPackages = [
       (update-home-configs config.home-config)
+      pkgs.stow
     ];
   };
 }
