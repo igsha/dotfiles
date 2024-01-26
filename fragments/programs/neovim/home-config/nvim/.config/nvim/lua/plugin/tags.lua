@@ -16,16 +16,9 @@ local function MakeTagsInGitRootDir()
     print('Updated tags: ', tagfile)
 end
 
-local function GetGitTags()
-    local pipe = io.popen('git rev-parse --show-toplevel', 'r')
-    if not pipe then
-        return
-    end
-
-    local tagfile = pipe:read() .. '/.git/tags'
-    pipe:close()
-
-    return tagfile
+local function GetGitTags(dir)
+    local data = vim.fn.systemlist({'git', 'rev-parse', '--show-toplevel'})
+    return data[1]:gsub('%s*$', '') .. '/.git/tags'
 end
 
 local function setup()
@@ -35,7 +28,7 @@ local function setup()
         group = mygroup,
         pattern = { 'cpp', 'hpp', 'cxx', 'hxx', 'c', 'h' },
         callback = function(args)
-            vim.cmd("setlocal tags+=" .. GetGitTags())
+            vim.cmd("setlocal tags+=" .. GetGitTags(vim.fs.dirname(args.file)))
         end
     })
 

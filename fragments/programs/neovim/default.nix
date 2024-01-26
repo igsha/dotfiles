@@ -53,17 +53,14 @@ in {
       '';
       packages.myVimPackage = {
         start = with pkgs.vimPlugins; [
-          ack-vim
           supertab
           tagbar
-          vim-localvimrc
           vim-dirdiff
           denite
           airline
           vim-nix
           multiple-cursors
           plantuml
-          vim-buffergator
           vim-grammarous
           smarthomekey
           jellybeans
