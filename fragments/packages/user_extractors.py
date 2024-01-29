@@ -45,7 +45,7 @@ class GetPlrIE(InfoExtractor):
 
 
 class KodikListIE(InfoExtractor):
-    _VALID_URL = r'(?P<domain>(?:https?://)?(?:www\.)?(kodik\.info|aniqit\.com|anivod\.com))/(?P<type>(serial?|video|uv))/(?P<id>[-\w/]+)'
+    _VALID_URL = r'(?P<domain>(?:https?://)?(?:www\.)?(kodik|aniqit|anivod)\.[^/]+)/(?P<type>(serial?|season|video|uv))/(?P<id>[-\w/]+)'
     _decode_table = {
             **{c: c + 13 if c < ord('N') else c - 13 for c in range(ord('A'), ord('Z') + 1)},
             **{c: c + 13 if c < ord('n') else c - 13 for c in range(ord('a'), ord('z') + 1)}}
@@ -62,7 +62,7 @@ class KodikListIE(InfoExtractor):
 
         params = {'type': video_type, 'id': video_id, 'hash': video_hash}
         formdata = parse.urlencode(params).encode()
-        webpage = self._download_webpage(f"{domain}/gvi", "Kodik GetVideoInfo", data=formdata)
+        webpage = self._download_webpage(f"{domain}/vdu", "Kodik GetVideoInfo", data=formdata)
 
         jsn = json.loads(webpage)
         result = {'id': video_id, 'title': f"#{video_value} ({video_id})", 'episode_number': int(video_value)}
@@ -79,8 +79,8 @@ class KodikListIE(InfoExtractor):
         video_id = self._match_id(url)
         domain = re.search(self._VALID_URL, url).group('domain')
         video_type = re.search(self._VALID_URL, url).group('type')
-        if video_type == 'serial':
-            video_type = video_type[:-1]
+        if video_type == 'serial' or video_type == 'season':
+            video_type = 'seria'
 
         webpage = self._download_webpage(url, video_id, headers={'referer': domain})
         t = etree.HTML(webpage)
