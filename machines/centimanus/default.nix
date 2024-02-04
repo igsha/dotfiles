@@ -32,9 +32,9 @@
     ../../fragments/services
     ../../fragments/services/autosuspend
     ../../fragments/services/google-drive
-    ../../fragments/services/jupyter
     ../../fragments/services/random-background
     ../../fragments/packages
+    ../../fragments/packages/python-lab
     ../../fragments/programs
     ../../fragments/programs/bash
     ../../fragments/programs/git

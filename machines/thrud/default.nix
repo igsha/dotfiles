@@ -34,8 +34,8 @@
     ../../fragments/other/xdg
     ../../fragments/services
     ../../fragments/services/autosuspend
-    ../../fragments/services/jupyter
     ../../fragments/packages
+    ../../fragments/packages/python-lab
     ../../fragments/programs
     ../../fragments/programs/bash
     ../../fragments/programs/git

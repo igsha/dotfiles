@@ -67,9 +67,6 @@
       android_sdk.accept_license = true;
       zathura.useMupdf = false;
       permittedInsecurePackages = [
-        "python3.10-tensorflow-2.11.1"
-        "tensorflow-2.11.1"
-        "tensorflow-2.11.1-deps.tar.gz"
       ];
     };
   };
