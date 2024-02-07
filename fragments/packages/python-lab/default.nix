@@ -3,6 +3,7 @@
 let
   customPython = pkgs.python3.withPackages (pp: with pp; [
     ipykernel
+    ipython
     pandas
     scikit-learn
     scikitimage
@@ -17,25 +18,28 @@ let
     bitstring
     sympy
   ]);
-  python-lab = pkgs.writers.writeBashBin "python-lab" ''
+  myJupyter = pkgs.jupyter.override {
+    definitions = pkgs.jupyter-kernel.default // {
+      python3 = pkgs.jupyter-kernel.default.python3 // {
+        argv = [ customPython.interpreter ]
+        ++ builtins.tail pkgs.jupyter-kernel.default.python3.argv;
+      };
+    };
+  };
+  pylab = pkgs.writers.writeBashBin "pylab" ''
     ${customPython.interpreter} "$@"
+  '';
+  ipylab = pkgs.writers.writeBashBin "ipylab" ''
+    ${customPython}/bin/ipython "$@"
+  '';
+  jupylab = pkgs.writers.writeBashBin "jupylab" ''
+    PATH+=:${myJupyter}/bin ${myJupyter}/bin/jupyter "$@"
   '';
 
 in {
   environment.systemPackages = [
-    python-lab
-  ];
-
-  nixpkgs.overlays = [
-    (_: prev: {
-      myJupyter = prev.jupyter.override {
-        definitions = prev.jupyter-kernel.default // {
-          python3 = prev.jupyter-kernel.default.python3 // {
-            argv = [ customPython.interpreter ]
-            ++ builtins.tail prev.jupyter-kernel.default.python3.argv;
-          };
-        };
-      };
-    })
+    pylab
+    ipylab
+    jupylab
   ];
 }
