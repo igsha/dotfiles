@@ -62,7 +62,7 @@ class KodikListIE(InfoExtractor):
 
         params = {'type': video_type, 'id': video_id, 'hash': video_hash}
         formdata = parse.urlencode(params).encode()
-        webpage = self._download_webpage(f"{domain}/vdu", "Kodik GetVideoInfo", data=formdata)
+        webpage = self._download_webpage(f"{domain}/ftor", "Kodik GetVideoInfo", data=formdata)
 
         jsn = json.loads(webpage)
         result = {'id': video_id, 'title': f"#{video_value} ({video_id})", 'episode_number': int(video_value)}
