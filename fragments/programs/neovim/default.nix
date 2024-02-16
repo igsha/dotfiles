@@ -68,6 +68,7 @@ in {
           editorconfig-vim
           linediff-vim
           telescope-nvim
+          nvim-treesitter
         ];
         opt = [ ];
       };

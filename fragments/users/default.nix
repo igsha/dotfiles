@@ -53,9 +53,10 @@ in {
         termplay
         v4l-utils
         qutebrowser alacritty mpv
-        python3Packages.python-gitlab otpclient
+        otpclient
         thunderbird
         rocketchat-desktop
+        leetcode-cli
       ] ++ (with gst_all_1; [
         gst-plugins-base
         gst-plugins-good
