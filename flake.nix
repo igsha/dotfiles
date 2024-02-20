@@ -45,33 +45,18 @@
           };
         }) (builtins.removeAttrs inputs [ "self" ]);
       };
+      filterDirs = nixpkgs.lib.attrsets.filterAttrs (k: v: v == "directory");
+      machines = filterDirs (builtins.readDir ./machines);
+      configurateMachine = k: v: nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit nixos-hardware; };
+        modules = [
+          defaults
+          ./machines/${k}
+        ];
+      };
 
     in {
-      nixosConfigurations = {
-        ginnungagap = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit nixos-hardware; };
-          modules = [
-            defaults
-            ./machines/ginnungagap
-          ];
-        };
-        centimanus = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit nixos-hardware; };
-          modules = [
-            defaults
-            ./machines/centimanus
-          ];
-        };
-        thrud = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit nixos-hardware; };
-          modules = [
-            defaults
-            ./machines/thrud
-          ];
-        };
-      };
+      nixosConfigurations = builtins.mapAttrs configurateMachine machines;
     };
 }
