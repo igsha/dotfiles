@@ -7,6 +7,40 @@ let
   popup-translate = pkgs.writeShellScriptBin "popup-translate" ''
     $TERMINAL --class popup -t translate -e trans -I
   '';
+  imagePack = with pkgs; [ imv inkscape krita gimp mypaint ];
+  pdfPack = with pkgs; [ zathura pdfcpu ghostscript ];
+  winePack = with pkgs; [ wineWowPackages.unstable winetricks ];
+  mediaPack = with pkgs; [
+    ffmpeg-full
+    asciinema
+    obs-studio
+    termplay
+    (yt-dlp.override { withAlias = true; })
+    v4l-utils
+    mpv
+  ];
+  x11Pack = with pkgs; [ xsel xclip xdotool xorg.xhost hsetroot
+    xorg.xev xorg.xkill xfontsel xorg.xwininfo ];
+  gstreamerPack = (with pkgs.gst_all_1; [
+    gst-plugins-base
+    gst-plugins-good
+    gst-plugins-bad
+    gst-plugins-ugly
+    gstreamer
+    gstreamer.dev
+    gst-libav
+  ]);
+  officePack = with pkgs; [
+    freerdp
+    tdesktop
+    google-chrome
+    wpsoffice
+    qutebrowser
+    thunderbird
+    hunspellDicts.ru-ru
+    hunspellDicts.en-us
+    rocketchat-desktop
+  ];
 
 in {
   users.users = {
@@ -29,48 +63,27 @@ in {
       ];
       initialHashedPassword = "root";
       packages = with pkgs; [
-        popup-wcalc popup-translate
-        atool bottom
-        wineWowPackages.unstable winetricks
-        pavucontrol helvum
-        imv inkscape krita gimp mypaint
-        kpcli
-        zathura
+        popup-wcalc
+        popup-translate
+        atool
+        bottom
+        pavucontrol
+        helvum
         ranger
-        ffmpeg-full
-        freerdp
-        tdesktop
-        google-chrome
-        hunspellDicts.ru-ru
-        hunspellDicts.en-us
-        yad libnotify /*iplay*/
+        yad
+        libnotify
         fzy
-        asciinema obs-studio
         translate-shell
-        (yt-dlp.override { withAlias = true; })
-        metar rtorrent gitui python3Packages.speedtest-cli pre-commit
-        wpsoffice
-        termplay
-        v4l-utils
-        qutebrowser alacritty mpv
+        metar
+        rtorrent
+        gitui
+        python3Packages.speedtest-cli
+        alacritty
         otpclient
-        thunderbird
-        rocketchat-desktop
         leetcode-cli
-      ] ++ (with gst_all_1; [
-        gst-plugins-base
-        gst-plugins-good
-        gst-plugins-bad
-        gst-plugins-ugly
-        gstreamer
-        gstreamer.dev
-        gst-libav
-      ]) ++ lib.optionals config.services.xserver.enable [
-        xsel xclip xdotool
-        xorg.xhost hsetroot xorg.xev xorg.xkill
-        xfontsel
-        xorg.xwininfo
-      ];
+      ] ++ imagePack ++ pdfPack ++ winePack ++ mediaPack
+      ++ gstreamerPack ++ officePack
+      ++ lib.optionals config.services.xserver.enable x11Pack;
     };
   };
 
