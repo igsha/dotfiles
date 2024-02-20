@@ -27,6 +27,7 @@
         ];
       };
       defaults = { pkgs, ... }: {
+        system.configurationRevision = self.rev or self.dirtyRev or "dirty";
         nixpkgs.overlays = [
           (final: prev: {
             rocketchat-desktop = (import nixos-2305 { inherit system; }).rocketchat-desktop;
