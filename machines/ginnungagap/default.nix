@@ -33,7 +33,6 @@
     ../../fragments/other/xdg
     ../../fragments/services
     ../../fragments/services/autosuspend
-    ../../fragments/services/google-drive
     ../../fragments/packages
     ../../fragments/packages/python-lab
     ../../fragments/programs

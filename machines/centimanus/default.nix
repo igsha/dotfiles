@@ -31,7 +31,6 @@
     ../../fragments/other/xdg
     ../../fragments/services
     ../../fragments/services/autosuspend
-    ../../fragments/services/google-drive
     ../../fragments/services/random-background
     ../../fragments/packages
     ../../fragments/packages/python-lab
