@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Exec=alacritty -e /run/current-system/sw/bin/tmux
-Icon=Alacritty
-Terminal=false
-Categories=System;TerminalEmulator;
-
-Name=Tmux
-Comment=Terminal multiplexor
