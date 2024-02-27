@@ -28,3 +28,18 @@ Activate configuration:
 ```
 sudo ./result/bin/switch-to-configuration switch
 ```
+
+# Fresh install
+
+Preferable partitioning:
+
+* `/dev/sda1` - boot partition about 1G;
+* `/dev/sda2` - root partition at least 200G;
+* `/dev/sda3` - home partition;
+* `/dev/sda4` - swap partition.
+
+After disk partitioning mount the first 3 partitions into `/mnt` and run:
+```
+sudo nixos-install --root /mnt --no-channel-copy --flake $PWD#<machine>
+```
+`$PWD` contains this dotfiles repo.

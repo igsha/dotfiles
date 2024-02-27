@@ -52,16 +52,11 @@
       tmpsize = "16G";
     };
     greetd.cmd = "sx";
-    user = "igor";
+    user = "isharonov";
   };
 
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl88x2bu ];
   services.xserver.videoDrivers = [ "amdgpu" ];
-
-  fileSystems = {
-    "/" = lib.mkForce { device = "/dev/sda3"; fsType = "ext4"; };
-    "/home" = lib.mkForce { device = "/dev/sda4"; fsType = "ext4"; };
-  };
 
   networking = {
     hostName = "ginnungagap";
