@@ -39,7 +39,6 @@ let
     thunderbird
     hunspellDicts.ru-ru
     hunspellDicts.en-us
-    rocketchat-desktop
   ];
 
 in {
