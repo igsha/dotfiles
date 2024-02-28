@@ -39,6 +39,7 @@ let
     thunderbird
     hunspellDicts.ru-ru
     hunspellDicts.en-us
+    skypeforlinux
   ];
 
 in {
