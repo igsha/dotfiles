@@ -5,17 +5,15 @@
     nixpkgs.url = "nixpkgs/nixos-23.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-unstable.url = "nixpkgs/nixos-unstable";
-    nixos-2305.url = "nixpkgs/nixos-23.05";
   };
 
-  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, nixos-2305 }@inputs:
+  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware }@inputs:
     let
       system = "x86_64-linux";
       unstable = import nixos-unstable {
         inherit system;
         overlays = [
           (_: prev: {
-            qutebrowser = prev.qutebrowser.override { enableVulkan = false; };
             yt-dlp = prev.yt-dlp.overridePythonAttrs (old: rec {
               propagatedBuildInputs = old.propagatedBuildInputs ++ [ prev.python3Packages.lxml ];
               postPatch = ''
@@ -30,7 +28,6 @@
         system.configurationRevision = self.rev or self.dirtyRev or "dirty";
         nixpkgs.overlays = [
           (final: prev: {
-            rocketchat-desktop = (import nixos-2305 { inherit system; }).rocketchat-desktop;
             qutebrowser = unstable.qutebrowser;
             mpv-unwrapped = unstable.mpv-unwrapped; # need for mpv
             wrapMpv = unstable.wrapMpv; # need for mpv
