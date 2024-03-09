@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=davmail
+Icon=davmail
+Terminal=false
+Categories=Network;Email;
+
+Name=DavMail
+Comment=Mail agent for EWS

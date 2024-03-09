@@ -70,6 +70,7 @@
 
   environment.systemPackages = with pkgs; [
     lutris
+    davmail
   ];
 
   boot = {
