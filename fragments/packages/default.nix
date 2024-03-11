@@ -34,7 +34,7 @@
       ntfs3g gparted xfsprogs
       libxml2
       ponysay
-      fakeroot fakechroot debootstrap
+      fakeroot fakechroot debootstrap proot
       transmission
       parallel
       gnupg
