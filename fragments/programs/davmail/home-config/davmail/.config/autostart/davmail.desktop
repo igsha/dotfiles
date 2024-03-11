@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
-Exec=davmail
+Exec=/run/current-system/sw/bin/davmail
 Icon=davmail
 Terminal=false
-Categories=Network;Email;
+Categories=Network;Email;Java;
 
 Name=DavMail
 Comment=Mail agent for EWS
