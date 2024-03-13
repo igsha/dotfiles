@@ -4,7 +4,7 @@
   programs.tmux = {
     enable = true;
     clock24 = true;
-    terminal = "xterm-256color";
+    terminal = "screen-256color";
     keyMode = "vi";
     shortcut = "a";
     baseIndex = 1;
@@ -19,16 +19,16 @@
       logging
       open
       copycat
+      sysstat
+      net-speed
     ];
-    extraConfig = ''
-      set -g mouse on
-      set -g status-right '#{prefix_highlight} %a %Y-%m-%d %H:%M'
-      set -ga status-style "bg=black fg=white"
-      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-      set -g @yank_selection 'primary'
-
-      bind-key -n Home send Escape "OH"
-      bind-key -n End send Escape "OF"
+    extraConfigBeforePlugins = ''
+      set -g status-right '#{prefix_highlight} #{sysstat_cpu} #{sysstat_mem}[#{sysstat_swap}] #{net_speed} | %a %Y-%m-%d %H:%M | #H'
     '';
+  };
+
+  home-config.tmux = {
+    packages = [ "tmux" ];
+    dir = builtins.toString ./home-config;
   };
 }
