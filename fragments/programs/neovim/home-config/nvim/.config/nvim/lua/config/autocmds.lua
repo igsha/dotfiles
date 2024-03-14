@@ -12,3 +12,9 @@ autocmd({ 'BufRead', 'BufNewFile' }, {
     pattern = { "inc" },
     command = "set filetype=asm"
 })
+
+vim.filetype.add({
+  extension = {
+    ets = 'typescript'
+  }
+})

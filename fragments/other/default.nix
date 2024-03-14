@@ -22,11 +22,11 @@
   ];
 
   nix = {
-    settings.sandbox = true;
     package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes repl-flake
-    '';
+    settings = {
+      sandbox = true;
+      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+    };
   };
 
   console = {
