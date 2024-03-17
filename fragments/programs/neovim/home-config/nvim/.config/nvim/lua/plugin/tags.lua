@@ -4,9 +4,9 @@ local function MakeTagsInGitRootDir()
     pipe:close()
 
     local tagfile = rootdir .. '/.git/tags'
-    local excluded = [[-type d \( -path "*/.git" -o -path "*/build" \) -prune]]
+    local excluded = [[-type d \( -path "*/.git" -o -path "*/build" \) -prune -false]]
     local pattern = [[\( -name "*.[ch]" -o -name "*.[ch]pp" -o -name "*.[ch]xx" -o -name "*.cc" -o -name "*.hh" \)]]
-    local filelist = vim.fn.systemlist('find ' .. rootdir .. ' ' .. excluded .. ' -o ' .. pattern)
+    local filelist = vim.fn.systemlist('find -L ' .. rootdir .. ' ' .. excluded .. ' -o ' .. pattern .. ' -print')
     pipe = assert(io.popen('ctags -L - --c++-kinds=+p --fields=+iaS --extras=+q -f ' .. tagfile, 'w'))
     for number,line in pairs(filelist) do
         pipe:write(line, '\n')
