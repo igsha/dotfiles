@@ -18,7 +18,11 @@ end
 
 local function GetGitTags(dir)
     local data = vim.fn.systemlist({'git', 'rev-parse', '--show-toplevel'})
-    return data[1]:gsub('%s*$', '') .. '/.git/tags'
+    if vim.v.shell_error ~= 0 then
+        return nil
+    else
+        return data[1]:gsub('%s*$', '') .. '/.git/tags'
+    end
 end
 
 local function setup()
@@ -28,7 +32,10 @@ local function setup()
         group = mygroup,
         pattern = { 'cpp', 'hpp', 'cxx', 'hxx', 'c', 'h' },
         callback = function(args)
-            vim.cmd("setlocal tags+=" .. GetGitTags(vim.fs.dirname(args.file)))
+            tagsfile = GetGitTags(vim.fs.dirname(args.file))
+            if tagsfile ~= nil then
+                vim.cmd("setlocal tags+=" .. tagsfile)
+            end
         end
     })
 
