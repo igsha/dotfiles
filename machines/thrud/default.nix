@@ -38,6 +38,7 @@
     ../../fragments/programs/bash
     ../../fragments/programs/davmail
     ../../fragments/programs/git
+    ../../fragments/programs/gnupg
     ../../fragments/programs/neovim
     ../../fragments/programs/tmux
     ../../fragments/programs/udevil

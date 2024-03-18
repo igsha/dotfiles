@@ -37,13 +37,11 @@
       fakeroot fakechroot debootstrap proot
       transmission
       parallel
-      gnupg
       ncdu
       android-udev-rules
       tio
       patchutils
       samba
-      pass
       moreutils
       trash-cli
       nix-bash-completions bash-completion
