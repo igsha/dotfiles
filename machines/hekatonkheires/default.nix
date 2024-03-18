@@ -53,7 +53,8 @@
 
   services = {
     upower.enable = true;
-    logind.lidSwitch = "lock";
+    logind.lidSwitchDocked = "ignore";
+    logind.lidSwitchExternalPower = "ignore";
   };
 
   boot = {
