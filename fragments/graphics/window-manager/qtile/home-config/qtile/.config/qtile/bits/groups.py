@@ -9,10 +9,11 @@ groups = [
     Group("2", matches=[Match(wm_class=["qutebrowser"])]),
     Group("3", matches=[Match(wm_class=["Thunderbird", "Evolution", "Mail", "betterbird"])]),
     Group("4", matches=[Match(wm_class=["telegram-desktop"])]),
-    Group("5", matches=[Match(wm_class=["Steam", "steam", "rocket.chat", "Rocket.Chat", "Skype"])]),
+    Group("5", matches=[Match(wm_class=["rocket.chat", "Rocket.Chat", "Skype"])]),
+    Group("6", matches=[Match(wm_class=["Steam", "steam"])]),
 ]
 
-groups += list(map(Group, "67890"))
+groups += list(map(Group, "7890"))
 
 for i in groups:
     n = i.name
