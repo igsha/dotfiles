@@ -8,6 +8,7 @@
     nixos-hardware.nixosModules.common-pc
 
     ../../custom-args
+    ../../encrypted
     ../../fragments/boot
     ../../fragments/graphics
     ../../fragments/graphics/greetd
@@ -31,6 +32,7 @@
     ../../fragments/other/xdg
     ../../fragments/services
     ../../fragments/services/autosuspend
+    ../../fragments/services/offlineimap
     ../../fragments/packages
     ../../fragments/packages/python-lab
     ../../fragments/programs

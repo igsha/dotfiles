@@ -9,6 +9,7 @@
     nixos-hardware.nixosModules.common-pc-laptop-ssd
 
     ../../custom-args
+    ../../encrypted
     ../../fragments/boot
     ../../fragments/graphics/greetd
     ../../fragments/graphics/redshift
@@ -32,6 +33,7 @@
     ../../fragments/other/xdg
     ../../fragments/services
     ../../fragments/services/autosuspend
+    ../../fragments/services/offlineimap
     ../../fragments/packages
     ../../fragments/packages/python-lab
     ../../fragments/programs
@@ -70,10 +72,6 @@
   services = {
     upower.enable = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    lutris
-  ];
 
   boot = {
     initrd.availableKernelModules = [ "nvme" ];
