@@ -8,6 +8,7 @@
     nixos-hardware.nixosModules.common-pc
 
     ../../custom-args
+    ../../encrypted
     ../../fragments/boot
     ../../fragments/graphics
     ../../fragments/graphics/greetd
