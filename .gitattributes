@@ -1,0 +1,1 @@
+encrypted/home-config/mail/.config/mail/* filter=git-crypt diff=git-crypt

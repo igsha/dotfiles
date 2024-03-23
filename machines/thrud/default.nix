@@ -9,6 +9,7 @@
     nixos-hardware.nixosModules.common-pc-laptop-ssd
 
     ../../custom-args
+    ../../encrypted
     ../../fragments/boot
     ../../fragments/graphics/greetd
     ../../fragments/graphics/redshift
