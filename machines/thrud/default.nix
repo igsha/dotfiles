@@ -70,10 +70,6 @@
     upower.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    lutris
-  ];
-
   boot = {
     initrd.availableKernelModules = [ "nvme" ];
     kernelModules = [ "kvm-amd" ];

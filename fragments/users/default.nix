@@ -41,6 +41,11 @@ let
     hunspellDicts.en-us
     skypeforlinux
   ];
+  mail = with pkgs; [
+    isync
+    msmtp
+    mblaze
+  ];
 
 in {
   users.users = {
@@ -82,7 +87,7 @@ in {
         otpclient
         leetcode-cli
       ] ++ imagePack ++ pdfPack ++ winePack ++ mediaPack
-      ++ gstreamerPack ++ officePack
+      ++ gstreamerPack ++ officePack ++ mail
       ++ lib.optionals config.services.xserver.enable x11Pack;
     };
   };
