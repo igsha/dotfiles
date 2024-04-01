@@ -5,7 +5,6 @@
     homeBinInPath = true;
     systemPackages = with pkgs; [
       subversion tig
-      wget links2 httpie
       ed
       catimg
       man stdman man-pages man-pages-posix
@@ -18,7 +17,6 @@
       syslinux
       dmidecode lshw smartmontools pciutils usbutils
       htop atop iotop lsof inetutils
-      mtr nethogs ngrep nmap bind iftop wireshark-cli tcpdump
       sysstat dstat connect corkscrew torsocks socat wakelan
       pv
       tree file which mkpasswd
@@ -41,7 +39,6 @@
       android-udev-rules
       tio
       patchutils
-      samba
       moreutils
       trash-cli
       nix-bash-completions bash-completion
@@ -50,7 +47,7 @@
       glxinfo
       cpufrequtils
       python3Packages.jsbeautifier
-      openldap cifs-utils
+      openldap
       poke
       hydra-check
       novnc tigervnc

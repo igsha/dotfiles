@@ -1,4 +1,4 @@
-_:
+{ pkgs, ... }:
 
 {
   networking = {
@@ -35,5 +35,12 @@ _:
       url = "https://gu-st.ru/content/lending/russian_trusted_sub_ca_pem.crt";
       sha256 = sha256:19jffjrawgbpdlivdvpzy7kcqbyl115rixs86vpjjkvp6sgmibph;
     })
+  ];
+
+  environment.systemPackages = with pkgs; [
+    arp-scan
+    wget links2 httpie
+    mtr nethogs ngrep nmap bind iftop wireshark-cli tcpdump
+    samba cifs-utils
   ];
 }
