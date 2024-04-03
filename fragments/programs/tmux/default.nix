@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.tmux = {
@@ -21,9 +21,16 @@
       copycat
       sysstat
       net-speed
+      battery
     ];
-    extraConfigBeforePlugins = ''
-      set -g status-right '#{prefix_highlight} #{sysstat_cpu} #{sysstat_mem}[#{sysstat_swap}] #{net_speed} | %a %Y-%m-%d %H:%M | #H'
+    extraConfigBeforePlugins = let
+      battery = "#{battery_color_charge_bg}#{battery_percentage}[#{battery_remain}]#[default]";
+      batteryline = if config.custom-args.battery or false then "${battery} " else "";
+      sysstat = "#{sysstat_cpu} #{sysstat_mem}[#{sysstat_swap}]";
+      datetime = "%a %Y-%m-%d %H:%M";
+      statusline = "#{prefix_highlight} ${batteryline}${sysstat} #{net_speed} | ${datetime} | #H";
+    in ''
+      set -g status-right '${statusline}'
     '';
   };
 

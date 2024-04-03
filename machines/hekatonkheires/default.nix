@@ -50,6 +50,7 @@
     };
     greetd.cmd = "sx";
     user = "isharonov";
+    battery = true;
   };
 
   services = {

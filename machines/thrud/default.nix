@@ -53,6 +53,7 @@
     };
     greetd.cmd = "sx";
     user = "isharonov";
+    battery = true;
   };
 
   hardware.nvidia = {
