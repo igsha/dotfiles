@@ -69,6 +69,7 @@ in {
           linediff-vim
           telescope-nvim
           nvim-treesitter
+          nvim-treesitter-parsers.vala
         ];
         opt = [ ];
       };
