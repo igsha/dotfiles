@@ -34,4 +34,9 @@
       credential.helper = "cache --timeout=3600";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    tig
+    git-crypt
+  ];
 }

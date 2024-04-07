@@ -4,7 +4,7 @@
   environment = {
     homeBinInPath = true;
     systemPackages = with pkgs; [
-      subversion tig
+      subversion
       ed
       catimg
       man stdman man-pages man-pages-posix
@@ -52,6 +52,8 @@
       hydra-check
       novnc tigervnc
       zx cling
+      mandown
+      rfc
     ];
   };
 
