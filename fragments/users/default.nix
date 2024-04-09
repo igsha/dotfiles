@@ -60,6 +60,7 @@ in {
         "dialout"
         "docker"
         "input"
+        "libvirtd"
       ];
       initialHashedPassword = "root";
       packages = with pkgs; [
