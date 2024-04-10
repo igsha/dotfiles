@@ -28,6 +28,9 @@
             path = v.outPath;
           };
         }) (builtins.removeAttrs inputs [ "self" ]);
+        imports = [
+          ./home-config
+        ];
       };
       filterDirs = nixpkgs.lib.attrsets.filterAttrs (k: v: v == "directory");
       machines = filterDirs (builtins.readDir ./machines);

@@ -41,7 +41,6 @@
     ../../fragments/programs/tmux
     ../../fragments/programs/udevil
     ../../fragments/users
-    ../../home-config
   ];
 
   custom-args = {

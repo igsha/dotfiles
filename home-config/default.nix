@@ -11,13 +11,8 @@ let
     name = "update-home-configs";
     runtimeInputs = [ pkgs.stow ];
     text = ''
-      ${if lib.strings.isStorePath basedir then ''
-        BASEDIR="$1" # ${basedir}
-        shift
-      '' else ''
-        BASEDIR="${basedir}"
-      ''}
-
+      BASEDIR="$1" # ${basedir}
+      shift
       ${lib.strings.concatStringsSep "\n" args}
     '';
   };

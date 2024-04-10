@@ -46,7 +46,6 @@
     ../../fragments/programs/udevil
     ../../fragments/users
     ../../fragments/users/guest
-    ../../home-config
   ];
 
   custom-args = {
