@@ -10,20 +10,7 @@
   outputs = { self, nixpkgs, nixos-unstable, nixos-hardware }@inputs:
     let
       system = "x86_64-linux";
-      unstable = import nixos-unstable {
-        inherit system;
-        overlays = [
-          (_: prev: {
-            yt-dlp = prev.yt-dlp.overridePythonAttrs (old: rec {
-              propagatedBuildInputs = old.propagatedBuildInputs ++ [ prev.python3Packages.lxml ];
-              postPatch = ''
-                cp ${./fragments/packages/user_extractors.py} yt_dlp/extractor/user_extractors.py
-                echo "from .user_extractors import *" >> yt_dlp/extractor/_extractors.py
-              '';
-            });
-          })
-        ];
-      };
+      unstable = import nixos-unstable { inherit system; };
       defaults = { pkgs, ... }: {
         system.configurationRevision = self.rev or self.dirtyRev or "dirty";
         nixpkgs.overlays = [

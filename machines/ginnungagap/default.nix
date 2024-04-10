@@ -35,6 +35,7 @@
     ../../fragments/services/offlineimap
     ../../fragments/packages
     ../../fragments/packages/python-lab
+    ../../fragments/packages/yt-dlp-with-plugins
     ../../fragments/programs
     ../../fragments/programs/bash
     ../../fragments/programs/davmail

@@ -15,9 +15,8 @@ let
     asciinema
     obs-studio
     termplay
-    (yt-dlp.override { withAlias = true; })
     v4l-utils
-    mpv
+    (mpv.override { youtubeSupport = false; })
   ];
   x11Pack = with pkgs; [ xsel xclip xdotool xorg.xhost hsetroot
     xorg.xev xorg.xkill xfontsel xorg.xwininfo ];
