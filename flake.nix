@@ -5,13 +5,17 @@
     nixpkgs.url = "nixpkgs/nixos-23.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-unstable.url = "nixpkgs/nixos-unstable";
+    home-config = {
+      url = "github:igsha/home-config/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware }@inputs:
+  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, home-config }@inputs:
     let
       system = "x86_64-linux";
       unstable = import nixos-unstable { inherit system; };
-      defaults = { pkgs, ... }: {
+      defaults = { pkgs, lib, ... }: {
         system.configurationRevision = self.rev or self.dirtyRev or "dirty";
         nixpkgs.overlays = [
           (final: prev: {
@@ -28,16 +32,15 @@
             path = v.outPath;
           };
         }) (builtins.removeAttrs inputs [ "self" ]);
-        imports = [
-          ./home-config
-        ];
+        home-config-basedir = lib.mkForce (builtins.toString ./.);
       };
       filterDirs = nixpkgs.lib.attrsets.filterAttrs (k: v: v == "directory");
       machines = filterDirs (builtins.readDir ./machines);
       configurateMachine = k: v: nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit nixos-hardware; };
+        specialArgs = { inherit nixos-hardware home-config; };
         modules = [
+          home-config.nixosModules.default
           defaults
           ./machines/${k}
         ];
