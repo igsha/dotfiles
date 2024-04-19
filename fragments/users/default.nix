@@ -17,6 +17,7 @@ let
     termplay
     v4l-utils
     (mpv.override { youtubeSupport = false; })
+    yt-dlp-with-plugins
   ];
   x11Pack = with pkgs; [ xsel xclip xdotool xorg.xhost hsetroot
     xorg.xev xorg.xkill xfontsel xorg.xwininfo ];

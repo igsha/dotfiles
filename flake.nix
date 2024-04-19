@@ -3,15 +3,19 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.11";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware.url = github:NixOS/nixos-hardware/master;
     nixos-unstable.url = "nixpkgs/nixos-unstable";
     home-config = {
-      url = "github:igsha/home-config/main";
+      url = github:igsha/home-config/main;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    yt-dlp-plugins = {
+      url = github:igsha/yt-dlp-plugins/master;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, home-config }@inputs:
+  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, home-config, yt-dlp-plugins }@inputs:
     let
       system = "x86_64-linux";
       unstable = import nixos-unstable { inherit system; };
@@ -25,6 +29,7 @@
             yt-dlp = unstable.yt-dlp;
             telegram-desktop = unstable.telegram-desktop;
           })
+          yt-dlp-plugins.overlays.default
         ];
         nix.registry = builtins.mapAttrs (k: v: {
           to = {
@@ -38,7 +43,7 @@
       machines = filterDirs (builtins.readDir ./machines);
       configurateMachine = k: v: nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit nixos-hardware home-config; };
+        specialArgs = inputs;
         modules = [
           home-config.nixosModules.default
           defaults

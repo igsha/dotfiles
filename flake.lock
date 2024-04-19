@@ -72,7 +72,29 @@
         "home-config": "home-config",
         "nixos-hardware": "nixos-hardware",
         "nixos-unstable": "nixos-unstable",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "yt-dlp-plugins": "yt-dlp-plugins"
+      }
+    },
+    "yt-dlp-plugins": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1713601801,
+        "narHash": "sha256-/iCgFcFtpp85Q6+Hd26Blz6qOPeDS8YR+t7JnO68Hms=",
+        "owner": "igsha",
+        "repo": "yt-dlp-plugins",
+        "rev": "0a05de50af675d50e6d808a29daa3b4ed6225435",
+        "type": "github"
+      },
+      "original": {
+        "owner": "igsha",
+        "ref": "master",
+        "repo": "yt-dlp-plugins",
+        "type": "github"
       }
     }
   },
