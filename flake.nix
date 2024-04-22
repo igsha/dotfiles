@@ -2,9 +2,9 @@
   description = "My NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11";
-    nixos-hardware.url = github:NixOS/nixos-hardware/master;
-    nixos-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = github:nixos/nixpkgs?ref=nixos-23.11;
+    nixos-hardware.url = github:nixos/nixos-hardware/master;
+    nixos-unstable.url = github:nixos/nixpkgs?ref=nixos-unstable;
     home-config = {
       url = github:igsha/home-config/main;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +28,7 @@
             wrapMpv = unstable.wrapMpv; # need for mpv
             yt-dlp = unstable.yt-dlp;
             telegram-desktop = unstable.telegram-desktop;
+            nh = unstable.nh;
           })
           yt-dlp-plugins.overlays.default
         ];

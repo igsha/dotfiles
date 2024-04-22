@@ -1,6 +1,19 @@
 { config, pkgs, ... }:
 
-{
+let
+  loadavg = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "loadavg";
+    rtpFilePath = "tmux-loadavg.tmux";
+    version = "unstable-2018-05-30";
+    src = pkgs.fetchFromGitHub {
+      owner = "jamesoff";
+      repo = "tmux-loadavg";
+      rev = "91319eff74ee677efb77c882dcc8e3b8780dc3a2";
+      hash = "sha256-JW/O/bVryDILlFCnWYRC+B7nrCIsGYEJDozzu0odX+U=";
+    };
+  };
+
+in {
   programs.tmux = {
     enable = true;
     clock24 = true;
@@ -22,13 +35,15 @@
       sysstat
       net-speed
       battery
+      loadavg
     ];
     extraConfigBeforePlugins = let
       battery = "#{battery_color_charge_bg}#{battery_percentage}[#{battery_remain}]#[default]";
       batteryline = if config.custom-args.battery or false then "${battery} " else "";
-      sysstat = "#{sysstat_cpu} #{sysstat_mem}[#{sysstat_swap}]";
+      sysstat = "#{sysstat_mem}[#{sysstat_swap}]";
       datetime = "%a %Y-%m-%d %H:%M";
-      statusline = "#{prefix_highlight} ${batteryline}${sysstat} #{net_speed} | ${datetime} | #H";
+      la = "#{load_short}";
+      statusline = "#{prefix_highlight} ${batteryline}${la} ${sysstat} #{net_speed} | ${datetime} | #H";
     in ''
       set -g status-right '${statusline}'
     '';
