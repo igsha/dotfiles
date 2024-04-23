@@ -52,8 +52,6 @@
       hydra-check
       novnc tigervnc
       zx cling
-      mandown
-      rfc
       nh nix-output-monitor nvd
     ];
   };

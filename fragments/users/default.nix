@@ -78,10 +78,12 @@ in {
         metar
         rtorrent
         gitui
-        python3Packages.speedtest-cli
+        speedtest-go
         alacritty
         otpclient
         leetcode-cli
+        mandown
+        rfc go-cve-search
       ] ++ imagePack ++ pdfPack ++ winePack ++ mediaPack
       ++ gstreamerPack ++ officePack
       ++ lib.optionals config.services.xserver.enable x11Pack;
