@@ -5,7 +5,3 @@ show_age_threshold = -1
 
 [fullscreen_show]
 fullscreen = show
-
-[thunderbird]
-appname = Thunderbird
-timeout = 0
