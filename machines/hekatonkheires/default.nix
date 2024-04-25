@@ -53,7 +53,11 @@
   };
 
   services = {
-    upower.enable = true;
+    upower = {
+      enable = false;
+      ignoreLid = true;
+      criticalPowerAction = "Hibernate";
+    };
     logind.lidSwitchDocked = "ignore";
     logind.lidSwitchExternalPower = "ignore";
   };

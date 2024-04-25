@@ -34,11 +34,10 @@ in {
       copycat
       sysstat
       net-speed
-      battery
       loadavg
     ];
     extraConfigBeforePlugins = let
-      battery = "#{battery_color_charge_bg}#{battery_percentage}[#{battery_remain}]#[default]";
+      battery = "[#(cat /sys/class/power_supply/BAT0/capacity)]";
       batteryline = if config.custom-args.battery or false then "${battery} " else "";
       sysstat = "#{sysstat_mem}[#{sysstat_swap}]";
       datetime = "%a %Y-%m-%d %H:%M";

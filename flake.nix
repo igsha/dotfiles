@@ -29,6 +29,7 @@
             yt-dlp = unstable.yt-dlp;
             telegram-desktop = unstable.telegram-desktop;
             nh = unstable.nh;
+            upower = unstable.upower;
           })
           yt-dlp-plugins.overlays.default
         ];
