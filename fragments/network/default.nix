@@ -19,6 +19,7 @@
         PermitTunnel yes
       '';
     };
+    avahi.enable = true;
   };
 
   systemd.suppressedSystemUnits = [
