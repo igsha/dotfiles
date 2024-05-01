@@ -3,12 +3,12 @@
 let
   mycollection = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "mycollection";
-    version = "unstable-2024-04-30";
+    version = "unstable-2024-05-01";
     src = pkgs.fetchFromGitHub {
       owner = "igsha";
       repo = "tmux-mycollection";
-      rev = "b3528484d99aa41d9aafd371ede4147553e5123f";
-      hash = "sha256-oCbOwATpLBdyb0pWgEWn3pdcTgHv3dvlTH/8kU22QWA=";
+      rev = "8288f8d89dc74a3f797976cbeb63ac7aa156d490";
+      hash = "sha256-VJXvcQBFYPwvO1dKN/N5+LsD0h3hP2PmShvChEglDcQ=";
     };
   };
 
