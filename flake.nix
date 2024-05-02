@@ -13,9 +13,13 @@
       url = github:igsha/yt-dlp-plugins/master;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dino = {
+      url = github:igsha/dino?ref=nix-support;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, home-config, yt-dlp-plugins }@inputs:
+  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, home-config, yt-dlp-plugins, dino }@inputs:
     let
       system = "x86_64-linux";
       unstable = import nixos-unstable { inherit system; };
@@ -30,6 +34,7 @@
             telegram-desktop = unstable.telegram-desktop;
             nh = unstable.nh;
             upower = unstable.upower;
+            dino-plus = dino.packages.${system}.default;
           })
           yt-dlp-plugins.overlays.default
         ];

@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "dino": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1714141479,
+        "narHash": "sha256-kvA/nm7aykc9NmWiA1NMNYf6KOUeHHrq8QCUCvGDOm0=",
+        "owner": "igsha",
+        "repo": "dino",
+        "rev": "67d1782e29bcecada98fbe18fde4acc93c3a45b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "igsha",
+        "ref": "nix-support",
+        "repo": "dino",
+        "type": "github"
+      }
+    },
     "home-config": {
       "inputs": {
         "nixpkgs": [
@@ -71,6 +92,7 @@
     },
     "root": {
       "inputs": {
+        "dino": "dino",
         "home-config": "home-config",
         "nixos-hardware": "nixos-hardware",
         "nixos-unstable": "nixos-unstable",
