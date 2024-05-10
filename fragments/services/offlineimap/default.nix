@@ -3,7 +3,7 @@
 {
   services.offlineimap = {
     enable = true;
-    path = with pkgs; [ pass ];
+    path = with pkgs; [ pass openssl ];
     install = true;
     onCalendar = "*:0/5";
     timeoutStartSec = "120sec";

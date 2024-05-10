@@ -17,9 +17,13 @@
       url = github:igsha/dino?ref=nix-support;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    tmux-mycollection = {
+      url = github:igsha/tmux-mycollection?ref=feat-flake;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, home-config, yt-dlp-plugins, dino }@inputs:
+  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, home-config, ... }@inputs:
     let
       system = "x86_64-linux";
       unstable = import nixos-unstable { inherit system; };
@@ -34,9 +38,10 @@
             telegram-desktop = unstable.telegram-desktop;
             nh = unstable.nh;
             upower = unstable.upower;
-            dino-plus = dino.packages.${system}.default;
+            dino-plus = inputs.dino.packages.${system}.default;
           })
-          yt-dlp-plugins.overlays.default
+          inputs.yt-dlp-plugins.overlays.default
+          inputs.tmux-mycollection.overlays.default
         ];
         nix.registry = builtins.mapAttrs (k: v: {
           to = {

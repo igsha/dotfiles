@@ -97,7 +97,29 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": "nixpkgs",
+        "tmux-mycollection": "tmux-mycollection",
         "yt-dlp-plugins": "yt-dlp-plugins"
+      }
+    },
+    "tmux-mycollection": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1715263117,
+        "narHash": "sha256-UdiwoqrWYofHnEZvtVNuWx1nY4BFe6Nn2h9aBIYqnhE=",
+        "owner": "igsha",
+        "repo": "tmux-mycollection",
+        "rev": "fba5b715958fae2050415ebbf857786b85afa6e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "igsha",
+        "ref": "feat-flake",
+        "repo": "tmux-mycollection",
+        "type": "github"
       }
     },
     "yt-dlp-plugins": {
