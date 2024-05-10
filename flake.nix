@@ -43,12 +43,15 @@
           inputs.yt-dlp-plugins.overlays.default
           inputs.tmux-mycollection.overlays.default
         ];
-        nix.registry = builtins.mapAttrs (k: v: {
-          to = {
-            type = "path";
-            path = v.outPath;
-          };
-        }) (builtins.removeAttrs inputs [ "self" ]);
+        nix = {
+          registry = builtins.mapAttrs (k: v: {
+            to = {
+              type = "path";
+              path = v.outPath;
+            };
+          }) (builtins.removeAttrs inputs [ "self" ]);
+          package = unstable.nixVersions.latest;
+        };
         home-config-basedir = lib.mkForce (builtins.toString ./.);
       };
       filterDirs = nixpkgs.lib.attrsets.filterAttrs (k: v: v == "directory");

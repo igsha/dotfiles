@@ -23,11 +23,11 @@
   ];
 
   nix = {
-    package = pkgs.nixUnstable;
     settings = {
       sandbox = true;
-      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      experimental-features = [ "nix-command" "flakes" ];
     };
+    channel.enable = false;
   };
 
   console = {
