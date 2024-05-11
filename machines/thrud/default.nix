@@ -42,9 +42,9 @@
     ../../fragments/programs/git
     ../../fragments/programs/gnupg
     ../../fragments/programs/neovim
+    ../../fragments/programs/tmux
     ../../fragments/programs/udevil
     ../../fragments/users
-    ../../fragments/users/tmux
   ];
 
   custom-args = {

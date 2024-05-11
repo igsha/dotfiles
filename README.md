@@ -43,3 +43,42 @@ After disk partitioning mount the first 3 partitions into `/mnt` and run:
 sudo nixos-install --root /mnt --no-channel-copy --flake $PWD#<machine>
 ```
 `$PWD` contains this dotfiles repo.
+
+# Installation of parts
+
+## Tmux
+
+Tmux can be installed into profile as ordinary:
+```
+nix profile install nixpkgs#tmux
+```
+
+Plugins for tmux can be installed from the machine `ginnungagap`:
+```
+nix profile install .#nixosConfigurations.ginnungagap.pkgs.my-tmux-plugins
+```
+or directly from github:
+```
+nix profile install github:igsha/dotfile#nixosConfigurations.ginnungagap.pkgs.my-tmux-plugins
+```
+
+Then set symbolic link for the tmux's configuration file using `stow`:
+```
+stow -v -t $HOME -d $PWD/fragments/programs/tmux/home-config tmux
+```
+There is no way to make the symbolic link directly from github.
+
+## Neovim
+
+Install `neovim` directly from github:
+```
+nix profile install github:igsha/dotfile#nixosConfigurations.ginnungagap.config.programs.neovim.finalPackage
+```
+
+Vim-packages will be integrated into `neovim`, no need to install it separately.
+
+Then set symbolic link for the nvim's configuration file using `stow`:
+```
+stow -v -t $HOME -d $PWD/fragments/programs/neovim/home-config nvim
+```
+There is no way to make the symbolic link directly from github.
