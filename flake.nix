@@ -38,10 +38,11 @@
             telegram-desktop = unstable.telegram-desktop;
             nh = unstable.nh;
             upower = unstable.upower;
-            dino-plus = inputs.dino.packages.${system}.default;
+            dino-plus = inputs.dino.packages.${prev.system}.default;
           })
           inputs.yt-dlp-plugins.overlays.default
           inputs.tmux-mycollection.overlays.default
+          (import ./overlays.nix)
         ];
         nix = {
           registry = builtins.mapAttrs (k: v: {
