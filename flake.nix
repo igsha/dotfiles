@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     tmux-mycollection = {
-      url = github:igsha/tmux-mycollection?ref=feat-flake;
+      url = github:igsha/tmux-mycollection/main;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

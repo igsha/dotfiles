@@ -108,16 +108,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1715263117,
-        "narHash": "sha256-UdiwoqrWYofHnEZvtVNuWx1nY4BFe6Nn2h9aBIYqnhE=",
+        "lastModified": 1715449548,
+        "narHash": "sha256-Ux1wtFfWvDyq8nqKcJ3vP8YyCQNUzWxx/TSQUQQ0wM8=",
         "owner": "igsha",
         "repo": "tmux-mycollection",
-        "rev": "fba5b715958fae2050415ebbf857786b85afa6e7",
+        "rev": "f47ff9a249a1049b56c871e29fea4ff480f8322e",
         "type": "github"
       },
       "original": {
         "owner": "igsha",
-        "ref": "feat-flake",
+        "ref": "main",
         "repo": "tmux-mycollection",
         "type": "github"
       }

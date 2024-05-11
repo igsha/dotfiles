@@ -57,7 +57,8 @@ if is_bluetooth:
 
 if is_wlan:
     main_widgets += [
-        widget.Wlan(background="#333333", update_iterval=5, format='  {essid}[{percent:2.0%}]', **decor),
+        widget.Wlan(background="#333333", update_iterval=5, format='  {essid}[{percent:2.0%}]',
+                    disconnected_message='󰖪', **decor),
     ]
 
 main_widgets += [
