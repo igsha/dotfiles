@@ -108,11 +108,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1715449548,
-        "narHash": "sha256-Ux1wtFfWvDyq8nqKcJ3vP8YyCQNUzWxx/TSQUQQ0wM8=",
+        "lastModified": 1715757402,
+        "narHash": "sha256-vaYkOb/Fv+4dDyzufiXJrb8fHiAt2VBaeZCFrSVCf1g=",
         "owner": "igsha",
         "repo": "tmux-mycollection",
-        "rev": "f47ff9a249a1049b56c871e29fea4ff480f8322e",
+        "rev": "1b8f14c9138b97c3bd63d5fbb74a9e9693c83174",
         "type": "github"
       },
       "original": {

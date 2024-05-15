@@ -10,6 +10,10 @@
   services.passSecretService.enable = true;
 
   environment.systemPackages = with pkgs; [
-    pass
+    (pass.withExtensions (exts: with exts; [
+      pass-otp
+      pass-genphrase
+    ]))
+    zbar
   ];
 }

@@ -59,7 +59,7 @@ nix profile install .#nixosConfigurations.ginnungagap.pkgs.my-tmux-plugins
 ```
 or directly from github:
 ```
-nix profile install github:igsha/dotfile#nixosConfigurations.ginnungagap.pkgs.my-tmux-plugins
+nix profile install github:igsha/dotfiles#nixosConfigurations.ginnungagap.pkgs.my-tmux-plugins
 ```
 
 Then set symbolic link for the tmux's configuration file using `stow`:
@@ -72,7 +72,7 @@ There is no way to make the symbolic link directly from github.
 
 Install `neovim` directly from github:
 ```
-nix profile install github:igsha/dotfile#nixosConfigurations.ginnungagap.config.programs.neovim.finalPackage
+nix profile install github:igsha/dotfiles#nixosConfigurations.ginnungagap.config.programs.neovim.finalPackage
 ```
 
 Vim-packages will be integrated into `neovim`, no need to install it separately.
