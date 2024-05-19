@@ -15,7 +15,7 @@
       fzf direnv
       sqlite
       syslinux
-      dmidecode lshw smartmontools pciutils usbutils
+      dmidecode lshw smartmontools pciutils usbutils inxi
       htop atop iotop lsof inetutils
       sysstat dstat connect corkscrew torsocks socat wakelan
       pv
