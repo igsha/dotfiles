@@ -7,7 +7,6 @@
     printing.enable = true;
     atd.enable = true;
     geoclue2.enable = true;
-    actkbd.enable = true;
     flatpak.enable = true;
     davfs2.enable = true;
     unclutter-xfixes.enable = config.services.xserver.enable;

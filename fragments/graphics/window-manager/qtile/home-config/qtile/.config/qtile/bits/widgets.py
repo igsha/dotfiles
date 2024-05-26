@@ -40,9 +40,8 @@ main_widgets = [
     widget.KeyboardKbdd(background="#444444", configured_keyboards=['us', 'ru'], **decor),
 
     widget.DF(partition='/', measure='G', warn_space=40, visible_on_warn=True, **decor),
-    widget.CPU(background="#333333", format=' {load_percent: 3.0f}%', **decor),
-    widget.Memory(background="#222222", measure_mem='G', measure_swap='G',
-                  format=' {MemUsed:.1f}{mm}/{MemTotal:.1f}{mm}[{SwapUsed:.1f}{ms}]', **decor),
+    widget.CPU(background="#333333", format=' {load_percent:3.0f}%', **decor),
+    widget.Memory(background="#222222", measure_mem='G', format=' {MemPercent:2.0f}%', **decor),
 ]
 
 is_bluetooth, is_wlan = False, False
@@ -65,7 +64,7 @@ main_widgets += [
     widget.GenPollText(background="#333333", func=poll_net, update_interval=3, **decor),
     widget.Net(background="#111111", use_bits=True,
                format='▼{down:5.0f}{down_suffix:<2}▲{up:5.0f}{up_suffix:<2}', **decor),
-    widget.Volume(background="#555555", fmt='󱄠 {}', **decor),
+    widget.PulseVolume(background="#555555", fmt='󱄠 {}', **decor),
 ]
 
 if list(pathlib.Path('/sys/class/power_supply').glob('BAT*')) != []:
