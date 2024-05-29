@@ -2,7 +2,6 @@ from os.path import expanduser
 
 from libqtile import bar
 from libqtile.config import Screen
-from libqtile.lazy import lazy
 
 from .widgets import main_widgets
 

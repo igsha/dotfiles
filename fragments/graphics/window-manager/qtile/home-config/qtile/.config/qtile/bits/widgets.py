@@ -1,10 +1,10 @@
 import subprocess, re, pathlib
 
-from libqtile.config import Key
 from libqtile.lazy import lazy
 
 from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
+from qtile_extras.widget.mixins import TooltipMixin
 
 from .keys import keys
 
@@ -24,6 +24,23 @@ def poll_net():
 
     nets = filter(isup, pathlib.Path("/sys/class/net/").glob("*/carrier"))
     return "🖧" + ",".join(map(lambda p: p.parent.name, nets))
+
+
+class MyWttr(widget.Wttr, TooltipMixin):
+    def __init__(self, *args, **kwargs):
+        widget.Wttr.__init__(self, format="%c:%t:%h:%P", *args, **kwargs)
+        TooltipMixin.__init__(self, **kwargs)
+        self.add_defaults(TooltipMixin.defaults)
+        self.tooltip_text = ""
+
+    def parse(self, response):
+        response = super().parse(response)
+        arr = response.split(":")
+        if len(arr) < 4:
+            return response
+        else:
+            self.tooltip_text = f"Temperature: {arr[1]}\nHumidity: {arr[2]}\nPressure: {arr[3]}"
+            return ''.join(map(str.strip, arr[:2]))
 
 
 decor = dict(decorations=[RectDecoration()])
@@ -64,7 +81,9 @@ main_widgets += [
     widget.GenPollText(background="#333333", func=poll_net, update_interval=3, **decor),
     widget.Net(background="#111111", use_bits=True,
                format='▼{down:5.0f}{down_suffix:<2}▲{up:5.0f}{up_suffix:<2}', **decor),
-    widget.PulseVolume(background="#555555", fmt='󱄠 {}', **decor),
+    widget.PulseVolume(background="#555555", fmt='󱄠 {}',
+                       mouse_callbacks={'Button3': lazy.spawn("pavucontrol"),
+                                        'Button1': lazy.spawn("ponymix toggle")}, **decor),
 ]
 
 if list(pathlib.Path('/sys/class/power_supply').glob('BAT*')) != []:
@@ -74,7 +93,7 @@ if list(pathlib.Path('/sys/class/power_supply').glob('BAT*')) != []:
     ]
 
 main_widgets += [
-    widget.Wttr(background="#222222", location={'Moscow': 'M'}, format='☂ %t(%f)/%h/%P', **decor),
+    MyWttr(background="#222222", location={'Moscow': 'M'}, **decor),
 
     # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
     #widget.StatusNotifier(**decor),
