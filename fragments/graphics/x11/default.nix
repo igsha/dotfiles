@@ -8,16 +8,10 @@
     autoRepeatInterval = 40;
     enableTCP = true;
     wacom.enable = true;
-    libinput = {
-      enable = true;
-      touchpad = {
-        naturalScrolling = true;
-        disableWhileTyping = true;
-        clickMethod = "clickfinger";
-      };
+    xkb = {
+      options = "grp:alt_space_toggle,grp:sclk_toggle,keypad:pointerkeys";
+      layout = "us,ru";
     };
-    xkbOptions = "grp:alt_space_toggle,grp:sclk_toggle,keypad:pointerkeys";
-    layout = "us,ru";
     serverFlagsSection = ''
       Option "BlankTime" "0"
     '';

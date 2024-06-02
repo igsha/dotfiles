@@ -20,6 +20,15 @@
         HandlePowerKey=suspend
       '';
     };
+
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+        disableWhileTyping = true;
+        clickMethod = "clickfinger";
+      };
+    };
   };
 
   location.provider = "geoclue2";

@@ -4,7 +4,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableBrowserSocket = true;
-    pinentryFlavor = "tty";
+    pinentryPackage = pkgs.pinentry-tty;
   };
 
   services.passSecretService.enable = true;
