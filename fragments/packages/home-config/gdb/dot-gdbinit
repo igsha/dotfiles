@@ -2,6 +2,7 @@ set print pretty on
 set print array on
 set print array-indexes on
 set print elements 100
+set auto-load safe-path /
 
 define imagedump
     set logging overwrite on
@@ -72,4 +73,6 @@ document num2addr
 Convert number list to address
 end
 
-set auto-load safe-path /
+define stui
+    winheight src 15
+end
