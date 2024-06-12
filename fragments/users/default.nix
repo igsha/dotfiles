@@ -85,6 +85,7 @@ in {
         mandown
         rfc go-cve-search
         dino-plus
+        davmail
       ] ++ imagePack ++ pdfPack ++ winePack ++ mediaPack
       ++ gstreamerPack ++ officePack
       ++ lib.optionals config.services.xserver.enable x11Pack;

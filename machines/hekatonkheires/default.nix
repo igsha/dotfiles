@@ -33,7 +33,6 @@
     ../../fragments/packages/python-lab
     ../../fragments/programs
     ../../fragments/programs/bash
-    ../../fragments/programs/davmail
     ../../fragments/programs/git
     ../../fragments/programs/gnupg
     ../../fragments/programs/neovim
