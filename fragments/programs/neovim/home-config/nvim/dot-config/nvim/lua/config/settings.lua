@@ -13,7 +13,6 @@ vim.g.airline_section_z = [[%3p%% (0x%2B) %#__accent_bold#%4l%#__restore__#:%3c]
 
 vim.g.hybrid_reduced_contrast = true;
 
-vim.cmd.colorscheme('jellybeans')
 vim.g.jellybeans_overrides = {
     background = {
         ['ctermbg'] = 'none',
@@ -21,7 +20,7 @@ vim.g.jellybeans_overrides = {
         ['guibg'] = 'none'
     }
 }
-vim.o.background = "dark"
+vim.cmd.colorscheme('jellybeans')
 
 vim.keymap.set("n", "<Leader>b", ":Telescope buffers<CR>", defopts)
 vim.keymap.set("n", "<Leader>g", ":Telescope live_grep<CR>", defopts)
