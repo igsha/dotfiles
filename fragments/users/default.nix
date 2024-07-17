@@ -40,6 +40,7 @@ let
     hunspellDicts.ru-ru
     hunspellDicts.en-us
     skypeforlinux
+    profanity
   ];
 
 in {
