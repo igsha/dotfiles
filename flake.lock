@@ -125,15 +125,15 @@
     "yt-dlp-plugins": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixos-unstable"
         ]
       },
       "locked": {
-        "lastModified": 1720208502,
-        "narHash": "sha256-ZYHT6QZEA5vaMOKdBFtwx2ChG4owxXpt17oK64XHDrM=",
+        "lastModified": 1721590332,
+        "narHash": "sha256-wyNTF4i96RB7dj/Q9NNRsVriwvAt15rQk4uwJCnwg98=",
         "owner": "igsha",
         "repo": "yt-dlp-plugins",
-        "rev": "896477001e19d361cc3fc4df613f702730e1adcb",
+        "rev": "6ac13d929e9fddbd077ef364d7df2123f784480f",
         "type": "github"
       },
       "original": {

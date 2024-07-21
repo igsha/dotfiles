@@ -11,7 +11,7 @@
     };
     yt-dlp-plugins = {
       url = github:igsha/yt-dlp-plugins/master;
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixos-unstable"; # use unstable yt-dlp
     };
     dino = {
       url = github:igsha/dino?ref=nix-support;
