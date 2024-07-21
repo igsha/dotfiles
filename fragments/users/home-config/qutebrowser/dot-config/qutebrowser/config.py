@@ -39,6 +39,7 @@ c.url.searchengines['goosh'] = "https://goosh.org/#{}"
 c.url.searchengines['translate'] = "https://translate.yandex.ru/?text={}"
 c.url.searchengines['wikipedia'] = "https://ru.wikipedia.org/wiki/{}"
 c.url.searchengines['youtube'] = "https://www.youtube.com/results?search_query={}"
+c.url.searchengines['ya'] = "https://ya.ru/search/?text={}"
 
 config.bind(";M", "hint links spawn torsocks mpv --load-unsafe-playlists {hint-url}", mode="normal")
 config.bind(";P", "spawn google-chrome-stable --incognito {url}", mode="normal")
