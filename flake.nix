@@ -32,7 +32,6 @@
         nixpkgs.overlays = [
           (final: prev: {
             unstablePkgs = unstable;
-            qutebrowser = unstable.qutebrowser;
             mpv-unwrapped = unstable.mpv-unwrapped; # need for mpv
             yt-dlp = unstable.yt-dlp;
             telegram-desktop = unstable.telegram-desktop;
