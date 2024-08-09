@@ -16,6 +16,7 @@ autocmd({ 'BufRead', 'BufNewFile' }, {
 vim.filetype.add({
   extension = {
     ets = 'typescript',
+    sts = 'typescript',
     vapi = 'vala',
   }
 })
