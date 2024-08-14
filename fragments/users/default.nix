@@ -36,7 +36,7 @@ let
     google-chrome
     wpsoffice
     qutebrowser
-    thunderbird
+    thunderbird-128
     hunspellDicts.ru-ru
     hunspellDicts.en-us
     skypeforlinux
