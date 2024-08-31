@@ -1,4 +1,4 @@
-_:
+{ pkgs, ... }:
 
 {
   services.openvpn.restartAfterSleep = false;
@@ -22,4 +22,6 @@ _:
       '';
     })
   ];
+
+  environment.systemPackages = [ pkgs.openvpn ];
 }
