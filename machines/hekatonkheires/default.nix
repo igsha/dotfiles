@@ -80,4 +80,8 @@
     packages = [ "autostart" ];
     dir = builtins.toString ./home-config;
   };
+
+  environment.systemPackages = with pkgs; [
+    shattered-pixel-dungeon
+  ];
 }
