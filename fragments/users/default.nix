@@ -42,6 +42,11 @@ let
     skypeforlinux
     profanity
   ];
+  mathPack = with pkgs; [
+    datamash
+    feedgnuplot
+    bc
+  ];
 
 in {
   users.users = {
@@ -88,7 +93,7 @@ in {
         dino-plus
         davmail
       ] ++ imagePack ++ pdfPack ++ winePack ++ mediaPack
-      ++ gstreamerPack ++ officePack
+      ++ gstreamerPack ++ officePack ++ mathPack
       ++ lib.optionals config.services.xserver.enable x11Pack;
     };
   };
