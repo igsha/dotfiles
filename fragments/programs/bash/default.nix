@@ -2,7 +2,7 @@ _:
 
 {
   programs.bash = {
-    enableCompletion = true;
+    completion.enable = true;
     shellAliases = {
       ls = "ls -h --color";
       "ls.pure" = "`which ls`";

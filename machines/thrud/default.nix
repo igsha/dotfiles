@@ -23,8 +23,8 @@
     ../../fragments/graphics/x11/sx
     ../../fragments/network
     ../../fragments/network/openvpn
-    ../../fragments/network/openvpn/miet.nix
-    ../../fragments/network/tor
+    #../../fragments/network/openvpn/miet.nix
+    #../../fragments/network/tor
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/games
@@ -32,8 +32,8 @@
     ../../fragments/other/virtualisation
     ../../fragments/other/xdg
     ../../fragments/services
-    ../../fragments/services/autosuspend
-    ../../fragments/services/offlineimap
+    #../../fragments/services/autosuspend
+    #../../fragments/services/offlineimap
     ../../fragments/packages
     ../../fragments/packages/python-lab
     ../../fragments/programs
@@ -65,6 +65,7 @@
       enable = true;
       finegrained = true;
     };
+    open = true;
   };
 
   services = {

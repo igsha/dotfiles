@@ -2,16 +2,15 @@
   description = "My NixOS configuration";
 
   inputs = {
-    nixpkgs.url = github:nixos/nixpkgs?ref=nixos-24.05;
+    nixpkgs.url = github:nixos/nixpkgs?ref=nixos-unstable;
     nixos-hardware.url = github:nixos/nixos-hardware/master;
-    nixos-unstable.url = github:nixos/nixpkgs?ref=nixos-unstable;
     home-config = {
       url = github:igsha/home-config/main;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     yt-dlp-plugins = {
       url = github:igsha/yt-dlp-plugins/master;
-      inputs.nixpkgs.follows = "nixos-unstable"; # use unstable yt-dlp
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     dino = {
       url = github:igsha/dino?ref=nix-support;
@@ -23,20 +22,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-unstable, nixos-hardware, home-config, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-config, ... }@inputs:
     let
       system = "x86_64-linux";
-      unstable = import nixos-unstable { inherit system; };
       defaults = { pkgs, lib, ... }: {
         system.configurationRevision = self.rev or self.dirtyRev or "dirty";
         nixpkgs.overlays = [
           (final: prev: {
-            unstablePkgs = unstable;
-            mpv-unwrapped = unstable.mpv-unwrapped; # need for mpv
-            yt-dlp = unstable.yt-dlp;
-            telegram-desktop = unstable.telegram-desktop;
-            nh = unstable.nh;
-            upower = unstable.upower;
             dino-plus = inputs.dino.packages.${prev.system}.default;
           })
           inputs.yt-dlp-plugins.overlays.default
@@ -50,7 +42,7 @@
               path = v.outPath;
             };
           }) (builtins.removeAttrs inputs [ "self" ]);
-          package = unstable.nixVersions.latest;
+          package = pkgs.nixVersions.latest;
         };
         home-config-basedir = lib.mkForce (builtins.toString ./.);
       };

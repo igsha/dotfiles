@@ -5,7 +5,6 @@
     updateDbusEnvironment = true;
     windowManager.qtile = {
       enable = true;
-      backend = if config.services.xserver.enable then "x11" else "wayland";
       extraPackages = pythonPkgs: with pythonPkgs; [
         # TODO: https://github.com/NixOS/nixpkgs/issues/271610
         (qtile-extras.overridePythonAttrs (old: {

@@ -27,3 +27,4 @@ def autostart():
 @hook.subscribe.startup_complete
 def postautostart():
     subprocess.call('systemctl --user start graphical-session.target'.split())
+    subprocess.call('systemctl --user start xdg-autostart-if-no-desktop-manager.target'.split())

@@ -10,8 +10,6 @@ let
     scipy
     matplotlib
     numpy
-    tensorflow
-    keras
     opencv4
     pillow
     python-gitlab

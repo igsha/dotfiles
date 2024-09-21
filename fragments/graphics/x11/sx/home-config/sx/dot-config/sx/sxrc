@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-PROG=()
+SESSIONS=()
 for s in $(tr : '\n' <<< "$XDG_DATA_DIRS"); do
     [[ -d $s/xsessions ]] || continue
     for i in $s/xsessions/*.desktop; do
-        PROG+=($(grep -Po '^Exec=\K.*' $i))
+        read -r __session < <(grep -Po '^Exec=\K.*' $i)
+        SESSIONS+=("$__session")
     done
 done
-
-__session=${PROG[0]}
 
 systemctl --user import-environment \
     DBUS_SESSION_BUS_ADDRESS \
@@ -20,4 +19,4 @@ systemctl --user import-environment \
 
 xhost si:localuser:$USER # for autosuspend
 
-exec $__session
+exec ${SESSIONS[0]}

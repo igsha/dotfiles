@@ -7,7 +7,7 @@ let
   popup-translate = pkgs.writeShellScriptBin "popup-translate" ''
     $TERMINAL --class popup -t translate -e trans -I
   '';
-  imagePack = with pkgs; [ imv inkscape krita gimp mypaint ];
+  imagePack = with pkgs; [ imv inkscape krita gimp ];
   pdfPack = with pkgs; [ zathura pdfcpu ghostscript ];
   winePack = with pkgs; [ wineWowPackages.unstable winetricks ];
   mediaPack = with pkgs; [
