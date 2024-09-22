@@ -11,16 +11,17 @@
     ../../custom-args
     ../../encrypted
     ../../fragments/boot
-    ../../fragments/graphics/greetd
-    ../../fragments/graphics/redshift
-    ../../fragments/graphics/screenshot
-    ../../fragments/graphics/window-manager/qtile
-    ../../fragments/graphics/x11
-    ../../fragments/graphics/x11/autorandr
-    ../../fragments/graphics/x11/dunst
-    ../../fragments/graphics/x11/lock
-    ../../fragments/graphics/x11/picom
-    ../../fragments/graphics/x11/sx
+    ../../fragments/graphics/wayland/waybar
+    #../../fragments/graphics/greetd
+    #../../fragments/graphics/redshift
+    #../../fragments/graphics/screenshot
+    #../../fragments/graphics/window-manager/qtile
+    #../../fragments/graphics/x11
+    #../../fragments/graphics/x11/autorandr
+    #../../fragments/graphics/x11/dunst
+    #../../fragments/graphics/x11/lock
+    #../../fragments/graphics/x11/picom
+    #../../fragments/graphics/x11/sx
     ../../fragments/network
     ../../fragments/network/openvpn
     #../../fragments/network/openvpn/miet.nix
@@ -90,5 +91,24 @@
   home-config.autostart = {
     packages = [ "autostart" ];
     dir = builtins.toString ./home-config;
+  };
+
+  environment.systemPackages = with pkgs; [
+    rofi
+  ];
+  services.hypridle.enable = true;
+  programs = {
+    hyprlock.enable = true;
+    hyprland.enable = true;
+    uwsm = {
+      enable = true;
+      waylandCompositors = {
+        hyprland = {
+          prettyName = "Hyprland";
+          comment = "Hyprland compositor managed by UWSM";
+          binPath = "/run/current-system/sw/bin/Hyprland";
+        };
+      };
+    };
   };
 }

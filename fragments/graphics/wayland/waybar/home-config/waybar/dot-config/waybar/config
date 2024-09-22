@@ -40,13 +40,12 @@
     },
     "modules-center": [],
     "modules-left": [
-      "sway/workspaces",
-      "sway/mode",
-      "sway/window"
+      "hyprland/workspaces",
+      "hyprland/window"
     ],
     "modules-right": [
       "keyboard-state",
-      "sway/language",
+      "hyprland/language",
       "cpu",
       "memory",
       "disk",
@@ -66,12 +65,11 @@
       "format": " {volume}%",
       "on-click": "pavucontrol"
     },
-    "sway/language": {
+    "hyprland/language": {
       "tooltip-format": "{flag} {long}"
     },
-    "sway/workspaces": {
-      "all-outputs": true,
-      "disable-scroll": true
+    "hyprland/workspaces": {
+      "all-outputs": true
     }
   }
 ]
