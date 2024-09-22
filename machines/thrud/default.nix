@@ -11,20 +11,9 @@
     ../../custom-args
     ../../encrypted
     ../../fragments/boot
-    ../../fragments/graphics/greetd
-    ../../fragments/graphics/redshift
-    ../../fragments/graphics/screenshot
-    ../../fragments/graphics/window-manager/qtile
-    ../../fragments/graphics/x11
-    ../../fragments/graphics/x11/autorandr
-    ../../fragments/graphics/x11/dunst
-    ../../fragments/graphics/x11/lock
-    ../../fragments/graphics/x11/picom
-    ../../fragments/graphics/x11/sx
+    ../../fragments/graphics/window-manager/hyprland
     ../../fragments/network
     ../../fragments/network/openvpn
-    #../../fragments/network/openvpn/miet.nix
-    #../../fragments/network/tor
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/games
@@ -32,8 +21,6 @@
     ../../fragments/other/virtualisation
     ../../fragments/other/xdg
     ../../fragments/services
-    #../../fragments/services/autosuspend
-    #../../fragments/services/offlineimap
     ../../fragments/packages
     ../../fragments/packages/python-lab
     ../../fragments/programs
@@ -51,7 +38,6 @@
       devdisk = "/dev/nvme0n1p";
       tmpsize = "16G";
     };
-    greetd.cmd = "sx";
     user = "isharonov";
     battery = true;
   };

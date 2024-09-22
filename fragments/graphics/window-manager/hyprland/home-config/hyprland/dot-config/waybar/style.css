@@ -1,0 +1,9 @@
+@import "/run/current-system/sw/etc/xdg/waybar/style.css";
+* {
+  font-family: Roboto, Helvetica, "Font Awesome 6 Free", sans-serif;
+}
+#language { margin: 0 0px; }
+#keyboard-state { margin: 0 0px; }
+#network { min-width: 10em; }
+#cpu.warning, #memory.warning, #disk.warning { background: orange; }
+#cpu.critical, #memory.critical, #disk.critical { background: red; }

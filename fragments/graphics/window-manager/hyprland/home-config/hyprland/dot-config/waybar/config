@@ -1,0 +1,75 @@
+[
+  {
+    "clock": {
+      "format": " {:%F %a %R}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+      "format": " {usage}%",
+      "states": {
+        "critical": 85,
+        "warning": 50
+      }
+    },
+    "custom/temp": {
+      "exec": "echo 0",
+      "format": " {}℃",
+      "interval": 300
+    },
+    "disk": {
+      "format": " {free}",
+      "states": {
+        "critical": 90,
+        "warning": 75
+      }
+    },
+    "height": 30,
+    "keyboard-state": {
+      "capslock": true,
+      "format": "{name}",
+      "numlock": true,
+      "scrolllock": true
+    },
+    "layer": "bottom",
+    "memory": {
+      "format": " {used:0.1f}GiB/{total:0.1f}GiB [{swapUsed:0.1f}GiB]",
+      "states": {
+        "critical": 90,
+        "warning": 80
+      }
+    },
+    "modules-center": [],
+    "modules-left": [
+      "hyprland/workspaces",
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "keyboard-state",
+      "hyprland/language",
+      "cpu",
+      "memory",
+      "disk",
+      "network",
+      "pulseaudio",
+      "custom/temp",
+      "clock",
+      "tray"
+    ],
+    "network": {
+      "format": "{bandwidthDownBits}↓ {bandwidthUpBits}↑",
+      "interface": "*",
+      "interval": 3
+    },
+    "position": "top",
+    "pulseaudio": {
+      "format": " {volume}%",
+      "on-click": "pavucontrol"
+    },
+    "hyprland/language": {
+      "tooltip-format": "{flag} {long}"
+    },
+    "hyprland/workspaces": {
+      "all-outputs": true
+    }
+  }
+]
