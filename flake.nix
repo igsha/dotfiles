@@ -20,6 +20,7 @@
       url = github:igsha/tmux-mycollection/main;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-config, ... }@inputs:
