@@ -41,6 +41,7 @@ let
     hunspellDicts.en-us
     skypeforlinux
     profanity
+    aerc
   ];
   mathPack = with pkgs; [
     datamash
