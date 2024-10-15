@@ -9,12 +9,14 @@ for s in $(tr : '\n' <<< "$XDG_DATA_DIRS"); do
     done
 done
 
+export QT_QPA_PLATFORM=xcb
 systemctl --user import-environment \
     DBUS_SESSION_BUS_ADDRESS \
     DISPLAY \
     XAUTHORITY \
     PATH \
     NIX_PATH \
+    QT_QPA_PLATFORM \
     XDG_{SESSION_{ID,TYPE},{DATA,CONFIG}_DIRS,{RUNTIME,DESKTOP_PORTAL}_DIR}
 
 xhost si:localuser:$USER # for autosuspend

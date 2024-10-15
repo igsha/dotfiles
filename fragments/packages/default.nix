@@ -33,7 +33,7 @@
       libxml2
       ponysay
       fakeroot fakechroot debootstrap proot
-      transmission
+      transmission_4
       parallel
       ncdu
       android-udev-rules
