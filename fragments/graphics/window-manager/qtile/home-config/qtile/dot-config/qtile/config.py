@@ -1,4 +1,5 @@
-from libqtile import hook
+from libqtile import hook, qtile
+from libqtile.backend.wayland import InputConfig
 import subprocess
 
 from bits.keys import mod, keys
@@ -10,21 +11,48 @@ from bits.screens import screens, auto_fullscreen, reconfigure_screens
 
 
 auto_minimize = False
-wl_input_rules = None
 wmname = "LG3D"
+
+# qtile cmd-obj -o core -f get_inputs
+wl_input_rules = {
+    "type:keyboard": InputConfig(kb_layout="us,ru",
+                                 kb_repeat_rate=40,
+                                 kb_repeat_delay=250,
+                                 kb_options="grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"),
+    "type:touch": InputConfig(natural_scroll=True)
+}
 
 @hook.subscribe.startup_once
 def autostart():
-    subprocess.call(['kbdd'])
-    subprocess.call('''
-        setxkbmap
-        -layout "us,ru"
-        -option "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"
-    '''.split())
-    subprocess.call('xset r rate 250 40'.split())
-    subprocess.call(['numlockx'])
+    pass
+    #subprocess.call(['kbdd'])
+    #subprocess.call('''
+    #    setxkbmap
+    #    -layout "us,ru"
+    #    -option "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"
+    #'''.split())
+    #subprocess.call('xset r rate 250 40'.split())
+    #subprocess.call(['numlockx'])
 
 @hook.subscribe.startup_complete
 def postautostart():
-    subprocess.call('systemctl --user start graphical-session.target'.split())
-    subprocess.call('systemctl --user start xdg-autostart-if-no-desktop-manager.target'.split())
+    variables = ["DBUS_SESSION_BUS_ADDRESS",
+                 "PATH",
+                 "NIX_PATH",
+                 "XDG_SESSION_ID",
+                 "XDG_SESSION_TYPE",
+                 "XDG_DATA_DIRS",
+                 "XDG_CONFIG_DIRS",
+                 "XDG_RUNTIME_DIR",
+                 "XDG_CURRENT_DESKTOP",
+                 "XDG_DESTOP_PORTAL_DIR"]
+
+    if qtile.core.name == "wayland":
+        variables.append("WAYLAND_DISPLAY")
+    else:
+        variables += ["DISPLAY", "XAUTHORITY"]
+
+    subprocess.call(["systemctl", "--user", "import-environment", *variables])
+    subprocess.call(["systemctl", "--user", "start", "graphical-session.target"])
+    subprocess.call(["systemctl", "--user", "start", "xdg-autostart-if-no-desktop-manager.target"])
+    subprocess.call(["systemctl", "--user", "start", "hypridle.service"])

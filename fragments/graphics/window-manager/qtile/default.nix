@@ -15,14 +15,41 @@
     desktopManager.runXdgAutostartIfNone = true;
   };
 
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors = {
+      qtile = {
+        prettyName = "Qtile";
+        comment = "Qtile compositor managed by UWSM";
+        binPath = "/run/current-system/sw/bin/qtile";
+      };
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     ponymix
     kbdd
-    rofi
+    swaykbdd
+    rofi-wayland
+    rofi-power-menu
+    rofi-calc
+    rofi-bluetooth
+    rofi-screenshot
+    rofi-pulse-select
+    wayland-utils
+    wlvncc
+    wlay
+    wdisplays
+    hypridle
+    wlr-randr
+    wl-clipboard
+    swaylock-effects
   ];
 
+  security.pam.services.swaylock = {};
+
   home-config.qtile = {
-    packages = [ "qtile" "rofi" ];
+    packages = [ "qtile" ];
     dir = builtins.toString ./home-config;
   };
 

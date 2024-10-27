@@ -1,5 +1,6 @@
 import subprocess, re, pathlib
 
+from libqtile import qtile
 from libqtile.lazy import lazy
 
 from qtile_extras import widget
@@ -94,10 +95,14 @@ if list(pathlib.Path('/sys/class/power_supply').glob('BAT*')) != []:
 
 main_widgets += [
     MyWttr(background="#222222", location={'Moscow': 'M'}, **decor),
+]
 
-    # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-    #widget.StatusNotifier(**decor),
-    widget.Systray(**decor),
+if qtile.core.name == "wayland":
+    main_widgets.append(widget.StatusNotifier(**decor))
+else:
+    main_widgets.append(widget.Systray(**decor))
+
+main_widgets += [
     widget.Clock(background="#444444", format="%a, %Y-%m-%d %H:%M", **decor),
 ]
 
