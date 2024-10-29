@@ -84,4 +84,11 @@
   environment.systemPackages = with pkgs; [
     shattered-pixel-dungeon
   ];
+
+  virtualisation.virtualbox.host = {
+    enable = true;
+    enableExtensionPack = true;
+    enableKvm = false;
+    addNetworkInterface = true;
+  };
 }

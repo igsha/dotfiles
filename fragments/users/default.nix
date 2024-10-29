@@ -35,6 +35,7 @@ let
     tdesktop
     google-chrome
     wpsoffice
+    libreoffice
     qutebrowser
     thunderbird-128
     hunspellDicts.ru-ru
