@@ -12,7 +12,7 @@
     ../../encrypted
     ../../fragments/boot
     ../../fragments/graphics/window-manager/qtile
-    ../../fragments/graphics/x11/dunst
+    ../../fragments/graphics/dunst
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/other
