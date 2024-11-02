@@ -1,3 +1,4 @@
+from libqtile import qtile
 from libqtile.config import Key, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -77,3 +78,7 @@ keys = [
     Key([mod], "F12", lazy.spawn("rofi -show power -modes power:rofi-power-menu.sh")),
     Key([mod], "F1", lazy.spawn("dunstctl close-all")),
 ] + createKeyChords(mod)
+
+for vt in range(1, 8):
+    change_vt = lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland")
+    keys.append(Key(["control", "mod1"], f"f{vt}", change_vt, desc=f"Switch to VT{vt}"))
