@@ -53,10 +53,17 @@ main_widgets = [
     widget.Prompt(background="#007f00", **decor),
     widget.Chord(background="#7f0000", foreground="#ffffff", markup=False, **decor),
     widget.WindowName(background="#222222", **decor),
+]
 
-    widget.GenPollText(background="#333333", func=poll_indicators, update_interval=0.5, **decor),
-    widget.KeyboardKbdd(background="#444444", configured_keyboards=['us', 'ru'], **decor),
+if qtile.core.name == "wayland":
+    main_widgets.append(widget.KeyboardKbdd(background="#444444", configured_keyboards=['us', 'ru'], **decor))
+else:
+    main_widgets += [
+        widget.GenPollText(background="#333333", func=poll_indicators, update_interval=0.5, **decor),
+        widget.KeyboardKbdd(background="#444444", configured_keyboards=['us', 'ru'], **decor),
+    ]
 
+main_widgets += [
     widget.DF(partition='/', measure='G', warn_space=40, visible_on_warn=True, **decor),
     widget.CPU(background="#333333", format=' {load_percent:3.0f}%', **decor),
     widget.Memory(background="#222222", measure_mem='G', format=' {MemPercent:2.0f}%', **decor),

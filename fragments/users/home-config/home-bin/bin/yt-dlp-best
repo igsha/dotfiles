@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+yt-dlp -f "bv*[vcodec^=avc]+ba[ext=m4a]/b[ext=mp4]/b" --embed-chapters "$@"

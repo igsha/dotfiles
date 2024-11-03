@@ -24,15 +24,15 @@ wl_input_rules = {
 
 @hook.subscribe.startup_once
 def autostart():
-    pass
-    #subprocess.call(['kbdd'])
-    #subprocess.call('''
-    #    setxkbmap
-    #    -layout "us,ru"
-    #    -option "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"
-    #'''.split())
-    #subprocess.call('xset r rate 250 40'.split())
-    #subprocess.call(['numlockx'])
+    if qtile.core.name == "x11":
+        subprocess.call(['kbdd'])
+        subprocess.call('''
+            setxkbmap
+            -layout "us,ru"
+            -option "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"
+        '''.split())
+        subprocess.call('xset r rate 250 40'.split())
+        subprocess.call(['numlockx'])
 
 @hook.subscribe.startup_complete
 def postautostart():
@@ -55,4 +55,5 @@ def postautostart():
     subprocess.call(["systemctl", "--user", "import-environment", *variables])
     subprocess.call(["systemctl", "--user", "start", "graphical-session.target"])
     subprocess.call(["systemctl", "--user", "start", "xdg-autostart-if-no-desktop-manager.target"])
-    subprocess.call(["systemctl", "--user", "start", "hypridle.service"])
+    if qtile.core.name == "wayland":
+        subprocess.call(["systemctl", "--user", "start", "hypridle.service"])
