@@ -9,10 +9,14 @@
     nixos-hardware.nixosModules.common-pc-laptop-ssd
 
     ../../custom-args
-    ../../encrypted
     ../../fragments/boot
-    ../../fragments/graphics/window-manager/qtile
+    ../../fragments/graphics
     ../../fragments/graphics/dunst
+    ../../fragments/graphics/redshift
+    ../../fragments/graphics/screenshot
+    ../../fragments/graphics/window-manager/qtile
+    #../../fragments/graphics/x11
+    #../../fragments/graphics/x11/autosuspend
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/other

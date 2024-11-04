@@ -1,3 +1,5 @@
+import re
+
 from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
 
@@ -5,12 +7,12 @@ from .keys import keys, mod
 
 
 groups = [
-    Group("1", matches=[Match(wm_class=["Alacritty"])]),
-    Group("2", matches=[Match(wm_class=["qutebrowser"])]),
-    Group("3", matches=[Match(wm_class=["Thunderbird", "Evolution", "Mail", "betterbird"])]),
-    Group("4", matches=[Match(wm_class=["telegram-desktop"])]),
-    Group("5", matches=[Match(wm_class=["rocket.chat", "Rocket.Chat", "Skype"])]),
-    Group("6", matches=[Match(wm_class=["Steam", "steam"])]),
+    Group("1", matches=[Match(wm_class=re.compile(r"^(Alacritty)$"))]),
+    Group("2", matches=[Match(wm_class=re.compile(r"^(qutebrowser)$"))]),
+    Group("3", matches=[Match(wm_class=re.compile(r"^(Thunderbird|Evolution|Mail|betterbird)$"))]),
+    Group("4", matches=[Match(wm_class=re.compile(r"^(telegram-desktop)$"))]),
+    Group("5", matches=[Match(wm_class=re.compile(r"^([Rr]ocket.[Cc]hat|Skype)$"))]),
+    Group("6", matches=[Match(wm_class=re.compile(r"^([Ss]team)"))]),
 ]
 
 groups += list(map(Group, "7890"))

@@ -37,7 +37,7 @@
       wlvncc
       wlay
       waybar
-      kbdd
+      hyprland-per-window-layout
     ];
     etc."rofi/themes".source = "${pkgs.rofi}/share/rofi/themes";
   };

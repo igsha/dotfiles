@@ -25,14 +25,11 @@ wl_input_rules = {
 @hook.subscribe.startup_once
 def autostart():
     if qtile.core.name == "x11":
-        subprocess.call(['kbdd'])
-        subprocess.call('''
-            setxkbmap
-            -layout "us,ru"
-            -option "grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"
-        '''.split())
-        subprocess.call('xset r rate 250 40'.split())
-        subprocess.call(['numlockx'])
+        keyboard = wl_input_rules["type:keyboard"]
+        subprocess.call(["kbdd"])
+        subprocess.call(["setxkbmap", "-layout", keyboard.kb_layout, "-option", keyboard.kb_options])
+        subprocess.call(["xset", "r", "rate", str(keyboard.kb_repeat_delay), str(keyboard.kb_repeat_rate)])
+        subprocess.call(["numlockx"])
 
 @hook.subscribe.startup_complete
 def postautostart():

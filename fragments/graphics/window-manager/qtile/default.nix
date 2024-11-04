@@ -28,10 +28,12 @@
 
   environment.systemPackages = with pkgs; [
     ponymix
+  ] ++ (if config.services.xserver.enable then [
     kbdd
-    swaykbdd
+    numlockx
+    rofi
+  ] else [
     rofi-wayland
-    rofi-power-menu
     rofi-calc
     rofi-bluetooth
     rofi-screenshot
@@ -40,11 +42,11 @@
     wlvncc
     wlay
     wdisplays
-    hypridle
     wlr-randr
     wl-clipboard
     swaylock-effects
-  ];
+    hypridle # cannot use services.hypridle as it starts too early
+  ]);
 
   security.pam.services.swaylock = {};
 

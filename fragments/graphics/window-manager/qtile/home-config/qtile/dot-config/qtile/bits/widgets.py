@@ -56,7 +56,7 @@ main_widgets = [
 ]
 
 if qtile.core.name == "wayland":
-    main_widgets.append(widget.KeyboardKbdd(background="#444444", configured_keyboards=['us', 'ru'], **decor))
+    main_widgets.append(widget.KeyboardLayout(background="#444444", configured_keyboards=['us', 'ru'], **decor))
 else:
     main_widgets += [
         widget.GenPollText(background="#333333", func=poll_indicators, update_interval=0.5, **decor),

@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
-    flameshot
+    (flameshot.override { enableWlrSupport = !config.services.xserver.enable; })
   ];
 
   home-config.screenshot = {

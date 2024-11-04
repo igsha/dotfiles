@@ -8,18 +8,14 @@
     nixos-hardware.nixosModules.common-pc
 
     ../../custom-args
-    ../../encrypted
     ../../fragments/boot
     ../../fragments/graphics
-    ../../fragments/graphics/greetd
+    ../../fragments/graphics/dunst
     ../../fragments/graphics/redshift
     ../../fragments/graphics/screenshot
     ../../fragments/graphics/window-manager/qtile
     ../../fragments/graphics/x11
-    ../../fragments/graphics/x11/dunst
-    ../../fragments/graphics/x11/lock
-    ../../fragments/graphics/x11/picom
-    ../../fragments/graphics/x11/sx
+    ../../fragments/graphics/x11/autosuspend
     ../../fragments/network
     ../../fragments/network/openvpn
     ../../fragments/network/openvpn/miet.nix
@@ -31,8 +27,6 @@
     ../../fragments/other/virtualisation
     ../../fragments/other/xdg
     ../../fragments/services
-    ../../fragments/services/autosuspend
-    ../../fragments/services/offlineimap
     ../../fragments/packages
     ../../fragments/packages/python-lab
     ../../fragments/programs
@@ -51,12 +45,10 @@
       devdisk = "/dev/sda";
       tmpsize = "16G";
     };
-    greetd.cmd = "sx";
     user = "isharonov";
   };
 
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl88x2bu ];
-  services.xserver.videoDrivers = [ "amdgpu" ];
 
   networking = {
     hostName = "ginnungagap";
