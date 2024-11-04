@@ -28,11 +28,6 @@
   environment = {
     systemPackages = with pkgs; [
       rofi-wayland
-      rofi-power-menu
-      rofi-calc
-      #rofi-bluetooth
-      rofi-screenshot
-      rofi-pulse-select
       wayland-utils
       wlvncc
       wlay

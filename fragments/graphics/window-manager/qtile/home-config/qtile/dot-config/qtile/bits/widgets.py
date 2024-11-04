@@ -55,9 +55,7 @@ main_widgets = [
     widget.WindowName(background="#222222", **decor),
 ]
 
-if qtile.core.name == "wayland":
-    main_widgets.append(widget.KeyboardLayout(background="#444444", configured_keyboards=['us', 'ru'], **decor))
-else:
+if qtile.core.name == "x11":
     main_widgets += [
         widget.GenPollText(background="#333333", func=poll_indicators, update_interval=0.5, **decor),
         widget.KeyboardKbdd(background="#444444", configured_keyboards=['us', 'ru'], **decor),

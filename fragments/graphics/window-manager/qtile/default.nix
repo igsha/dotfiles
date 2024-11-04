@@ -34,10 +34,6 @@
     rofi
   ] else [
     rofi-wayland
-    rofi-calc
-    rofi-bluetooth
-    rofi-screenshot
-    rofi-pulse-select
     wayland-utils
     wlvncc
     wlay
