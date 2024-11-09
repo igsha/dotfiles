@@ -78,5 +78,7 @@ final: prev:
     telescope-nvim
     nvim-treesitter
     nvim-treesitter-parsers.vala
+    vim-gnupg
+    vim-tmux-clipboard
   ];
 }
