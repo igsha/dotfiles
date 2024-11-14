@@ -78,6 +78,7 @@
 
   environment.systemPackages = with pkgs; [
     shattered-pixel-dungeon
+    firefox-bin
   ];
 
   virtualisation.virtualbox.host = {
