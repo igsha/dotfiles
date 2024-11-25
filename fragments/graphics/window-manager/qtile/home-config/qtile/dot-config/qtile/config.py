@@ -19,7 +19,10 @@ wl_input_rules = {
                                  kb_repeat_rate=40,
                                  kb_repeat_delay=250,
                                  kb_options="grp:sclk_toggle,grp:shift_caps_toggle,grp_led:scroll,keypad:pointerkeys"),
-    "type:touch": InputConfig(natural_scroll=True)
+    "type:touchpad": InputConfig(natural_scroll=True,
+                                 middle_emulation=True,
+                                 tap=True,
+                                 tap_button_map="lrm")
 }
 
 @hook.subscribe.startup_once
