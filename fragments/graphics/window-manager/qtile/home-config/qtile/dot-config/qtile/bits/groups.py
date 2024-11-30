@@ -8,9 +8,9 @@ from .keys import keys, mod
 
 groups = [
     Group("1", matches=[Match(wm_class=re.compile(r"^(Alacritty)$"))]),
-    Group("2", matches=[Match(wm_class=re.compile(r"^(qutebrowser)$"))]),
-    Group("3", matches=[Match(wm_class=re.compile(r"^(Thunderbird|Evolution|Mail|betterbird)$"))]),
-    Group("4", matches=[Match(wm_class=re.compile(r"^(telegram-desktop)$"))]),
+    Group("2", matches=[Match(wm_class=re.compile(r"^((org.qutebrowser.)?qutebrowser)$"))]),
+    Group("3", matches=[Match(wm_class=re.compile(r"^([Tt]hunderbird|Evolution|Mail|betterbird)$"))]),
+    Group("4", matches=[Match(wm_class=re.compile(r"^(telegram-desktop|org.telegram.desktop)$"))]),
     Group("5", matches=[Match(wm_class=re.compile(r"^([Rr]ocket.[Cc]hat|Skype)$"))]),
     Group("6", matches=[Match(wm_class=re.compile(r"^([Ss]team)"))]),
 ]
