@@ -24,7 +24,7 @@ in {
       powerline-symbols
       symbola
       line-awesome
-      nerdfonts
+      nerd-fonts.hack
     ];
   };
 }
