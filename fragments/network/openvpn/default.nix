@@ -3,7 +3,7 @@
 {
   services.openvpn.restartAfterSleep = false;
 
-  #programs.openvpn3.enable = true;
+  programs.openvpn3.enable = true;
 
   nixpkgs.overlays = [
     (self: super: {

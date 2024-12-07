@@ -34,7 +34,7 @@ def window_resize(qtile, direction):
     if qtile.current_window.floating:
         qtile.current_window.cmd_resize_floating(*default_directions[direction])
     else:
-        State.grows(qtile.current_layout)[direction]()
+        grows(qtile.current_layout)[direction]()
 
 keys = [
     # Switch between windows

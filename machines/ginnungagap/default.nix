@@ -15,7 +15,6 @@
     ../../fragments/graphics/screenshot
     ../../fragments/graphics/window-manager/qtile
     ../../fragments/graphics/x11
-    ../../fragments/graphics/x11/autosuspend
     ../../fragments/network
     ../../fragments/network/netutils
     ../../fragments/network/openvpn
