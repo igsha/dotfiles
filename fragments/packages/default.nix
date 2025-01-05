@@ -22,10 +22,10 @@
       tree file which mkpasswd
       openssl
       ocamlPackages.csv
-      vifm
+      vifm nnn
       fuse fuseiso curlftpfs jmtpfs sshfs archivemount rar2fs encfs afuse
       pwgen
-      bviplus dhex vbindiff hexyl hecate hexcurse
+      dhex vbindiff hexyl hecate hexcurse
       universal-ctags
       unrar unzipNLS zip p7zip
       wcalc jq jo yq htmlq

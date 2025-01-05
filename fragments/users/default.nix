@@ -34,7 +34,6 @@ let
     freerdp
     tdesktop
     google-chrome
-    wpsoffice
     libreoffice
     qutebrowser
     thunderbird-128
