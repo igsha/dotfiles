@@ -36,7 +36,6 @@ let
     google-chrome
     libreoffice
     qutebrowser
-    thunderbird-128
     hunspellDicts.ru-ru
     hunspellDicts.en-us
     skypeforlinux

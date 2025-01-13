@@ -30,6 +30,7 @@
     ../../fragments/packages/python-lab
     ../../fragments/programs
     ../../fragments/programs/bash
+    ../../fragments/programs/email
     ../../fragments/programs/git
     ../../fragments/programs/gnupg
     ../../fragments/programs/neovim
