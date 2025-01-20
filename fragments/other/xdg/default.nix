@@ -22,7 +22,8 @@ in {
         "org.pwmt.zathura.desktop" = listWithPrefix "application/" [ "pdf" "postscript" ];
         "org.qutebrowser.qutebrowser.desktop"  = [ "text/html" ]
           ++ listWithPrefix "x-scheme-handler/" [ "http" "https" ];
-        "imv.desktop" = listWithPrefix "image/" [ "png" "jpeg" "jpg" "gif" "vnd.adobe.photoshop" "svg" "heif" ];
+        "imv.desktop" = listWithPrefix "image/" [ "png" "jpeg" "jpg" "vnd.adobe.photoshop" "svg" "heif" ];
+        "mpv.desktop" = [ "image/gif" ];
         "nvim.desktop" = (listWithPrefix "text/" ([ "plain" "markdown" ]
             ++ listWithPrefix "x-" [ "cmake" "python" "rst" "makefile" "patch" "readme" "log" ]))
           ++ listWithPrefix "application/" ([ "json" "octet-stream" "xml" ]
