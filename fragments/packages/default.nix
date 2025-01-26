@@ -22,7 +22,7 @@
       tree file which mkpasswd
       openssl
       ocamlPackages.csv
-      vifm nnn
+      vifm
       fuse fuseiso curlftpfs jmtpfs sshfs archivemount rar2fs encfs afuse
       pwgen
       dhex vbindiff hexyl hecate hexcurse

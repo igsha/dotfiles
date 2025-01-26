@@ -23,7 +23,6 @@ in {
     nix-ld.enable = true;
     fuse.userAllowOther = true;
     starship.enable = true;
-    udevil.enable = true;
     adb.enable = true;
     dconf.enable = true;
   };
@@ -31,15 +30,4 @@ in {
   services = {
     dbus.packages = [ pkgs.dconf ];
   };
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      udevil = prev.udevil.overrideAttrs (old: {
-        postInstall = ''
-          sed -i 's/^allowed_types =.*/allowed_types = \$KNOWN_FILESYSTEMS, file, cifs, smbfs, nfs, curlftpfs, ftpfs, sshfs, davfs, tmpfs, ramfs/' \
-          $out/etc/udevil/udevil.conf
-        '';
-      });
-    })
-  ];
 }

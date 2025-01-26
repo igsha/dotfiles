@@ -35,6 +35,7 @@
     ../../fragments/programs/git
     ../../fragments/programs/gnupg
     ../../fragments/programs/neovim
+    ../../fragments/programs/nnn
     ../../fragments/programs/tmux
     ../../fragments/programs/udevil
     ../../fragments/users
