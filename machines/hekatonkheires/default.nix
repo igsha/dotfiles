@@ -62,6 +62,12 @@
   boot = {
     initrd.availableKernelModules = [ "nvme" ];
     kernelModules = [ "kvm-amd" ];
+    # https://github.com/NixOS/nixos-hardware/issues/1348
+    # https://github.com/NixOS/nixos-hardware/issues/1314
+    kernelParams = [
+      "pcie_aspm=off"
+      "amdgpu.abmlevel=0"
+    ];
   };
 
   hardware.bluetooth = {
