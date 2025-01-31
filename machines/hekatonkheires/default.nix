@@ -90,8 +90,11 @@
     firefox-bin
   ];
 
+  # Allow default config in ~/.config/docker/daemon.json
+  systemd.user.services.docker.serviceConfig.ExecStart = lib.mkForce "${config.virtualisation.docker.rootless.package}/bin/dockerd-rootless";
+
   virtualisation.virtualbox.host = {
-    enable = true;
+    enable = false;
     enableExtensionPack = true;
     enableKvm = false;
     addNetworkInterface = true;
