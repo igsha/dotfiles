@@ -9,7 +9,7 @@
   };
 
   programs.bash.interactiveShellInit = ''
-    export NNN_OPTS="deca"
+    export NNN_OPTS="daAeR"
     export NNN_PLUG="p:/etc/nnn/preview-tui;d:/etc/nnn/diffs"
   '';
 }

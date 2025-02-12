@@ -13,7 +13,7 @@
     rtkit.enable = true;
   };
 
-  system.stateVersion = "unstable";
+  system.stateVersion = "25.05";
 
   time.timeZone = "Europe/Moscow";
   i18n.supportedLocales = [

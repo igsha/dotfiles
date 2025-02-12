@@ -14,7 +14,6 @@ let
     ffmpeg-full
     asciinema
     obs-studio
-    termplay
     v4l-utils
     (mpv.override { youtubeSupport = false; })
     yt-dlp-with-plugins

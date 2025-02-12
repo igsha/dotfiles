@@ -17,7 +17,7 @@
       syslinux
       dmidecode lshw smartmontools pciutils usbutils inxi
       htop atop iotop lsof inetutils
-      sysstat dstat connect corkscrew torsocks socat wakelan
+      sysstat connect corkscrew torsocks socat wakelan
       pv
       tree file which mkpasswd
       openssl
