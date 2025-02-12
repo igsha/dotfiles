@@ -2,10 +2,11 @@
 
 {
   imports = [
+    nixos-hardware.nixosModules.common-cpu-amd
     nixos-hardware.nixosModules.common-cpu-amd-pstate
     nixos-hardware.nixosModules.common-gpu-nvidia
     nixos-hardware.nixosModules.common-hidpi
-    nixos-hardware.nixosModules.common-pc
+    nixos-hardware.nixosModules.common-pc-laptop
     nixos-hardware.nixosModules.common-pc-laptop-ssd
 
     ../../custom-args
@@ -49,6 +50,8 @@
     user = "isharonov";
     battery = true;
   };
+
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
 
   hardware.nvidia = {
     prime = {

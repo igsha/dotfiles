@@ -25,7 +25,7 @@
   nix = {
     settings = {
       sandbox = true;
-      experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
+      experimental-features = [ "nix-command" "flakes" "pipe-operators" "fetch-closure" ];
     };
     channel.enable = false;
   };

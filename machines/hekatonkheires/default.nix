@@ -2,11 +2,9 @@
 
 {
   imports = [
-    nixos-hardware.nixosModules.common-cpu-amd-pstate
-    nixos-hardware.nixosModules.common-gpu-amd
+    nixos-hardware.nixosModules.hp-elitebook-845g8
+
     nixos-hardware.nixosModules.common-hidpi
-    nixos-hardware.nixosModules.common-pc
-    nixos-hardware.nixosModules.common-pc-laptop-ssd
 
     ../../custom-args
     ../../fragments/boot

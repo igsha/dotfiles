@@ -49,6 +49,8 @@
     user = "isharonov";
   };
 
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
+
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl88x2bu ];
 
   networking = {
