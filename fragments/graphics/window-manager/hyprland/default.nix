@@ -6,17 +6,10 @@
 
   programs = {
     hyprlock.enable = true;
-    hyprland.enable = true;
     waybar.enable = true;
-    uwsm = {
+    hyprland = {
       enable = true;
-      waylandCompositors = {
-        hyprland = {
-          prettyName = "Hyprland";
-          comment = "Hyprland compositor managed by UWSM";
-          binPath = "/run/current-system/sw/bin/Hyprland";
-        };
-      };
+      withUWSM = true;
     };
   };
 
@@ -31,8 +24,12 @@
       wayland-utils
       wlvncc
       wlay
+      wdisplays
+      wlr-randr
+      wl-clipboard
       waybar
       hyprland-per-window-layout
+      wttrbar
     ];
     etc."rofi/themes".source = "${pkgs.rofi}/share/rofi/themes";
   };

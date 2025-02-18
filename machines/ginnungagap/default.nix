@@ -13,8 +13,7 @@
     ../../fragments/graphics/dunst
     ../../fragments/graphics/redshift
     ../../fragments/graphics/screenshot
-    ../../fragments/graphics/window-manager/qtile
-    ../../fragments/graphics/x11
+    ../../fragments/graphics/window-manager/hyprland
     ../../fragments/network
     ../../fragments/network/netutils
     ../../fragments/network/openvpn

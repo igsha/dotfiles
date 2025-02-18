@@ -73,7 +73,6 @@ in {
         popup-translate
         atool
         bottom
-        pavucontrol
         helvum
         ranger
         yad

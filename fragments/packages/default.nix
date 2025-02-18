@@ -53,6 +53,8 @@
       novnc tigervnc
       zx cling
       nh nix-output-monitor nvd
+      pavucontrol
+      breeze-hacked-cursor-theme
     ];
   };
 
