@@ -1,0 +1,5 @@
+format = "$all${custom.nnn}$character"
+
+[custom.nnn]
+symbol = "n³ "
+when = '[[ $NNNLVL -gt 0 ]]'
