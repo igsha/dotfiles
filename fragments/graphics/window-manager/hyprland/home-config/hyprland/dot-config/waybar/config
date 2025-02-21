@@ -24,7 +24,7 @@
         "hyprland/language": {
             "format": "{short}",
             "tooltip-format": "{flag} {long}",
-            "on-click": "hyprctl switchxkblayout current next"
+            "on-click": "/run/current-system/sw/bin/hyprctl switchxkblayout current next"
         },
         "hyprland/workspaces": {
             "all-outputs": true
@@ -78,7 +78,7 @@
         },
         "pulseaudio": {
             "format": " {volume}%",
-            "on-click": "pavucontrol"
+            "on-click": "/run/current-system/sw/bin/pavucontrol"
         }
     }
 ]

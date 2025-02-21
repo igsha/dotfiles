@@ -7,8 +7,8 @@
 #language { margin: 0 0px; }
 
 #keyboard-state { margin: 0 0px; }
-#keyboard-state label { color: gray; }
-#keyboard-state label.locked { color: black; }
+#keyboard-state label { color: black; }
+#keyboard-state label.locked { color: green; }
 
 #network { min-width: 10em; }
 
