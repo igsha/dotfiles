@@ -55,6 +55,7 @@
       nh nix-output-monitor nvd
       pavucontrol
       breeze-hacked-cursor-theme
+      fd
     ];
   };
 

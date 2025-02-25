@@ -3,7 +3,6 @@
 {
   imports = [
     nixos-hardware.nixosModules.hp-elitebook-845g8
-
     nixos-hardware.nixosModules.common-hidpi
 
     ../../custom-args
@@ -12,9 +11,7 @@
     ../../fragments/graphics/dunst
     ../../fragments/graphics/redshift
     ../../fragments/graphics/screenshot
-    ../../fragments/graphics/window-manager/qtile
-    ../../fragments/graphics/x11
-    ../../fragments/graphics/x11/autosuspend
+    ../../fragments/graphics/window-manager/hyprland
     ../../fragments/network
     ../../fragments/network/netutils
     ../../fragments/network/openvpn
@@ -86,6 +83,7 @@
   environment.systemPackages = with pkgs; [
     shattered-pixel-dungeon
     firefox-bin
+    gajim
   ];
 
   # Allow default config in ~/.config/docker/daemon.json
