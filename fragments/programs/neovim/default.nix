@@ -16,8 +16,5 @@
     };
   };
 
-  home-config.nvim = {
-    packages = [ "nvim" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.nvim = ./home-config;
 }

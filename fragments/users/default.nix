@@ -97,8 +97,5 @@ in {
     };
   };
 
-  home-config.users = {
-    packages = [ "qutebrowser" "alacritty" "mpv" "home-bin" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.users = ./home-config;
 }

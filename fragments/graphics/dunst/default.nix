@@ -3,8 +3,5 @@
 {
   environment.systemPackages = [ pkgs.dunst ];
 
-  home-config.dunst = {
-    packages = [ "dunst" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.dunst = ./home-config;
 }

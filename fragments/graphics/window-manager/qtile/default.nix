@@ -46,10 +46,7 @@
 
   security.pam.services.swaylock = {};
 
-  home-config.qtile = {
-    packages = [ "qtile" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.qtile = ./home-config;
 
   environment.etc."rofi/themes".source = "${pkgs.rofi}/share/rofi/themes";
 }

@@ -7,8 +7,5 @@
     etc.tmux.source = pkgs.my-tmux-plugins;
   };
 
-  home-config.tmux = {
-    packages = [ "tmux" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.tmux = ./home-config;
 }

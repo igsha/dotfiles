@@ -84,8 +84,5 @@
     wireless.iwd.enable = true;
   };
 
-  home-config.autostart = {
-    packages = [ "autostart" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.autostart = ./home-config;
 }

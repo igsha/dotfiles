@@ -5,8 +5,5 @@
     pkgs.davmail
   ];
 
-  home-config.davmail = {
-    packages = [ "davmail" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.davmail = ./home-config;
 }

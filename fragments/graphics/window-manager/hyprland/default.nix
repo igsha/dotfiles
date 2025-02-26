@@ -13,10 +13,7 @@
     };
   };
 
-  home-config.hyprland = {
-    packages = [ "hyprland" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.hyprland = ./home-config;
 
   environment = {
     systemPackages = with pkgs; [

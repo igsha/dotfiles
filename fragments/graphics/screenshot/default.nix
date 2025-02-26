@@ -5,8 +5,5 @@
     (flameshot.override { enableWlrSupport = !config.services.xserver.enable; })
   ];
 
-  home-config.screenshot = {
-    packages = [ "flameshot" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.screenshot = ./home-config;
 }

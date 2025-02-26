@@ -75,8 +75,5 @@
     wall.enable = true;
   };
 
-  home-config.packages = {
-    packages = [ "vifm" "wcalc" "gdb" ];
-    dir = builtins.toString ./home-config;
-  };
+  home-config.packages = ./home-config;
 }

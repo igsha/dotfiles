@@ -4,10 +4,7 @@
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs?ref=nixos-unstable;
     nixos-hardware.url = github:nixos/nixos-hardware/master;
-    home-config = {
-      url = github:igsha/home-config/main;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-config.url = github:igsha/home-config/main;
     yt-dlp-plugins = {
       url = github:igsha/yt-dlp-plugins/master;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +46,7 @@
           }) (builtins.removeAttrs inputs [ "self" ]);
           package = pkgs.nixVersions.latest;
         };
-        home-config-basedir = lib.mkForce (builtins.toString ./.);
+        home-config-basedir = lib.mkForce ./.;
       };
       filterDirs = nixpkgs.lib.attrsets.filterAttrs (k: v: v == "directory");
       machines = filterDirs (builtins.readDir ./machines);

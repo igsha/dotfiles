@@ -15,9 +15,6 @@
   '';
 
   home-config = lib.optionalAttrs config.programs.starship.enable {
-    nnn = {
-      packages = [ "nnn" ];
-      dir = builtins.toString ./home-config;
-    };
+    nnn = ./home-config;
   };
 }

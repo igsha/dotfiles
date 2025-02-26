@@ -22,17 +22,12 @@
       }
     },
     "home-config": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
       "locked": {
-        "lastModified": 1730715968,
-        "narHash": "sha256-dyAuoXgzTEnN/fBwMMuFr6/6FCpK9kCkFI9dp6Cjy8g=",
+        "lastModified": 1740687138,
+        "narHash": "sha256-GftUBGsXSIxlSIiFvf9iY3ar5yuOc4ogbWCCFnsj8MU=",
         "owner": "igsha",
         "repo": "home-config",
-        "rev": "29b7eaf0a2c314b09a6003f83ca7dda9b51ba0e7",
+        "rev": "1c450e3c9c1f306cfe4f6454af18abb7caebe17f",
         "type": "github"
       },
       "original": {
