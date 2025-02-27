@@ -1,24 +1,139 @@
-@import "/run/current-system/sw/etc/xdg/waybar/style.css";
+/* vim: sw=2 sts=2 ts=2
+ */
+
+@define-color base0 #181818;
+@define-color base1 #2b2e37;
+@define-color base2 #3b3e47;
+@define-color base3 #585858;
+@define-color base4 #b8b8b8;
+@define-color base5 #d8d8d8;
+@define-color base6 #e8e8e8;
+@define-color base7 #f8f8f8;
+@define-color base8 #ab4642;
+@define-color base9 #dc9656;
+@define-color base10 #f7ca88;
+@define-color base11 #a1b56c;
+@define-color base12 #86c1b9;
+@define-color base13 #7cafc2;
+@define-color base14 #ba8baf;
+@define-color base15 #a16946;
+@define-color base16 #7caf37;
+
 * {
-    font-family: Roboto, Helvetica, "Font Awesome 6 Free", sans-serif;
-    font-size: 12px;
+  transition: none;
+  box-shadow: none;
 }
 
-#language { margin: 0 0px; }
+#waybar {
+  font-family: Roboto, Helvetica, "Font Awesome 6 Free", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: @base4;
+  background: @base1;
+}
 
-#keyboard-state { margin: 0 0px; }
-#keyboard-state label { color: black; }
-#keyboard-state label.locked { color: green; }
+#workspaces {
+  margin: 0 4px;
+}
 
-#network { min-width: 10em; }
+#workspaces button {
+  margin: 4px 0;
+  padding: 0 4px;
+  color: @base5;
+}
 
-#cpu.warning, #memory.warning, #disk.warning { background: orange; }
-
-#cpu.critical, #memory.critical, #disk.critical { background: red; }
+#workspaces button.visible {
+}
 
 #workspaces button.active {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+  border-radius: 4px;
+  background-color: @base2;
 }
 
-#submap { background: red; }
+#workspaces button.urgent {
+  color: rgba(238, 46, 36, 1);
+}
+
+#tray {
+  margin: 4px 4px 4px 4px;
+  border-radius: 4px;
+  background-color: @base2;
+}
+
+#tray * {
+  padding: 0 6px;
+  border-left: 1px solid @base0;
+}
+
+#tray *:first-child {
+  border-left: none;
+}
+
+#mode,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#idle_inhibitor,
+#backlight,
+#clock,
+#temperature,
+#custom-weather,
+#keyboard-state,
+#submap,
+#disk,
+#language {
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base2;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#pulseaudio.muted {
+  color: @base15;
+}
+
+#pulseaudio.bluetooth {
+  color: @base12;
+}
+
+#clock,
+#network,
+#keyboard-state {
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: transparent;
+}
+
+#temperature.critical,
+#cpu.critical,
+#memory.critical,
+#disk.critical {
+  color: @base15;
+}
+
+#temperature.warning,
+#cpu.warning,
+#memory.warning,
+#disk.warning {
+  color: @base14;
+}
+
+#window {
+  font-weight: 400;
+}
+
+#network {
+  min-width: 12em;
+}
+
+#submap {
+  color: @base14;
+}
+
+#keyboard-state label.locked {
+  font-weight: bold;
+  color: @base16;
+}

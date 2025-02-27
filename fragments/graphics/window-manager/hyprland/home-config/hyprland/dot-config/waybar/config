@@ -18,8 +18,8 @@
             "network",
             "pulseaudio",
             "custom/weather",
-            "clock",
-            "tray"
+            "tray",
+            "clock"
         ],
         "hyprland/language": {
             "format": "{short}",
@@ -49,9 +49,11 @@
         },
         "disk": {
             "format": " {free}",
+            "format-normal": "",
             "states": {
                 "critical": 90,
-                "warning": 75
+                "warning": 75,
+                "normal": 0
             }
         },
         "keyboard-state": {
@@ -65,16 +67,23 @@
             "scrolllock": true
         },
         "memory": {
-            "format": " {used:0.1f}GiB/{total:0.1f}GiB [{swapUsed:0.1f}GiB]",
+            "format": " {percentage}%",
+            "tooltip-format": "Used {used:0.1f}GiB of {total:0.1f}GiB [Swap {swapUsed:0.1f}GiB]",
             "states": {
                 "critical": 90,
                 "warning": 80
             }
         },
         "network": {
-            "format": "{bandwidthDownBits}↓ {bandwidthUpBits}↑",
-            "interface": "*",
-            "interval": 3
+            "format": "{icon} {bandwidthDownBits}▼ {bandwidthUpBits}▲",
+            "interval": 3,
+            "tooltip-format-wifi": "{ifname} {ipaddr}/{cidr} {essid} {signalStrength}%",
+            "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr}",
+            "format-icons": {
+                "ethernet": "🖧",
+                "wifi": " ",
+                "disconnected": "󰖪"
+            }
         },
         "pulseaudio": {
             "format": " {volume}%",
