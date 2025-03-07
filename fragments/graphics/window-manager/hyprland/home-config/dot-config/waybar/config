@@ -10,6 +10,7 @@
             "hyprland/submap"
         ],
         "modules-right": [
+            "idle_inhibitor",
             "keyboard-state",
             "hyprland/language",
             "cpu",
@@ -88,6 +89,13 @@
         "pulseaudio": {
             "format": " {volume}%",
             "on-click": "/run/current-system/sw/bin/pavucontrol"
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "",
+                "deactivated": ""
+            }
         }
     }
 ]
