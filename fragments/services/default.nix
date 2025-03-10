@@ -6,7 +6,6 @@
     timesyncd.enable = true;
     printing.enable = true;
     atd.enable = true;
-    geoclue2.enable = true;
     flatpak.enable = true;
     davfs2.enable = true;
     unclutter-xfixes.enable = config.services.xserver.enable;
@@ -19,6 +18,11 @@
       extraConfig = ''
         HandlePowerKey=suspend
       '';
+    };
+
+    geoclue2 = {
+      enable = true;
+      enableNmea = false;
     };
 
     libinput = {

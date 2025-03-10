@@ -27,6 +27,8 @@
       waybar
       hyprland-per-window-layout
       wttrbar
+      rose-pine-hyprcursor
+      rose-pine-cursor
     ];
     etc."rofi/themes".source = "${pkgs.rofi}/share/rofi/themes";
   };
