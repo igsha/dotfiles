@@ -5,7 +5,7 @@
     homeBinInPath = true;
     systemPackages = with pkgs; [
       subversion
-      ed
+      ed inotify-tools
       catimg
       man stdman man-pages man-pages-posix
       util-linux freetype

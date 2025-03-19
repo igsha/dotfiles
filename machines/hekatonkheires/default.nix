@@ -81,6 +81,7 @@
     shattered-pixel-dungeon
     firefox-bin
     gajim
+    lksctp-tools
   ];
 
   # Allow default config in ~/.config/docker/daemon.json
