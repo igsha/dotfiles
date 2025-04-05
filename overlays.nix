@@ -58,6 +58,15 @@ final: prev:
         hash = "sha256-3VxpJpogPFBmo966GB90sQvcj/Ah56lGyR/y/WV3QT0=";
       };
     };
+    supertab = prev.vimPlugins.supertab.overrideAttrs (old: {
+      version = "2025-04-02";
+      src = prev.fetchFromGitHub {
+        owner = "ervandew";
+        repo = "supertab";
+        rev = "6ce779367e2c4947367fcce401b77251d2bb47ab";
+        hash = "sha256-1le+8GVWSN2rHp9yqK4TKTBqGyd5UStbncVRHLFCQFE=";
+      };
+    });
   };
 
   my-vim-packages-list = with final.vimPlugins; [
