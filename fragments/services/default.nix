@@ -20,11 +20,6 @@
       '';
     };
 
-    geoclue2 = {
-      enable = true;
-      enableNmea = false;
-    };
-
     libinput = {
       enable = true;
       touchpad = {
@@ -34,6 +29,4 @@
       };
     };
   };
-
-  location.provider = "geoclue2";
 }

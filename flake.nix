@@ -56,6 +56,7 @@
         modules = [
           home-config.nixosModules.default
           defaults
+          ./encrypted/location.nix
           ./machines/${k}
         ];
       };
