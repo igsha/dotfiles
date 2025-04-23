@@ -21,6 +21,7 @@
     ../../fragments/other/virtualisation
     ../../fragments/other/xdg
     ../../fragments/services
+    ../../fragments/services/location
     ../../fragments/packages
     ../../fragments/packages/python-lab
     ../../fragments/programs
