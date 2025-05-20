@@ -38,7 +38,6 @@ let
     qutebrowser
     hunspellDicts.ru-ru
     hunspellDicts.en-us
-    skypeforlinux
     teams-for-linux
     profanity
     aerc
