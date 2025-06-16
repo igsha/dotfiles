@@ -92,6 +92,7 @@ in {
         dino-plus
         davmail
         news-reader
+        screentest
       ] ++ imagePack ++ pdfPack ++ winePack ++ mediaPack
       ++ gstreamerPack ++ officePack ++ mathPack
       ++ lib.optionals config.services.xserver.enable x11Pack;
