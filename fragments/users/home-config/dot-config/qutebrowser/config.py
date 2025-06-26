@@ -31,7 +31,7 @@ c.aliases['tor'] = "set content.proxy socks://localhost:9050"
 
 c.url.searchengines['DEFAULT'] = "https://www.google.com/search?q={}"
 c.url.searchengines['cmake'] = "https://cmake.org/cmake/help/latest/search.html?q={}"
-c.url.searchengines['cppreference'] = "http://cppreference.com/?search={}"
+c.url.searchengines['cppreference'] = "https://duckduckgo.com/?sites=cppreference.com&q={}"
 c.url.searchengines['enwikipedia'] = "https://en.wikipedia.org/wiki/{}"
 c.url.searchengines['github'] = "https://github.com/search?q={}"
 c.url.searchengines['google'] = "https://www.google.com/search?q={}"
@@ -40,6 +40,8 @@ c.url.searchengines['translate'] = "https://translate.yandex.ru/?text={}"
 c.url.searchengines['wikipedia'] = "https://ru.wikipedia.org/wiki/{}"
 c.url.searchengines['youtube'] = "https://www.youtube.com/results?search_query={}"
 c.url.searchengines['ya'] = "https://ya.ru/search/?text={}"
+c.url.searchengines['duck'] = "https://duckduckgo.com/?q={}"
+c.url.searchengines['rutube'] = "https://rutube.ru/search/?query={}"
 
 config.bind(";M", "hint links spawn torsocks mpv --load-unsafe-playlists {hint-url}", mode="normal")
 config.bind(";P", "spawn google-chrome-stable --incognito {url}", mode="normal")
