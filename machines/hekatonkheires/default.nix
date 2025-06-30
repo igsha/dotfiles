@@ -64,6 +64,12 @@
       "pcie_aspm=off"
       "amdgpu.abmlevel=0"
     ];
+    kernel.sysctl = {
+      "net.core.wmem_max" = 5000000;
+      "net.core.wmem_default" = 5000000;
+      "net.core.rmem_max" = 5000000;
+      "net.core.rmem_default" = 5000000;
+    };
   };
 
   hardware.bluetooth = {
