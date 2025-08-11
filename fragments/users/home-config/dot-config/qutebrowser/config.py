@@ -24,14 +24,15 @@ c.session.lazy_restore = True
 c.auto_save.session = True
 c.scrolling.bar = "always"
 
+c.qt.chromium.process_model = "process-per-site"
+
 c.aliases['defproxy'] = "set content.proxy system"
 c.aliases['noproxy'] = "set content.proxy none"
-c.aliases['play'] = "spawn alacritty --class popup -e iplay -b {url}"
 c.aliases['tor'] = "set content.proxy socks://localhost:9050"
 
 c.url.searchengines['DEFAULT'] = "https://www.google.com/search?q={}"
 c.url.searchengines['cmake'] = "https://cmake.org/cmake/help/latest/search.html?q={}"
-c.url.searchengines['cppreference'] = "https://duckduckgo.com/?sites=cppreference.com&q={}"
+c.url.searchengines['cppreference'] = "https://google.com/search?q=site:cppreference.com+q={}"
 c.url.searchengines['enwikipedia'] = "https://en.wikipedia.org/wiki/{}"
 c.url.searchengines['github'] = "https://github.com/search?q={}"
 c.url.searchengines['google'] = "https://www.google.com/search?q={}"
@@ -46,7 +47,6 @@ c.url.searchengines['rutube'] = "https://rutube.ru/search/?query={}"
 config.bind(";M", "hint links spawn torsocks mpv --load-unsafe-playlists {hint-url}", mode="normal")
 config.bind(";P", "spawn google-chrome-stable --incognito {url}", mode="normal")
 config.bind(";b", "cmd-set-text -s :tab-select", mode="normal")
-config.bind(";l", "hint links spawn alacritty --class popup -e iplay -b {hint-url}", mode="normal")
 config.bind(";m", "hint links spawn mpv --load-unsafe-playlists {hint-url}", mode="normal")
 config.bind(";p", "hint all spawn google-chrome-stable --incognito {hint-url}", mode="normal")
 config.bind("<Ctrl-Shift-Tab>", "tab-prev", mode="normal")
