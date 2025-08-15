@@ -86,6 +86,7 @@
 
   environment.systemPackages = with pkgs; [
     shattered-pixel-dungeon
+    tty-solitare
     firefox-bin
     gajim
     lksctp-tools

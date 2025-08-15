@@ -32,7 +32,7 @@ c.aliases['tor'] = "set content.proxy socks://localhost:9050"
 
 c.url.searchengines['DEFAULT'] = "https://www.google.com/search?q={}"
 c.url.searchengines['cmake'] = "https://cmake.org/cmake/help/latest/search.html?q={}"
-c.url.searchengines['cppreference'] = "https://google.com/search?q=site:cppreference.com+q={}"
+c.url.searchengines['cppreference'] = "https://google.com/search?q=site:cppreference.com+{}"
 c.url.searchengines['enwikipedia'] = "https://en.wikipedia.org/wiki/{}"
 c.url.searchengines['github'] = "https://github.com/search?q={}"
 c.url.searchengines['google'] = "https://www.google.com/search?q={}"
