@@ -50,6 +50,7 @@
   };
 
   hardware.enableRedistributableFirmware = lib.mkDefault true;
+  hardware.xone.enable = true; # Gamesir G7
 
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl88x2bu ];
 

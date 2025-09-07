@@ -11,6 +11,11 @@
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
     };
+    /*kernel = {
+      sysfs = {
+        power.image_size = 0; # postpone "not enough memory" error while hibernation
+      };
+    };*/
   };
 
   fileSystems = {
