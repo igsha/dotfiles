@@ -17,7 +17,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      rofi-wayland
+      rofi
       wayland-utils
       wlvncc
       wlay

@@ -13,11 +13,9 @@
 
     journald.extraConfig = "SystemMaxUse=4G";
 
-    logind = {
-      killUserProcesses = true;
-      extraConfig = ''
-        HandlePowerKey=suspend
-      '';
+    logind.settings.Login = {
+      KillUserProcesses = true;
+      HandlePowerKey = "suspend";
     };
 
     libinput = {
