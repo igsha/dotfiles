@@ -51,8 +51,10 @@
       ignoreLid = true;
       criticalPowerAction = "Hibernate";
     };
-    logind.lidSwitchDocked = "ignore";
-    logind.lidSwitchExternalPower = "ignore";
+    logind.settings.Login = {
+      HandleLidSwitchDocked = "ignore";
+      HandleLidSwitchExternalPower = "ignore";
+    };
   };
 
   boot = {
@@ -86,7 +88,7 @@
 
   environment.systemPackages = with pkgs; [
     shattered-pixel-dungeon
-    tty-solitare
+    tty-solitaire
     firefox-bin
     gajim
     lksctp-tools
