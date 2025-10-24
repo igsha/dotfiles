@@ -7,6 +7,7 @@
   programs = {
     hyprlock.enable = true;
     waybar.enable = true;
+    wayvnc.enable = true;
     hyprland = {
       enable = true;
       withUWSM = true;
@@ -20,7 +21,6 @@
       rofi
       wayland-utils
       wlvncc
-      wlay
       wdisplays
       wlr-randr
       wl-clipboard
