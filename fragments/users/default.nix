@@ -77,7 +77,6 @@ in {
         helvum
         ranger
         yad
-        libnotify
         fzy
         translate-shell
         metar

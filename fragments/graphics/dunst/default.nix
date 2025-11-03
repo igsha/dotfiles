@@ -1,7 +1,10 @@
 { lib, pkgs, ... }:
 
 {
-  environment.systemPackages = [ pkgs.dunst ];
+  environment.systemPackages = with pkgs; [
+    dunst
+    libnotify
+  ];
 
   home-config.dunst = ./home-config;
 }
