@@ -13,6 +13,7 @@ c.hints.chars = "asdfghjklqwertyuiopzxcvbnm"
 c.hints.next_regexes = ["\\bДальше\\b", "\\bВпер(е|ё)д\\b", "\\bСледующая\\b"]
 c.hints.prev_regexes = ["\\bНазад\\b"]
 c.input.partial_timeout = 2000
+c.spellcheck.languages = ["en-US", "ru-RU"]
 
 c.tabs.background = True
 c.tabs.show = "always"
