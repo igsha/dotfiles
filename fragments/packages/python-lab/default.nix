@@ -6,7 +6,7 @@ let
     ipython
     pandas
     scikit-learn
-    scikitimage
+    scikit-image
     scipy
     matplotlib
     numpy

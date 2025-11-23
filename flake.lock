@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "dino": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1747854270,
-        "narHash": "sha256-DRCSw1CTGa/LJ/vISJRRHAnSVZCQ3PumP2Otofa/QSI=",
-        "owner": "igsha",
-        "repo": "dino",
-        "rev": "ffcf64d04fed633afb26d3ede86e8defc965cfd8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "igsha",
-        "ref": "nix-support",
-        "repo": "dino",
-        "type": "github"
-      }
-    },
     "home-config": {
       "locked": {
         "lastModified": 1747939480,
@@ -60,11 +39,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1760958188,
-        "narHash": "sha256-2m1S4jl+GEDtlt2QqeHil8Ny456dcGSKJAM7q3j/BFU=",
+        "lastModified": 1762847253,
+        "narHash": "sha256-BWWnUUT01lPwCWUvS0p6Px5UOBFeXJ8jR+ZdLX8IbrU=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "d6645c340ef7d821602fd2cd199e8d1eed10afbc",
+        "rev": "899dc449bc6428b9ee6b3b8f771ca2b0ef945ab9",
         "type": "github"
       },
       "original": {
@@ -76,11 +55,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1761114652,
-        "narHash": "sha256-f/QCJM/YhrV/lavyCVz8iU3rlZun6d+dAiC3H+CDle4=",
+        "lastModified": 1763678758,
+        "narHash": "sha256-+hBiJ+kG5IoffUOdlANKFflTT5nO3FrrR2CA3178Y5s=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "01f116e4df6a15f4ccdffb1bcd41096869fb385c",
+        "rev": "117cc7f94e8072499b0a7aa4c52084fa4e11cc9b",
         "type": "github"
       },
       "original": {
@@ -92,7 +71,6 @@
     },
     "root": {
       "inputs": {
-        "dino": "dino",
         "home-config": "home-config",
         "news-reader": "news-reader",
         "nixos-hardware": "nixos-hardware",

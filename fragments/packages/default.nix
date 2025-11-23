@@ -36,7 +36,6 @@
       transmission_4
       parallel
       ncdu
-      android-udev-rules
       tio
       patchutils
       moreutils
@@ -44,7 +43,7 @@
       nix-bash-completions bash-completion
       gptfdisk parted
       cdrtools
-      glxinfo
+      mesa-demos
       cpufrequtils
       python3Packages.jsbeautifier
       openldap
@@ -64,8 +63,6 @@
       allowTexliveBuilds = true;
       android_sdk.accept_license = true;
       zathura.useMupdf = false;
-      permittedInsecurePackages = [
-      ];
     };
   };
 

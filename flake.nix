@@ -9,10 +9,6 @@
       url = github:igsha/yt-dlp-plugins/master;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dino = {
-      url = github:igsha/dino?ref=nix-support;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     tmux-mycollection = {
       url = github:igsha/tmux-mycollection/main;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +26,6 @@
         system.configurationRevision = self.rev or self.dirtyRev or "dirty";
         nixpkgs.overlays = [
           (final: prev: {
-            dino-plus = inputs.dino.packages.${prev.system}.default;
             news-reader = inputs.news-reader.packages.${prev.system}.default;
           })
           inputs.yt-dlp-plugins.overlays.default

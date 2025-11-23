@@ -32,7 +32,7 @@ let
   ]);
   officePack = with pkgs; [
     freerdp
-    tdesktop
+    telegram-desktop
     google-chrome
     libreoffice
     qutebrowser
@@ -88,7 +88,6 @@ in {
         leetcode-cli
         mandown
         rfc go-cve-search
-        dino-plus
         davmail
         news-reader
         screentest
