@@ -26,6 +26,13 @@
     settings = {
       sandbox = true;
       experimental-features = [ "nix-command" "flakes" "pipe-operators" "fetch-closure" ];
+      substituters = [
+        "https://mirror.sjtu.edu.cn/nix-channels/store" # Shanghai Jiao Tong University
+        "https://mirrors.ustc.edu.cn/nix-channels/store" # USTC backup mirror
+        "https://cache.nixos.org" # Official global cache
+        "https://nix-community.cachix.org" # Community packages
+        "https://hyprland.cachix.org"
+      ];
     };
     channel.enable = false;
   };
