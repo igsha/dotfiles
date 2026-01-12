@@ -15,6 +15,7 @@
     ../../fragments/network
     ../../fragments/network/netutils
     ../../fragments/network/openvpn
+    ../../fragments/network/pritunl
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/sound
