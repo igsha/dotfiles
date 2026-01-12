@@ -29,9 +29,14 @@
       substituters = [
         "https://mirror.sjtu.edu.cn/nix-channels/store" # Shanghai Jiao Tong University
         "https://mirrors.ustc.edu.cn/nix-channels/store" # USTC backup mirror
-        "https://cache.nixos.org" # Official global cache
         "https://nix-community.cachix.org" # Community packages
         "https://hyprland.cachix.org"
+        "https://ros.cachix.org"
+      ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
       ];
     };
     channel.enable = false;
