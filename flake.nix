@@ -13,10 +13,6 @@
       url = github:igsha/tmux-mycollection/main;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    news-reader = {
-      url = github:igsha/news-reader/main;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-config, ... }@inputs:
@@ -25,9 +21,6 @@
       defaults = { pkgs, lib, ... }: {
         system.configurationRevision = self.rev or self.dirtyRev or "dirty";
         nixpkgs.overlays = [
-          (final: prev: {
-            news-reader = inputs.news-reader.packages.${prev.system}.default;
-          })
           inputs.yt-dlp-plugins.overlays.default
           inputs.tmux-mycollection.overlays.default
           (import ./overlays.nix)

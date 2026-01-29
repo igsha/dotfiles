@@ -7,7 +7,7 @@ let
   popup-translate = pkgs.writeShellScriptBin "popup-translate" ''
     $TERMINAL --class popup -t translate -e trans -I
   '';
-  imagePack = with pkgs; [ imv inkscape krita gimp imagemagick ];
+  imagePack = with pkgs; [ inkscape krita gimp imagemagick imv ];
   pdfPack = with pkgs; [ zathura pdfcpu ghostscript ];
   winePack = with pkgs; [ wineWowPackages.unstable winetricks ];
   mediaPack = with pkgs; [
@@ -89,7 +89,6 @@ in {
         mandown
         rfc go-cve-search
         davmail
-        news-reader
         screentest
       ] ++ imagePack ++ pdfPack ++ winePack ++ mediaPack
       ++ gstreamerPack ++ officePack ++ mathPack

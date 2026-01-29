@@ -16,27 +16,6 @@
         "type": "github"
       }
     },
-    "news-reader": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1729527118,
-        "narHash": "sha256-GUZjL5bYws76PtCjnfKes+Ymo6vBdjNYhGiqxmDevMs=",
-        "owner": "igsha",
-        "repo": "news-reader",
-        "rev": "391d388de429f917b963081983038e893ca8c8b5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "igsha",
-        "ref": "main",
-        "repo": "news-reader",
-        "type": "github"
-      }
-    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1767070591,
@@ -72,7 +51,6 @@
     "root": {
       "inputs": {
         "home-config": "home-config",
-        "news-reader": "news-reader",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "tmux-mycollection": "tmux-mycollection",
