@@ -90,6 +90,7 @@ in {
         rfc go-cve-search
         davmail
         screentest
+        android-tools
       ] ++ imagePack ++ pdfPack ++ winePack ++ mediaPack
       ++ gstreamerPack ++ officePack ++ mathPack
       ++ lib.optionals config.services.xserver.enable x11Pack;

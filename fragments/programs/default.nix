@@ -23,7 +23,6 @@ in {
     nix-ld.enable = true;
     fuse.userAllowOther = true;
     starship.enable = true;
-    adb.enable = true;
     dconf.enable = true;
   };
 

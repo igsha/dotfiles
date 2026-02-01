@@ -5,6 +5,7 @@
     nixpkgs.url = github:nixos/nixpkgs?ref=nixos-unstable;
     nixos-hardware.url = github:nixos/nixos-hardware/master;
     home-config.url = github:igsha/home-config/main;
+    hyprland.url = github:hyprwm/Hyprland;
     yt-dlp-plugins = {
       url = github:igsha/yt-dlp-plugins/master;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +45,7 @@
         modules = [
           home-config.nixosModules.default
           defaults
+          inputs.hyprland.nixosModules.default
           ./encrypted/location.nix
           ./machines/${k}
         ];

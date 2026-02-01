@@ -25,7 +25,7 @@
       vifm
       fuse fuseiso curlftpfs jmtpfs sshfs archivemount rar2fs encfs afuse
       pwgen
-      dhex vbindiff hexyl hecate hexcurse
+      dhex vbindiff hexyl hecate
       universal-ctags
       unrar unzipNLS zip p7zip
       wcalc jq jo yq htmlq
