@@ -73,15 +73,15 @@ final: prev:
     supertab
     tagbar
     vim-dirdiff
-    denite
-    airline
+    denite-nvim
+    vim-airline
     vim-nix
-    multiple-cursors
+    vim-multiple-cursors
     plantuml
     vim-grammarous
     smarthomekey
     jellybeans
-    csv
+    csv-vim
     editorconfig-vim
     linediff-vim
     telescope-nvim

@@ -9,7 +9,7 @@ let
   '';
   imagePack = with pkgs; [ inkscape krita gimp imagemagick imv ];
   pdfPack = with pkgs; [ zathura pdfcpu ghostscript ];
-  winePack = with pkgs; [ wineWowPackages.unstable winetricks ];
+  winePack = with pkgs; [ wineWow64Packages.unstable winetricks ];
   mediaPack = with pkgs; [
     ffmpeg-full
     asciinema
