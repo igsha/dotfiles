@@ -26,7 +26,9 @@ vim.keymap.set("n", "<Leader>b", ":Telescope buffers<CR>", defopts)
 vim.keymap.set("n", "<Leader>g", ":Telescope live_grep<CR>", defopts)
 vim.keymap.set("n", "<Leader>f", ":Telescope find_files<CR>", defopts)
 local actions = require("telescope.actions")
-local action_layout = require("telescope.actions.layout")
+local actions_layout = require("telescope.actions.layout")
+local actions_state = require("telescope.actions.state")
+local fb_utils = require("telescope.utils")
 require('telescope').setup({
     defaults = {
         path_display = {
@@ -37,10 +39,10 @@ require('telescope').setup({
                 ["<esc>"] = actions.close
             },
             n = {
-                ["<M-p>"] = action_layout.toggle_preview
+                ["<M-p>"] = actions_layout.toggle_preview
             },
             i = {
-                ["<M-p>"] = action_layout.toggle_preview
+                ["<M-p>"] = actions_layout.toggle_preview
             },
         },
     },
@@ -53,6 +55,36 @@ require('telescope').setup({
             },
             preview = {
                 hide_on_startup = true
+            }
+        },
+        find_files = {
+            mappings = {
+                i = {
+                    ["<C-up>"] = function(prompt_bufnr)
+                        local current_picker = actions_state.get_current_picker(prompt_bufnr)
+                        -- cwd is only set if passed as telescope option
+                        local cwd = current_picker.cwd and tostring(current_picker.cwd) or vim.loop.cwd()
+                        local parent_dir = vim.fs.dirname(cwd)
+                        current_picker.finder.path = parent_dir
+
+                        actions.close(prompt_bufnr)
+                        require("telescope.builtin").find_files {
+                            prompt_title = vim.fs.basename(parent_dir),
+                            cwd = parent_dir,
+                        }
+                        --[[
+                        fb_utils.redraw_border_title(current_picker)
+                        current_picker:refresh(
+                            finder,
+                            {
+                                new_prefix = fb_utils.relative_path_prefix(finder),
+                                reset_prompt = true,
+                                multi = current_picker._multi
+                            }
+                        )
+                        ]]
+                    end,
+                },
             }
         }
     }
