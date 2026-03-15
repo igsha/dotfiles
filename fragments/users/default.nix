@@ -74,7 +74,6 @@ in {
         popup-translate
         atool
         bottom
-        helvum
         ranger
         yad
         fzy
