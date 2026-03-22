@@ -54,6 +54,7 @@
       nh nix-output-monitor nvd
       pavucontrol
       fd
+      qrencode
     ];
   };
 
