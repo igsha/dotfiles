@@ -85,11 +85,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757779747,
-        "narHash": "sha256-saxjgDGQ5mwKEKcT9c/QupMF5WOqSfTiTUE9Se3LkQ0=",
+        "lastModified": 1774378332,
+        "narHash": "sha256-IZdIhgHYG5efZJ7PLIZ2plseHeped9Fk6SGcMPP1gBM=",
         "owner": "igsha",
         "repo": "yt-dlp-plugins",
-        "rev": "692aceb5051aaa546b01192d0206ae7803bd14db",
+        "rev": "ad06f89eb6885c75b8695dee7ba3542863fa1e31",
         "type": "github"
       },
       "original": {
