@@ -27,7 +27,6 @@
       sandbox = true;
       experimental-features = [ "nix-command" "flakes" "pipe-operators" "fetch-closure" ];
       substituters = [
-        "https://mirror.sjtu.edu.cn/nix-channels/store" # Shanghai Jiao Tong University
         "https://mirrors.ustc.edu.cn/nix-channels/store" # USTC backup mirror
         "https://nix-community.cachix.org" # Community packages
         "https://hyprland.cachix.org"
