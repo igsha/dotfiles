@@ -17,7 +17,6 @@
     ../../fragments/network
     ../../fragments/network/netutils
     ../../fragments/network/openvpn
-    ../../fragments/network/tor
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/games
