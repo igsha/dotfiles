@@ -10,8 +10,8 @@ c.downloads.location.directory = "~/Downloads"
 c.downloads.position = "bottom"
 c.editor.command = ["alacritty", "--class", "editor", "-e", "nvim", "{}"]
 c.hints.chars = "asdfghjklqwertyuiopzxcvbnm"
-c.hints.next_regexes = ["\\bДальше\\b", "\\bВпер(е|ё)д\\b", "\\bСледующая\\b"]
-c.hints.prev_regexes = ["\\bНазад\\b"]
+c.hints.next_regexes = ["\\bДальше\\b", "\\bВпер(е|ё)д\\b", "\\bСледующая\\b", "\\bNext\\b"]
+c.hints.prev_regexes = ["\\bНазад\\b", "\\bPrevious\\b"]
 c.input.partial_timeout = 2000
 c.spellcheck.languages = ["en-US", "ru-RU"]
 
