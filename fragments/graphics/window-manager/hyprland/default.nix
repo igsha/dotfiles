@@ -26,7 +26,6 @@
       wl-clipboard
       waybar
       hyprland-per-window-layout
-      wttrbar
       rose-pine-hyprcursor
       rose-pine-cursor
     ];
