@@ -46,7 +46,7 @@
             "format": "{}°",
             "tooltip": true,
             "interval": 600,
-            "exec": "~/bin/wttrbar.sh",
+            "exec": "/run/current-system/sw/bin/wttrbar.sh",
             "return-type": "json"
         },
         "disk": {
