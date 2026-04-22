@@ -18,6 +18,7 @@ let
     (mpv.override { youtubeSupport = false; })
     yt-dlp-with-plugins
     dash-mpd-cli
+    uniplay
   ];
   x11Pack = with pkgs; [ xsel xclip xdotool xorg.xhost hsetroot
     xorg.xev xorg.xkill xfontsel xorg.xwininfo ];

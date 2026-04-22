@@ -14,6 +14,10 @@
       url = github:igsha/tmux-mycollection/main;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    uniplay = {
+      url = github:igsha/uniplay/main;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-config, ... }@inputs:
@@ -25,6 +29,9 @@
           inputs.yt-dlp-plugins.overlays.default
           inputs.tmux-mycollection.overlays.default
           (import ./overlays.nix)
+          (final: prev: {
+            uniplay = inputs.uniplay.packages.${prev.system}.default;
+          })
         ];
         nix = {
           registry = builtins.mapAttrs (k: v: {
