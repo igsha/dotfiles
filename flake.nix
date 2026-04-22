@@ -46,7 +46,6 @@
           home-config.nixosModules.default
           defaults
           #inputs.hyprland.nixosModules.default
-          ./encrypted/location.nix
           ./machines/${k}
         ];
       };
