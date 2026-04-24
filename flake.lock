@@ -86,11 +86,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776884018,
-        "narHash": "sha256-wz6eOApF0IM49wMV9pZ6cEhICZsZk5xRZp7CzOifJeA=",
+        "lastModified": 1777037820,
+        "narHash": "sha256-kr+0ip1W0Z7G9nkbQIa+tX6JhNdXjsYbMBJ58lIK/1g=",
         "owner": "igsha",
         "repo": "uniplay",
-        "rev": "a349e87847134637cdbc01456b96839ffa52fff3",
+        "rev": "f8a633607225f39f7fd02001ea3d25711772a282",
         "type": "github"
       },
       "original": {
