@@ -43,7 +43,6 @@
 
   console = {
     useXkbConfig = true;
-    font = "LatArCyrHeb-16";
   };
 
   services.udev.extraRules = ''

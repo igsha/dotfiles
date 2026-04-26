@@ -16,6 +16,15 @@ in {
   services.hypridle.enable = true;
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
+  systemd.services = {
+    "getty@tty2" = {
+      enable = true;
+      wantedBy = [ "getty.target" ];
+    };
+    "getty@tty1".enable = false;
+    "autovt@tty1".enable = false;
+  };
+
   programs = {
     hyprlock.enable = true;
     waybar.enable = true;
