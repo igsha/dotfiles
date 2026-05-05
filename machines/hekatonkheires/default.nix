@@ -15,7 +15,6 @@
     ../../fragments/network
     ../../fragments/network/netutils
     ../../fragments/network/openvpn
-    ../../fragments/network/pritunl
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/sound
@@ -70,17 +69,12 @@
         host all       all     ::1/128        trust
       '';
     };
+    lact.enable = true;
   };
 
   boot = {
     initrd.availableKernelModules = [ "nvme" ];
     kernelModules = [ "kvm-amd" ];
-    # https://github.com/NixOS/nixos-hardware/issues/1348
-    # https://github.com/NixOS/nixos-hardware/issues/1314
-    kernelParams = [
-      "pcie_aspm=off"
-      "amdgpu.abmlevel=0"
-    ];
     kernel.sysctl = {
       "net.core.wmem_max" = 5000000;
       "net.core.wmem_default" = 5000000;
@@ -89,9 +83,15 @@
     };
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
+    amdgpu = {
+      initrd.enable = true;
+      overdrive.enable = true;
+    };
   };
 
   networking = {
