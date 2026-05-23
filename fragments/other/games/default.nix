@@ -7,6 +7,5 @@
     shattered-pixel-dungeon
     protontricks
     gamescope
-    bottles
   ];
 }
