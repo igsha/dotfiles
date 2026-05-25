@@ -116,13 +116,13 @@ for _, dir in ipairs(directions) do
     hl.bind(mainMod .. " + SHIFT + " .. dir,  hl.dsp.window.move({ direction = dir }))
     -- Move window groups
     hl.bind(mainMod .. " + ALT + " .. dir, hl.dsp.window.move({ into_or_create_group = dir }))
-    hl.bind(mainMod .. " + CONTROL + " .. left, hl.dsp.window.move({ out_of_group = dir }))
+    hl.bind(mainMod .. " + CONTROL + " .. dir, hl.dsp.window.move({ out_of_group = dir }))
 end
 
 -- Window groups
 hl.bind(mainMod .. " + T", hl.dsp.group.toggle())
 hl.bind(mainMod .. " + Tab", hl.dsp.group.next())
-hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.group.next())
+hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.group.prev())
 
 -- Resize window
 hl.define_submap("resize", function()
