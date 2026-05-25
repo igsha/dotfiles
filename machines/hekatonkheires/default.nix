@@ -75,6 +75,12 @@
   boot = {
     initrd.availableKernelModules = [ "nvme" ];
     kernelModules = [ "kvm-amd" ];
+    # https://github.com/NixOS/nixos-hardware/issues/1348
+    # https://github.com/NixOS/nixos-hardware/issues/1314
+    kernelParams = [
+      "pcie_aspm=off"
+      "amdgpu.abmlevel=0"
+    ];
     kernel.sysctl = {
       "net.core.wmem_max" = 5000000;
       "net.core.wmem_default" = 5000000;
