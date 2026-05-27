@@ -89,4 +89,6 @@ final: prev:
     vim-gnupg
     vim-tmux-clipboard
   ];
+
+  max = prev.callPackage ./max { };
 }

@@ -42,6 +42,7 @@ let
     teams-for-linux
     profanity
     aerc
+    max
   ];
   mathPack = with pkgs; [
     datamash
