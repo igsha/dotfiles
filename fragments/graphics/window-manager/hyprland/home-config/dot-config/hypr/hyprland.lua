@@ -3,7 +3,6 @@
 local directions = {"left", "right", "up", "down"}
 local terminal = "alacritty"
 local menu = "rofi -show drun"
-local screenshot = "flameshot gui"
 local calc = "popup-wcalc"
 local translate = "popup-translate"
 local shutdown = "rofi -show power -modes power:rofi-power-menu.sh"
@@ -103,7 +102,8 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo()) -- dwindle
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(screenshot))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("flameshot gui"))
+hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("flameshot screen"))
 hl.bind(mainMod .. " + CONTROL + C", hl.dsp.exec_cmd(calc))
 hl.bind(mainMod .. " + CONTROL + T", hl.dsp.exec_cmd(translate))
 hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd(shutdown))

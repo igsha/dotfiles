@@ -55,6 +55,7 @@
       pavucontrol
       fd
       qrencode
+      nix-index
     ];
   };
 
