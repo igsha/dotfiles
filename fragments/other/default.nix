@@ -31,6 +31,10 @@
       ];
       trusted-public-keys = [
       ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
     };
     channel.enable = false;
   };
