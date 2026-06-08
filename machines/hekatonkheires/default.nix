@@ -113,6 +113,8 @@
     firefox-bin
     gajim
     lksctp-tools
+    aladdin-2fa
+    mattermost-desktop
   ];
 
   # Allow default config in ~/.config/docker/daemon.json
