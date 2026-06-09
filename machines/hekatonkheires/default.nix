@@ -115,6 +115,14 @@
     lksctp-tools
     aladdin-2fa
     mattermost-desktop
+    openconnect
+  ];
+
+  security.sudo.extraRules = [
+    {
+      users = [ config.custom-args.user ];
+      commands = [ { command = "/run/current-system/sw/bin/openconnect"; options = [ "SETENV" "NOPASSWD" ]; } ];
+    }
   ];
 
   # Allow default config in ~/.config/docker/daemon.json
