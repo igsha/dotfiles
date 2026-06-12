@@ -17,12 +17,15 @@
       }
     },
     "nixos-hardware": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
       "locked": {
-        "lastModified": 1779258371,
-        "narHash": "sha256-j1iZsLy6oFApqR1oiDmHhvkwxXqcNi0aoSJj643LuwU=",
+        "lastModified": 1781168557,
+        "narHash": "sha256-LOnLQ2tpYF9gqIDDr3+j3DbpJJr/QCH6zPRT2GzEUOE=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "c97bc4d15bd3473dd095e8e8ba57330ab1943a77",
+        "rev": "6358ff76821101c178e3ab4919a62799bfe3652e",
         "type": "github"
       },
       "original": {
@@ -34,11 +37,24 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1779357205,
-        "narHash": "sha256-cCO8aTqss5x9Ky8GWkpY0Hy5fyTZEbtifSUV8QjSzic=",
+        "lastModified": 1767892417,
+        "narHash": "sha256-8bW3q88CEg2u4hSP66Vf4lpbLonHz7hqDNBMcCY7E9U=",
+        "rev": "3497aa5c9457a9d88d71fa93a4a8368816fbeeba",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre924538.3497aa5c9457/nixexprs.tar.xz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1781074563,
+        "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f83fc3c307e74bc5fd5adb7eb6b8b13ffd2a36e1",
+        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
         "type": "github"
       },
       "original": {
@@ -52,7 +68,7 @@
       "inputs": {
         "home-config": "home-config",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "tmux-mycollection": "tmux-mycollection",
         "uniplay": "uniplay",
         "yt-dlp-plugins": "yt-dlp-plugins"
@@ -86,11 +102,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779549080,
-        "narHash": "sha256-eCJLDAyI7LY69ztjnUa79fjXGNS7jGKlet8Lp875Kuk=",
+        "lastModified": 1781190059,
+        "narHash": "sha256-3uxvpgcT2KeG/WE/T6hTCNqJUVu9GTKQrK3oJaR5VzA=",
         "owner": "igsha",
         "repo": "uniplay",
-        "rev": "08a9dadcbab2825280fae78e525c8085e8178988",
+        "rev": "c220eadf3111183be2a36cc49450a06bd97e1ab6",
         "type": "github"
       },
       "original": {
