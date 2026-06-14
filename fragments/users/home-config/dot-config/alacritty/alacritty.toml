@@ -4,3 +4,10 @@ size = 12
 [window]
 opacity = 0.8
 dynamic_padding = true
+
+[[hints.enabled]]
+regex = "(https?|file|tg|max)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+"
+command = "xdg-open"
+post_processing = true
+hyperlinks = true
+mouse.enabled = true
