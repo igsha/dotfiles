@@ -70,6 +70,14 @@
       '';
     };
     lact.enable = true;
+    ollama = {
+      enable = true;
+      package = pkgs.ollama-rocm;
+      environmentVariables = {
+        HCC_AMDGPU_TARGET = "gfx90c";
+      };
+      rocmOverrideGfx = "9.0.0";
+    };
   };
 
   boot = {
@@ -116,6 +124,7 @@
     aladdin-2fa
     mattermost-desktop
     openconnect
+    rocmPackages.rocminfo
   ];
 
   security.sudo.extraRules = [

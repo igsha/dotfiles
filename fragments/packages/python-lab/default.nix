@@ -15,6 +15,7 @@ let
     python-gitlab
     bitstring
     sympy
+    openai
   ]);
   myJupyter = pkgs.jupyter.override {
     definitions = pkgs.jupyter-kernel.default // {
