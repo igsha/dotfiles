@@ -1,0 +1,11 @@
+[Unit]
+Description=PAC proxy service
+Requires=my-proxy.service
+After=my-proxy.service
+
+[Service]
+ExecStart=/run/current-system/sw/bin/pacproxy -l 127.0.0.1:8080 -c "%E/pac.js"
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

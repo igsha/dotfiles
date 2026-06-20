@@ -1,0 +1,11 @@
+[Unit]
+Description=Proxy socks to http service
+
+[Service]
+EnvironmentFile=-%t/my-proxy.env
+ExecStartPre=/run/current-system/sw/bin/bash -c 'tail -1 "%E/my-proxy.txt" > "%t/my-proxy.env"'
+ExecStart=/run/current-system/sw/bin/sthp -p 11080 -s $SOCKS5
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
