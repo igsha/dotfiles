@@ -9,6 +9,7 @@
 
   programs.proxychains = {
     enable = true;
+    quietMode = true;
     proxies = {
       myproxy = {
         enable = true;

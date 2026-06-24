@@ -12,6 +12,7 @@
         iptables -A nixos-fw -p udp -s 224.0.0.0/4 -j nixos-fw-accept
       '';
     };
+    enableIPv6 = false;
   };
 
   services = {

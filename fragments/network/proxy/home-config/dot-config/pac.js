@@ -9,6 +9,8 @@ function FindProxyForURL(url, host) {
         "instagram.com",
         "facebook.com",
         "wara.tv",
+        "t.me",
+        "telegram.org",
     ];
 
     for (var i = 0; i < proxyList.length; ++i) {
