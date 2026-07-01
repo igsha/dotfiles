@@ -28,6 +28,8 @@ c.scrolling.bar = "always"
 c.qt.chromium.process_model = "process-per-site"
 # Remove after QtWebEngine 6.11.2 or 6.12.0 FF
 c.qt.environ = {"QTWEBENGINE_FORCE_USE_GBM": "0"}
+# https://github.com/qutebrowser/qutebrowser/issues/1476
+c.qt.args = ["js-flags=--predictable-gc-schedule"]
 
 c.aliases['defproxy'] = "set content.proxy system"
 c.aliases['noproxy'] = "set content.proxy none"
