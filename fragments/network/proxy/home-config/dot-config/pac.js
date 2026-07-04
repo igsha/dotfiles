@@ -4,7 +4,9 @@ function FindProxyForURL(url, host) {
         "facebook.com",
         "t.me",
         "telegram.org",
-        "joyreactor.cc",
+        "reactor.cc",
+        "reactor.com",
+        "anikototv.to",
     ];
 
     for (var i = 0; i < proxyList.length; ++i) {
