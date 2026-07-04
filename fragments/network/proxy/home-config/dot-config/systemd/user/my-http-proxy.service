@@ -1,0 +1,10 @@
+[Unit]
+Description=Proxy http service
+
+[Service]
+EnvironmentFile=-%E/my-proxy.txt
+ExecStart=/run/current-system/sw/bin/simpleproxy -L 11080 -R $HTTP
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

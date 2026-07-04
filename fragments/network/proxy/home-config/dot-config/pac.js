@@ -1,16 +1,10 @@
 function FindProxyForURL(url, host) {
     var proxyList = [
-        "youtube.com",
-        "yutu.be",
-        "doubleclick.net",
-        "ytimg.com",
-        "googlevideo.com",
-        "ggpht.com",
         "instagram.com",
         "facebook.com",
-        "wara.tv",
         "t.me",
         "telegram.org",
+        "joyreactor.cc",
     ];
 
     for (var i = 0; i < proxyList.length; ++i) {
