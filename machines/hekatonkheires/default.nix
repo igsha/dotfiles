@@ -127,6 +127,7 @@
     openconnect
     rocmPackages.rocminfo
     vpn-slice
+    brightnessctl
   ];
 
   security.sudo.extraRules = [
