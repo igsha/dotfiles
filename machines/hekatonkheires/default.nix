@@ -16,6 +16,7 @@
     ../../fragments/network/netutils
     ../../fragments/network/openvpn
     ../../fragments/network/proxy
+    ../../fragments/network/terpaz
     ../../fragments/other
     ../../fragments/other/fonts
     ../../fragments/other/sound

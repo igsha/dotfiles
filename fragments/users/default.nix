@@ -69,6 +69,8 @@ in {
         "docker"
         "input"
         "libvirtd"
+        "pcap"
+        "wireshark"
       ];
       initialHashedPassword = "root";
       packages = with pkgs; [

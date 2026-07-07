@@ -32,7 +32,16 @@
     "systemd-ask-password-wall.service"
   ];
 
+  programs = {
+    tcpdump.enable = true;
+    wireshark = {
+      enable = true;
+      dumpcap.enable = true;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     nixos-firewall-tool
+    wireshark
   ];
 }
