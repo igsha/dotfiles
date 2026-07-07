@@ -13,8 +13,10 @@ let
   };
 
 in {
-  services.hypridle.enable = true;
-  services.xserver.desktopManager.runXdgAutostartIfNone = true;
+  services = {
+    hypridle.enable = true;
+    xserver.desktopManager.runXdgAutostartIfNone = true;
+  };
 
   programs = {
     hyprlock.enable = true;
@@ -41,6 +43,10 @@ in {
       rose-pine-hyprcursor
       rose-pine-cursor
       wttrbar-sh
+      grim
+      satty
+      hyprprop
+      slurp
     ];
     etc."rofi/themes".source = "${pkgs.rofi}/share/rofi/themes";
   };

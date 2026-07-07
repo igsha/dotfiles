@@ -102,12 +102,13 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo()) -- dwindle
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("flameshot gui"))
-hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("flameshot screen"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -t png - | satty -f - --fullscreen --copy-command wl-copy -o "~/Pictures/%Y%m%d_%H%M%S.png"'))
 hl.bind(mainMod .. " + CONTROL + C", hl.dsp.exec_cmd(calc))
 hl.bind(mainMod .. " + CONTROL + T", hl.dsp.exec_cmd(translate))
 hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd(shutdown))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.submap("resize"))
+hl.bind(mainMod .. " + SHIFT + up", hl.dsp.workspace.move({ monitor = "+1" }))
+hl.bind(mainMod .. " + SHIFT + down", hl.dsp.workspace.move({ monitor = "-1" }))
 
 for _, dir in ipairs(directions) do
     -- Move focus with mainMod + arrow keys
