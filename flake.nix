@@ -6,10 +6,6 @@
     nixos-hardware.url = github:nixos/nixos-hardware/master;
     home-config.url = github:igsha/home-config/main;
     #hyprland.url = github:hyprwm/Hyprland;
-    yt-dlp-plugins = {
-      url = github:igsha/yt-dlp-plugins/master;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     tmux-mycollection = {
       url = github:igsha/tmux-mycollection/main;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +22,6 @@
       defaults = { pkgs, lib, ... }: {
         system.configurationRevision = self.rev or self.dirtyRev or "dirty";
         nixpkgs.overlays = [
-          inputs.yt-dlp-plugins.overlays.default
           inputs.tmux-mycollection.overlays.default
           (import ./overlays.nix)
           (final: prev: {

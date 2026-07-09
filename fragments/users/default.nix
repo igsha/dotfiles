@@ -16,7 +16,7 @@ let
     obs-studio
     v4l-utils
     (mpv.override { youtubeSupport = false; })
-    yt-dlp-with-plugins
+    yt-dlp
     dash-mpd-cli
     uniplay
   ];

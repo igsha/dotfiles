@@ -70,8 +70,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "tmux-mycollection": "tmux-mycollection",
-        "uniplay": "uniplay",
-        "yt-dlp-plugins": "yt-dlp-plugins"
+        "uniplay": "uniplay"
       }
     },
     "tmux-mycollection": {
@@ -102,38 +101,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1782627117,
-        "narHash": "sha256-VVyLjlpg/3ivTE2vLz4kQiKpsMdrS6sqTXrLitUi6O8=",
+        "lastModified": 1783446223,
+        "narHash": "sha256-vprU6M4pEWFHqTRMlpE3Q8Et25Z6kAtddUnMWzA9UI0=",
         "owner": "igsha",
         "repo": "uniplay",
-        "rev": "8f98c464fcfdbaafacfb81b0589ea37b37bb6c7a",
+        "rev": "7c071191ef467f5fc38ad4602dc07cd73191aab1",
         "type": "github"
       },
       "original": {
         "owner": "igsha",
         "ref": "main",
         "repo": "uniplay",
-        "type": "github"
-      }
-    },
-    "yt-dlp-plugins": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1775661661,
-        "narHash": "sha256-mOBEnZZLw/zgP3i3fHhimaLJGs43N/gLy9oiVZcTwao=",
-        "owner": "igsha",
-        "repo": "yt-dlp-plugins",
-        "rev": "975b143cd49586777d0fc1031f0e788f33148e94",
-        "type": "github"
-      },
-      "original": {
-        "owner": "igsha",
-        "ref": "master",
-        "repo": "yt-dlp-plugins",
         "type": "github"
       }
     }

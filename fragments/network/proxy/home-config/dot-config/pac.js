@@ -1,12 +1,10 @@
 function FindProxyForURL(url, host) {
     var proxyList = [
-        "instagram.com",
         "facebook.com",
         "t.me",
         "telegram.org",
         "reactor.cc",
         "reactor.com",
-        "anikototv.to",
     ];
 
     for (var i = 0; i < proxyList.length; ++i) {

@@ -26,7 +26,7 @@
       --payload=tls_client_hello
       --lua-desync=multidisorder:pos=1,sniext+1,host+1,midsld-2,midsld,midsld+2,endhost-1
       --new=megaplay
-      --hostlist-domains=megaplay.buzz,anikototv.to,iwara.tv,pornhub.org,phncdn.com
+      --hostlist-domains=megaplay.buzz,anikototv.to,iwara.tv,pornhub.org,phncdn.com,vidwish.live,instagram.com,cdninstagram.com
       --payload=tls_client_hello
       --lua-desync=fake:blob=fake_default_tls:tcp_seq=1000000:repeats=1
     '';
