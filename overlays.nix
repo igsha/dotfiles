@@ -92,4 +92,5 @@ final: prev:
 
   max = prev.callPackage ./max { };
   aladdin-2fa = prev.callPackage ./aladdin-2fa { };
+  tgwsproxy = prev.callPackage ./swgt { };
 }
