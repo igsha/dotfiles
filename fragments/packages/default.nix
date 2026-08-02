@@ -23,7 +23,7 @@
       openssl
       ocamlPackages.csv
       vifm
-      fuse jmtpfs sshfs archivemount
+      fuse sshfs archivemount
       pwgen
       dhex vbindiff hexyl hecate
       universal-ctags

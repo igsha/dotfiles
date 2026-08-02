@@ -2,10 +2,13 @@
   description = "My NixOS configuration";
 
   inputs = {
-    nixpkgs.url = github:nixos/nixpkgs?ref=nixos-unstable;
-    nixos-hardware.url = github:nixos/nixos-hardware/master;
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     home-config.url = github:igsha/home-config/main;
     #hyprland.url = github:hyprwm/Hyprland;
+    nixos-hardware = {
+      url = github:nixos/nixos-hardware;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     tmux-mycollection = {
       url = github:igsha/tmux-mycollection/main;
       inputs.nixpkgs.follows = "nixpkgs";
