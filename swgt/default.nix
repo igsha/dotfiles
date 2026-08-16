@@ -1,14 +1,41 @@
-{ fetchFromGitHub, python3Packages, writers }:
+{ lib, fetchFromGitHub, python3 }:
 
-let
+python3.pkgs.buildPythonPackage rec {
+  pname = "tg-ws-proxy";
+  version = "1.10.0";
+
+  pyproject = true;
   src = fetchFromGitHub {
-    owner = "v1rtuozz";
-    repo = "tgwsproxy-openwrt";
-    rev = "dac348d8b5f6894a591f74a8389e109cc2e59ce8";
-    hash = "sha256-tkxhitSXU4RdqtIUjbaQxGxt7AYp6g1fmqqu2m2u2sI=";
+    owner = "Flowseal";
+    repo = "tg-ws-proxy";
+    rev = "v${version}";
+    hash = "sha256-ZqOn4ya2jQwwJq4oCI6d0+y4fy1kO4dboWQTAowhuhc=";
   };
 
-in writers.writePython3Bin "tgwsproxy" {
-  libraries = [ python3Packages.cryptography ];
-  doCheck = false;
-} (builtins.readFile "${src}/tg_ws_proxy.py")
+  # Make packages version less exact
+  postPatch = ''
+    sed -i -E 's/==([0-9])/>=\1/' pyproject.toml
+  '';
+
+  build-system = with python3.pkgs; [
+    setuptools
+    hatchling
+  ];
+
+  dependencies = with python3.pkgs; [
+    pyperclip
+    certifi
+    psutil
+    cryptography
+    pillow
+    customtkinter
+    pystray
+  ];
+
+  meta = with lib; {
+    description = "Proxy for telegram";
+    maintainers = [ maintainers.igsha ];
+    platforms = platforms.linux;
+    license = licenses.mit;
+  };
+}

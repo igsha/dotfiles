@@ -7,7 +7,7 @@
     wantedBy = [ "default.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.tgwsproxy}/bin/tgwsproxy --port 11443 --secret d204371a558f1b974849b015ef67e864 --no-update-check";
+      ExecStart = "${pkgs.tgwsproxy}/bin/tg-ws-proxy --port 11443 --secret d204371a558f1b974849b015ef67e864";
       Restart = "on-failure";
     };
   };
