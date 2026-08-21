@@ -46,4 +46,9 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="1002", MODE="0666"
   '';
+
+  # Fix problem with hibernation
+  systemd.tmpfiles.rules = [
+    "w /sys/power/image_size - - - - 0"
+  ];
 }
