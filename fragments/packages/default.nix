@@ -25,7 +25,7 @@
       vifm
       fuse sshfs archivemount
       pwgen
-      dhex vbindiff hexyl hecate
+      dhex vbindiff hexyl hecate hexpatch hexcurse
       universal-ctags
       unrar unzipNLS zip p7zip
       wcalc jq jo yq htmlq
@@ -56,6 +56,7 @@
       fd
       qrencode
       nix-index
+      rsbkb
     ];
   };
 
