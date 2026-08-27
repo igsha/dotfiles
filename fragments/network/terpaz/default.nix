@@ -8,6 +8,7 @@
     hosts = {
       "31.13.66.63" = [ "scontent-hel3-1.cdninstagram.com" "scontent.cdninstagram.com" ];
       "31.13.67.20" = [ "scontent-hel3-1.xx.fbcdn.net" ];
+      "57.144.154.34" = [ "instagram-p42-shv-01-ams2.fbcdn.net" ];
     };
   };
 
