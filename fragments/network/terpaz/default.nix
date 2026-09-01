@@ -6,9 +6,10 @@
       ip46tables -t mangle -I POSTROUTING -p tcp -m multiport --dports 443,80 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:6 -m mark ! --mark 0x40000000/0x40000000 -j NFQUEUE --queue-num 200 --queue-bypass
     '';
     hosts = {
-      "31.13.66.63" = [ "scontent-hel3-1.cdninstagram.com" "scontent.cdninstagram.com" ];
+      "31.13.66.63" = [ "scontent-hel3-1.cdninstagram.com" "scontent.cdninstagram.com" "static.cdninstagram.com" ];
       "31.13.67.20" = [ "scontent-hel3-1.xx.fbcdn.net" ];
-      "57.144.154.34" = [ "instagram-p42-shv-01-ams2.fbcdn.net" ];
+      "57.144.154.34" = [ "instagram.com" "www.instagram.com" ];
+      "57.144.62.192" = [ "graph.instagram.com" ];
     };
   };
 

@@ -81,7 +81,6 @@ final: prev:
     vim-grammarous
     smarthomekey
     jellybeans
-    editorconfig-vim
     linediff-vim
     telescope-nvim
     nvim-treesitter

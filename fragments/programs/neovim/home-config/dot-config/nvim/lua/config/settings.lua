@@ -100,3 +100,10 @@ require('nvim-treesitter.config').setup {
         additional_vim_regex_highlighting = false,
     },
 }
+
+-- EditorConfig
+require('editorconfig').properties.max_line_length = function(bufnr, val)
+    vim.bo[bufnr].textwidth = tonumber(val)
+    vim.wo.colorcolumn = val
+    return val
+end

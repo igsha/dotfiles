@@ -21,6 +21,7 @@ c.tabs.title.format = "{index}: {current_title}{private}"
 
 c.url.start_pages = "https://nixos.org"
 c.window.title_format = "{perc}{current_title}{title_sep}qutebrowser{private}"
+c.new_instance_open_target_window = "first-opened"
 c.session.lazy_restore = True
 c.auto_save.session = True
 c.scrolling.bar = "always"
