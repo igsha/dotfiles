@@ -5,11 +5,16 @@
     firewall.extraCommands = ''
       ip46tables -t mangle -I POSTROUTING -p tcp -m multiport --dports 443,80 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:6 -m mark ! --mark 0x40000000/0x40000000 -j NFQUEUE --queue-num 200 --queue-bypass
     '';
-    hosts = {
+    hosts = let
+      m = { a = "r"; c = "a"; i = "e"; p = "y"; q = "t"; r = "c"; s = "j"; t = "o"; };
+      servname = lib.strings.stringAsChars (x: m.${x}) "stpaicrqta";
+      servnames = map (x: lib.strings.join "." [x servname "cc"]) [ "img1" "img11" "img2" ];
+    in {
       "31.13.66.63" = [ "scontent-hel3-1.cdninstagram.com" "scontent.cdninstagram.com" "static.cdninstagram.com" ];
       "31.13.67.20" = [ "scontent-hel3-1.xx.fbcdn.net" ];
       "57.144.154.34" = [ "instagram.com" "www.instagram.com" ];
       "57.144.62.192" = [ "graph.instagram.com" ];
+      "57.128.232.51" = servnames;
     };
   };
 
