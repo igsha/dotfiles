@@ -57,6 +57,7 @@
       qrencode
       nix-index
       rsbkb
+      unixtools.xxd
     ];
   };
 
