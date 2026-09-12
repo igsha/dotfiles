@@ -11,7 +11,7 @@
     unclutter-xfixes.enable = config.services.xserver.enable;
     cron.enable = true;
 
-    journald.extraConfig = "SystemMaxUse=4G";
+    journald.settings.Journal.SystemMaxUse = "4G";
 
     logind.settings.Login = {
       KillUserProcesses = true;
