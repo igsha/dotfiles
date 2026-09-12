@@ -1,21 +1,27 @@
-{ lib, fetchFromGitHub, python3 }:
+{ lib, fetchFromGitHub, python3, wrapGAppsHook3, gobject-introspection }:
 
+# nix shell .#nixosConfigurations.ginnungagap.pkgs.tgwsproxy
 python3.pkgs.buildPythonPackage rec {
   pname = "tg-ws-proxy";
-  version = "1.10.0";
+  version = "1.10.2";
 
   pyproject = true;
   src = fetchFromGitHub {
     owner = "Flowseal";
     repo = "tg-ws-proxy";
     rev = "v${version}";
-    hash = "sha256-ZqOn4ya2jQwwJq4oCI6d0+y4fy1kO4dboWQTAowhuhc=";
+    hash = "sha256-XpO0Hmi0Hotu5TdOZ6+Cg/YBaF31RHJ5MfPJ1JKpPr8=";
   };
 
-  # Make packages version less exact
+  # Make packages versions less strict
   postPatch = ''
     sed -i -E 's/==([0-9])/>=\1/' pyproject.toml
   '';
+
+  nativeBuildInputs = [
+    wrapGAppsHook3
+    gobject-introspection
+  ];
 
   build-system = with python3.pkgs; [
     setuptools
@@ -30,6 +36,8 @@ python3.pkgs.buildPythonPackage rec {
     pillow
     customtkinter
     pystray
+    tkinter
+    pygobject3
   ];
 
   meta = with lib; {

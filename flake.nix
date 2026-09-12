@@ -28,7 +28,7 @@
         nixpkgs.overlays = [
           inputs.tmux-mycollection.overlays.default
           (final: prev: {
-            uniplay = inputs.uniplay.packages.${prev.system}.default;
+            uniplay = inputs.uniplay.packages.${final.stdenv.hostPlatform.system}.default;
             nixpkgs-2605 = import inputs.nixpkgs-2605 {
               system = final.stdenv.hostPlatform.system;
             };
