@@ -89,7 +89,7 @@ final: prev:
     vim-tmux-clipboard
   ];
 
-  max = prev.callPackage ./max { };
+  max = prev.callPackage ./max { qt6Packages = final.nixpkgs-2605.qt6Packages; };
   aladdin-2fa = prev.callPackage ./aladdin-2fa { };
   tgwsproxy = prev.callPackage ./swgt { };
 }

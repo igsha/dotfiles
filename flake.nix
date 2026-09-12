@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    nixpkgs-2605.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     home-config.url = github:igsha/home-config/main;
     #hyprland.url = github:hyprwm/Hyprland;
     nixos-hardware = {
@@ -26,10 +27,13 @@
         system.configurationRevision = self.rev or self.dirtyRev or "dirty";
         nixpkgs.overlays = [
           inputs.tmux-mycollection.overlays.default
-          (import ./overlays.nix)
           (final: prev: {
             uniplay = inputs.uniplay.packages.${prev.system}.default;
+            nixpkgs-2605 = import inputs.nixpkgs-2605 {
+              system = final.stdenv.hostPlatform.system;
+            };
           })
+          (import ./overlays.nix)
         ];
         nix = {
           registry = builtins.mapAttrs (k: v: {

@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchurl, dpkg, autoPatchelfHook, libGL, qt6, qt6Packages, nss, nspr,
+{ stdenv, lib, fetchurl, dpkg, autoPatchelfHook, libGL, qt6Packages, nss, nspr,
 libxdamage, libxrandr, alsa-lib, libxshmfence, libnotify, gdk-pixbuf, gtk3, pango,
 at-spi2-atk, cairo, glamoroustoolkit, libxv, libfontenc, libxaw, libxcursor, pipewire,
 libxinerama, libxmu, libxpm, libxres, libxscrnsaver, libxt, libxxf86vm, libva, libvdpau,
@@ -6,20 +6,21 @@ libxkbfile, glib, ffmpeg_7, libasyncns, util-linux, dbus, nettle, libsm, libffi,
 libselinux, libsndfile, libvpl, libtasn1, libunistring, libvorbis, zstd, libz, libxcb-cursor
 }:
 
+# nix develop .#nixosConfigurations.ginnungagap.pkgs.max
 stdenv.mkDerivation rec {
   pname = "max";
-  version = "26.19.0.72304";
+  version = "26.31.0.78627";
   src = fetchurl {
     # Check new version in https://download.max.ru/linux/deb/dists/stable/main/binary-amd64/Packages
     url = "https://download.max.ru/linux/deb/pool/main/m/max/MAX-${version}.deb";
-    hash = "sha256-7cqJiqlaqFqVPmHgzaTwKzlPoK96aS6aWMKosHa2Y/Q=";
+    hash = "sha256-qM5ghHUiiKattvfVhF2Vimv6X/fdMfU7J76kjnMPsIs=";
   };
 
   nativeBuildInputs = [
     dpkg
     autoPatchelfHook
     libGL
-    qt6.wrapQtAppsHook
+    qt6Packages.wrapQtAppsHook
   ];
   buildInputs = [
     nss
@@ -104,6 +105,7 @@ stdenv.mkDerivation rec {
         ! -name libweb_apps.so \
         ! -name libEnhancementLibShared.so \
         ! -name 'libonnxruntime.so*' \
+        ! -name 'libemoji.so' \
         -delete
     done
 
