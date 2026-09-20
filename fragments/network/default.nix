@@ -59,5 +59,9 @@
       url = "https://gu-st.ru/content/downloads/Russian_Trusted_Sub_CA_2024.cer";
       sha256 = sha256:0ghrqkm86zngv4zvbdymqm4jhrw8hy6na91nrr7l84k7isf857bg;
     })
+    (builtins.fetchurl {
+      url = "https://letsencrypt.org/certs/gen-y/int-yr2.pem";
+      sha256 = "sha256-9QRmNEL3phkSfo4SIUpYoZhZmYbUq0LiJYfSKvfp5+s=";
+    })
   ];
 }

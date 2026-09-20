@@ -15,6 +15,7 @@
       "57.144.154.34" = [ "instagram.com" "www.instagram.com" ];
       "57.144.62.192" = [ "graph.instagram.com" ];
       "57.128.232.51" = servnames;
+      "89.222.125.215" = [ "pix-cdn77.phncdn.com" ];
     };
   };
 
