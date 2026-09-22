@@ -7,5 +7,7 @@
     shattered-pixel-dungeon
     protontricks
     gamescope
+    protonup-qt
+    protonplus
   ];
 }
