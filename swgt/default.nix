@@ -3,14 +3,14 @@
 # nix shell .#nixosConfigurations.ginnungagap.pkgs.tgwsproxy
 python3.pkgs.buildPythonPackage rec {
   pname = "tg-ws-proxy";
-  version = "1.10.2";
+  version = "1.10.4";
 
   pyproject = true;
   src = fetchFromGitHub {
     owner = "Flowseal";
     repo = "tg-ws-proxy";
     rev = "v${version}";
-    hash = "sha256-XpO0Hmi0Hotu5TdOZ6+Cg/YBaF31RHJ5MfPJ1JKpPr8=";
+    hash = "sha256-emR1+31feNDNGzRJ7DSjf724bcK4+LpXqnCdRiAXWjM=";
   };
 
   # Make packages versions less strict
