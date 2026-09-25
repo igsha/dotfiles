@@ -9,11 +9,11 @@ libselinux, libsndfile, libvpl, libtasn1, libunistring, libvorbis, zstd, libz, l
 # nix develop .#nixosConfigurations.ginnungagap.pkgs.max
 stdenv.mkDerivation rec {
   pname = "max";
-  version = "26.31.0.78627";
+  version = "26.33.0.79349";
   src = fetchurl {
     # Check new version in https://download.max.ru/linux/deb/dists/stable/main/binary-amd64/Packages
     url = "https://download.max.ru/linux/deb/pool/main/m/max/MAX-${version}.deb";
-    hash = "sha256-qM5ghHUiiKattvfVhF2Vimv6X/fdMfU7J76kjnMPsIs=";
+    hash = "sha256-joILCWW2UabfVt525X+FrETX/Dq0EiASdUd5gLUKlYo=";
   };
 
   nativeBuildInputs = [
