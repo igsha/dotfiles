@@ -92,4 +92,10 @@ final: prev:
   max = prev.callPackage ./max { qt6Packages = final.nixpkgs-2605.qt6Packages; };
   aladdin-2fa = prev.callPackage ./aladdin-2fa { };
   tgwsproxy = prev.callPackage ./swgt { };
+
+  # TODO: need qt-6.11.3 to fix crash issue
+  qutebrowser = prev.qutebrowser.override {
+    qt6Packages = final.nixpkgs-2605.qt6Packages;
+    python3 = final.nixpkgs-2605.python3;
+  };
 }
