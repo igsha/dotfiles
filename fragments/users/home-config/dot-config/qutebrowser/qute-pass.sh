@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -e -o pipefail
+set -eo pipefail
+shopt -s lastpipe
 
 QUTE_FIFO="${QUTE_FIFO:-/dev/stdout}"
 
@@ -36,7 +37,8 @@ showpass() {
     pass "$CMD" "$PATHVAL" | sendkeys
 }
 
-read -r OPTS < <(getopt -o hda --long help,detailed,all -- "$@")
+getopt -o hda --long help,detailed,all -- "$@" \
+    | read -r OPTS
 eval set -- "$OPTS"
 
 DETAILED=0
@@ -52,8 +54,8 @@ while [[ ! -z "$1" ]]; do
 done
 
 if [[ "$SHOWALL" -eq 1 ]]; then
-    find $HOME/.password-store/ -name '*.gpg' -printf "%P\n" \
-        | sed 's/\.gpg$//g' \
+    pass git ls-files \
+        | grep -Po '.*(?=.gpg$)' \
         | rofi -dmenu \
         | showpass
     exit 0
@@ -62,22 +64,26 @@ fi
 URL="${URL:-$QUTE_URL}"
 if [[ -z "$URL" ]]; then
     echo "URL not found. Type -h for help" >&2
-    exit 2
+    exit 1
 fi
 
-read -r DOMAIN < <(awk -F[/:] '{print $4}' <<< "$URL")
+DOMAIN="${URL#*//}"
+DOMAIN="${DOMAIN%%/*}"
 ORIGDOMAIN="$DOMAIN"
 while [[ "$DOMAIN" =~ \. ]]; do
     if pass ls "websites/$DOMAIN" &> /dev/null; then
-        read -r COUNT < <(pass find "websites/$DOMAIN" | grep -c "login.*")
+        pass git ls-files "websites/$DOMAIN" \
+            | grep -Pc '.*login.*(?=.gpg$)' \
+            |read -r COUNT
+
         if ((DETAILED == 0 && COUNT < 2)); then
             showpass "websites/$DOMAIN/login"
             sendtab
             showpass "websites/$DOMAIN/password"
             sendinsert
         else
-            pass ls "websites/$DOMAIN" \
-                | awk '{if (NR==1) {p=$0} else {printf("%s/%s\n", p, $2)}}' \
+            pass git ls-files "websites/$DOMAIN" \
+                | grep -Po '.*(?=.gpg$)' \
                 | rofi -dmenu \
                 | showpass
             sendinsert

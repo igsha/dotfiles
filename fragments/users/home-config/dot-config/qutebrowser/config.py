@@ -1,5 +1,3 @@
-config.load_autoconfig(False)
-
 c.colors.statusbar.command.private.bg = "black"
 c.completion.web_history.max_items = 100
 c.content.blocking.enabled = False
@@ -68,3 +66,5 @@ config.bind("t", "cmd-set-text -s :open -t", mode="normal")
 config.bind(",p", "spawn --userscript ~/.config/qutebrowser/qute-pass.sh")
 config.bind(",d", "spawn --userscript ~/.config/qutebrowser/qute-pass.sh -d")
 config.bind(",a", "spawn --userscript ~/.config/qutebrowser/qute-pass.sh -a")
+
+config.load_autoconfig()
