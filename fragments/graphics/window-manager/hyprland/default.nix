@@ -28,6 +28,15 @@ in {
     };
   };
 
+  # TODO: https://github.com/Alexays/Waybar/issues/5224
+  # TODO: https://github.com/Alexays/Waybar/issues/1373
+  systemd.user.services.waybar.serviceConfig = {
+    ExecStart = [
+      "" # Reset old command
+      "${pkgs.bash}/bin/bash -c '${pkgs.waybar}/bin/waybar 2>&1 | ${pkgs.gnugrep}/bin/grep --line-buffered -v GTK_IS_ACCEL_GROUP'"
+    ];
+  };
+
   home-config.hyprland = ./home-config;
 
   environment = {
