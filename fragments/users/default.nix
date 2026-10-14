@@ -71,6 +71,7 @@ in {
         "libvirtd"
         "pcap"
         "wireshark"
+        "podman"
       ];
       initialHashedPassword = "root";
       packages = with pkgs; [
