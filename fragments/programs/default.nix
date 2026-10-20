@@ -24,6 +24,7 @@ in {
     fuse.userAllowOther = true;
     starship.enable = true;
     dconf.enable = true;
+    seahorse.enable = true;
   };
 
   services = {
