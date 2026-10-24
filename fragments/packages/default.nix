@@ -49,7 +49,9 @@
       openldap
       poke
       hydra-check
-      novnc tigervnc
+      # TODO: https://github.com/NixOS/nixpkgs/issues/577350
+      # novnc
+      tigervnc
       zx cling
       nh nix-output-monitor nvd
       pavucontrol

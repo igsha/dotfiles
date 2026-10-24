@@ -27,7 +27,6 @@
       sandbox = true;
       experimental-features = [ "nix-command" "flakes" "pipe-operators" "fetch-closure" ];
       substituters = [
-        "https://mirrors.ustc.edu.cn/nix-channels/store" # USTC backup mirror
       ];
       trusted-public-keys = [
       ];

@@ -17,7 +17,8 @@ let
     v4l-utils
     (mpv.override { youtubeSupport = false; })
     yt-dlp
-    dash-mpd-cli
+    # TODO: https://github.com/NixOS/nixpkgs/issues/571536
+    # dash-mpd-cli
     uniplay
   ];
   x11Pack = with pkgs; [ xsel xclip xdotool xorg.xhost hsetroot

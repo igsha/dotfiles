@@ -15,7 +15,7 @@ in {
     enableDefaultPackages = true;
     packages = with pkgs; [
       corefonts
-      ttf_bitstream_vera
+      ttf-bitstream-vera
       inconsolata-lgc
       google-fonts
       anonymousPro

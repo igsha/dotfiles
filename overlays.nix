@@ -93,9 +93,35 @@ final: prev:
   aladdin-2fa = prev.callPackage ./aladdin-2fa { };
   tgwsproxy = prev.callPackage ./swgt { };
 
-  # TODO: need qt-6.11.3 to fix crash issue
-  qutebrowser = prev.qutebrowser.override {
-    qt6Packages = final.nixpkgs-2605.qt6Packages;
-    python3 = final.nixpkgs-2605.python3;
-  };
+  # TODO: https://github.com/NixOS/nixpkgs/issues/575192
+  linuxPackages = prev.linuxPackages.extend (lf: lp: {
+    rtl88x2bu = lp.rtl88x2bu.overrideAttrs (old: {
+      makeFlags = old.makeFlags ++ [
+        "INSTALL_MOD_PATH=${placeholder "out"}"
+        "INSTALL_MOD_DIR=kernel/drivers/misc"
+        "DEPMOD=true"
+      ];
+      installFlags = [
+        "-C"
+        "${lp.kernel.dev}/lib/modules/${lp.kernel.modDirVersion}/build"
+        "M=$(PWD)"
+      ];
+      installTargets = [ "modules_install" ];
+      installPhase = "";
+    });
+    xpad-noone = lp.xpad-noone.overrideAttrs (old: {
+      makeFlags = old.makeFlags ++ [
+        "INSTALL_MOD_PATH=${placeholder "out"}"
+        "INSTALL_MOD_DIR=kernel/drivers/misc"
+        "DEPMOD=true"
+      ];
+      installFlags = [
+        "-C"
+        "${lp.kernel.dev}/lib/modules/${lp.kernel.modDirVersion}/build"
+        "M=$(PWD)"
+      ];
+      installTargets = [ "modules_install" ];
+      installPhase = "";
+    });
+  });
 }
