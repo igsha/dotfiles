@@ -6,14 +6,14 @@ libxkbfile, glib, ffmpeg_7, libasyncns, util-linux, dbus, nettle, libsm, libffi,
 libselinux, libsndfile, libvpl, libtasn1, libunistring, libvorbis, zstd, libz, libxcb-cursor
 }:
 
-# nix develop .#nixosConfigurations.ginnungagap.pkgs.max
+# nix shell .#nixosConfigurations.ginnungagap.pkgs.max
 stdenv.mkDerivation rec {
   pname = "max";
-  version = "26.33.0.79349";
+  version = "26.36.0.81334";
   src = fetchurl {
-    # Check new version in https://download.max.ru/linux/deb/dists/stable/main/binary-amd64/Packages
+    # curl https://download.max.ru/linux/deb/dists/stable/main/binary-amd64/Packages | less
     url = "https://download.max.ru/linux/deb/pool/main/m/max/MAX-${version}.deb";
-    hash = "sha256-joILCWW2UabfVt525X+FrETX/Dq0EiASdUd5gLUKlYo=";
+    hash = "sha256-uEYQ4dQXSf/0cpKOS4ZFjeOIPKAQIlZEVkkVrsYVdYk=";
   };
 
   nativeBuildInputs = [
@@ -105,7 +105,7 @@ stdenv.mkDerivation rec {
         ! -name libweb_apps.so \
         ! -name libEnhancementLibShared.so \
         ! -name 'libonnxruntime.so*' \
-        ! -name 'libemoji.so' \
+        ! -name libemoji.so \
         -delete
     done
 
@@ -121,6 +121,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
+    broken = true; # TODO: fix GL issue `[Fatal] Could not initialize GLX (:0)`
     description = "An instant messenger from VK";
     homepage = "https://max.ru";
     maintainers = [ maintainers.igsha ];

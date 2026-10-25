@@ -89,9 +89,24 @@ final: prev:
     vim-tmux-clipboard
   ];
 
-  max = prev.callPackage ./max { qt6Packages = final.nixpkgs-2605.qt6Packages; };
+  # TODO: broken
+  # max = final.nixpkgs-2605.callPackage ./max { };
+  max = prev.makeDesktopItem {
+    name = "max";
+    desktopName = "MAX";
+    exec = "google-chrome --app=https://web.max.ru";
+    terminal = false;
+    icon = "my-app-icon";
+    categories = [ "Chat" "Network" "InstantMessaging" ];
+  };
   aladdin-2fa = prev.callPackage ./aladdin-2fa { };
   tgwsproxy = prev.callPackage ./swgt { };
+
+  # TODO: need > qt-6.12 to fix crash issue
+  #qutebrowser = prev.qutebrowser.override {
+  #  qt6Packages = final.nixpkgs-2605.qt6Packages;
+  #  python3 = final.nixpkgs-2605.python3;
+  #};
 
   # TODO: https://github.com/NixOS/nixpkgs/issues/575192
   linuxPackages = prev.linuxPackages.extend (lf: lp: {
@@ -124,4 +139,11 @@ final: prev:
       installPhase = "";
     });
   });
+
+  # TODO:
+  #qt6 = prev.qt6.overrideScope (qtFinal: qtPrev: {
+  #  qtlottie = qtPrev.qtlottie.overrideAttrs (oldAttrs: {
+  #    propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ [ qtFinal.qtquicktimeline ];
+  #  });
+  #});
 }
