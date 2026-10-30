@@ -37,7 +37,7 @@ let
     '';
     entrypoint1 = pkgs.writeShellApplication {
       name = "entrypoint";
-      runtimeInputs = [ pkgs.zapret2 pkgs.iptables ];
+      runtimeInputs = [ pkgs.zapret2 pkgs.iptables pkgs.nmap ];
       runtimeEnv = {
         IPVS = 4;
         ENABLE_HTTP3 = 0;
@@ -57,15 +57,24 @@ let
     };
     entrypoint2 = pkgs.writeShellApplication {
       name = "entrypoint";
-      runtimeInputs = [ pkgs.zapret2 pkgs.iptables ];
+      runtimeInputs = [ pkgs.zapret2 pkgs.iptables pkgs.curl ];
       text = ''
         ${init}
-        nfqws2 --debug ${builtins.concatStringsSep " " preamble} "$@"
+        URL="$1"
+        shift
+        DOMAIN="''${URL#*//}"
+        DOMAIN="''${DOMAIN%/*}"
+        nfqws2 --debug ${builtins.concatStringsSep " " preamble} --hostlist-domains="$DOMAIN" "$@" &
+        curl -v "$URL"
       '';
     };
   in pkgs.writeShellApplication {
     name = "terpaz-fast-check.sh";
     text = ''
+      if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+        printf "Usage:\n  %s search <URL>\n  %s check <URL> <strategy...>\n" "$0" "$0"
+        exit 0
+      fi
       NAME="$1"
       shift
       if [[ "$NAME" == search ]]; then
@@ -73,7 +82,7 @@ let
       else
         ENTRYPOINT="${entrypoint2}/bin/entrypoint"
       fi
-      ${pkgs.docker}/bin/docker run --rm --name "terpaz-fast-$NAME" \
+      ${pkgs.docker}/bin/docker run --rm \
         --cap-add=NET_ADMIN \
         --cap-add=SETPCAP \
         -v /nix/store:/nix/store:ro \

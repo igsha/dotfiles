@@ -16,7 +16,18 @@
   };
 
   services = {
-    resolved.enable = true;
+    resolved = {
+      enable = true;
+      settings.Resolve = {
+        DNS = [
+          "1.1.1.1"
+          "8.8.8.8"
+          "1.0.0.1"
+          "8.8.4.4"
+        ];
+        DNSOverTLS = true;
+      };
+    };
     openssh = {
       enable = true;
       extraConfig = ''
