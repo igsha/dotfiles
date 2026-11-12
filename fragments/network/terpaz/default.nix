@@ -13,8 +13,10 @@ let
     servname1 = lib.strings.stringAsChars (x: m.${x}) "stpaicrqtadrr";
     servname2 = lib.strings.stringAsChars (x: m.${x}) "bzcacdqo";
   in {
-    "31.13.66.63" = [ "scontent-hel3-1.cdninstagram.com" "scontent.cdninstagram.com" "static.cdninstagram.com" ];
-    "31.13.67.20" = [ "scontent-hel3-1.xx.fbcdn.net" ];
+    # scontent-arn2-1.cdninstagram.com, scontent-fra3-1.cdninstagram.com, scontent-waw1-1.cdninstagram.com
+    "31.13.72.53" = [ "scontent-hel3-1.cdninstagram.com" ];
+    # scontent-arn2-{1,2}.xx.fbcdn.net, scontent-waw{1,2}-1.xx.fbcdn.net, scontent-fra{3,5}-{1,2}.xx.fbcdn.net, scontent-ams{2,4}-1.xx.fbcdn.net
+    "31.13.72.12" = [ "scontent-hel3-1.xx.fbcdn.net" ];
     "57.144.154.34" = [ "instagram.com" "www.instagram.com" ];
     "57.144.62.192" = [ "graph.instagram.com" ];
     "57.128.232.51" = map (x: "${x}.${servname1}") [ "img1" "img11" "img2" ];
