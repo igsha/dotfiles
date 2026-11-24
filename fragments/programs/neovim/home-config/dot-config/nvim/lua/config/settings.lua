@@ -22,13 +22,35 @@ vim.g.jellybeans_overrides = {
 }
 vim.cmd.colorscheme('jellybeans')
 
-vim.keymap.set("n", "<Leader>b", ":Telescope buffers<CR>", defopts)
-vim.keymap.set("n", "<Leader>g", ":Telescope live_grep<CR>", defopts)
-vim.keymap.set("n", "<Leader>f", ":Telescope find_files<CR>", defopts)
+local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
 local actions_layout = require("telescope.actions.layout")
 local actions_state = require("telescope.actions.state")
 local fb_utils = require("telescope.utils")
+local function telescope_from_git_root(name)
+    local opts = {}
+    local gitdir = vim.fn.system("git rev-parse --path-format=absolute --show-toplevel")
+    if vim.v.shell_error == 0 then
+        opts = {
+            cwd = gitdir:gsub("%s*$", ""),
+        }
+    end
+
+    return function()
+        if name == "grep" then
+            return builtin.live_grep(opts)
+        elseif name == "find" then
+            if opts.cwd ~= nil then
+                return builtin.git_files()
+            else
+                return builtin.find_files()
+            end
+        end
+    end
+end
+vim.keymap.set("n", "<Leader>b", builtin.buffers, defopts)
+vim.keymap.set("n", "<Leader>g", telescope_from_git_root("grep"), defopts)
+vim.keymap.set("n", "<Leader>f", telescope_from_git_root("find"), defopts)
 require('telescope').setup({
     defaults = {
         path_display = {
