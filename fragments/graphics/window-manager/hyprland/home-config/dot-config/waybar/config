@@ -1,6 +1,6 @@
 [
     {
-        "height": 30,
+        "height": 34,
         "layer": "bottom",
         "modules-left": [
             "hyprland/workspaces",
@@ -25,7 +25,7 @@
         ],
         "hyprland/language": {
             "format": "{short}",
-            "tooltip-format": "{flag} {long}",
+            "tooltip-format": "{long}",
             "on-click": "/run/current-system/sw/bin/hyprctl switchxkblayout current next"
         },
         "hyprland/workspaces": {

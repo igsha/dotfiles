@@ -1,5 +1,4 @@
-/* vim: sw=2 sts=2 ts=2
- */
+/* vim: sw=2 sts=2 ts=2 */
 
 @define-color base0 #181818;
 @define-color base1 #2b2e37;
@@ -119,6 +118,15 @@
 #memory.warning,
 #disk.warning {
   color: @base14;
+}
+
+#disk.normal,
+#battery.normal {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
 }
 
 #window {
