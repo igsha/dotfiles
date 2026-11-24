@@ -22,7 +22,6 @@ in {
       font-awesome
       powerline-fonts
       powerline-symbols
-      symbola
       line-awesome
       nerd-fonts.hack
     ];
