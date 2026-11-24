@@ -10,7 +10,6 @@ let
     ++ [ "# == config start ==" "" ]));
   hosts = let
     m = { a = "r"; c = "a"; i = "e"; p = "y"; q = "t"; r = "c"; s = "j"; t = "o"; b = "i"; z = "w"; o = "v"; d = "."; };
-    servname1 = lib.strings.stringAsChars (x: m.${x}) "stpaicrqtadrr";
     servname2 = lib.strings.stringAsChars (x: m.${x}) "bzcacdqo";
   in {
     # scontent-arn2-1.cdninstagram.com, scontent-fra3-1.cdninstagram.com, scontent-waw1-1.cdninstagram.com
@@ -19,7 +18,6 @@ let
     "31.13.72.12" = [ "scontent-hel3-1.xx.fbcdn.net" ];
     "57.144.154.34" = [ "instagram.com" "www.instagram.com" ];
     "57.144.62.192" = [ "graph.instagram.com" ];
-    "57.128.232.51" = map (x: "${x}.${servname1}") [ "img1" "img11" "img2" ];
     "89.222.125.215" = [ "pix-cdn77.phncdn.com" ];
     "8.47.69.0" = [ servname2 ] ++ map (x: "${x}.${servname2}") [ "www" "apiq" ];
   };
