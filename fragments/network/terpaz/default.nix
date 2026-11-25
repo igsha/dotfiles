@@ -110,6 +110,7 @@ in {
 
   environment.systemPackages = [
     fast-commands
+    pkgs.blockcheckw
   ];
 
   systemd.services.terpaz = {

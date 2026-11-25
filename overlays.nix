@@ -101,12 +101,7 @@ final: prev:
   };
   aladdin-2fa = prev.callPackage ./aladdin-2fa { };
   tgwsproxy = prev.callPackage ./swgt { };
-
-  # TODO: need > qt-6.12 to fix crash issue
-  #qutebrowser = prev.qutebrowser.override {
-  #  qt6Packages = final.nixpkgs-2605.qt6Packages;
-  #  python3 = final.nixpkgs-2605.python3;
-  #};
+  blockcheckw = prev.callPackage ./blockcheckw { };
 
   # TODO: https://github.com/NixOS/nixpkgs/issues/575192
   linuxPackages = prev.linuxPackages.extend (lf: lp: {
